@@ -120,3 +120,23 @@ A abertura com o falcão de tapa-olho aparece só na página inicial, uma vez po
 ## 10. Logo
 
 Os arquivos do kit estão em `assets/logo/` (cor, negativo e mono; símbolo, horizontal, completa e avatar). Os textos das versões com tipografia usam a fonte Montserrat. Para uso em gráficas, converta o texto em curvas.
+
+## 11. Atividades (estilo ClickUp) — etapa 3
+
+Na Área de membros, a aba **Atividades** substitui o ClickUp: cada pessoa cria as próprias atividades com data, horário, situação (A fazer, Em andamento, Em revisão, Concluída), prioridade, participantes marcados com @, link do Meet, comentários e anexos. Dá para ver em **Lista**, **Quadro** (arrastar entre colunas) ou **Calendário**. Todos os membros aprovados veem as atividades do grupo; a coordenação edita, comenta e cria atividades para qualquer pessoa.
+
+**Ligar no Supabase (uma vez só):**
+
+1. **SQL Editor → New query**: cole o conteúdo de `supabase/etapa3.sql` e clique em **Run**.
+2. **Edge Functions → Deploy a new function → Via Editor**. Dê o nome `agenda-ics`, apague o código de exemplo, cole o conteúdo de `supabase/functions/agenda-ics/index.ts` e clique em **Deploy**.
+3. Ainda na função `agenda-ics`, abra **Details** (ou Settings) e **desligue** a opção de verificar JWT ("Enforce JWT verification" / "Verify JWT"). Salve. Sem isso o Google Agenda não consegue ler o link.
+
+**Google Agenda (mão única: site → agenda pessoal):** na aba Atividades, botão **Ligar ao meu Google Agenda**. Cada pessoa copia o seu link e adiciona no Google Agenda em *Outras agendas → Do URL*. O Google atualiza sozinho de algumas em algumas horas. O que está na agenda pessoal nunca vem para o site.
+
+**Agenda pública:** quem é da coordenação ou tem a permissão **Agenda** pode marcar "Mostrar na agenda pública do site" numa atividade. Título, data, horário, local e detalhes aparecem na página Agenda; Meet, comentários e anexos não.
+
+**Anexos:** até 10 MB por arquivo (o plano gratuito tem 1 GB no total). Para arquivos maiores, use o Google Drive e anexe o link.
+
+## 12. Botões de compartilhar
+
+Em **Publicações**, **Na mídia** e **Biblioteca**, cada item tem botões de **WhatsApp**, **Instagram** e **Copiar link**. No celular, o botão do Instagram abre o menu de compartilhar do aparelho (de onde se escolhe Instagram, story etc.). No computador, ele copia o link para colar no Instagram, porque o Instagram não aceita compartilhamento direto pelo navegador.

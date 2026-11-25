@@ -60,6 +60,7 @@
       pesquisa_pref: 'Pesquisa ', base1: ' base', bases_n: ' bases', etica_tit: 'Aprovação ética', comite: 'Comitê', caae: 'CAAE', parecer: 'Parecer', data_aprov: 'Aprovado em',
       ver_parecer: 'Ver parecer de aprovação (PDF)', parecer_pend: 'Documento do parecer ainda não anexado.', nao_aplica: 'Não se aplica (pesquisa sem participação de seres humanos).',
       metodologia: 'Metodologia', abrangencia: 'Abrangência', bases_tit: 'Bases de dados', sem_bases: 'Nenhuma base publicada ainda.',
+      partilhar: 'Compartilhar', copiar_link: 'Copiar link', link_copiado: 'Link copiado. É só colar onde quiser.', ig_copiado: 'Link copiado. Abra o Instagram e cole no story, na bio ou numa mensagem.', copie_aqui: 'Copie o link:',
       visualizar: 'Visualizar', fechar: 'Fechar', baixar: 'Baixar', dicionario: 'Dicionário de variáveis', variavel: 'Variável', descricao: 'Descrição',
       tabela: 'Tabela', grafico_t: 'Gráfico', mapa: 'Mapa', exemplo_aviso: 'Exemplo de formato — não são dados da pesquisa.', linhas_n: ' linhas', mostrando: ' · mostrando as primeiras ',
       carregando_dados: 'Carregando dados…', erro_dados: 'Não foi possível abrir o arquivo.', categoria: 'Categoria', valor: 'Valor', agregacao: 'Agregação',
@@ -128,6 +129,7 @@
       pesquisa_pref: 'Study: ', base1: ' dataset', bases_n: ' datasets', etica_tit: 'Ethics approval', comite: 'Committee', caae: 'CAAE', parecer: 'Approval no.', data_aprov: 'Approved on',
       ver_parecer: 'View approval document (PDF)', parecer_pend: 'Approval document not yet attached.', nao_aplica: 'Not applicable (no human participants).',
       metodologia: 'Methodology', abrangencia: 'Coverage', bases_tit: 'Datasets', sem_bases: 'No datasets published yet.',
+      partilhar: 'Share', copiar_link: 'Copy link', link_copiado: 'Link copied. Paste it wherever you like.', ig_copiado: 'Link copied. Open Instagram and paste it in a story, your bio or a message.', copie_aqui: 'Copy the link:',
       visualizar: 'Explore', fechar: 'Close', baixar: 'Download', dicionario: 'Variable dictionary', variavel: 'Variable', descricao: 'Description',
       tabela: 'Table', grafico_t: 'Chart', mapa: 'Map', exemplo_aviso: 'Format example — not research data.', linhas_n: ' rows', mostrando: ' · showing the first ',
       carregando_dados: 'Loading data…', erro_dados: 'Could not open the file.', categoria: 'Category', valor: 'Value', agregacao: 'Aggregation',
@@ -235,21 +237,60 @@
     ids = (ids || []).filter(projeto);
     return ids.length ? '<ul class="chips">' + ids.map(chipProjeto).join('') + '</ul>' : '';
   }
-  function itemPub(p) {
+  /* ---------- compartilhar (WhatsApp, Instagram, copiar link) ---------- */
+  var ICO_WA = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2A9.7 9.7 0 0 0 3.6 16.9L2.3 21.7l4.9-1.3A9.7 9.7 0 1 0 12 2.2zm0 17.7c-1.5 0-2.9-.4-4.1-1.1l-.3-.2-2.9.8.8-2.8-.2-.3A8 8 0 1 1 12 19.9zm4.4-6c-.2-.1-1.4-.7-1.7-.8-.2-.1-.4-.1-.5.1l-.8.9c-.1.2-.3.2-.5.1a6.6 6.6 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.5-.4h-.5a.9.9 0 0 0-.7.3 2.8 2.8 0 0 0-.9 2.1c0 1.2.9 2.4 1 2.6.1.2 1.8 2.7 4.3 3.8 1.6.7 2.2.7 3 .6.5-.1 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1l-.5-.3z"/></svg>';
+  var ICO_IG = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 7.3a4.7 4.7 0 1 0 0 9.4 4.7 4.7 0 0 0 0-9.4zm0 7.7a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm4.9-8.9a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2zM12 4c2.6 0 2.9 0 3.9.1 2.6.1 3.9 1.4 4 4 .1 1 .1 1.3.1 3.9s0 2.9-.1 3.9c-.1 2.6-1.4 3.9-4 4-1 .1-1.3.1-3.9.1s-2.9 0-3.9-.1c-2.6-.1-3.9-1.4-4-4C4 14.9 4 14.6 4 12s0-2.9.1-3.9c.1-2.6 1.4-3.9 4-4C9.1 4 9.4 4 12 4zm0-1.7c-2.6 0-3 0-4 .1-3.6.2-5.5 2.1-5.7 5.7-.1 1-.1 1.4-.1 4s0 3 .1 4c.2 3.6 2.1 5.5 5.7 5.7 1 .1 1.4.1 4 .1s3 0 4-.1c3.6-.2 5.5-2.1 5.7-5.7.1-1 .1-1.4.1-4s0-3-.1-4c-.2-3.6-2.1-5.5-5.7-5.7-1-.1-1.4-.1-4-.1z"/></svg>';
+  var ICO_LINK = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10.6 13.4a1 1 0 0 1 0-1.4l3.5-3.5a1 1 0 1 1 1.4 1.4L12 13.4a1 1 0 0 1-1.4 0zm-2.8 5.7a4 4 0 0 1-2.9-6.8l2.1-2.1a1 1 0 0 1 1.4 1.4l-2.1 2.1a2 2 0 0 0 2.8 2.8l2.1-2.1a1 1 0 1 1 1.4 1.4l-2.1 2.1a4 4 0 0 1-2.7 1.2zm7.8-6.7a1 1 0 0 1-.7-1.7l2.1-2.1a2 2 0 0 0-2.8-2.8l-2.1 2.1a1 1 0 0 1-1.4-1.4l2.1-2.1a4 4 0 0 1 5.6 5.6l-2.1 2.1a1 1 0 0 1-.7.3z"/></svg>';
+  function linkAbsoluto(u) { try { return u ? new URL(u, location.href).href : ''; } catch (e) { return ''; } }
+  function botoesPartilha(titulo, link) {
+    var l = linkAbsoluto(link); if (!l) return '';
+    var texto = encodeURIComponent((titulo ? titulo + ' — ' : '') + l);
+    var dados = ' data-tit="' + esc(titulo || '') + '" data-url="' + esc(l) + '"';
+    return '<div class="partilha" role="group" aria-label="' + esc(t('partilhar')) + '"><span class="partilha-rot">' + t('partilhar') + '</span>' +
+      '<a class="partilha-bt wa" href="https://wa.me/?text=' + texto + '" target="_blank" rel="noopener" title="WhatsApp">' + ICO_WA + '<span>WhatsApp</span></a>' +
+      '<button type="button" class="partilha-bt ig" data-partilha="ig"' + dados + ' title="Instagram">' + ICO_IG + '<span>Instagram</span></button>' +
+      '<button type="button" class="partilha-bt" data-partilha="copiar"' + dados + '>' + ICO_LINK + '<span>' + t('copiar_link') + '</span></button></div>';
+  }
+  function copiarTexto(s) {
+    var antigo = function () { return new Promise(function (ok, falha) {
+      var ta = document.createElement('textarea'); ta.value = s; ta.setAttribute('readonly', ''); ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy') ? ok() : falha(); } catch (e) { falha(e); }
+      ta.remove();
+    }); };
+    if (navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(s).catch(antigo);
+    return antigo();
+  }
+  function avisoRapido(msg) {
+    var el = document.getElementById('aviso-rapido');
+    if (!el) { el = document.createElement('div'); el.id = 'aviso-rapido'; el.className = 'aviso-rapido'; el.setAttribute('role', 'status'); document.body.appendChild(el); }
+    el.textContent = msg; el.classList.add('on');
+    clearTimeout(avisoRapido.t); avisoRapido.t = setTimeout(function () { el.classList.remove('on'); }, 3200);
+  }
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest('[data-partilha]'); if (!b) return;
+    var l = b.getAttribute('data-url'), tit = b.getAttribute('data-tit');
+    if (b.getAttribute('data-partilha') === 'ig' && navigator.share && /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+      navigator.share({ title: tit, text: tit, url: l }).catch(function () {});
+      return;
+    }
+    copiarTexto(l).then(function () { avisoRapido(b.getAttribute('data-partilha') === 'ig' ? t('ig_copiado') : t('link_copiado')); }, function () { window.prompt(t('copie_aqui'), l); });
+  });
+  function itemPub(p, partilha) {
     var tit = url(p.url) ? '<a class="tit" href="' + url(p.url) + '" target="_blank" rel="noopener">' + esc(p.titulo) + '</a>' : '<span class="tit">' + esc(p.titulo) + '</span>';
     var sub = [autoresDe(p), esc(p.veiculo), esc(p.ano)].filter(Boolean).join(' · ');
     return '<li>' + tit + '<p class="sub">' + sub + '</p><ul class="chips"><li><span class="chip tipo">' + esc(t('tipos')[p.tipo] || p.tipo || '') + '</span></li>' +
-      (p.projetos || []).map(chipProjeto).join('') + '</ul></li>';
+      (p.projetos || []).map(chipProjeto).join('') + '</ul>' + (partilha ? botoesPartilha(p.titulo, p.url) : '') + '</li>';
   }
   function listaPubs(lista, vazio) {
     return lista.length ? '<ul class="lista">' + lista.map(itemPub).join('') + '</ul>' : '<p class="vazio">' + esc(vazio || t('sem_pubs')) + '</p>';
   }
-  function itemNoticia(n) {
+  function itemNoticia(n, partilha) {
     return '<li>' + (url(n.url) ? '<a class="tit" href="' + url(n.url) + '" target="_blank" rel="noopener">' + esc(n.titulo) + '</a>' : '<span class="tit">' + esc(n.titulo) + '</span>') +
-      '<p class="sub">' + [esc(n.fonte), dataFmt(n.data)].filter(Boolean).join(' · ') + '</p>' + chipsProjetos(n.projetos) + '</li>';
+      '<p class="sub">' + [esc(n.fonte), dataFmt(n.data)].filter(Boolean).join(' · ') + '</p>' + chipsProjetos(n.projetos) + (partilha ? botoesPartilha(n.titulo, n.url) : '') + '</li>';
   }
-  function listaNoticias(lista, vazio) {
-    return lista.length ? '<ul class="lista">' + lista.map(itemNoticia).join('') + '</ul>' : '<p class="vazio">' + esc(vazio || t('sem_not')) + '</p>';
+  function listaNoticias(lista, vazio, partilha) {
+    return lista.length ? '<ul class="lista">' + lista.map(function (n) { return itemNoticia(n, partilha); }).join('') + '</ul>' : '<p class="vazio">' + esc(vazio || t('sem_not')) + '</p>';
   }
   function situacaoTexto(m) {
     if (m.nivel === 'coordenacao') return esc(t('nivel1').coordenacao);
@@ -412,6 +453,18 @@
         } else membros.push(novo);
       });
       D.equipe.membros = membros;
+    });
+  }
+  function carregarAgendaSite() {
+    var cfg = D.membros || {};
+    if (!/^https:\/\//.test(cfg.supabase_url || '') || !cfg.supabase_anon_key || !window.fetch) return Promise.resolve();
+    var tempo = new Promise(function (ok) { setTimeout(function () { ok(null); }, 4000); });
+    var busca = fetch(cfg.supabase_url.replace(/\/$/, '') + '/rest/v1/rpc/agenda_publica', {
+      method: 'POST', headers: { apikey: cfg.supabase_anon_key, 'Content-Type': 'application/json' }, body: '{}'
+    }).then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; });
+    return Promise.race([busca, tempo]).then(function (lista) {
+      if (!Array.isArray(lista)) return;
+      D.agendaSite = lista.map(function (x) { return { titulo: x.titulo, inicio: x.inicio, fim: x.fim && x.fim !== x.inicio ? x.fim : '', hora: x.hora || '', tipo: x.tipo || 'outro', local: x.local || '', descricao: x.descricao || '', link: '', projeto: '' }; });
     });
   }
   function anosPessoa(m) {
@@ -720,7 +773,7 @@
     var html = '<p class="contagem">' + lista.length + (lista.length === 1 ? t('pub1') : t('pubs')) + '</p>';
     var anoAtual = null, buf = [];
     var fecha = function () { if (buf.length) { html += '<p class="ano">' + esc(anoAtual || t('sem_data')) + '</p><ul class="lista">' + buf.join('') + '</ul>'; buf = []; } };
-    lista.forEach(function (p) { if (p.ano !== anoAtual) { fecha(); anoAtual = p.ano; } buf.push(itemPub(p)); });
+    lista.forEach(function (p) { if (p.ano !== anoAtual) { fecha(); anoAtual = p.ano; } buf.push(itemPub(p, true)); });
     fecha();
     if (!lista.length) html += '<p class="vazio">' + t('nada') + '</p>';
     document.getElementById('lista-pubs').innerHTML = html;
@@ -729,7 +782,7 @@
   P.midia = function () {
     return '<section class="secao"><p class="olho">' + t('imprensa') + '</p><h1>' + t('na_midia') + '</h1>' +
       '<p class="aviso">' + t('aviso_midia') + (D.midia.atualizado_em ? t('ultima_busca') + dataFmt(D.midia.atualizado_em) + ')' : '') + '.</p>' +
-      listaNoticias(noticias()) + '</section>';
+      listaNoticias(noticias(), null, true) + '</section>';
   };
 
   function cartaoDados(d) {
@@ -1148,7 +1201,7 @@
       '<div class="bib-corpo"><span class="bib-cat" style="--cor:' + CORES_CAT[x.cat] + '">' + esc(t('c1_' + x.cat)) + (ano ? ' · ' + esc(ano) : '') + '</span>' +
       '<h3>' + esc(x.titulo) + '</h3>' + (x.autores ? '<p class="meta">' + esc(x.autores) + '</p>' : '') +
       (x.desc ? '<p class="bib-desc">' + txt(x.desc) + '</p>' : '') +
-      chipsProjetos(x.projeto ? [x.projeto] : []) + acao + '</div></article>';
+      chipsProjetos(x.projeto ? [x.projeto] : []) + acao + botoesPartilha(x.titulo, alvo) + '</div></article>';
   }
   function abrirVisor(i) {
     var visor = document.getElementById('visor');
@@ -1200,6 +1253,7 @@
       }
       datas.forEach(function (d) { lista.push(Object.assign({}, base, { inicio: dIso(d), fim: dur ? dIso(somaDias(d, dur)) : '' })); });
     });
+    (D.agendaSite || []).forEach(function (e) { if (e.inicio && e.titulo) lista.push(Object.assign({}, e, { tipo: TIPOS_AG.indexOf(e.tipo) >= 0 ? e.tipo : 'outro' })); });
     ((D.agendaGoogle && D.agendaGoogle.eventos) || []).forEach(function (e) {
       if (e.inicio && e.titulo) lista.push(Object.assign({ tipo: 'outro' }, e, { tipo: TIPOS_AG.indexOf(e.tipo) >= 0 ? e.tipo : 'outro' }));
     });
@@ -1400,11 +1454,36 @@
       papel: 'Papel', situacao: 'Situação', permissoes: 'Pode cuidar de', membro: 'Membro', coordenacao: 'Coordenação',
       st_pendente: 'Pendente', st_aprovado: 'Ativo', st_recusado: 'Recusado', st_concluido: 'Concluído · acesso encerrado', st_ativo: 'Ativo', st_egresso: 'Egresso',
       perm_biblioteca: 'Biblioteca', perm_agenda: 'Agenda', perm_dados: 'Banco de dados', perm_equipe: 'Equipe', perm_projetos: 'Projetos', perm_noticias: 'Notícias',
-      perm_dica: 'Clique para dar ou tirar. A coordenação pode tudo. "Equipe" permite editar perfis e cadastrar pessoas sem conta.',
-      conc_dica: 'Ao marcar "Concluído", a pessoa deixa de editar e passa a aparecer como egressa. Preencha a data da defesa em Editar.',
+      perm_dica: 'Escolha o que cada pessoa pode alterar no site: clique em uma área para liberar e clique de novo para retirar. Quem é da coordenação já tem acesso a tudo. A área "Equipe" também permite editar perfis e cadastrar pessoas sem conta, como egressos.',
+      conc_dica: 'Quando alguém defender, mude a situação para "Concluído". A pessoa deixa de editar o site, mas o perfil continua público, entre os egressos. Depois, clique em Editar e informe a data da defesa.',
       desde: 'Cadastro em ', ad_pessoa: 'Adicionar pessoa', ext_intro: 'Egressos e outras pessoas que não têm conta no site. As informações aparecem na página Equipe e na linha do tempo.',
       sugestao_orcid: 'Sugestão do ORCID: ', usar: 'usar', erro: 'Algo deu errado: ', obrigatorio: 'Preencha nome, e-mail e senha.', nome_obrig: 'Preencha o nome.',
-      em_breve: 'Próximas etapas: agenda interna, projetos, arquivos e menções.', editar_de: 'Editar: '
+      atividades: 'Atividades', guia: 'Guia da coordenação', nova_atv: 'Nova atividade', editar_atv: 'Editar atividade', v_lista: 'Lista', v_quadro: 'Quadro', v_cal: 'Calendário',
+      mostrar_de: 'Mostrar', f_minhas: 'Minhas atividades', f_todas: 'Todas do grupo', f_pessoa: 'De uma pessoa', busca_atv: 'Título, local…', sinc_bt: 'Ligar ao meu Google Agenda',
+      falta_sql3: 'As atividades ainda não foram ligadas ao banco. Rode o arquivo supabase/etapa3.sql no Supabase (veja o LEIA-ME, seção 11).',
+      st_a_fazer: 'A fazer', st_andamento: 'Em andamento', st_revisao: 'Em revisão', st_concluida: 'Concluída',
+      prioridade: 'Prioridade', pr_baixa: 'Baixa', pr_normal: 'Normal', pr_alta: 'Alta', pr_urgente: 'Urgente',
+      a_tipo: 'Tipo', ta_tarefa: 'Tarefa', ta_reuniao: 'Reunião', ta_prazo: 'Prazo / entrega', ta_viagem: 'Viagem / campo', ta_organizado: 'Evento que organizamos', ta_participacao: 'Evento em que participamos', ta_outro: 'Outro',
+      responsavel: 'Responsável', resp_dica: 'Para incluir colegas, marque em Participantes.', participantes: 'Participantes', ph_parts: 'Digite @ ou o nome para marcar alguém', dica_parts: 'Quem for marcado vê a atividade em "Minhas atividades".',
+      ninguem: 'Ninguém marcado ainda.', tirar: 'Tirar',
+      a_titulo: 'O que vai ser feito', ph_titulo: 'Ex.: Escrever o capítulo 3', a_inicio: 'Data', a_fim: 'Até (se durar vários dias)', a_hi: 'Começa às', a_hf: 'Termina às',
+      a_local: 'Local', ph_local: 'Sala, cidade ou "online"', a_meet: 'Link do Google Meet', criar_meet: 'Criar reunião no Meet', dica_meet: 'O botão abre o Meet numa nova aba com a sua conta Google. Copie o link da reunião e cole no campo ao lado.',
+      a_desc: 'Detalhes', ph_desc: 'Anotações, combinados… Use @ para citar alguém.', a_publico: 'Mostrar na agenda pública do site (título, data, horário, local e detalhes)',
+      obrig_atv: 'Preencha o que vai ser feito e a data.', no_site: 'No site', quando: 'Quando', criado_por: 'Criada por', entrar_meet: 'Entrar no Meet', add_google: 'Adicionar ao Google Agenda',
+      anexos: 'Anexos', anexar_arq: 'Anexar arquivo', anexar_link: 'Anexar link', dica_anexo: 'Arquivos até 10 MB. Para arquivos maiores, coloque no Google Drive e anexe o link.', ph_link_nome: 'Nome (ex.: Planilha de campo)',
+      arq_grande: 'Arquivo maior que 10 MB. Coloque no Google Drive e anexe o link.', enviando: 'Enviando…', sem_anexos: 'Nenhum anexo.',
+      comentarios: 'Comentários', ph_com: 'Escreva um comentário. Digite @ para marcar alguém.', enviar: 'Enviar', sem_com: 'Nenhum comentário ainda.',
+      g_atrasadas: 'Atrasadas', g_hoje: 'Hoje', g_semana: 'Próximos 7 dias', g_depois: 'Mais adiante', g_concluidas: 'Concluídas',
+      vazio_minhas: 'Você ainda não tem atividades. Clique em "+ Nova atividade" para criar a primeira.', vazio: 'Nenhuma atividade encontrada.',
+      dica_quadro: 'Arraste um cartão para outra coluna para mudar a situação. Clique para abrir.', dica_cal: 'Clique num dia vazio para criar uma atividade nessa data. As cores indicam o responsável.', clique_dia: 'Clique para criar uma atividade neste dia',
+      sinc_tit: 'Ver as atividades no seu Google Agenda', sinc_lead: 'O caminho é só um: o que for criado aqui no site aparece no seu Google Agenda. O que está na sua agenda pessoal continua só seu e não vem para o site.',
+      sinc_minhas: 'Link das minhas atividades (as que sou responsável ou fui marcada/o)', sinc_todas: 'Link de todas as atividades do grupo (só a coordenação vê este)',
+      sinc_p1: 'Clique em <b>Copiar link</b>.', sinc_p2: 'Abra o Google Agenda no computador, na tela de adicionar agenda por URL:', sinc_abrir: 'Abrir o Google Agenda',
+      sinc_p3: 'Cole o link no campo <b>URL da agenda</b> e clique em <b>Adicionar agenda</b>.', sinc_p4: 'Pronto. Uma agenda chamada <b>UNSEEL · minhas atividades</b> aparece na lista "Outras agendas" e também no celular.',
+      sinc_obs: 'O Google atualiza essas agendas sozinho, de algumas em algumas horas. Para uma atividade aparecer na hora, abra a atividade e use o botão "Adicionar ao Google Agenda".',
+      sinc_seg: 'Guarde o link só para você: quem tiver o link vê suas atividades.', sinc_novo: 'Gerar um link novo', sinc_novo_conf: 'Clique de novo: o link antigo vai parar de funcionar',
+      guia_curto: 'Como fazer (só a coordenação vê estas instruções)', guia_lead: 'Passo a passo de tudo o que é tarefa da coordenação. Clique em um item para abrir as instruções.', guia_pessoas: 'Pessoas e permissões', guia_atv: 'Atividades e agenda',
+      editar_de: 'Editar: '
     },
     en: {
       area: 'Members area', entrar: 'Sign in', criar: 'Create account', sair: 'Sign out', email: 'Email', senha: 'Password', nome: 'Full name',
@@ -1429,16 +1508,41 @@
       papel: 'Role', situacao: 'Status', permissoes: 'Can manage', membro: 'Member', coordenacao: 'Coordinator',
       st_pendente: 'Pending', st_aprovado: 'Active', st_recusado: 'Declined', st_concluido: 'Completed · access closed', st_ativo: 'Active', st_egresso: 'Alumni',
       perm_biblioteca: 'Library', perm_agenda: 'Calendar', perm_dados: 'Database', perm_equipe: 'Team', perm_projetos: 'Projects', perm_noticias: 'News',
-      perm_dica: 'Click to grant or remove. The coordinator can do everything. "Team" allows editing profiles and adding people without an account.',
-      conc_dica: 'When marked "Completed", the person can no longer edit and appears as alumni. Fill in the defence date under Edit.',
+      perm_dica: 'Choose what each person can change on the site: click an area to grant it and click again to remove it. The coordinator already has access to everything. The "Team" area also allows editing profiles and adding people without an account, such as alumni.',
+      conc_dica: 'When someone defends, change their status to "Completed". They can no longer edit the site, but their profile stays public, among the alumni. Then click Edit and enter the defence date.',
       desde: 'Registered on ', ad_pessoa: 'Add person', ext_intro: 'Alumni and other people without an account. Their information appears on the Team page and timeline.',
       sugestao_orcid: 'ORCID suggests: ', usar: 'use', erro: 'Something went wrong: ', obrigatorio: 'Please fill in name, email and password.', nome_obrig: 'Please fill in the name.',
-      em_breve: 'Next stages: internal calendar, projects, files and mentions.', editar_de: 'Edit: '
+      atividades: 'Activities', guia: "Coordinator's guide", nova_atv: 'New activity', editar_atv: 'Edit activity', v_lista: 'List', v_quadro: 'Board', v_cal: 'Calendar',
+      mostrar_de: 'Show', f_minhas: 'My activities', f_todas: 'Whole group', f_pessoa: 'One person', busca_atv: 'Title, place…', sinc_bt: 'Connect to my Google Calendar',
+      falta_sql3: 'Activities are not connected to the database yet. Run supabase/etapa3.sql in Supabase (see README, section 11).',
+      st_a_fazer: 'To do', st_andamento: 'In progress', st_revisao: 'In review', st_concluida: 'Done',
+      prioridade: 'Priority', pr_baixa: 'Low', pr_normal: 'Normal', pr_alta: 'High', pr_urgente: 'Urgent',
+      a_tipo: 'Type', ta_tarefa: 'Task', ta_reuniao: 'Meeting', ta_prazo: 'Deadline', ta_viagem: 'Trip / fieldwork', ta_organizado: 'Event we organise', ta_participacao: 'Event we attend', ta_outro: 'Other',
+      responsavel: 'Owner', resp_dica: 'To include colleagues, add them as Participants.', participantes: 'Participants', ph_parts: 'Type @ or a name to tag someone', dica_parts: 'Tagged people see the activity under "My activities".',
+      ninguem: 'Nobody tagged yet.', tirar: 'Remove',
+      a_titulo: 'What will be done', ph_titulo: 'E.g. Write chapter 3', a_inicio: 'Date', a_fim: 'Until (if it lasts several days)', a_hi: 'Starts at', a_hf: 'Ends at',
+      a_local: 'Place', ph_local: 'Room, city or "online"', a_meet: 'Google Meet link', criar_meet: 'Create a Meet', dica_meet: 'The button opens Meet in a new tab with your Google account. Copy the meeting link and paste it in the field.',
+      a_desc: 'Details', ph_desc: 'Notes, agreements… Use @ to mention someone.', a_publico: 'Show on the public calendar of the website (title, date, time, place and details)',
+      obrig_atv: 'Please fill in what will be done and the date.', no_site: 'On website', quando: 'When', criado_por: 'Created by', entrar_meet: 'Join Meet', add_google: 'Add to Google Calendar',
+      anexos: 'Attachments', anexar_arq: 'Attach file', anexar_link: 'Attach link', dica_anexo: 'Files up to 10 MB. For larger files, use Google Drive and attach the link.', ph_link_nome: 'Name (e.g. Field spreadsheet)',
+      arq_grande: 'File larger than 10 MB. Put it on Google Drive and attach the link.', enviando: 'Uploading…', sem_anexos: 'No attachments.',
+      comentarios: 'Comments', ph_com: 'Write a comment. Type @ to tag someone.', enviar: 'Send', sem_com: 'No comments yet.',
+      g_atrasadas: 'Overdue', g_hoje: 'Today', g_semana: 'Next 7 days', g_depois: 'Later', g_concluidas: 'Done',
+      vazio_minhas: 'You have no activities yet. Click "+ New activity" to create the first one.', vazio: 'No activities found.',
+      dica_quadro: 'Drag a card to another column to change its status. Click to open.', dica_cal: 'Click an empty day to create an activity on that date. Colours show the owner.', clique_dia: 'Click to create an activity on this day',
+      sinc_tit: 'See activities in your Google Calendar', sinc_lead: 'One way only: what is created here shows up in your Google Calendar. Your personal calendar stays private and never comes to the website.',
+      sinc_minhas: 'Link to my activities (owned or tagged)', sinc_todas: 'Link to all group activities (coordinator only)',
+      sinc_p1: 'Click <b>Copy link</b>.', sinc_p2: 'Open Google Calendar on a computer, on the "add calendar from URL" screen:', sinc_abrir: 'Open Google Calendar',
+      sinc_p3: 'Paste the link in <b>URL of calendar</b> and click <b>Add calendar</b>.', sinc_p4: 'Done. A calendar called <b>UNSEEL · minhas atividades</b> appears under "Other calendars", on your phone too.',
+      sinc_obs: 'Google refreshes these calendars on its own every few hours. For an activity to appear immediately, open it and use "Add to Google Calendar".',
+      sinc_seg: 'Keep this link to yourself: anyone with it can see your activities.', sinc_novo: 'Generate a new link', sinc_novo_conf: 'Click again: the old link will stop working',
+      guia_curto: 'How to (only the coordinator sees these instructions)', guia_lead: 'Step-by-step instructions for everything the coordinator does. Click an item to open it.', guia_pessoas: 'People and permissions', guia_atv: 'Activities and calendar',
+      editar_de: 'Edit: '
     }
   };
   function tm(k) { return (TM[lang] && TM[lang][k]) || TM.pt[k] || k; }
   var PERMS = ['biblioteca', 'agenda', 'dados', 'equipe', 'projetos', 'noticias'];
-  var sb = null, sbPromessa = null, perfilAtual = null, abaMembros = 'perfil', modoEntrar = 'entrar', recuperando = false;
+  var sb = null, sbPromessa = null, perfilAtual = null, abaMembros = 'atividades', modoEntrar = 'entrar', recuperando = false;
 
   function carregarSupabase() {
     if (sb) return Promise.resolve(sb);
@@ -1649,21 +1753,24 @@
     };
     if (p.status === 'recusado') return simples(tm('recusado'));
     if (p.status === 'concluido') return simples(tm('concluido'));
-    var abas = [['perfil', tm('meu_perfil')]];
+    var abas = [];
+    if (aprovado) abas.push(['atividades', tm('atividades')]);
+    abas.push(['perfil', tm('meu_perfil')]);
     if (aprovado) abas.push(['membros', tm('membros')]);
     if (posso('equipe')) { abas.push(['gestao', tm('gestao') + ' <span class="m-badge" id="m-qtd"></span>']); abas.push(['externas', tm('externas')]); }
-    if (!abas.some(function (a) { return a[0] === abaMembros; })) abaMembros = 'perfil';
+    if (souCoord()) abas.push(['guia', tm('guia')]);
+    if (!abas.some(function (a) { return a[0] === abaMembros; })) abaMembros = aprovado ? 'atividades' : 'perfil';
     var perms = (p.permissoes || []).map(function (x) { return tm('perm_' + x); });
     caixa().innerHTML = '<div class="m-topo">' + fotoPerfil(p) + '<div><strong>' + esc(tm('ola') + (p.nome || p.email)) + '</strong><span class="meta">' +
       esc([souCoord() ? tm('coordenacao') : tm('membro'), perms.join(', '), p.email].filter(Boolean).join(' · ')) + '</span></div>' +
       '<button type="button" class="botao contorno" id="m-sair">' + tm('sair') + '</button></div>' +
       (!aprovado ? '<div class="aviso m-pendente"><strong>' + tm('pendente_tit') + '</strong><br>' + tm('pendente') + '</div>' : '') +
       '<div class="abas" role="tablist">' + abas.map(function (a) { return '<button type="button" role="tab" data-aba-m="' + a[0] + '" aria-selected="' + (abaMembros === a[0]) + '">' + a[1] + '</button>'; }).join('') + '</div>' +
-      '<div id="m-corpo"></div>' + (aprovado ? '<p class="meta" style="margin-top:28px">' + tm('em_breve') + '</p>' : '');
+      '<div id="m-corpo"></div>';
     document.getElementById('m-sair').addEventListener('click', sair);
     caixa().querySelectorAll('[data-aba-m]').forEach(function (b) { b.addEventListener('click', function () { abaMembros = b.getAttribute('data-aba-m'); telaPainel(); }); });
     if (posso('equipe')) contarPendentes();
-    ({ perfil: telaPerfil, membros: telaMembros, gestao: telaGestao, externas: telaExternas }[abaMembros] || telaPerfil)();
+    ({ atividades: telaAtividades, perfil: telaPerfil, membros: telaMembros, gestao: telaGestao, externas: telaExternas, guia: telaGuia }[abaMembros] || telaPerfil)();
   }
   function sair() { sb.auth.signOut().then(function () { perfilAtual = null; modoEntrar = 'entrar'; iniciarMembros(); }); }
 
@@ -1764,9 +1871,9 @@
           }).join('') + '</div>' : '') + '</div>' +
           '<button type="button" class="botao contorno" data-editar="' + esc(m.id) + '">' + tm('editar') + '</button></li>';
       };
-      alvo.innerHTML = '<p id="m-aviso" class="m-aviso" hidden></p>' +
+      alvo.innerHTML = '<p id="m-aviso" class="m-aviso" hidden></p>' + (coord ? guiaCoord(['aprovar', 'permissoes', 'concluir', 'editar']) : '') +
         '<h2 style="font-size:1.3rem">' + tm('aguardando') + '</h2>' + (pend.length ? '<ul class="m-lista">' + pendHtml + '</ul>' : '<p class="vazio">' + tm('sem_pendentes') + '</p>') +
-        '<h2 style="font-size:1.3rem;margin-top:36px">' + tm('todos_membros') + '</h2><p class="meta">' + tm('perm_dica') + '<br>' + tm('conc_dica') + '</p>' +
+        '<h2 style="font-size:1.3rem;margin-top:36px">' + tm('todos_membros') + '</h2>' +
         '<ul class="m-lista">' + outros.map(cartao).join('') + '</ul>';
       alvo.querySelectorAll('[data-acao]').forEach(function (b) { b.addEventListener('click', function () { mudarPerfil(b.getAttribute('data-id'), { status: b.getAttribute('data-acao') === 'aprovar' ? 'aprovado' : 'recusado' }); }); });
       alvo.querySelectorAll('select[data-campo]').forEach(function (s) { s.addEventListener('change', function () { var d = {}; d[s.getAttribute('data-campo')] = s.value; mudarPerfil(s.getAttribute('data-id'), d); }); });
@@ -1797,7 +1904,7 @@
     sb.from('pessoas_externas').select('*').order('nome').then(function (r) {
       if (r.error) { alvo.innerHTML = '<p class="aviso">' + esc(tm('erro') + r.error.message) + '</p>'; return; }
       listaExternas = r.data;
-      alvo.innerHTML = '<p class="meta">' + tm('ext_intro') + '</p><p><button type="button" class="botao" id="m-nova">+ ' + tm('ad_pessoa') + '</button></p>' +
+      alvo.innerHTML = (souCoord() ? guiaCoord(['externas']) : '') + '<p class="meta">' + tm('ext_intro') + '</p><p><button type="button" class="botao" id="m-nova">+ ' + tm('ad_pessoa') + '</button></p>' +
         '<ul class="m-lista">' + r.data.map(function (m) {
           return '<li class="m-pend">' + fotoPerfil(m) + '<div class="m-pend-info"><strong>' + esc(m.nome) + '</strong>' +
             '<span class="meta">' + esc([t('nivel1')[m.nivel] || '', tm('st_' + m.situacao), m.ano_entrada ? '↳ ' + m.ano_entrada : '', m.defesa_data ? '🎓 ' + String(m.defesa_data).slice(0, 4) : ''].filter(Boolean).join(' · ')) + '</span>' +
@@ -1845,6 +1952,568 @@
       });
     });
     if (dlg.showModal) dlg.showModal(); else dlg.setAttribute('open', '');
+  }
+
+  /* =================== ATIVIDADES (estilo ClickUp) =================== */
+  var ST_ATV = ['a_fazer', 'andamento', 'revisao', 'concluida'];
+  var COR_ST = { a_fazer: '#6B7A8C', andamento: '#176F80', revisao: '#C9A227', concluida: '#427568' };
+  var PRIO = ['baixa', 'normal', 'alta', 'urgente'];
+  var TIPOS_ATV = ['tarefa', 'reuniao', 'prazo', 'viagem', 'organizado', 'participacao', 'outro'];
+  var atv = { lista: [], pessoas: [], vista: 'lista', filtro: 'minhas', mes: null, busca: '' };
+  function eu() { return perfilAtual && perfilAtual.id; }
+  var CORES_CAL = ['#176F80', '#9A6200', '#6B4E9B', '#A0412D', '#2F7D4F', '#2F5E86', '#A8336E', '#13294B'];
+  function corCal(id) { var k = atv.pessoas.findIndex(function (p) { return p.id === id; }); return k < 0 ? '#6B7A8C' : CORES_CAL[k % CORES_CAL.length]; }
+  function pessoaAtv(id) { return atv.pessoas.find(function (p) { return p.id === id; }) || null; }
+  function nomeCurto(p) { return p ? String(p.nome || p.email || '').split(' ')[0] : ''; }
+  function minha(a) { return a.responsavel === eu() || (a.participantes || []).indexOf(eu()) >= 0; }
+  function podeEditarAtv(a) { return souCoord() || a.responsavel === eu() || a.criado_por === eu() || (a.participantes || []).indexOf(eu()) >= 0; }
+  function podeApagarAtv(a) { return souCoord() || a.responsavel === eu() || a.criado_por === eu(); }
+  function hhmm(h) { return h ? String(h).slice(0, 5) : ''; }
+  function quandoAtv(a) {
+    var d = fmtDia(a.inicio, { weekday: 'short', day: 'numeric', month: 'short' });
+    if (a.fim && a.fim !== a.inicio) d += ' – ' + fmtDia(a.fim, { day: 'numeric', month: 'short' });
+    var h = hhmm(a.hora_inicio) + (a.hora_fim ? '–' + hhmm(a.hora_fim) : '');
+    return d + (h ? ' · ' + h : '');
+  }
+  function miniAvatar(p, tit) {
+    if (!p) return '';
+    var f = url(p.foto_url);
+    return '<span class="atv-av" style="--cor:' + corPessoa(p.id) + '" title="' + esc(tit || p.nome || '') + '">' + (f ? '<img src="' + f + '" alt="">' : esc(iniciais(p.nome || p.email || '?'))) + '</span>';
+  }
+  function avataresAtv(a) {
+    var r = pessoaAtv(a.responsavel);
+    var ps = (a.participantes || []).filter(function (id) { return id !== a.responsavel; }).map(pessoaAtv).filter(Boolean);
+    return '<span class="atv-avs">' + miniAvatar(r, tm('responsavel') + ': ' + (r ? r.nome : '')) + ps.slice(0, 4).map(function (p) { return miniAvatar(p); }).join('') +
+      (ps.length > 4 ? '<span class="atv-av mais">+' + (ps.length - 4) + '</span>' : '') + '</span>';
+  }
+  function pilulaSt(s) { return '<span class="atv-st" style="--cor:' + COR_ST[s] + '">' + esc(tm('st_' + s)) + '</span>'; }
+  function bandeira(p) { return p === 'alta' || p === 'urgente' ? '<span class="atv-prio ' + p + '" title="' + esc(tm('prioridade') + ': ' + tm('pr_' + p)) + '">⚑ ' + esc(tm('pr_' + p)) + '</span>' : ''; }
+
+  function carregarAtividades() {
+    return Promise.all([
+      sb.from('atividades').select('*').order('inicio').order('hora_inicio'),
+      sb.from('perfis').select('id,nome,email,foto_url,papel').eq('status', 'aprovado').order('nome')
+    ]).then(function (rs) {
+      if (rs[0].error) throw rs[0].error;
+      atv.lista = rs[0].data || []; atv.pessoas = rs[1].data || [];
+    });
+  }
+  function filtradas() {
+    var b = String(atv.busca || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+    return atv.lista.filter(function (a) {
+      if (atv.filtro === 'minhas' && !minha(a)) return false;
+      if (atv.filtro !== 'minhas' && atv.filtro !== 'todas' && a.responsavel !== atv.filtro && (a.participantes || []).indexOf(atv.filtro) < 0) return false;
+      if (b && [a.titulo, a.descricao, a.local].join(' ').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').indexOf(b) < 0) return false;
+      return true;
+    });
+  }
+
+  function telaAtividades() {
+    var alvo = document.getElementById('m-corpo');
+    alvo.innerHTML = '<p class="meta">' + t('carregando') + '</p>';
+    carregarAtividades().then(function () {
+      if (!atv.mes) { var h = new Date(); atv.mes = new Date(h.getFullYear(), h.getMonth(), 1); }
+      var opcPessoas = atv.pessoas.map(function (p) { return '<option value="' + esc(p.id) + '"' + (atv.filtro === p.id ? ' selected' : '') + '>' + esc(p.nome || p.email) + '</option>'; }).join('');
+      alvo.innerHTML = (souCoord() ? guiaCoord(['atividades', 'comentar', 'publicar']) : '') +
+        '<div class="atv-barra">' +
+        '<button type="button" class="botao" id="atv-nova">+ ' + tm('nova_atv') + '</button>' +
+        '<div class="atv-vistas" role="tablist">' + [['lista', tm('v_lista')], ['quadro', tm('v_quadro')], ['calendario', tm('v_cal')]].map(function (v) {
+          return '<button type="button" role="tab" data-vista="' + v[0] + '" aria-selected="' + (atv.vista === v[0]) + '">' + v[1] + '</button>';
+        }).join('') + '</div>' +
+        '<label class="atv-filtro">' + tm('mostrar_de') + '<select id="atv-filtro"><option value="minhas"' + (atv.filtro === 'minhas' ? ' selected' : '') + '>' + tm('f_minhas') + '</option><option value="todas"' + (atv.filtro === 'todas' ? ' selected' : '') + '>' + tm('f_todas') + '</option><optgroup label="' + esc(tm('f_pessoa')) + '">' + opcPessoas + '</optgroup></select></label>' +
+        '<label class="atv-filtro">' + t('buscar') + '<input type="search" id="atv-busca" value="' + esc(atv.busca) + '" placeholder="' + esc(tm('busca_atv')) + '"></label>' +
+        '<button type="button" class="botao contorno atv-sinc-bt" id="atv-sinc">' + ICO_CAL + tm('sinc_bt') + '</button>' +
+        '</div><div id="atv-corpo"></div>';
+      document.getElementById('atv-nova').addEventListener('click', function () { formAtividade(null, {}); });
+      document.getElementById('atv-sinc').addEventListener('click', abrirSincronizacao);
+      alvo.querySelectorAll('[data-vista]').forEach(function (b) { b.addEventListener('click', function () { atv.vista = b.getAttribute('data-vista'); telaAtividades(); }); });
+      document.getElementById('atv-filtro').addEventListener('change', function (e) { atv.filtro = e.target.value; desenharAtv(); });
+      document.getElementById('atv-busca').addEventListener('input', function (e) { atv.busca = e.target.value; desenharAtv(); });
+      desenharAtv();
+    }).catch(function (e) {
+      alvo.innerHTML = '<div class="aviso">' + esc(/atividades|relation|schema cache/i.test(e.message || '') ? tm('falta_sql3') : tm('erro') + (e.message || e)) + '</div>';
+    });
+  }
+  var ICO_CAL = '<svg viewBox="0 0 24 24" aria-hidden="true" class="ico"><path d="M7 2v2H5a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-2V2h-2v2H9V2H7zM5 9h14v10H5V9zm2 2v2h2v-2H7zm4 0v2h2v-2h-2zm4 0v2h2v-2h-2z"/></svg>';
+
+  function desenharAtv() {
+    var c = document.getElementById('atv-corpo'); if (!c) return;
+    var lista = filtradas();
+    if (atv.vista === 'quadro') c.innerHTML = vistaQuadro(lista);
+    else if (atv.vista === 'calendario') c.innerHTML = vistaCalendario(lista);
+    else c.innerHTML = vistaLista(lista);
+    c.querySelectorAll('[data-atv]').forEach(function (el) {
+      el.addEventListener('click', function (e) { if (e.target.closest('select,a')) return; e.stopPropagation(); abrirAtividade(el.getAttribute('data-atv')); });
+      el.addEventListener('keydown', function (e) { if (e.key === 'Enter' && e.target === el) abrirAtividade(el.getAttribute('data-atv')); });
+    });
+    c.querySelectorAll('select[data-st]').forEach(function (s) { s.addEventListener('change', function () { mudarAtv(s.getAttribute('data-st'), { status: s.value }); }); });
+    if (atv.vista === 'quadro') ligarArrastar(c);
+    if (atv.vista === 'calendario') {
+      document.getElementById('ac-ant').addEventListener('click', function () { atv.mes = new Date(atv.mes.getFullYear(), atv.mes.getMonth() - 1, 1); desenharAtv(); });
+      document.getElementById('ac-prox').addEventListener('click', function () { atv.mes = new Date(atv.mes.getFullYear(), atv.mes.getMonth() + 1, 1); desenharAtv(); });
+      document.getElementById('ac-hoje').addEventListener('click', function () { var h = new Date(); atv.mes = new Date(h.getFullYear(), h.getMonth(), 1); desenharAtv(); });
+      c.querySelectorAll('[data-novo-dia]').forEach(function (d) { d.addEventListener('click', function (e) { if (e.target.closest('[data-atv]')) return; formAtividade(null, { inicio: d.getAttribute('data-novo-dia') }); }); });
+    }
+  }
+
+  function linhaAtv(a) {
+    var ed = podeEditarAtv(a), atrasada = a.status !== 'concluida' && (a.fim || a.inicio) < dIso(new Date());
+    return '<li class="atv-linha' + (a.status === 'concluida' ? ' feita' : '') + '" data-atv="' + esc(a.id) + '" tabindex="0" style="--cor:' + COR_ST[a.status] + '">' +
+      '<span class="atv-marca" aria-hidden="true"></span>' +
+      '<span class="atv-info"><strong>' + esc(a.titulo) + '</strong><span class="meta' + (atrasada ? ' atrasada' : '') + '">' + esc(quandoAtv(a)) + (a.local ? ' · ' + esc(a.local) : '') + '</span>' +
+      '<span class="atv-tags">' + bandeira(a.prioridade) + '<span class="atv-tipo">' + esc(tm('ta_' + a.tipo)) + '</span>' + (a.link_meet ? '<span class="atv-tipo meet">Meet</span>' : '') + (a.publico ? '<span class="atv-tipo pub">' + tm('no_site') + '</span>' : '') + '</span></span>' +
+      avataresAtv(a) +
+      (ed ? '<select class="atv-st-sel" data-st="' + esc(a.id) + '" aria-label="' + esc(tm('situacao')) + '" style="--cor:' + COR_ST[a.status] + '">' + ST_ATV.map(function (s) { return '<option value="' + s + '"' + (a.status === s ? ' selected' : '') + '>' + esc(tm('st_' + s)) + '</option>'; }).join('') + '</select>' : pilulaSt(a.status)) +
+      '</li>';
+  }
+  function vistaLista(lista) {
+    if (!lista.length) return '<div class="atv-vazio"><p>' + (atv.filtro === 'minhas' ? tm('vazio_minhas') : tm('vazio')) + '</p></div>';
+    var hoje = dIso(new Date()), sem = dIso(somaDias(new Date(), 7));
+    var grupos = [['atrasadas', []], ['hoje', []], ['semana', []], ['depois', []], ['concluidas', []]];
+    lista.forEach(function (a) {
+      var fim = a.fim || a.inicio;
+      var g = a.status === 'concluida' ? 4 : fim < hoje ? 0 : (a.inicio <= hoje ? 1 : a.inicio <= sem ? 2 : 3);
+      grupos[g][1].push(a);
+    });
+    grupos[4][1].reverse();
+    return grupos.map(function (g) {
+      if (!g[1].length) return '';
+      var corpo = '<ul class="atv-lista">' + g[1].map(linhaAtv).join('') + '</ul>';
+      var tit = esc(tm('g_' + g[0])) + ' <span class="atv-n">' + g[1].length + '</span>';
+      return g[0] === 'concluidas' ? '<details class="atv-grupo"><summary><h3>' + tit + '</h3></summary>' + corpo + '</details>'
+        : '<section class="atv-grupo' + (g[0] === 'atrasadas' ? ' atrasadas' : '') + '"><h3>' + tit + '</h3>' + corpo + '</section>';
+    }).join('');
+  }
+  function vistaQuadro(lista) {
+    return '<p class="meta atv-dica">' + tm('dica_quadro') + '</p><div class="atv-quadro">' + ST_ATV.map(function (s) {
+      var col = lista.filter(function (a) { return a.status === s; });
+      if (s === 'concluida') col = col.slice().reverse().slice(0, 30);
+      return '<section class="atv-col" data-col="' + s + '" style="--cor:' + COR_ST[s] + '"><h3>' + esc(tm('st_' + s)) + ' <span class="atv-n">' + col.length + '</span></h3>' +
+        '<div class="atv-cards">' + col.map(function (a) {
+          return '<article class="atv-card" data-atv="' + esc(a.id) + '" tabindex="0" draggable="' + podeEditarAtv(a) + '"><strong>' + esc(a.titulo) + '</strong>' +
+            '<span class="meta">' + esc(quandoAtv(a)) + '</span><span class="atv-card-pe">' + bandeira(a.prioridade) + avataresAtv(a) + '</span></article>';
+        }).join('') + '</div>' + (s === 'a_fazer' ? '<button type="button" class="m-link atv-add-col" id="atv-add-col">+ ' + tm('nova_atv') + '</button>' : '') + '</section>';
+    }).join('') + '</div>';
+  }
+  function ligarArrastar(c) {
+    var arrastando = null;
+    var add = document.getElementById('atv-add-col'); if (add) add.addEventListener('click', function () { formAtividade(null, {}); });
+    c.querySelectorAll('.atv-card[draggable="true"]').forEach(function (k) {
+      k.addEventListener('dragstart', function (e) { arrastando = k.getAttribute('data-atv'); k.classList.add('arrastando'); e.dataTransfer.effectAllowed = 'move'; e.dataTransfer.setData('text/plain', arrastando); });
+      k.addEventListener('dragend', function () { k.classList.remove('arrastando'); });
+    });
+    c.querySelectorAll('.atv-col').forEach(function (col) {
+      col.addEventListener('dragover', function (e) { if (arrastando) { e.preventDefault(); col.classList.add('alvo'); } });
+      col.addEventListener('dragleave', function () { col.classList.remove('alvo'); });
+      col.addEventListener('drop', function (e) {
+        e.preventDefault(); col.classList.remove('alvo');
+        var id = arrastando; arrastando = null; if (!id) return;
+        var a = atv.lista.find(function (x) { return x.id === id; });
+        if (a && a.status !== col.getAttribute('data-col')) mudarAtv(id, { status: col.getAttribute('data-col') });
+      });
+    });
+  }
+  function vistaCalendario(lista) {
+    var m = atv.mes, hoje = dIso(new Date());
+    var tit = m.toLocaleDateString(lang === 'en' ? 'en-GB' : 'pt-BR', { month: 'long', year: 'numeric' });
+    var semana = []; for (var w = 0; w < 7; w++) semana.push(new Date(2024, 0, 1 + w).toLocaleDateString(lang === 'en' ? 'en-GB' : 'pt-BR', { weekday: 'short' }).replace('.', ''));
+    var primeiro = (m.getDay() + 6) % 7, nDias = new Date(m.getFullYear(), m.getMonth() + 1, 0).getDate();
+    var fer = feriadosEm(m);
+    var html = '<div class="cal atv-cal"><div class="cal-topo"><button type="button" class="seta" id="ac-ant" aria-label="' + esc(t('ag_mes_ant')) + '">‹</button><h2>' + esc(tit.charAt(0).toUpperCase() + tit.slice(1)) + '</h2>' +
+      '<button type="button" class="seta" id="ac-prox" aria-label="' + esc(t('ag_mes_prox')) + '">›</button><button type="button" class="pausa" id="ac-hoje">' + t('ag_hoje') + '</button></div><div class="cal-dias">' +
+      semana.map(function (s) { return '<span class="cal-sem">' + esc(s) + '</span>'; }).join('');
+    for (var v = 0; v < primeiro; v++) html += '<span class="cal-vazio"></span>';
+    for (var d = 1; d <= nDias; d++) {
+      var iso = dIso(new Date(m.getFullYear(), m.getMonth(), d));
+      var evs = lista.filter(function (a) { return a.inicio === iso || (a.fim && a.inicio <= iso && a.fim >= iso); });
+      var f = fer.filter(function (x) { return x.inicio === iso; })[0];
+      html += '<div class="cal-dia atv-dia' + (iso === hoje ? ' hoje' : '') + (f && f.abrangencia !== 'facultativo' ? ' feriado' : '') + '" data-novo-dia="' + iso + '" title="' + esc(tm('clique_dia')) + '">' +
+        '<span class="n">' + d + '</span>' + (f ? '<span class="cal-ev fer' + (f.abrangencia === 'facultativo' ? ' fac' : '') + '">' + esc(f.titulo) + '</span>' : '') +
+        evs.slice(0, 4).map(function (a) {
+          return '<button type="button" class="cal-ev atv-ev' + (a.status === 'concluida' ? ' feita' : '') + '" data-atv="' + esc(a.id) + '" style="--cor:' + corCal(a.responsavel) + '">' + (a.hora_inicio ? '<b>' + hhmm(a.hora_inicio) + '</b> ' : '') + esc(a.titulo) + '</button>';
+        }).join('') + (evs.length > 4 ? '<span class="cal-mais">+' + (evs.length - 4) + '</span>' : '') + '</div>';
+    }
+    var quem = Array.from(new Set(lista.map(function (a) { return a.responsavel; }))).map(pessoaAtv).filter(Boolean);
+    return html + '</div><p class="meta cal-dica">' + tm('dica_cal') + '</p>' +
+      (quem.length > 1 ? '<ul class="atv-legenda">' + quem.map(function (p) { return '<li><i style="background:' + corCal(p.id) + '"></i>' + esc(p.nome) + '</li>'; }).join('') + '</ul>' : '') + '</div>';
+  }
+
+  function mudarAtv(id, dados) {
+    return sb.from('atividades').update(dados).eq('id', id).select().single().then(function (r) {
+      if (r.error) { avisoRapido(tm('erro') + r.error.message); return null; }
+      var k = atv.lista.findIndex(function (x) { return x.id === id; }); if (k >= 0) atv.lista[k] = r.data;
+      desenharAtv(); return r.data;
+    });
+  }
+
+  /* --- marcar pessoas com @ (participantes e comentários) --- */
+  function caixaMencao(input, aoEscolher, modoTexto) {
+    var lista = document.createElement('ul'); lista.className = 'mencao-lista'; lista.hidden = true; lista.setAttribute('role', 'listbox');
+    input.parentNode.insertBefore(lista, input.nextSibling);
+    var achados = [], pos = 0, inicioTermo = -1;
+    function termo() {
+      if (!modoTexto) return input.value.replace(/^@/, '').trim();
+      var antes = input.value.slice(0, input.selectionStart), m = /(^|\s)@([^\s@]*)$/.exec(antes);
+      inicioTermo = m ? antes.length - m[2].length - 1 : -1;
+      return m ? m[2] : null;
+    }
+    function semAc(s) { return String(s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, ''); }
+    function mostrar() {
+      var q = termo();
+      if (q === null || (!modoTexto && !q && document.activeElement !== input)) { lista.hidden = true; return; }
+      achados = atv.pessoas.filter(function (p) { return semAc(p.nome + ' ' + p.email).indexOf(semAc(q)) >= 0; }).slice(0, 6);
+      pos = 0;
+      lista.innerHTML = achados.map(function (p, i) { return '<li role="option" data-i="' + i + '" aria-selected="' + (i === 0) + '">' + miniAvatar(p) + esc(p.nome || p.email) + '</li>'; }).join('');
+      lista.hidden = !achados.length;
+    }
+    function escolher(i) {
+      var p = achados[i]; if (!p) return;
+      if (modoTexto) {
+        var fimT = input.selectionStart;
+        input.value = input.value.slice(0, inicioTermo) + '@' + p.nome + ' ' + input.value.slice(fimT);
+        var c = inicioTermo + p.nome.length + 2; input.setSelectionRange(c, c);
+      } else input.value = '';
+      lista.hidden = true; input.focus(); if (aoEscolher) aoEscolher(p);
+    }
+    input.addEventListener('input', mostrar);
+    input.addEventListener('focus', function () { if (!modoTexto) mostrar(); });
+    input.addEventListener('blur', function () { setTimeout(function () { lista.hidden = true; }, 180); });
+    input.addEventListener('keydown', function (e) {
+      if (lista.hidden) return;
+      if (e.key === 'ArrowDown' || e.key === 'ArrowUp') { e.preventDefault(); pos = (pos + (e.key === 'ArrowDown' ? 1 : -1) + achados.length) % achados.length; lista.querySelectorAll('li').forEach(function (li, i) { li.setAttribute('aria-selected', String(i === pos)); }); }
+      else if (e.key === 'Enter' || e.key === 'Tab') { e.preventDefault(); escolher(pos); }
+      else if (e.key === 'Escape') { lista.hidden = true; }
+    });
+    lista.addEventListener('mousedown', function (e) { var li = e.target.closest('li'); if (li) { e.preventDefault(); escolher(+li.getAttribute('data-i')); } });
+  }
+  function mencoesNoTexto(texto) {
+    var s = String(texto || '').toLowerCase();
+    return atv.pessoas.filter(function (p) { return p.nome && s.indexOf('@' + p.nome.toLowerCase()) >= 0; }).map(function (p) { return p.id; });
+  }
+  function textoComMencoes(texto) {
+    var h = esc(texto);
+    atv.pessoas.slice().sort(function (a, b) { return (b.nome || '').length - (a.nome || '').length; }).forEach(function (p) {
+      if (!p.nome) return;
+      var alvo = '@' + esc(p.nome);
+      h = h.split(alvo).join('<span class="mencao' + (p.id === eu() ? ' eu' : '') + '">' + alvo + '</span>');
+    });
+    return h.replace(/(https?:\/\/[^\s<]+)/g, '<a href="$1" target="_blank" rel="noopener">$1</a>').replace(/\n/g, '<br>');
+  }
+
+  /* --- formulário: nova atividade / editar --- */
+  function dlgAtv() { return document.getElementById('m-dialogo'); }
+  function abrirDlg(html, largo) {
+    var dlg = dlgAtv(), dentro = document.getElementById('m-dialogo-in');
+    dlg.classList.toggle('largo', !!largo);
+    dentro.innerHTML = html;
+    dentro.querySelectorAll('[data-fechar]').forEach(function (b) { b.addEventListener('click', function () { dlg.close(); }); });
+    if (!dlg.open) { if (dlg.showModal) dlg.showModal(); else dlg.setAttribute('open', ''); }
+    return dentro;
+  }
+  function formAtividade(a, pre) {
+    var novo = !a; a = a || Object.assign({ titulo: '', descricao: '', inicio: dIso(new Date()), status: 'a_fazer', prioridade: 'normal', tipo: 'tarefa', responsavel: eu(), participantes: [], local: '', link_meet: '', publico: false }, pre || {});
+    var parts = (a.participantes || []).slice();
+    var sel = function (id, lista, atual, pref, dis) { return '<select id="' + id + '"' + (dis ? ' disabled' : '') + '>' + lista.map(function (x) { return '<option value="' + x + '"' + (atual === x ? ' selected' : '') + '>' + esc(tm(pref + x)) + '</option>'; }).join('') + '</select>'; };
+    var dentro = abrirDlg('<form id="a-form" class="m-form atv-form" novalidate><div class="m-dlg-topo"><h2>' + esc(novo ? tm('nova_atv') : tm('editar_atv')) + '</h2><button type="button" class="visor-x" data-fechar aria-label="' + esc(tm('cancelar')) + '">×</button></div>' +
+      '<label>' + tm('a_titulo') + ' *<input id="a-titulo" value="' + esc(a.titulo) + '" required placeholder="' + esc(tm('ph_titulo')) + '"></label>' +
+      '<div class="atv-form-grade">' +
+      campo('a-inicio', tm('a_inicio') + ' *', a.inicio, 'date') + campo('a-fim', tm('a_fim'), a.fim || '', 'date') +
+      campo('a-hi', tm('a_hi'), hhmm(a.hora_inicio), 'time') + campo('a-hf', tm('a_hf'), hhmm(a.hora_fim), 'time') +
+      '<label>' + tm('situacao') + sel('a-status', ST_ATV, a.status, 'st_') + '</label>' +
+      '<label>' + tm('prioridade') + sel('a-prio', PRIO, a.prioridade, 'pr_') + '</label>' +
+      '<label>' + tm('a_tipo') + sel('a-tipo', TIPOS_ATV, a.tipo, 'ta_') + '</label>' +
+      '<label>' + tm('responsavel') + '<select id="a-resp"' + (souCoord() ? '' : ' disabled') + '>' + atv.pessoas.map(function (p) { return '<option value="' + esc(p.id) + '"' + (a.responsavel === p.id ? ' selected' : '') + '>' + esc(p.nome || p.email) + '</option>'; }).join('') + '</select>' +
+      (souCoord() ? '' : '<small>' + tm('resp_dica') + '</small>') + '</label></div>' +
+      '<div class="atv-campo-parts"><span class="rot">' + tm('participantes') + '</span><div class="atv-chips" id="a-chips"></div>' +
+      '<div class="mencao-caixa"><input id="a-parts" autocomplete="off" placeholder="' + esc(tm('ph_parts')) + '"></div><small>' + tm('dica_parts') + '</small></div>' +
+      campo('a-local', tm('a_local'), a.local, 'text', ' placeholder="' + esc(tm('ph_local')) + '"') +
+      '<div class="atv-meet"><label>' + tm('a_meet') + '<input id="a-meet" type="url" value="' + esc(a.link_meet) + '" placeholder="https://meet.google.com/abc-defg-hij"></label>' +
+      '<a class="botao contorno" href="https://meet.google.com/new" target="_blank" rel="noopener">' + tm('criar_meet') + '</a><small>' + tm('dica_meet') + '</small></div>' +
+      '<label>' + tm('a_desc') + '<div class="mencao-caixa"><textarea id="a-desc" rows="4" placeholder="' + esc(tm('ph_desc')) + '">' + esc(a.descricao) + '</textarea></div></label>' +
+      (posso('agenda') ? '<label class="m-check m-largo"><input type="checkbox" id="a-pub"' + (a.publico ? ' checked' : '') + '> ' + tm('a_publico') + '</label>' : '') +
+      '<p class="m-aviso" hidden></p><div class="m-acoes"><button type="submit" class="botao">' + tm('salvar') + '</button><button type="button" class="botao contorno" data-fechar>' + tm('cancelar') + '</button></div></form>', true);
+    function chips() {
+      document.getElementById('a-chips').innerHTML = parts.map(function (id) { var p = pessoaAtv(id); return p ? '<span class="atv-chip">' + miniAvatar(p) + esc(p.nome) + '<button type="button" data-tirar="' + esc(id) + '" aria-label="' + esc(tm('tirar') + ' ' + p.nome) + '">×</button></span>' : ''; }).join('') || '<span class="meta">' + tm('ninguem') + '</span>';
+      dentro.querySelectorAll('[data-tirar]').forEach(function (b) { b.addEventListener('click', function () { parts = parts.filter(function (x) { return x !== b.getAttribute('data-tirar'); }); chips(); }); });
+    }
+    chips();
+    caixaMencao(document.getElementById('a-parts'), function (p) { if (parts.indexOf(p.id) < 0) parts.push(p.id); chips(); }, false);
+    caixaMencao(document.getElementById('a-desc'), function (p) { if (parts.indexOf(p.id) < 0 && p.id !== document.getElementById('a-resp').value) { parts.push(p.id); chips(); } }, true);
+    document.getElementById('a-titulo').focus();
+    document.getElementById('a-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      var v = function (id) { var el = document.getElementById(id); return el ? el.value.trim() : ''; };
+      var d = { titulo: v('a-titulo'), inicio: v('a-inicio'), fim: v('a-fim') || null, hora_inicio: v('a-hi') || null, hora_fim: v('a-hf') || null,
+        status: v('a-status'), prioridade: v('a-prio'), tipo: v('a-tipo'), responsavel: v('a-resp') || eu(), participantes: parts, local: v('a-local'), link_meet: v('a-meet'), descricao: v('a-desc') };
+      if (document.getElementById('a-pub')) d.publico = document.getElementById('a-pub').checked;
+      if (!d.titulo || !d.inicio) return aviso(tm('obrig_atv'), 'erro', dentro);
+      if (d.link_meet && !/^https?:\/\//.test(d.link_meet)) d.link_meet = 'https://' + d.link_meet;
+      aviso(tm('salvando'), '', dentro);
+      var op = novo ? sb.from('atividades').insert(d).select().single() : sb.from('atividades').update(d).eq('id', a.id).select().single();
+      op.then(function (r) {
+        if (r.error) return aviso(tm('erro') + r.error.message, 'erro', dentro);
+        var k = atv.lista.findIndex(function (x) { return x.id === r.data.id; });
+        if (k >= 0) atv.lista[k] = r.data; else atv.lista.push(r.data);
+        atv.lista.sort(function (x, y) { return (x.inicio + (x.hora_inicio || '')).localeCompare(y.inicio + (y.hora_inicio || '')); });
+        desenharAtv(); abrirAtividade(r.data.id);
+        avisoRapido(tm('salvo'));
+      });
+    });
+  }
+
+  /* --- detalhe: informações, comentários e anexos --- */
+  function linkGoogle(a) {
+    var dt = function (iso, h) { return iso.replace(/-/g, '') + (h ? 'T' + h.slice(0, 5).replace(':', '') + '00' : ''); };
+    var fim = a.fim || a.inicio, datas;
+    if (a.hora_inicio) {
+      var hf = a.hora_fim || (('0' + Math.min(23, +a.hora_inicio.slice(0, 2) + 1)).slice(-2) + a.hora_inicio.slice(2, 5));
+      datas = dt(a.inicio, a.hora_inicio) + '/' + dt(fim, hf);
+    } else datas = dt(a.inicio) + '/' + dt(dIso(somaDias(dDe(fim), 1)));
+    var det = [a.descricao, a.link_meet ? 'Meet: ' + a.link_meet : ''].filter(Boolean).join('\n\n');
+    return 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=' + encodeURIComponent(a.titulo) + '&dates=' + datas + '&ctz=America/Sao_Paulo' +
+      (det ? '&details=' + encodeURIComponent(det) : '') + (a.local ? '&location=' + encodeURIComponent(a.local) : '');
+  }
+  function abrirAtividade(id) {
+    var a = atv.lista.find(function (x) { return x.id === id; }); if (!a) return;
+    var ed = podeEditarAtv(a), r = pessoaAtv(a.responsavel), criador = pessoaAtv(a.criado_por);
+    var ps = (a.participantes || []).map(pessoaAtv).filter(Boolean);
+    var dentro = abrirDlg('<div class="atv-det"><div class="m-dlg-topo"><div><span class="atv-tipo">' + esc(tm('ta_' + a.tipo)) + '</span>' + (a.publico ? ' <span class="atv-tipo pub">' + tm('no_site') + '</span>' : '') +
+      '<h2>' + esc(a.titulo) + '</h2></div><button type="button" class="visor-x" data-fechar aria-label="' + esc(t('fechar')) + '">×</button></div>' +
+      '<div class="atv-det-acoes">' + (ed ? '<label class="atv-st-grande">' + tm('situacao') + '<select id="d-status" style="--cor:' + COR_ST[a.status] + '">' + ST_ATV.map(function (s) { return '<option value="' + s + '"' + (a.status === s ? ' selected' : '') + '>' + esc(tm('st_' + s)) + '</option>'; }).join('') + '</select></label>' : pilulaSt(a.status)) +
+      (url(a.link_meet) ? '<a class="botao" href="' + url(a.link_meet) + '" target="_blank" rel="noopener">' + tm('entrar_meet') + '</a>' : '') +
+      '<a class="botao contorno" href="' + esc(linkGoogle(a)) + '" target="_blank" rel="noopener">' + ICO_CAL + tm('add_google') + '</a>' +
+      (ed ? '<button type="button" class="botao contorno" id="d-editar">' + tm('editar') + '</button>' : '') +
+      (podeApagarAtv(a) ? '<button type="button" class="m-link m-perigo" id="d-apagar">' + tm('apagar') + '</button>' : '') + '</div>' +
+      '<dl class="atv-ficha"><dt>' + tm('quando') + '</dt><dd>' + esc(quandoAtv(a)) + '</dd>' +
+      '<dt>' + tm('responsavel') + '</dt><dd>' + (r ? miniAvatar(r) + esc(r.nome) : '—') + '</dd>' +
+      '<dt>' + tm('participantes') + '</dt><dd>' + (ps.length ? ps.map(function (p) { return '<span class="atv-chip">' + miniAvatar(p) + esc(p.nome) + '</span>'; }).join(' ') : '—') + '</dd>' +
+      '<dt>' + tm('prioridade') + '</dt><dd>' + esc(tm('pr_' + a.prioridade)) + '</dd>' +
+      (a.local ? '<dt>' + tm('a_local') + '</dt><dd>' + esc(a.local) + '</dd>' : '') +
+      (criador ? '<dt>' + tm('criado_por') + '</dt><dd>' + esc(criador.nome) + ' · ' + esc(dataFmt(String(a.criado_em).slice(0, 10))) + '</dd>' : '') + '</dl>' +
+      (a.descricao ? '<div class="atv-desc">' + textoComMencoes(a.descricao) + '</div>' : '') +
+      '<section class="atv-sec"><h3>' + tm('anexos') + '</h3><ul class="atv-anexos" id="d-anexos"><li class="meta">' + t('carregando') + '</li></ul>' +
+      '<div class="atv-anexar"><label class="botao contorno m-arquivo">' + tm('anexar_arq') + '<input type="file" id="d-arq"></label>' +
+      '<button type="button" class="botao contorno" id="d-link-bt">' + tm('anexar_link') + '</button><small>' + tm('dica_anexo') + '</small></div>' +
+      '<form id="d-link-form" class="atv-link-form" hidden><input id="d-link-nome" placeholder="' + esc(tm('ph_link_nome')) + '"><input id="d-link-url" type="url" placeholder="https://drive.google.com/…"><button type="submit" class="botao">' + tm('salvar') + '</button></form></section>' +
+      '<section class="atv-sec"><h3>' + tm('comentarios') + '</h3><ul class="atv-coms" id="d-coms"><li class="meta">' + t('carregando') + '</li></ul>' +
+      '<form id="d-com-form" class="atv-com-form">' + miniAvatar(perfilAtual) + '<div class="mencao-caixa"><textarea id="d-com" rows="2" placeholder="' + esc(tm('ph_com')) + '"></textarea></div><button type="submit" class="botao">' + tm('enviar') + '</button></form></section>' +
+      '<p class="m-aviso" hidden></p></div>', true);
+    var st = document.getElementById('d-status');
+    if (st) st.addEventListener('change', function () { mudarAtv(a.id, { status: st.value }).then(function (n) { if (n) { a = n; st.style.setProperty('--cor', COR_ST[n.status]); } }); });
+    var bEd = document.getElementById('d-editar'); if (bEd) bEd.addEventListener('click', function () { formAtividade(a); });
+    var bAp = document.getElementById('d-apagar'), conf = false;
+    if (bAp) bAp.addEventListener('click', function () {
+      if (!conf) { conf = true; bAp.textContent = tm('confirmar_apagar'); return; }
+      sb.from('atividades').delete().eq('id', a.id).then(function (rr) {
+        if (rr.error) return aviso(tm('erro') + rr.error.message, 'erro', dentro);
+        atv.lista = atv.lista.filter(function (x) { return x.id !== a.id; }); dlgAtv().close(); desenharAtv();
+      });
+    });
+    caixaMencao(document.getElementById('d-com'), null, true);
+    carregarComentarios(a); carregarAnexos(a);
+    document.getElementById('d-com-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      var ta = document.getElementById('d-com'), txt = ta.value.trim(); if (!txt) return;
+      var b = e.target.querySelector('button'); b.disabled = true;
+      sb.from('atividade_comentarios').insert({ atividade_id: a.id, autor: eu(), texto: txt, mencoes: mencoesNoTexto(txt) }).then(function (rr) {
+        b.disabled = false;
+        if (rr.error) return aviso(tm('erro') + rr.error.message, 'erro', dentro);
+        ta.value = ''; carregarComentarios(a);
+      });
+    });
+    document.getElementById('d-arq').addEventListener('change', function (e) {
+      var f = e.target.files[0]; if (!f) return;
+      if (f.size > 10485760) return aviso(tm('arq_grande'), 'erro', dentro);
+      aviso(tm('enviando'), '', dentro);
+      var nomeLimpo = f.name.normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^\w.\-]+/g, '_');
+      var caminho = a.id + '/' + eu() + '/' + Date.now() + '-' + nomeLimpo;
+      sb.storage.from('anexos').upload(caminho, f, { contentType: f.type || 'application/octet-stream' }).then(function (rr) {
+        if (rr.error) throw rr.error;
+        return sb.from('atividade_anexos').insert({ atividade_id: a.id, nome: f.name, caminho: caminho, tamanho: f.size, autor: eu() });
+      }).then(function (rr) { if (rr.error) throw rr.error; aviso('', '', dentro); carregarAnexos(a); })
+        .catch(function (er) { aviso(tm('erro') + (er.message || er), 'erro', dentro); });
+    });
+    var lf = document.getElementById('d-link-form');
+    document.getElementById('d-link-bt').addEventListener('click', function () { lf.hidden = !lf.hidden; if (!lf.hidden) document.getElementById('d-link-url').focus(); });
+    lf.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var u = document.getElementById('d-link-url').value.trim(), n = document.getElementById('d-link-nome').value.trim();
+      if (!u) return;
+      if (!/^https?:\/\//.test(u)) u = 'https://' + u;
+      sb.from('atividade_anexos').insert({ atividade_id: a.id, nome: n || u, link: u, autor: eu() }).then(function (rr) {
+        if (rr.error) return aviso(tm('erro') + rr.error.message, 'erro', dentro);
+        lf.reset(); lf.hidden = true; carregarAnexos(a);
+      });
+    });
+  }
+  function quandoCom(ts) {
+    var d = new Date(ts); if (isNaN(d)) return '';
+    return d.toLocaleDateString(lang === 'en' ? 'en-GB' : 'pt-BR', { day: 'numeric', month: 'short' }) + ', ' + d.toLocaleTimeString(lang === 'en' ? 'en-GB' : 'pt-BR', { hour: '2-digit', minute: '2-digit' });
+  }
+  function carregarComentarios(a) {
+    sb.from('atividade_comentarios').select('*').eq('atividade_id', a.id).order('criado_em').then(function (r) {
+      var ul = document.getElementById('d-coms'); if (!ul) return;
+      if (r.error) { ul.innerHTML = '<li class="aviso">' + esc(r.error.message) + '</li>'; return; }
+      ul.innerHTML = r.data.length ? r.data.map(function (c) {
+        var p = pessoaAtv(c.autor) || { id: c.autor, nome: '?' };
+        return '<li class="atv-com">' + miniAvatar(p) + '<div><span class="atv-com-topo"><b>' + esc(p.nome) + '</b> <span class="meta">' + esc(quandoCom(c.criado_em)) + '</span>' +
+          (c.autor === eu() || souCoord() ? ' <button type="button" class="m-link m-perigo" data-apagar-com="' + esc(c.id) + '">' + tm('apagar') + '</button>' : '') + '</span>' +
+          '<p>' + textoComMencoes(c.texto) + '</p></div></li>';
+      }).join('') : '<li class="meta">' + tm('sem_com') + '</li>';
+      ul.querySelectorAll('[data-apagar-com]').forEach(function (b) {
+        var conf = false;
+        b.addEventListener('click', function () {
+          if (!conf) { conf = true; b.textContent = tm('confirmar_apagar'); return; }
+          sb.from('atividade_comentarios').delete().eq('id', b.getAttribute('data-apagar-com')).then(function () { carregarComentarios(a); });
+        });
+      });
+    });
+  }
+  function tamanhoFmt(n) { return n > 1048576 ? (n / 1048576).toFixed(1).replace('.', ',') + ' MB' : Math.max(1, Math.round(n / 1024)) + ' KB'; }
+  function carregarAnexos(a) {
+    sb.from('atividade_anexos').select('*').eq('atividade_id', a.id).order('criado_em').then(function (r) {
+      var ul = document.getElementById('d-anexos'); if (!ul) return;
+      if (r.error) { ul.innerHTML = '<li class="aviso">' + esc(r.error.message) + '</li>'; return; }
+      ul.innerHTML = r.data.length ? r.data.map(function (x) {
+        var p = pessoaAtv(x.autor);
+        return '<li>' + (x.caminho ? '<button type="button" class="m-link" data-baixar="' + esc(x.caminho) + '">📎 ' + esc(x.nome) + '</button>' : '<a href="' + url(x.link) + '" target="_blank" rel="noopener">🔗 ' + esc(x.nome) + '</a>') +
+          '<span class="meta">' + [x.tamanho ? tamanhoFmt(x.tamanho) : '', p ? nomeCurto(p) : ''].filter(Boolean).join(' · ') + '</span>' +
+          (x.autor === eu() || souCoord() ? '<button type="button" class="m-link m-perigo" data-apagar-anx="' + esc(x.id) + '" data-cam="' + esc(x.caminho || '') + '">' + tm('apagar') + '</button>' : '') + '</li>';
+      }).join('') : '<li class="meta">' + tm('sem_anexos') + '</li>';
+      ul.querySelectorAll('[data-baixar]').forEach(function (b) {
+        b.addEventListener('click', function () {
+          sb.storage.from('anexos').createSignedUrl(b.getAttribute('data-baixar'), 3600).then(function (rr) {
+            if (rr.error) return avisoRapido(tm('erro') + rr.error.message);
+            window.open(rr.data.signedUrl, '_blank', 'noopener');
+          });
+        });
+      });
+      ul.querySelectorAll('[data-apagar-anx]').forEach(function (b) {
+        var conf = false;
+        b.addEventListener('click', function () {
+          if (!conf) { conf = true; b.textContent = tm('confirmar_apagar'); return; }
+          var cam = b.getAttribute('data-cam');
+          (cam ? sb.storage.from('anexos').remove([cam]) : Promise.resolve()).then(function () {
+            return sb.from('atividade_anexos').delete().eq('id', b.getAttribute('data-apagar-anx'));
+          }).then(function () { carregarAnexos(a); });
+        });
+      });
+    });
+  }
+
+  /* --- ligar ao Google Agenda pessoal (mão única: site → Google) --- */
+  function abrirSincronizacao() {
+    var dentro = abrirDlg('<div class="atv-sinc"><div class="m-dlg-topo"><h2>' + tm('sinc_tit') + '</h2><button type="button" class="visor-x" data-fechar aria-label="' + esc(t('fechar')) + '">×</button></div>' +
+      '<p class="lead">' + tm('sinc_lead') + '</p><div id="sinc-corpo"><p class="meta">' + t('carregando') + '</p></div></div>', true);
+    function obterToken(novo) {
+      var me = eu();
+      var antes = novo ? sb.from('agenda_tokens').delete().eq('perfil_id', me) : Promise.resolve();
+      return antes.then(function () { return sb.from('agenda_tokens').select('token').eq('perfil_id', me).maybeSingle(); }).then(function (r) {
+        if (r.error) throw r.error;
+        if (r.data && r.data.token) return r.data.token;
+        return sb.from('agenda_tokens').insert({ perfil_id: me }).select('token').single().then(function (rr) { if (rr.error) throw rr.error; return rr.data.token; });
+      });
+    }
+    function mostrar(token) {
+      var base = String((D.membros || {}).supabase_url || '').replace(/\/$/, '') + '/functions/v1/agenda-ics?t=' + token;
+      var bloco = function (rot, link) {
+        return '<div class="sinc-link"><span class="rot">' + rot + '</span><div class="sinc-linha"><input readonly value="' + esc(link) + '" onclick="this.select()"><button type="button" class="botao" data-copiar="' + esc(link) + '">' + t('copiar_link') + '</button></div></div>';
+      };
+      document.getElementById('sinc-corpo').innerHTML =
+        bloco(tm('sinc_minhas'), base) + (souCoord() ? bloco(tm('sinc_todas'), base + '&todas=1') : '') +
+        '<ol class="passos"><li>' + tm('sinc_p1') + '</li><li>' + tm('sinc_p2') + ' <a href="https://calendar.google.com/calendar/u/0/r/settings/addbyurl" target="_blank" rel="noopener">' + tm('sinc_abrir') + '</a></li><li>' + tm('sinc_p3') + '</li><li>' + tm('sinc_p4') + '</li></ol>' +
+        '<p class="aviso">' + tm('sinc_obs') + '</p>' +
+        '<p class="meta">' + tm('sinc_seg') + ' <button type="button" class="m-link" id="sinc-novo">' + tm('sinc_novo') + '</button></p>';
+      dentro.querySelectorAll('[data-copiar]').forEach(function (b) { b.addEventListener('click', function () { copiarTexto(b.getAttribute('data-copiar')).then(function () { avisoRapido(t('link_copiado')); }); }); });
+      var conf = false, bn = document.getElementById('sinc-novo');
+      bn.addEventListener('click', function () {
+        if (!conf) { conf = true; bn.textContent = tm('sinc_novo_conf'); return; }
+        obterToken(true).then(mostrar);
+      });
+    }
+    obterToken(false).then(mostrar).catch(function (e) { document.getElementById('sinc-corpo').innerHTML = '<p class="aviso">' + esc(tm('erro') + (e.message || e)) + '</p>'; });
+  }
+
+  /* =================== GUIA DA COORDENAÇÃO (só aparece para a coordenação) =================== */
+  var GUIA = {
+    aprovar: ['Aprovar quem se cadastrou', [
+      'Quando alguém cria uma conta, aparece um número vermelho na aba <b>Equipe e permissões</b>.',
+      'Clique nessa aba. No alto da página fica a lista <b>Aguardando aprovação</b>.',
+      'Confira o nome e o e-mail. Se a pessoa é mesmo do grupo, clique em <b>Aprovar</b>. Se não for, clique em <b>Recusar</b>.',
+      'Pronto: a pessoa aprovada já consegue entrar e usar a área de membros. Ela não recebe e-mail avisando; se quiser, mande uma mensagem dizendo que já pode entrar.'
+    ]],
+    permissoes: ['Dar ou tirar permissões', [
+      'Na aba <b>Equipe e permissões</b>, procure a pessoa na lista <b>Pessoas com conta</b>.',
+      'Embaixo do nome aparecem os botões <b>Biblioteca, Agenda, Banco de dados, Equipe, Projetos e Notícias</b>.',
+      'Clique num botão para <b>liberar</b> aquela área (ele fica azul). Clique de novo para <b>retirar</b> (ele fica branco). Salva sozinho.',
+      'O que cada um permite: <b>Agenda</b> = publicar atividades na agenda pública do site; <b>Equipe</b> = editar o perfil dos colegas e cadastrar egressos; as outras áreas serão usadas nas próximas etapas.',
+      'Você, como coordenação, já pode tudo. Não precisa marcar nada para você.'
+    ]],
+    coord: ['Colocar outra pessoa na coordenação', [
+      'Na lista <b>Pessoas com conta</b>, ache a pessoa.',
+      'No campo <b>Papel</b>, troque de <b>Membro</b> para <b>Coordenação</b>.',
+      'Essa pessoa passa a poder tudo, igual a você. Use só para quem vai dividir a coordenação.'
+    ]],
+    concluir: ['Quando alguém defender ou sair do grupo', [
+      'Na aba <b>Equipe e permissões</b>, ache a pessoa.',
+      'No campo <b>Situação</b>, escolha <b>Concluído · acesso encerrado</b>.',
+      'A pessoa deixa de editar o site e perde as permissões. O perfil e a trajetória dela continuam na página pública <b>Equipe</b>, agora como egressa.',
+      'Depois, clique em <b>Editar</b> ao lado do nome e preencha <b>Defesa realizada (mês/ano)</b>. Clique em <b>Salvar</b>. A defesa passa a aparecer na linha do tempo.',
+      'A <b>defesa prevista</b> só você e a própria pessoa veem. Ela nunca aparece no site nem na linha do tempo.'
+    ]],
+    externas: ['Cadastrar egressos e pessoas sem conta', [
+      'Abra a aba <b>Pessoas sem conta</b>.',
+      'Clique em <b>+ Adicionar pessoa</b>.',
+      'Preencha o nome e o que souber: nível, vínculo, ano de entrada, data da defesa, links. Em <b>Situação</b>, deixe <b>Egresso</b> para quem já saiu.',
+      'Clique em <b>Salvar</b>. A janela continua aberta: agora você pode clicar em <b>Trocar foto</b> e escolher a foto da pessoa.',
+      'Para corrigir depois, clique em <b>Editar</b> ao lado do nome. Para tirar alguém do site, clique em Editar → <b>Apagar</b> e clique de novo para confirmar.'
+    ]],
+    editar: ['Corrigir os dados ou a foto de alguém', [
+      'Na aba <b>Equipe e permissões</b> (para quem tem conta) ou <b>Pessoas sem conta</b> (egressos), clique em <b>Editar</b> ao lado do nome.',
+      'Mude o que precisar e clique em <b>Salvar</b>.',
+      'Para a foto, clique em <b>Trocar foto</b> e escolha a imagem no computador. Ela é cortada e reduzida sozinha.',
+      'O que está no cadastro sempre vale mais do que o que o site busca sozinho no ORCID.'
+    ]],
+    atividades: ['Acompanhar e criar atividades para a equipe', [
+      'Abra a aba <b>Atividades</b>. Em <b>Mostrar</b>, escolha <b>Todas</b> para ver o grupo inteiro, ou o nome de uma pessoa para ver só as dela.',
+      'Troque a visualização em <b>Lista</b> (por prazo), <b>Quadro</b> (colunas por situação) ou <b>Calendário</b> (mês).',
+      'Para criar uma atividade para alguém: clique em <b>+ Nova atividade</b>, preencha o título e a data e, em <b>Responsável</b>, escolha a pessoa. Só a coordenação pode escolher outra pessoa como responsável.',
+      'Clique em qualquer atividade para abrir: ali você muda a situação, edita, comenta e vê os anexos de todo mundo.'
+    ]],
+    comentar: ['Comentar e marcar pessoas com @', [
+      'Abra a atividade e desça até <b>Comentários</b>.',
+      'Escreva o comentário. Para marcar alguém, digite <b>@</b> e o começo do nome; escolha a pessoa na lista que aparece.',
+      'Clique em <b>Enviar</b>. O nome marcado fica destacado. (O aviso por e-mail para quem foi marcado é a próxima etapa.)'
+    ]],
+    publicar: ['Publicar uma atividade na agenda pública do site', [
+      'Ao criar ou editar uma atividade, marque <b>Mostrar na agenda pública do site</b>.',
+      'Use para eventos abertos: lives, seminários, defesas abertas, eventos que o grupo organiza.',
+      'O título, a data, o horário, o local e a descrição aparecem na página <b>Agenda</b> do site. O link do Meet, os comentários e os anexos <b>não</b> aparecem.',
+      'Para dar essa possibilidade a outra pessoa, libere a permissão <b>Agenda</b> para ela.'
+    ]],
+    google: ['Ver as atividades no seu Google Agenda', [
+      'Na aba <b>Atividades</b>, clique em <b>Ligar ao meu Google Agenda</b>.',
+      'Copie o link. Você tem dois: <b>só as minhas</b> e <b>todas do grupo</b>.',
+      'Clique em <b>Abrir o Google Agenda</b>, cole o link no campo <b>URL da agenda</b> e clique em <b>Adicionar agenda</b>.',
+      'Pronto. O que for criado no site aparece no seu Google Agenda (o Google atualiza sozinho, de algumas em algumas horas). O que está na sua agenda pessoal <b>não</b> vem para o site.'
+    ]],
+    senha: ['Se alguém esqueceu a senha', [
+      'Peça para a pessoa clicar em <b>Esqueci minha senha</b> na tela de entrar.',
+      'Ela recebe um e-mail com um link para criar uma senha nova.',
+      'Se o e-mail não chegar, peça para olhar a caixa de spam. O serviço gratuito manda poucos e-mails por hora; se muita gente pedir ao mesmo tempo, espere um pouco.'
+    ]]
+  };
+  function guiaCoord(chaves, aberto) {
+    return '<div class="guia"><p class="guia-tit">' + ICO_GUIA + tm('guia_curto') + '</p>' + chaves.map(function (k) {
+      var g = GUIA[k];
+      return '<details class="guia-item"' + (aberto ? ' open' : '') + '><summary>' + g[0] + '</summary><ol>' + g[1].map(function (p) { return '<li>' + p + '</li>'; }).join('') + '</ol></details>';
+    }).join('') + '</div>';
+  }
+  var ICO_GUIA = '<svg viewBox="0 0 24 24" aria-hidden="true" class="ico"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>';
+  function telaGuia() {
+    document.getElementById('m-corpo').innerHTML = '<div class="guia-pagina"><p class="lead">' + tm('guia_lead') + '</p>' +
+      '<h2>' + tm('guia_pessoas') + '</h2>' + guiaCoord(['aprovar', 'permissoes', 'concluir', 'externas', 'editar', 'coord', 'senha']) +
+      '<h2>' + tm('guia_atv') + '</h2>' + guiaCoord(['atividades', 'comentar', 'publicar', 'google']) + '</div>';
   }
 
   P.contato = function () {
@@ -1959,7 +2628,7 @@
       .then(function (j) { D[k] = j || {}; });
   })).then(function () {
     aplicarIdioma();
-    carregarEquipePublica().then(function () {
+    Promise.all([carregarEquipePublica(), carregarAgendaSite()]).then(function () {
       window.addEventListener('hashchange', function () { rota(); });
       rota();
       ligarAbertura();
