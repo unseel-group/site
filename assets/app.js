@@ -78,6 +78,7 @@
       ag_vazio: 'Nenhum compromisso agendado.', ag_dia_vazio: 'Nada marcado neste dia.', ag_mes_ant: 'Mês anterior', ag_mes_prox: 'Próximo mês', ag_hoje: 'Hoje',
       ag_proximos: 'Próximos compromissos', ag_google: 'Abrir na Agenda Google', ag_sinc: 'Sincronizado com a Agenda Google em ', ag_comp: 'compromissos', ag_ver: 'Ver calendário completo →', ag_dica: 'Passe o mouse ou toque num dia para ver os detalhes. Feriados em vermelho.',
       ag_feriado: 'Feriados', ag_prox_fer: 'Próximo feriado', fer_nacional: 'Feriado nacional', fer_sp: 'Feriado estadual (SP)', fer_sjc: 'Feriado municipal (São José dos Campos)', fer_facultativo: 'Ponto facultativo',
+      nav_membros: 'Área de membros',
       ultimas: 'Últimas notícias'
     },
     en: {
@@ -142,6 +143,7 @@
       ag_vazio: 'Nothing scheduled.', ag_dia_vazio: 'Nothing on this day.', ag_mes_ant: 'Previous month', ag_mes_prox: 'Next month', ag_hoje: 'Today',
       ag_proximos: 'Coming up', ag_google: 'Open in Google Calendar', ag_sinc: 'Synced with Google Calendar on ', ag_comp: 'events', ag_ver: 'Full calendar →', ag_dica: 'Hover over or tap a day to see the details. Holidays in red.',
       ag_feriado: 'Holidays', ag_prox_fer: 'Next holiday', fer_nacional: 'National holiday', fer_sp: 'State holiday (São Paulo)', fer_sjc: 'Municipal holiday (São José dos Campos)', fer_facultativo: 'Optional day off (public sector)',
+      nav_membros: 'Members area',
       ultimas: 'Latest news'
     }
   };
@@ -1270,6 +1272,326 @@
   }
 
 
+  /* =================== ÁREA DE MEMBROS (Supabase) =================== */
+  var TM = {
+    pt: {
+      area: 'Área de membros', entrar: 'Entrar', criar: 'Criar conta', sair: 'Sair', email: 'E-mail', senha: 'Senha', nome: 'Nome completo',
+      nivel: 'Nível', vinculo: 'Vínculo (pode marcar mais de um)', outro: 'Outro', qual: 'Qual instituição?', tema: 'Tema de pesquisa', lattes: 'Link do Lattes', orcid: 'ORCID (só o número)', researchgate: 'Link do ResearchGate',
+      senha_regra: 'Mínimo de 8 caracteres.', esqueci: 'Esqueci minha senha', enviar_link: 'Enviar link para redefinir', voltar_entrar: 'Voltar para entrar',
+      nao_config: 'A área de membros ainda não foi ligada ao Supabase. Veja a seção "Área de membros" do LEIA-ME.',
+      erro_conexao: 'Não foi possível conectar à área de membros agora. Tente de novo em instantes.',
+      intro: 'Espaço interno do UNSEEL. Novos cadastros ficam aguardando aprovação da coordenação.',
+      conta_criada: 'Conta criada! Seu cadastro agora aguarda a aprovação da coordenação.', confira_email: 'Conta criada! Confira seu e-mail para confirmar o cadastro e depois entre aqui.',
+      link_enviado: 'Se houver uma conta com esse e-mail, você vai receber um link para criar uma nova senha.',
+      nova_senha: 'Crie uma nova senha', salvar_senha: 'Salvar nova senha', senha_ok: 'Senha alterada.',
+      pendente_tit: 'Cadastro aguardando aprovação', pendente: 'Recebemos seu cadastro. Assim que a coordenação aprovar, você terá acesso à área de membros. Enquanto isso, já pode completar seu perfil.',
+      recusado: 'Seu cadastro não foi aprovado. Em caso de dúvida, fale com a coordenação do grupo.',
+      ola: 'Olá, ', meu_perfil: 'Meu perfil', membros: 'Membros', aprovacoes: 'Aprovações', salvar: 'Salvar', salvo: 'Perfil salvo.', salvando: 'Salvando…',
+      foto: 'Foto', trocar_foto: 'Trocar foto', foto_dica: 'JPG, PNG ou WebP. A foto é reduzida automaticamente.', foto_ok: 'Foto atualizada.',
+      sem_pendentes: 'Nenhum cadastro aguardando aprovação.', aprovar: 'Aprovar', recusar: 'Recusar', todos_membros: 'Todos os cadastros', papel: 'Papel', situacao: 'Situação',
+      membro: 'Membro', coordenacao: 'Coordenação', st_pendente: 'Pendente', st_aprovado: 'Aprovado', st_recusado: 'Recusado', desde: 'Cadastro em ',
+      erro: 'Algo deu errado: ', obrigatorio: 'Preencha nome, e-mail e senha.', em_breve: 'Em breve: agenda interna, projetos, arquivos e menções.'
+    },
+    en: {
+      area: 'Members area', entrar: 'Sign in', criar: 'Create account', sair: 'Sign out', email: 'Email', senha: 'Password', nome: 'Full name',
+      nivel: 'Level', vinculo: 'Affiliation (tick all that apply)', outro: 'Other', qual: 'Which institution?', tema: 'Research topic', lattes: 'Lattes link', orcid: 'ORCID (number only)', researchgate: 'ResearchGate link',
+      senha_regra: 'At least 8 characters.', esqueci: 'Forgot my password', enviar_link: 'Send reset link', voltar_entrar: 'Back to sign in',
+      nao_config: 'The members area is not connected to Supabase yet. See the "Área de membros" section of the README.',
+      erro_conexao: 'Could not reach the members area right now. Please try again shortly.',
+      intro: "UNSEEL's internal space. New accounts wait for approval by the coordinator.",
+      conta_criada: 'Account created! It now awaits approval by the coordinator.', confira_email: 'Account created! Check your email to confirm it, then sign in here.',
+      link_enviado: 'If an account exists for this email, you will receive a link to set a new password.',
+      nova_senha: 'Set a new password', salvar_senha: 'Save new password', senha_ok: 'Password changed.',
+      pendente_tit: 'Awaiting approval', pendente: 'We received your registration. Once the coordinator approves it, you will have access. Meanwhile you can complete your profile.',
+      recusado: 'Your registration was not approved. If in doubt, contact the group coordinator.',
+      ola: 'Hello, ', meu_perfil: 'My profile', membros: 'Members', aprovacoes: 'Approvals', salvar: 'Save', salvo: 'Profile saved.', salvando: 'Saving…',
+      foto: 'Photo', trocar_foto: 'Change photo', foto_dica: 'JPG, PNG or WebP. The photo is resized automatically.', foto_ok: 'Photo updated.',
+      sem_pendentes: 'No registrations awaiting approval.', aprovar: 'Approve', recusar: 'Decline', todos_membros: 'All accounts', papel: 'Role', situacao: 'Status',
+      membro: 'Member', coordenacao: 'Coordinator', st_pendente: 'Pending', st_aprovado: 'Approved', st_recusado: 'Declined', desde: 'Registered on ',
+      erro: 'Something went wrong: ', obrigatorio: 'Please fill in name, email and password.', em_breve: 'Coming soon: internal calendar, projects, files and mentions.'
+    }
+  };
+  function tm(k) { return (TM[lang] && TM[lang][k]) || TM.pt[k] || k; }
+  var sb = null, sbPromessa = null, perfilAtual = null, abaMembros = 'perfil', modoEntrar = 'entrar', recuperando = false;
+
+  function carregarSupabase() {
+    if (sb) return Promise.resolve(sb);
+    if (sbPromessa) return sbPromessa;
+    var cfg = D.membros || {};
+    if (!/^https:\/\//.test(cfg.supabase_url || '') || !cfg.supabase_anon_key) return Promise.reject(new Error('config'));
+    sbPromessa = new Promise(function (ok, falha) {
+      function criar() {
+        try {
+          sb = window.supabase.createClient(cfg.supabase_url, cfg.supabase_anon_key, { auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: true } });
+          sb.auth.onAuthStateChange(function (evento) {
+            if (evento === 'PASSWORD_RECOVERY') { recuperando = true; if (location.hash.indexOf('#/membros') !== 0) location.hash = '#/membros'; else iniciarMembros(); }
+            if (evento === 'SIGNED_OUT') { perfilAtual = null; }
+          });
+          ok(sb);
+        } catch (e) { falha(e); }
+      }
+      if (window.supabase && window.supabase.createClient) return criar();
+      var s = document.createElement('script');
+      s.src = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js';
+      s.onload = criar;
+      s.onerror = function () { sbPromessa = null; falha(new Error('script')); };
+      document.head.appendChild(s);
+    });
+    return sbPromessa;
+  }
+
+  P.membros = function () {
+    setTimeout(iniciarMembros, 0);
+    return '<section class="secao membros"><p class="olho">UNSEEL</p><h1>' + tm('area') + '</h1>' +
+      '<div id="m-area" aria-live="polite"><p class="meta">' + t('carregando') + '</p></div></section>';
+  };
+  function caixa() { return document.getElementById('m-area'); }
+  function aviso(msg, tipo) {
+    var el = document.getElementById('m-aviso');
+    if (el) { el.textContent = msg; el.className = 'm-aviso ' + (tipo || ''); el.hidden = !msg; }
+  }
+  function iniciarMembros() {
+    if (!caixa()) return;
+    carregarSupabase().then(function () {
+      return sb.auth.getSession();
+    }).then(function (r) {
+      var sessao = r && r.data && r.data.session;
+      if (recuperando && sessao) return telaNovaSenha();
+      if (!sessao) return telaEntrar();
+      return carregarPerfil(sessao.user);
+    }).catch(function (e) {
+      caixa().innerHTML = '<p class="aviso">' + esc(e && e.message === 'config' ? tm('nao_config') : tm('erro_conexao')) + '</p>';
+    });
+  }
+
+
+  var VINCULOS = ['Cemaden', 'UNESP', 'INPE'];
+  function campoVinculo(px, atual) {
+    var partes = String(atual || '').split(/\s*[·,;]\s*/).filter(Boolean);
+    var outros = partes.filter(function (x) { return VINCULOS.indexOf(x) < 0; }).join(', ');
+    return '<fieldset class="m-vinculo"><legend>' + tm('vinculo') + '</legend><div class="m-opcoes">' +
+      VINCULOS.map(function (v) { return '<label class="m-check"><input type="checkbox" name="' + px + '-vinc" value="' + v + '"' + (partes.indexOf(v) >= 0 ? ' checked' : '') + '> ' + v + '</label>'; }).join('') +
+      '<label class="m-check"><input type="checkbox" id="' + px + '-vinc-outro"' + (outros ? ' checked' : '') + '> ' + tm('outro') + '</label></div>' +
+      '<input id="' + px + '-vinc-qual" placeholder="' + esc(tm('qual')) + '" value="' + esc(outros) + '"' + (outros ? '' : ' hidden') + '></fieldset>';
+  }
+  function ligarVinculo(px) {
+    var cb = document.getElementById(px + '-vinc-outro'), qual = document.getElementById(px + '-vinc-qual');
+    if (cb) cb.addEventListener('change', function () { qual.hidden = !cb.checked; if (cb.checked) qual.focus(); });
+  }
+  function lerVinculo(px) {
+    var v = Array.prototype.map.call(document.querySelectorAll('input[name="' + px + '-vinc"]:checked'), function (x) { return x.value; });
+    var cb = document.getElementById(px + '-vinc-outro'), qual = document.getElementById(px + '-vinc-qual');
+    if (cb && cb.checked && qual.value.trim()) v.push(qual.value.trim());
+    return v.join(' · ');
+  }
+  var NIVEIS_OPC = ['doutorado', 'mestrado', 'iniciacao', 'pesquisador', 'assistente', 'coordenacao'];
+  function selNivel(id, atual) {
+    var nv = t('nivel1');
+    return '<select id="' + id + '"><option value="">—</option>' + NIVEIS_OPC.map(function (k) { return '<option value="' + k + '"' + (atual === k ? ' selected' : '') + '>' + esc(nv[k]) + '</option>'; }).join('') + '</select>';
+  }
+
+  function telaEntrar() {
+    var criar = modoEntrar === 'criar', esqueci = modoEntrar === 'esqueci';
+    caixa().innerHTML = '<p class="lead">' + tm('intro') + '</p>' +
+      '<div class="m-cartao">' +
+      (esqueci ? '' : '<div class="abas" role="tablist"><button type="button" role="tab" data-modo="entrar" aria-selected="' + !criar + '">' + tm('entrar') + '</button><button type="button" role="tab" data-modo="criar" aria-selected="' + criar + '">' + tm('criar') + '</button></div>') +
+      '<form id="m-form" class="m-form" novalidate>' +
+      (criar ? '<label>' + tm('nome') + '<input id="m-nome" autocomplete="name" required></label>' : '') +
+      '<label>' + tm('email') + '<input id="m-email" type="email" autocomplete="email" required></label>' +
+      (esqueci ? '' : '<label>' + tm('senha') + '<input id="m-senha" type="password" minlength="8" autocomplete="' + (criar ? 'new-password' : 'current-password') + '" required>' + (criar ? '<small>' + tm('senha_regra') + '</small>' : '') + '</label>') +
+      (criar ? '<label>' + tm('nivel') + selNivel('m-nivel', '') + '</label>' + campoVinculo('c', '') : '') +
+      '<p id="m-aviso" class="m-aviso" hidden></p>' +
+      '<button type="submit" class="botao">' + (esqueci ? tm('enviar_link') : criar ? tm('criar') : tm('entrar')) + '</button>' +
+      (esqueci ? '<button type="button" class="m-link" data-modo="entrar">' + tm('voltar_entrar') + '</button>' : (!criar ? '<button type="button" class="m-link" data-modo="esqueci">' + tm('esqueci') + '</button>' : '')) +
+      '</form></div>';
+    caixa().querySelectorAll('[data-modo]').forEach(function (b) { b.addEventListener('click', function () { modoEntrar = b.getAttribute('data-modo'); telaEntrar(); }); });
+    if (criar) ligarVinculo('c');
+    document.getElementById('m-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      var email = document.getElementById('m-email').value.trim();
+      var btn = e.target.querySelector('[type=submit]'); btn.disabled = true;
+      var fim = function () { btn.disabled = false; };
+      if (esqueci) {
+        sb.auth.resetPasswordForEmail(email, { redirectTo: location.origin + location.pathname + '#/membros' })
+          .then(function () { aviso(tm('link_enviado'), 'ok'); fim(); });
+        return;
+      }
+      var senha = document.getElementById('m-senha').value;
+      if (criar) {
+        var nome = document.getElementById('m-nome').value.trim();
+        if (!nome || !email || senha.length < 8) { aviso(tm('obrigatorio') + ' ' + tm('senha_regra'), 'erro'); fim(); return; }
+        sb.auth.signUp({ email: email, password: senha, options: { data: { nome: nome, nivel: document.getElementById('m-nivel').value, vinculo: lerVinculo('c') }, emailRedirectTo: location.origin + location.pathname + '#/membros' } })
+          .then(function (r) {
+            fim();
+            if (r.error) return aviso(tm('erro') + r.error.message, 'erro');
+            if (r.data && r.data.session) { aviso(tm('conta_criada'), 'ok'); setTimeout(iniciarMembros, 900); }
+            else aviso(tm('confira_email'), 'ok');
+          });
+      } else {
+        sb.auth.signInWithPassword({ email: email, password: senha }).then(function (r) {
+          fim();
+          if (r.error) return aviso(tm('erro') + r.error.message, 'erro');
+          iniciarMembros();
+        });
+      }
+    });
+  }
+
+  function telaNovaSenha() {
+    caixa().innerHTML = '<div class="m-cartao"><h2>' + tm('nova_senha') + '</h2><form id="m-form" class="m-form">' +
+      '<label>' + tm('senha') + '<input id="m-senha" type="password" minlength="8" autocomplete="new-password" required><small>' + tm('senha_regra') + '</small></label>' +
+      '<p id="m-aviso" class="m-aviso" hidden></p><button type="submit" class="botao">' + tm('salvar_senha') + '</button></form></div>';
+    document.getElementById('m-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      var s = document.getElementById('m-senha').value;
+      if (s.length < 8) return aviso(tm('senha_regra'), 'erro');
+      sb.auth.updateUser({ password: s }).then(function (r) {
+        if (r.error) return aviso(tm('erro') + r.error.message, 'erro');
+        recuperando = false; aviso(tm('senha_ok'), 'ok'); setTimeout(iniciarMembros, 900);
+      });
+    });
+  }
+
+  function carregarPerfil(user) {
+    return sb.from('perfis').select('*').eq('id', user.id).maybeSingle().then(function (r) {
+      if (r.error) throw r.error;
+      perfilAtual = r.data || { id: user.id, email: user.email, nome: '', status: 'pendente', papel: 'membro' };
+      telaPainel();
+    }).catch(function (e) { caixa().innerHTML = '<p class="aviso">' + esc(tm('erro') + (e.message || e)) + '</p>'; });
+  }
+
+  function fotoPerfil(p, grande) {
+    var f = url(p.foto_url);
+    return '<div class="avatar' + (grande ? ' grande' : '') + '" style="--cor:' + corPessoa(p.id) + '" aria-hidden="true">' + (f ? '<img src="' + f + '" alt="">' : iniciais(p.nome || p.email || '?')) + '</div>';
+  }
+
+  function telaPainel() {
+    var p = perfilAtual, coord = p.papel === 'coordenacao' && p.status === 'aprovado', aprovado = p.status === 'aprovado';
+    if (p.status === 'recusado') {
+      caixa().innerHTML = '<div class="m-cartao"><p>' + tm('recusado') + '</p><button type="button" class="botao contorno" id="m-sair">' + tm('sair') + '</button></div>';
+      document.getElementById('m-sair').addEventListener('click', sair); return;
+    }
+    if (!aprovado) abaMembros = 'perfil';
+    if (abaMembros === 'aprovacoes' && !coord) abaMembros = 'perfil';
+    var abas = [['perfil', tm('meu_perfil')]].concat(aprovado ? [['membros', tm('membros')]] : []).concat(coord ? [['aprovacoes', tm('aprovacoes') + ' <span class="m-badge" id="m-qtd"></span>']] : []);
+    caixa().innerHTML = '<div class="m-topo">' + fotoPerfil(p) + '<div><strong>' + esc(tm('ola') + (p.nome || p.email)) + '</strong><span class="meta">' + esc(coord ? tm('coordenacao') : tm('membro')) + ' · ' + esc(p.email) + '</span></div>' +
+      '<button type="button" class="botao contorno" id="m-sair">' + tm('sair') + '</button></div>' +
+      (!aprovado ? '<div class="aviso m-pendente"><strong>' + tm('pendente_tit') + '</strong><br>' + tm('pendente') + '</div>' : '') +
+      '<div class="abas" role="tablist">' + abas.map(function (a) { return '<button type="button" role="tab" data-aba-m="' + a[0] + '" aria-selected="' + (abaMembros === a[0]) + '">' + a[1] + '</button>'; }).join('') + '</div>' +
+      '<div id="m-corpo"></div>' + (aprovado ? '<p class="meta" style="margin-top:28px">' + tm('em_breve') + '</p>' : '');
+    document.getElementById('m-sair').addEventListener('click', sair);
+    caixa().querySelectorAll('[data-aba-m]').forEach(function (b) { b.addEventListener('click', function () { abaMembros = b.getAttribute('data-aba-m'); telaPainel(); }); });
+    if (coord) contarPendentes();
+    ({ perfil: telaPerfil, membros: telaMembros, aprovacoes: telaAprovacoes }[abaMembros] || telaPerfil)();
+  }
+  function sair() { sb.auth.signOut().then(function () { perfilAtual = null; modoEntrar = 'entrar'; iniciarMembros(); }); }
+
+  function telaPerfil() {
+    var p = perfilAtual;
+    var campo = function (id, rot, val, tipo) { return '<label>' + rot + '<input id="' + id + '" type="' + (tipo || 'text') + '" value="' + esc(val || '') + '"></label>'; };
+    document.getElementById('m-corpo').innerHTML = '<form id="m-perfil" class="m-form m-perfil">' +
+      '<div class="m-foto">' + fotoPerfil(p, true) + '<label class="botao contorno m-arquivo">' + tm('trocar_foto') + '<input id="m-foto" type="file" accept="image/jpeg,image/png,image/webp"></label><small>' + tm('foto_dica') + '</small></div>' +
+      '<div class="m-campos">' + campo('p-nome', tm('nome'), p.nome) + '<label>' + tm('nivel') + selNivel('p-nivel', p.nivel) + '</label>' +
+      campoVinculo('p', p.vinculo) + campo('p-tema', tm('tema'), p.tema) + campo('p-lattes', tm('lattes'), p.lattes, 'url') +
+      campo('p-orcid', tm('orcid'), p.orcid) + campo('p-rg', tm('researchgate'), p.researchgate, 'url') +
+      '<p id="m-aviso" class="m-aviso" hidden></p><button type="submit" class="botao">' + tm('salvar') + '</button></div></form>';
+    document.getElementById('m-foto').addEventListener('change', function (e) { var f = e.target.files[0]; if (f) enviarFoto(f); });
+    ligarVinculo('p');
+    document.getElementById('m-perfil').addEventListener('submit', function (e) {
+      e.preventDefault();
+      var v = function (id) { return document.getElementById(id).value.trim(); };
+      var dados = { nome: v('p-nome'), nivel: v('p-nivel'), vinculo: lerVinculo('p'), tema: v('p-tema'), lattes: v('p-lattes'), orcid: v('p-orcid').replace('https://orcid.org/', ''), researchgate: v('p-rg') };
+      aviso(tm('salvando'));
+      sb.from('perfis').update(dados).eq('id', p.id).select().single().then(function (r) {
+        if (r.error) return aviso(tm('erro') + r.error.message, 'erro');
+        perfilAtual = r.data; aviso(tm('salvo'), 'ok');
+      });
+    });
+  }
+
+  function reduzirFoto(arquivo) {
+    return new Promise(function (ok, falha) {
+      var img = new Image(), u = URL.createObjectURL(arquivo);
+      img.onload = function () {
+        var lado = 480, w = img.naturalWidth, h = img.naturalHeight, s = Math.min(w, h);
+        var c = document.createElement('canvas'); c.width = lado; c.height = lado;
+        c.getContext('2d').drawImage(img, (w - s) / 2, (h - s) / 2, s, s, 0, 0, lado, lado);
+        URL.revokeObjectURL(u);
+        c.toBlob(function (b) { b ? ok(b) : falha(new Error('foto')); }, 'image/jpeg', 0.85);
+      };
+      img.onerror = function () { URL.revokeObjectURL(u); falha(new Error('foto')); };
+      img.src = u;
+    });
+  }
+  function enviarFoto(arquivo) {
+    var p = perfilAtual, caminhoFoto = p.id + '/perfil.jpg';
+    aviso(tm('salvando'));
+    reduzirFoto(arquivo).then(function (blob) {
+      return sb.storage.from('fotos').upload(caminhoFoto, blob, { upsert: true, contentType: 'image/jpeg', cacheControl: '60' });
+    }).then(function (r) {
+      if (r.error) throw r.error;
+      var pub = sb.storage.from('fotos').getPublicUrl(caminhoFoto).data.publicUrl + '?v=' + Date.now();
+      return sb.from('perfis').update({ foto_url: pub }).eq('id', p.id).select().single();
+    }).then(function (r) {
+      if (r.error) throw r.error;
+      perfilAtual = r.data; telaPainel(); aviso(tm('foto_ok'), 'ok');
+    }).catch(function (e) { aviso(tm('erro') + (e.message || e), 'erro'); });
+  }
+
+  function telaMembros() {
+    var alvo = document.getElementById('m-corpo');
+    alvo.innerHTML = '<p class="meta">' + t('carregando') + '</p>';
+    sb.from('perfis').select('id,nome,email,foto_url,nivel,vinculo,tema,lattes,orcid,researchgate,papel').eq('status', 'aprovado').order('nome').then(function (r) {
+      if (r.error) { alvo.innerHTML = '<p class="aviso">' + esc(tm('erro') + r.error.message) + '</p>'; return; }
+      alvo.innerHTML = '<div class="grade">' + r.data.map(function (m) {
+        return '<div class="cartao pessoa">' + fotoPerfil(m) + '<div><h3>' + esc(m.nome || m.email) + '</h3>' +
+          '<p class="meta">' + esc([t('nivel1')[m.nivel] || '', m.papel === 'coordenacao' ? tm('coordenacao') : ''].filter(Boolean).join(' · ')) + '</p>' +
+          (m.vinculo ? '<p class="meta">' + esc(m.vinculo) + '</p>' : '') + (m.tema ? '<p class="meta">' + esc(m.tema) + '</p>' : '') +
+          '<p class="meta"><a href="mailto:' + esc(m.email) + '">' + esc(m.email) + '</a></p>' + linksPessoa(m) + '</div></div>';
+      }).join('') + '</div>';
+    });
+  }
+
+  function contarPendentes() {
+    sb.from('perfis').select('id', { count: 'exact', head: true }).eq('status', 'pendente').then(function (r) {
+      var el = document.getElementById('m-qtd'); if (el && r.count) el.textContent = r.count;
+    });
+  }
+  function telaAprovacoes() {
+    var alvo = document.getElementById('m-corpo');
+    alvo.innerHTML = '<p class="meta">' + t('carregando') + '</p>';
+    sb.from('perfis').select('*').order('criado_em', { ascending: false }).then(function (r) {
+      if (r.error) { alvo.innerHTML = '<p class="aviso">' + esc(tm('erro') + r.error.message) + '</p>'; return; }
+      var pend = r.data.filter(function (x) { return x.status === 'pendente'; });
+      var linha = function (m) {
+        return '<li class="m-pend">' + fotoPerfil(m) + '<div class="m-pend-info"><strong>' + esc(m.nome || '—') + '</strong><span class="meta">' + esc(m.email) + '</span>' +
+          '<span class="meta">' + esc([t('nivel1')[m.nivel] || '', m.vinculo].filter(Boolean).join(' · ')) + '</span><span class="meta">' + tm('desde') + dataFmt(String(m.criado_em).slice(0, 10)) + '</span></div>' +
+          '<div class="m-acoes"><button type="button" class="botao" data-acao="aprovar" data-id="' + esc(m.id) + '">' + tm('aprovar') + '</button>' +
+          '<button type="button" class="botao contorno" data-acao="recusar" data-id="' + esc(m.id) + '">' + tm('recusar') + '</button></div></li>';
+      };
+      alvo.innerHTML = '<h2 style="font-size:1.3rem">' + tm('aprovacoes') + '</h2>' + (pend.length ? '<ul class="m-lista">' + pend.map(linha).join('') + '</ul>' : '<p class="vazio">' + tm('sem_pendentes') + '</p>') +
+        '<h2 style="font-size:1.3rem;margin-top:36px">' + tm('todos_membros') + '</h2><div class="scroll"><table><thead><tr><th>' + tm('nome') + '</th><th>' + tm('email') + '</th><th>' + tm('papel') + '</th><th>' + tm('situacao') + '</th></tr></thead><tbody>' +
+        r.data.map(function (m) {
+          var eu = m.id === perfilAtual.id;
+          return '<tr><td>' + esc(m.nome || '—') + '</td><td>' + esc(m.email) + '</td>' +
+            '<td><select data-campo="papel" data-id="' + esc(m.id) + '"' + (eu ? ' disabled' : '') + '><option value="membro"' + (m.papel === 'membro' ? ' selected' : '') + '>' + tm('membro') + '</option><option value="coordenacao"' + (m.papel === 'coordenacao' ? ' selected' : '') + '>' + tm('coordenacao') + '</option></select></td>' +
+            '<td><select data-campo="status" data-id="' + esc(m.id) + '"' + (eu ? ' disabled' : '') + '>' + ['pendente', 'aprovado', 'recusado'].map(function (s) { return '<option value="' + s + '"' + (m.status === s ? ' selected' : '') + '>' + tm('st_' + s) + '</option>'; }).join('') + '</select></td></tr>';
+        }).join('') + '</tbody></table></div><p id="m-aviso" class="m-aviso" hidden></p>';
+      alvo.querySelectorAll('[data-acao]').forEach(function (b) {
+        b.addEventListener('click', function () { mudarPerfil(b.getAttribute('data-id'), { status: b.getAttribute('data-acao') === 'aprovar' ? 'aprovado' : 'recusado' }); });
+      });
+      alvo.querySelectorAll('select[data-campo]').forEach(function (s) {
+        s.addEventListener('change', function () { var d = {}; d[s.getAttribute('data-campo')] = s.value; mudarPerfil(s.getAttribute('data-id'), d); });
+      });
+    });
+  }
+  function mudarPerfil(id, dados) {
+    sb.from('perfis').update(dados).eq('id', id).then(function (r) {
+      if (r.error) return aviso(tm('erro') + r.error.message, 'erro');
+      telaPainel();
+    });
+  }
+
   P.contato = function () {
     var c = D.site.contato || {};
     var redes = (D.site.redes || []).filter(function (r) { return url(r.url); });
@@ -1351,6 +1673,7 @@
     var h = (location.hash || '#/').replace(/^#\/?/, '').split('?')[0];
     var partes = h.split('/');
     var nome = partes[0] || 'inicio';
+    if (/access_token=|type=recovery|error_description=/.test(location.hash)) { nome = 'membros'; partes = ['membros']; }  // volta do e-mail de senha
     var fn = P[nome] || P.inicio;
     main.innerHTML = fn(partes[1] ? decodeURIComponent(partes[1]) : undefined);
     var base = { pessoa: 'equipe', projeto: 'projetos', pesquisa: 'dados' }[nome] || (P[nome] ? nome : 'inicio');
@@ -1373,7 +1696,7 @@
 
   /* ---------- carga ---------- */
   var arquivos = { site: 'site', coordenador: 'coordenador', equipe: 'equipe', projetos: 'projetos',
-    publicacoes: 'publicacoes', manuais: 'publicacoes-manuais', midia: 'midia', dados: 'dados', galeria: 'galeria', pesquisas: 'pesquisas', biblioteca: 'biblioteca', agenda: 'agenda', agendaGoogle: 'agenda-google' };
+    publicacoes: 'publicacoes', manuais: 'publicacoes-manuais', midia: 'midia', dados: 'dados', galeria: 'galeria', pesquisas: 'pesquisas', biblioteca: 'biblioteca', agenda: 'agenda', agendaGoogle: 'agenda-google', membros: 'membros' };
   Promise.all(Object.keys(arquivos).map(function (k) {
     return fetch('data/' + arquivos[k] + '.json', { cache: 'no-cache' })
       .then(function (r) { return r.ok ? r.json() : {}; })

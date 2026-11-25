@@ -1,0 +1,5 @@
+{
+  "_como_editar": "Ligação com o Supabase (área de membros). Cole aqui a Project URL e a chave pública 'anon' / 'publishable' (Project Settings → API). NUNCA cole a chave 'service_role' / 'secret' — ela daria acesso total ao banco.",
+  "supabase_url": "https://glztbuyviywoimifcqwq.supabase.co",
+  "supabase_anon_key": "sb_publishable_30Dqm0kGdc3k1ZzQptAoHA_1H9KazlN"
+}

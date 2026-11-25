@@ -1,0 +1,20 @@
+{
+  "_como_editar": "Acervo da aba Biblioteca. Coloque os arquivos na pasta biblioteca/ (subpastas publicacoes, didaticos, audiovisual, fotos) e cadastre cada um aqui. categoria: publicacao | didatico | audiovisual | foto. data: AAAA-MM-DD ou só AAAA. arquivo: caminho do arquivo no site (PDF, PPTX, JPG, PNG, MP4, MP3…) OU link: endereço externo (YouTube, Drive, site da revista). capa: imagem de miniatura (opcional; nas fotos, a própria foto já serve). projeto: id do projeto (opcional). Campos _en são a versão em inglês. As publicações cadastradas em publicacoes.json e publicacoes-manuais.json entram aqui automaticamente na categoria Publicações; não precisa repetir.",
+  "incluir_publicacoes_automaticas": true,
+  "itens": [
+    {
+      "categoria": "didatico",
+      "titulo": "",
+      "titulo_en": "",
+      "data": "",
+      "autores": "",
+      "descricao": "",
+      "descricao_en": "",
+      "arquivo": "",
+      "link": "",
+      "capa": "",
+      "projeto": "",
+      "tags": []
+    }
+  ]
+}
