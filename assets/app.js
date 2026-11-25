@@ -10,7 +10,9 @@
   var semMovimento = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var limpezas = [];
   var lang = 'pt';
-  try { lang = localStorage.getItem('unseel-idioma') === 'en' ? 'en' : 'pt'; } catch (e) { /* sem armazenamento */ }
+  var salvo = null;
+  try { salvo = localStorage.getItem('unseel-idioma'); } catch (e) { /* sem armazenamento */ }
+  lang = salvo === 'en' || salvo === 'pt' ? salvo : (/^pt/i.test(navigator.language || 'pt') ? 'pt' : 'en');
 
   /* ---------- textos da interface ---------- */
   var T = {
@@ -281,7 +283,7 @@
       var href = interno ? esc(s.link) : url(s.link);
       var abre = href ? '<a class="slide" href="' + href + '"' + (interno ? '' : ' target="_blank" rel="noopener"') : '<div class="slide"';
       return abre + ' style="--cor:' + cor(s.cor) + '" role="group" aria-roledescription="slide" aria-label="' + (i + 1) + ' / ' + ss.length + '">' +
-        (s.img ? '<img src="' + s.img + '" alt="' + esc(s.alt) + '" loading="' + (i ? 'lazy' : 'eager') + '"><span class="vela"></span>' : '<span class="arte"><svg aria-hidden="true">' + curvas(6) + '</svg></span>') +
+        (s.img ? '<img src="' + s.img + '" alt="' + esc(s.alt) + '" loading="' + (i ? 'lazy' : 'eager') + '"><span class="vela"></span>' : '') +
         '<span class="txt"><span class="tag">' + esc(s.tag) + '</span><h3>' + esc(s.titulo) + '</h3>' + (s.texto ? '<p>' + txt(s.texto) + '</p>' : '') + '</span>' +
         (href ? '</a>' : '</div>');
     }).join('');
@@ -366,7 +368,7 @@
       '</div></div>' : '';
     setTimeout(function () { ligarCarrossel(); ligarNumeros(); }, 0);
 
-    return '<section class="heroi"><svg class="curvas" aria-hidden="true">' + curvas(12) + '</svg>' +
+    return '<section class="heroi">' +
       '<img class="falcao" src="assets/logo/UNSEEL_simbolo_negativo.svg" alt="">' +
       '<div class="heroi-in"><div class="heroi-txt">' +
       '<p class="olho">' + esc(loc(s, 'nome_pt')) + '</p>' +
@@ -936,25 +938,22 @@
   function ligarAbertura() {
     var ab = document.getElementById('abertura');
     if (!raiz.classList.contains('com-abertura')) { entrarTopo(); return; }
-    var botoes = ab.querySelectorAll('.abrir');
-    setTimeout(function () { botoes[lang === 'en' ? 1 : 0].focus(); }, 50);
-    botoes.forEach(function (b) {
-      b.addEventListener('click', function () {
-        mudarIdioma(b.getAttribute('data-lang'));
-        try { sessionStorage.setItem('unseel-aberto', '1'); } catch (e) { /* ok */ }
-        ab.classList.add('livre');
-        var espera = semMovimento ? 0 : 2300;
+    var botao = ab.querySelector('.abrir');
+    setTimeout(function () { botao.focus(); }, 50);
+    botao.addEventListener('click', function () {
+      botao.disabled = true;
+      try { sessionStorage.setItem('unseel-aberto', '1'); } catch (e) { /* ok */ }
+      ab.classList.add('livre');
+      setTimeout(function () {
+        ab.classList.add('saindo');
         setTimeout(function () {
-          ab.classList.add('saindo');
-          setTimeout(function () {
-            raiz.classList.remove('com-abertura');
-            ab.remove();
-            entrarTopo();
-            rota(true);
-            main.focus({ preventScroll: true });
-          }, semMovimento ? 0 : 900);
-        }, espera);
-      });
+          raiz.classList.remove('com-abertura');
+          ab.remove();
+          entrarTopo();
+          rota(true);
+          main.focus({ preventScroll: true });
+        }, semMovimento ? 0 : 900);
+      }, semMovimento ? 0 : 2300);
     });
   }
   function entrarTopo() {
