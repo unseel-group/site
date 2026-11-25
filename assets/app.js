@@ -938,23 +938,35 @@
   function ligarAbertura() {
     var ab = document.getElementById('abertura');
     if (!raiz.classList.contains('com-abertura')) { entrarTopo(); return; }
-    var botao = ab.querySelector('.abrir');
-    setTimeout(function () { botao.focus(); }, 50);
-    botao.addEventListener('click', function () {
-      botao.disabled = true;
+    var video = document.getElementById('abertura-video');
+    var pular = document.getElementById('pular-abertura');
+    var entrar = document.getElementById('entrar-abertura');
+    var saiu = false;
+    function sair() {
+      if (saiu) return; saiu = true;
       try { sessionStorage.setItem('unseel-aberto', '1'); } catch (e) { /* ok */ }
-      ab.classList.add('livre');
+      ab.classList.add('saindo');
       setTimeout(function () {
-        ab.classList.add('saindo');
-        setTimeout(function () {
-          raiz.classList.remove('com-abertura');
-          ab.remove();
-          entrarTopo();
-          rota(true);
-          main.focus({ preventScroll: true });
-        }, semMovimento ? 0 : 900);
-      }, semMovimento ? 0 : 2300);
-    });
+        raiz.classList.remove('com-abertura');
+        try { video.pause(); } catch (e) { /* ok */ }
+        ab.remove();
+        entrarTopo();
+        rota(true);
+        main.focus({ preventScroll: true });
+      }, semMovimento ? 0 : 900);
+    }
+    function pedirClique() { pular.hidden = true; entrar.hidden = false; entrar.focus(); }
+    pular.addEventListener('click', sair);
+    entrar.addEventListener('click', sair);
+    document.addEventListener('keydown', function esc(e) { if (e.key === 'Escape') { document.removeEventListener('keydown', esc); sair(); } });
+    if (semMovimento) { pedirClique(); return; }   // quem pede menos movimento vê só a imagem final
+    video.addEventListener('ended', function () { setTimeout(sair, 700); });
+    video.addEventListener('error', sair, true);
+    var p = video.play();
+    if (p && p.catch) p.catch(pedirClique);       // autoplay bloqueado: mostra a imagem final e o botão
+    setTimeout(function () { if (!saiu && video.paused && entrar.hidden) pedirClique(); }, 2500);
+    setTimeout(function () { if (!saiu && entrar.hidden) sair(); }, 15000);   // segurança
+    pular.focus();
   }
   function entrarTopo() {
     var topo = document.getElementById('topo');

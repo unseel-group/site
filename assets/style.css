@@ -314,6 +314,16 @@ dl.ficha dt{font-weight:700} dl.ficha dd{margin:0}
 .rodape .marca{margin-right:0}
 .rodape .marca img{width:96px}
 
+/* abertura em vídeo */
+.com-abertura .abertura{background:#000}
+.abertura-video{width:100%;height:100%;object-fit:contain;background:#000}
+.pular-abertura{position:absolute;right:20px;bottom:20px;min-height:44px;padding:0 16px;border-radius:4px;border:1px solid rgba(143,208,220,.5);background:rgba(0,0,0,.4);color:#C9D6E8;font:600 .9rem Inter,sans-serif;cursor:pointer}
+.pular-abertura:hover{color:#fff;border-color:#fff}
+.entrar-abertura{position:absolute;left:50%;bottom:12%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:4px;min-width:240px;min-height:64px;padding:12px 26px;border-radius:4px;border:1px solid rgba(143,208,220,.6);background:rgba(0,0,0,.5);color:#fff;font:700 1.05rem Montserrat,sans-serif;cursor:pointer}
+.entrar-abertura small{font:italic 500 .85rem Inter,sans-serif;color:var(--agua)}
+.entrar-abertura[hidden]{display:none}
+.abertura.saindo{opacity:0;transform:none}
+
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
   .surge,.heroi-txt>*,.entrada .marca,.entrada nav#nav>*{opacity:1!important;transform:none!important}
