@@ -1,16 +1,293 @@
 {
   "_como_editar": "Atualizado automaticamente toda semana pela busca de notícias. Para esconder uma notícia errada, mude \"oculto\" para true (não apague: senão ela volta na próxima busca). Você também pode acrescentar itens à mão com origem \"manual\".",
-  "atualizado_em": "2026-11-24",
+  "atualizado_em": "2026-11-25",
   "itens": [
+    {
+      "titulo": "Três em cada dez cidades não têm plano contra desastres climáticos",
+      "fonte": "Agência Brasil",
+      "data": "2026-11-02",
+      "url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxPMktGaDRTdWpiVC1wTUozQ1VkVXNaVDNidzByMG91Skx2TTFNZlZiXzhVZGI2QzN1U29CWVVLbmVIbS12aVhMbmxOamdKX3FRYTJ3SlB0c1JjdElLbFVYcTJWdEwyUVNTZEQwZHk2bTRVQ0FmUm9tY0NFSDlISVNQLW9WVUhodjZqMkpZWDZjWjhTbkJwMG5zNE9sN08yTmc3Q18tUWZZWmwwcVktdllaYXFmdU9zZHF5LThrb3ZnX3dMUF8wZk1pQVNTczJXd3hsVWlVRkpsa3YwcXlaSzRyVm8wTQ?oc=5",
+      "tipo": "noticia",
+      "pessoas": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "google-noticias",
+      "oculto": false
+    },
+    {
+      "titulo": "Estudo revela que muitas cidades brasileiras carecem de planos contra desastres climáticos",
+      "fonte": "Metrô News Jornal",
+      "data": "2026-11-02",
+      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNbHNENjB5M1kwSUQzbDZoT1BxU3ZWTW5telJZZjNJLTkwS01adGlFTFRQVDVyYi1MVUFUSUpReThCTFRVYWxJQ2hJZGx4MG5EZUY2REQteS1Tdm54RmJHcmdJaDNSQXVJQ3lVS3NkUzh6TGFMRTBndFNnSEcwTnhwTURMMk1fVGpTYTEtZUVNc0t0UXhHLVY2VlFoT3U3VTd4TVlVWlNTZ2l6eGdqbFZhNnZja0ZvYjA?oc=5",
+      "tipo": "noticia",
+      "pessoas": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "google-noticias",
+      "oculto": false
+    },
+    {
+      "titulo": "Mais de 30% das cidades não têm planos para desastres climáticos",
+      "fonte": "Jetss BR",
+      "data": "2026-10-24",
+      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxObmtGem90ZThkZy1PNml6UzVOTHAzMXFsRkVvejVhVFZpWGdrbUE1MHh3VXBpMURBWUZpWEVPbVgwLWN2V05BdEVRQ0xtY01hRHg3YzRnVXJEZTVubkpSLWE2UXhRWGFFYzNWalh5Q3pCUEJfLVhhVFNHaEZ3aVJhRkVFWGtRdUcyTFFSZ0NEV0hleGpfVVhrenlqUXnSAZwBQVVfeXFMTm5rRnpvdGU4ZGctTzZpelM1TkxwMzFxbEZFb3o1YVRWaVhna21BNTB4d1VwaTFEQVlGaVhFT21YMC1jdldOQXRFUUNMbWNNYUR4N2M0Z1VyRGU1bm5KUi1hNlF4UVhhRWMzVmpYeUN6QlBCXy1YYVRTR2hGd2lSYUZFRVhrUXVHMkxRUmdDRFdIZXhqX1VYa3p5alF5?oc=5",
+      "tipo": "noticia",
+      "pessoas": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "google-noticias",
+      "oculto": false
+    },
+    {
+      "titulo": "Estudio muestra que 9 de cada 10 ciudades ya han enfrentado desastres climáticos en las últimas tres décadas",
+      "fonte": "Agência FAPESP",
+      "data": "2026-07-09",
+      "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxONE1neTVldTl0ZlY3aUFJR3lYbUo2YTdiT1NtMmtFTXBZR3g3VGtiZU1ZQ1hWeWVKbkRzcEptekdiQmJpVkhvdVlrTC1ZREVwWkVONEFfSE1lQkVOYzYzYzRsSDdDZ3Etb1ZzcDFWcUxEZzVhaldOMzZhUllGSVJicUswMk9JdHU5ZFpEWGlsRUs5eFh0TkFRdV9zZU56UGQ0R0wzajNNemtKUGotTWoycUQ0aTJOSDY0Vm5KUExmaWcxOTZsNTZoLVd0SnctY3ZsZ2pQZWh3RQ?oc=5",
+      "tipo": "noticia",
+      "pessoas": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "google-noticias",
+      "oculto": false
+    },
+    {
+      "titulo": "Study shows that 9 out of 10 cities have experienced climate-related disasters over the past three decades",
+      "fonte": "Agência FAPESP",
+      "data": "2026-07-08",
+      "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxNZ05VallHTkhHeVlZNlVpcnFyZDFyMVFiRENUYlhkQjRTYnBpSnBTRmhraEhCSXJVYk5POHNIdWdVM29TUUZwRy13VmU3Qm92QWRNVWt1dV9EQV9tbVlLY2xYQmNwM1h0S3V5ZlhEZW1JT1l6NFBJWURVdlBULVFTRFZXSW1tVlRqQlROLTNsdkJYY0RaNlNKMkxadmd2UUdUcVF0RmpJdlVHWW1UT0R4dF93anU3SC1PanNKMUE3Vm9xSG9qeHZCcWxJMzd4My13aWdGSQ?oc=5",
+      "tipo": "noticia",
+      "pessoas": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "google-noticias",
+      "oculto": false
+    },
+    {
+      "titulo": "El cambio climático tiene efectos sobre la vida de los niños y refuerza las desigualdades sociales",
+      "fonte": "Revista Pesquisa FAPESP",
+      "data": "2026-06-05",
+      "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxOODBva1FYVnV3MnJhQV9QWEMzZU5fMzlsd19QSk9fY2lFVFFKUzRJdzNjSnRrbHFRZmtjSl9VMWR0TU9KY2JnZlhWY1duLVdfWm91bnk1Q3BiTmtHZXZuYmQxbDNtOG5LZG1kd1lCSXNhazE1djA3dW40RmFNZlU1cDM3c1F2VVVWZTdnYTd2eWpvdm15MEp6V2NsdTNGREwyaDdTdW12T3FNaEM5eU1HdURwX2RxYkRZNy03VXdZQXpnN1ozM1UxM3BUMEhKeGpleFE?oc=5",
+      "tipo": "noticia",
+      "pessoas": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "google-noticias",
+      "oculto": false
+    },
+    {
+      "titulo": "Estudo aponta lacunas críticas na gestão de risco de deslizamentos e inundações",
+      "fonte": "Agência FAPESP",
+      "data": "2026-05-21",
+      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNM3VWMERFWGNoOGxjV3UtbVRvTHlzOXpQSXB0VDZxRE1MQlRDQ1VlODJsVE9BWUpaMnBnbC1KeWRHZzhTYlhPSkdlbVdBTjYtM1ZydmhoT3JCTjFYa1hBTkcyWXBCNDk5NGF3ZjdSUy1IRUVRY0hESUFEa1g3SldPZDdCNTA3SzM0XzRIdVNEcDBHcUNBeGNpdnVFajQ1SEs5aTIzSmwwN29FNDRsX2o5Zg?oc=5",
+      "tipo": "noticia",
+      "pessoas": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "google-noticias",
+      "oculto": false
+    },
+    {
+      "titulo": "La desigualdad y el clima extremo de São Paulo desafían la aplicación de la agenda climática global",
+      "fonte": "EL PAÍS",
+      "data": "2026-03-19",
+      "url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxPRFlaZUFnSGVKM3M0S1F0ZThaSnFxVDg4emdQNzBuUXJ6MTZhWXppSVdxb2hMd0gxeHRuekFqTllnb1ZDUHA3d2dVblFYeHE1R3FYUXlPWFhoRnJ6T0kyXzVtZHRMMG9jYjV1V2RvWXhWSzM2YWJ4SGRLbUlHUVBZOU9ISzdxeF9ONFZlQzBGclJvRzhjRFl4Z0UwcjJRaUxQLUY5MkpWZXhxWDBSTHREVUdpMDJwTnhUOTdLWWl4UjRkZG04WDhtdTlkcTVKVkZEYUpVYnV0bS1oNE9ONHpEWUlud9IB9wFBVV95cUxNNTZwQWc5UnUzVEpsbnl6TVdyVW41ZUlZMkN6U250QzFKQ2ZQdkd0TFFzeXQ1YkJuck5ZNkk3X1hubGFDVnFQQmU4WUhfcjB1TWNUNWM0emVjNENlVEFjek1ZNXdodVl1NDgyc3BmT3RGWGNzRFhlMmtNUVh5cjZLX2l4Q0ZWWTdQWGo2cThiTkhzZlBBektWbmdoaTZ2YnJ5c25ua2ZWT2dYTzUyTkZldm8yMFZDMXJ5aG80YXRNSFktY1hRQ3p6dG55N25FQ2FiSVhkWDhlUEdkUHlOZmpJcHVabVpMTnB1SUN6cHktRUVIWkFSMUxz?oc=5",
+      "tipo": "noticia",
+      "pessoas": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "google-noticias",
+      "oculto": false
+    },
+    {
+      "titulo": "Climate change affects children’s lives and exacerbates social inequality",
+      "fonte": "Revista Pesquisa FAPESP",
+      "data": "2026-01-27",
+      "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNYTd0QXNLWGdNV2hnclo0dWZzZTFaa1plcXZUUWFuamJVVlM1YmpZR2Z6NlRzc3UwLXlVQnVkX3h3ZzVId052M2lVM0Y4cDVzVmptbzQwVl9OOC02c2FSNE9zSHpkbWRPOFRMWndoMVJDTUpRNGZvM1FjMVVqbjNvNkVlX3ViR3E0djZBZEthUVh5VXZ2cmctV3VRX0pxUDNpc1dDaGt2ektwdURKZTY4?oc=5",
+      "tipo": "noticia",
+      "pessoas": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "google-noticias",
+      "oculto": false
+    },
+    {
+      "titulo": "Projeto COPE do Cemaden publica sobre a preparação intersetorial dos governos frente a eventos extremos de tempo e clima",
+      "fonte": "GOV.BR",
+      "data": "2025-11-14",
+      "url": "https://news.google.com/rss/articles/CBMiiwJBVV95cUxPWGpuLXptZUtiMlA3MS0zdDdlY1N2Q014aHJnRThhZkotMHB5REZnUWtiaWk5QlJEQVdBaHRlVlB2bXNGQi1Vc3lTaThhQ1F5dWVHRTFmZEZXV0d3RlhMbUNGaVZGSnFHbUZPdlFQcnlveXNMYnY1MFVkOTRLRUlQRmNobE0tTm0tb3B1R1ItTWlJakZxRkMtX29tMkFWVzdodmVkNjZXMnpmSGhwUmdOdGpTZXh6ZTMxX1BpV3FMYzRDZVdkTi1MYzQ2WXQ3N3c4Qkc3YXBPU0puOFczaWlrVW9qOVdUYU1DVFVIUW1vMXhDQVFkd09FQkNQUnRwQmZDd1ZGS254VlFKTjA?oc=5",
+      "tipo": "noticia",
+      "pessoas": [
+        "victor-marchezini"
+      ],
+      "projetos": [
+        "cope"
+      ],
+      "origem": "google-noticias",
+      "oculto": false
+    },
+    {
+      "titulo": "Apenas 15% das cidades brasileiras têm um plano municipal de adaptação às mudanças climáticas, diz levantamento",
+      "fonte": "G1",
+      "data": "2025-11-12",
+      "url": "https://news.google.com/rss/articles/CBMiigJBVV95cUxPX0tFdC0zVmNvWE1qekVVU1dBYUltR3V3d0ItTkJ2czk1V3dFMFgtMTJlUTItbmx4YjdFR09hRG5oeW9ZODQwTTZ1ckRPTllEc3BEU2tXaDZlRDZZZVNWSmpzUUljeXk4cnY2TWR6cTIzVFVjZzVfSjhJUGZfY1E1cjdqTGFIV1FhN0pmR2dUNF9IUDhxSkhCZUZpb0taSlZwVEpOMlZsdmF6b1lTQkNiQ0NWbk9scWo1WVZxaFpWbXdKbFZrS0pkOHdhbVFfQTMxeldRdmlUaFpyUEdjX2ZiUzBNVmZ5eTZKc2lWUzZCWkpaRFVfT1h1aG1jczI5VmhfaFhKMnQwLU5zQdIBmAJBVV95cUxQVGJRcW04XzdkRmstWGRLM3NOTUExdVQtZDR5NlVXSjFCRlNablBpYVZFb0JVTkpwRktPWXhyVjBZM0liTjBhNnNJeTBTaEwtWkc0SDFyODIxV0RfU3NNTTQ5SjNFRFR2OUpXNmJ0TkFMNFNRcGJHVXlNLUdQMWpMWUYtbXhXVkJFRFhaMnkzd3Q1VU5uUWJzTlJvRTBHOFNqbzM3cXRxbUo4WlZwMExMVzBmR3NkVmF3dWZDcHY5VzJoN2gtckQ0Tk1raHNiSnlEeE9NdHpqQnNJeDNScXN5UFlxWGhLS0JqcWNlV1EyR0dDTGVyd2F1RnZCOEowNktXdDZJc2RTWTloUjM0VTRNR1VBcG5ld0Zr?oc=5",
+      "tipo": "noticia",
+      "pessoas": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "google-noticias",
+      "oculto": false
+    },
+    {
+      "titulo": "30/out: Dia Mundial do Uchinanchu: Entrevista com Humberto Marchezini, que participará do treinamento técnico da JICA, em Okinawa.",
+      "fonte": "JICA - 国際協力機構",
+      "data": "2025-10-27",
+      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPMGJ6S2c1VDRjZTBBeHFqU1E5d2gxaDNpSjVPaFJnZUZKS19HQlFCWUhrN0s1NWZuNFU1ZU10QXVvREFHRVZTMEl5d1ZqSXIwYmY2NkJnZXpMTXFmSkR5V2c3R0dseEhqdVowNC11RzNoLXhrNVFxWjluZnhjdGs4aDV1NjdYWGRKYTN5cFpEOVd3cTFXWmVr?oc=5",
+      "tipo": "noticia",
+      "pessoas": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "google-noticias",
+      "oculto": false
+    },
+    {
+      "titulo": "Defesas civis devem investir em profissionalização e recurso próprio para enfrentar riscos climáticos",
+      "fonte": "Agência FAPESP",
+      "data": "2025-06-26",
+      "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxPRjc4WEdYTmJSTloxc1RQODJWNjFaT0k1TlNKU1oySnlLUmNoWFRucFlmdWFCWDhKZE9uTG5ZamY1YmQxQWI3TTVMR3BILXEyY2FMaWhGel9pM1BNWUt0ZDA4cWQwbnN4MzItVXJkZFpMN1BRMGpRNC1adC1ZcHRZYjE1dTFwWGFlWll6Z18xNnRLUy1yLTZZaGI5S0xqX2F0OVFYUnNMdzBLTEttYXp1V2hRMHJhSVVkeW1HSHR0cnVMMnpWYjc1NDBNYmw1QQ?oc=5",
+      "tipo": "noticia",
+      "pessoas": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "google-noticias",
+      "oculto": false
+    },
     {
       "titulo": "Pesquisador do Cemaden recebe prêmio da Sociedade de Antropologia Aplicada dos Estados Unidos",
       "fonte": "Agência FAPESP",
       "data": "2025",
       "url": "https://agencia.fapesp.br/pesquisador-do-cemaden-recebe-premio-da-sociedade-de-antropologia-aplicada-dos-estados-unidos/54112",
       "tipo": "noticia",
-      "pessoas": ["victor-marchezini"],
+      "pessoas": [
+        "victor-marchezini"
+      ],
       "projetos": [],
       "origem": "manual",
+      "oculto": false
+    },
+    {
+      "titulo": "Las raíces del desastre en Río Grande do Sul",
+      "fonte": "OnCubaNews",
+      "data": "2024-05-16",
+      "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE01RExtNjItTEZfd3FTcjgtRmthMmtQazZoWGZ2UENkQmRFT2hub0YtN2ltWjJCY2VXVHVUa2ZDS0pnZEY3akw5RG0ya2lMTjhleWRrRFhXVXJkY09sVjhub1NudmZNeWdjWC02bkVtY1RGcnMtSkx4UW8xWUtBUQ?oc=5",
+      "tipo": "noticia",
+      "pessoas": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "google-noticias",
+      "oculto": false
+    },
+    {
+      "titulo": "Catástrofe climática",
+      "fonte": "Revista Pesquisa FAPESP",
+      "data": "2024-05-10",
+      "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFBRbFc3anJKaHBkN3dMSUZPUV9mOGJ4cXgzanJSWC0tWWhDWTdaYk96ZjFNTXd6cFZJT0tWWEVaNlVCdlo3VEJxMElwR1p1T1RQVnVaN2YxZ0FHQUl3Z0JHU1g1QkxPUQ?oc=5",
+      "tipo": "noticia",
+      "pessoas": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "google-noticias",
+      "oculto": false
+    },
+    {
+      "titulo": "La debilidad institucional y la falta políticas locales fragilizan la gestión de incendios en la Amazonia",
+      "fonte": "Agência FAPESP",
+      "data": "2023-04-06",
+      "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxQVG1HZUQ3ZldRRmlZdUcxV1BwZ3J2RjFFV3kxanYtamlHZjlOOVhJQm1sMXZnUlYyUS1MdXo5S283MW5Mbkhtd0VHYWl5MUV6Ti1wRGhJMDBTelRqTWVLaTZoQVhid3ZITlE1Y2QwX3JGYnZRT0gyaUhrZV9aQU9HT1ZBeGZ1czdValc2ZThWVFJ3ZWRVN0doYWtkZnRyQUk3QjF5ZFlPSDZfbnBhZ3lEd3l1cTd6NHk5OHcweHUtRzhiZncyODQ2MzE5ZlBXU1lXX2o4?oc=5",
+      "tipo": "noticia",
+      "pessoas": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "google-noticias",
+      "oculto": false
+    },
+    {
+      "titulo": "Falta de pessoal e de verba é desafio para defesas civis municipais",
+      "fonte": "Agência Brasil",
+      "data": "2023-03-05",
+      "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxPWWw1eXAwMEtFT2dXQ01PQTRQV3l2VU5XaTlHT2pzWmgxOVc0Nk4zNDFWX2ZmQUpJcTk4M2xnTldreHlxRGZnUjVTbzZvcTVXOWZqZEZ4TXFONWRKZkNBUTlhSHM5UWYxakIzLVc1UXNfaU11S2xxWEJVbzFsWEc4dFFrTDl4dW1CRXFCeDNCY2ZJb3FVUHhBT3VILVJ3Wi1QeVBUR2lDSGsyb09ObVhZbENKSU5GVThqaEZiTFFDajNpSlZwVEdIc3dQYWdsOVk?oc=5",
+      "tipo": "noticia",
+      "pessoas": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "google-noticias",
+      "oculto": false
+    },
+    {
+      "titulo": "Para evitar tragédias como a que devastou o litoral norte é mais importante investir em planejamento urbano e políticas públicas do que em sirenes",
+      "fonte": "Jornal da Unesp",
+      "data": "2023-03-02",
+      "url": "https://news.google.com/rss/articles/CBMijwJBVV95cUxNUEdpbkI5c0NQTUR3M1RqQXhZX096djU2cEFWM2dxRDJObVhWeEU5Q0plT2NHOHR6OThITUZLWmF4N2w2V3pTZWpKWUFJT2VvVEYwZTdkNVJqcWI2YXJ4akJvTFZZUXItaHNvbWtPNmRidm9oV2VtTW95UzJRZnlKd0lkUTh5RnUzUG1aUWNKdWJleGVHenBXdGM2bC1EekxJRGlHbjdxSHp5bjhxR2dNeWVZbEpZSDZRaERVOGRkWTVTRmxaX0c4Nm1Td0NnbkVFNUNoU2hpQnZEYVctbzBYaUNPMFBtVWY0eHB5RUdNUkpMaHQxeW94RDNMYi1ab3J4Ylc5RzhZeGxKY3JHMjJR?oc=5",
+      "tipo": "noticia",
+      "pessoas": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "google-noticias",
+      "oculto": false
+    },
+    {
+      "titulo": "Chuvas: pedidos de ajuda de municípios à Defesa Civil nacional dobram em 2020",
+      "fonte": "O GLOBO",
+      "data": "2020-12-14",
+      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxObm5tQlUzek83SGszc0ViTlBGOW5IaExNRjJRZk9wOHR6MnU5c2QtT3NoN21NVHZSTTBBckprcXFZN0Rqanowd1VzQUR1UkRBRUIyeHoteHUxcGd1cGpkY3pOTjlFZmRnXzFTa0FtY2JJanBzcWZ5dXZxMmxKLUNTMEZ1QUh0T2xTcFAtYnZSQTdDUE1aVV9jNW1VQUdIWWk4NWJ2ZExqYkFHVi1jTEZwZDNxTmhyNGlH0gHHAUFVX3lxTE14Vzh5dEMxN2F1V19mcXlkLVRwZnRiQ290Q1piLUJ2cndRR2JBcE5ZN2UzVnJqLWlmTWVwNTF5YnEtTEpwbTB4bDRnOWJ5ZVpnN2xnYmtwYlE2YkRRZ1pjNXlFYnZZenpKaUU4X1VSaXluOFA2UWFHSi1jUk8taWZrSk5kVkc3Y0kyM3NSVVhpek5zMVYxRndRYXBCai1KX0FycDdZNU5MQ1pxcDlEb2VxcExWS0EzOWJXU0JVR1lKS0ZlUi1OUUU?oc=5",
+      "tipo": "noticia",
+      "pessoas": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "google-noticias",
+      "oculto": false
+    },
+    {
+      "titulo": "Artigo: Participação social nos sistemas de alerta de risco de desastres",
+      "fonte": "MundoGEO",
+      "data": "2018-09-13",
+      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPQXFiamE3MUhvWlRFLWw5aGltbVdFblFqTFZyMndJZ1FPclYxcHA3YWltQW5hRDBaWkp6ZWlNNUFTMDgtUXJ4aGo3dzJ0bTljUFBWcEtMdldtNi1sZ1pKUTJ2ZHhoN29tVGtVakI0VGNVQnNwSXhhQ1RXU3dJNzNLNnJzMjNEOWVyVDQ1YUcyaDJPV25rbWpPbENfYURTc0ZUUzNfUEV6VdIBrAFBVV95cUxOZm5xZ1Y5bklhcnFuN2ZtTGllWDYyVE5VbWw3LXNNbnZWX2FjZ3JmQ01OMXo0bDJmTF9ZOEVydlpRclBfMngzYzdYN1lJOU5jWWxHZDk4YzRIbWJGcmVCSmpBakhxRTZIc05CU0d1cWtQRDlFNklKMWQ0WWZwNWJ4UFdUUlBnSWJsUUZ0S2hWeUVPOWJNeDhtYjhOeHJpR0hJcFA0MWdHVTJRcmtJ?oc=5",
+      "tipo": "noticia",
+      "pessoas": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "google-noticias",
+      "oculto": false
+    },
+    {
+      "titulo": "Lançado o livro e o e-book sobre Redução da Vulnerabilidade a Desastres pelos pesquisadores do Cemaden",
+      "fonte": "www.gov.br",
+      "data": "2017-11-24",
+      "url": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxPS0lHU0VfbkpyUFY4SFBJWW5OWVp1TWpOWHdnLXRIMU5GclFZR2VGUG0ySXluRDNEMHliX2huYlhkUjU5b0NHaUh6cjBpSi1HX3NfVFZnNV9BVm1GaHRCVUliTHBpY1B4d3hmT05vYkFQRDRBYnJwN2NLeWpUTHM5MUFoc25PZUpmZnM5NmZkRVN3NDdVRkVhVzg3RXBxXzY3eFFNY01zNjVMSDZ0NDRWMGZINkpmZ1pwMHVhOUYtbTM2d3ZBX0F6SW41ak4zUFphVmdKZXZuM3lFZ2hBTXoxakdMT01nSkktbURlb00temZsSkU?oc=5",
+      "tipo": "noticia",
+      "pessoas": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "google-noticias",
       "oculto": false
     }
   ]

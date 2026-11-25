@@ -1,16 +1,16 @@
 {
   "_como_editar": "Gerado automaticamente. Para esconder um item, use \"oculto\": true. Para ligar a um projeto à mão, use \"projetos_extra\": [\"id-do-projeto\"]. Esses dois campos são preservados nas próximas atualizações.",
-  "atualizado_em": "2026-11-24",
+  "atualizado_em": "2026-11-25",
   "itens": [
     {
       "id": "doi:10.1016/j.ssci.2026.107569",
       "titulo": "Assessing the safety and vulnerability of educational systems against disaster risks using the SAVES tool",
       "ano": 2026,
-      "data": "",
+      "data": "2026-11-18",
       "tipo": "artigo",
       "veiculo": "Safety Science",
       "url": "https://doi.org/10.1016/j.ssci.2026.107569",
-      "autores_texto": "",
+      "autores_texto": "Adriano Mota Ferreira, Víctor Marchezini, Tatiana Sussel Gonçalves Mendes, Viviana Aguilar Muñoz",
       "autores": [
         "victor-marchezini"
       ],
@@ -21,11 +21,11 @@
       "id": "doi:10.1108/dpm-02-2026-0072",
       "titulo": "Is your university prepared for extreme events? Using serious gaming to dialog about organizational capacities",
       "ano": 2026,
-      "data": "",
+      "data": "2026-11-03",
       "tipo": "artigo",
-      "veiculo": "Disaster Prevention and Management",
+      "veiculo": "Disaster Prevention and Management An International Journal",
       "url": "https://doi.org/10.1108/dpm-02-2026-0072",
-      "autores_texto": "",
+      "autores_texto": " Janaina de Alencar Mota e Silva, Paula Sayeko Souza Oda, Víctor Marchezini",
       "autores": [
         "victor-marchezini"
       ],
@@ -36,11 +36,11 @@
       "id": "doi:10.1007/978-3-032-30515-2_37",
       "titulo": "Revisiting Wachinger et al. (2013)—The Risk Perception Paradox – Implications for Governance and Communication of Natural Hazards",
       "ano": 2026,
-      "data": "",
+      "data": "2026-11-03",
       "tipo": "capitulo",
-      "veiculo": "Springer",
+      "veiculo": "Springer eBooks",
       "url": "https://doi.org/10.1007/978-3-032-30515-2_37",
-      "autores_texto": "",
+      "autores_texto": "Ana Carolina Bichoffe, Víctor Marchezini",
       "autores": [
         "victor-marchezini"
       ],
@@ -49,13 +49,13 @@
     },
     {
       "id": "doi:10.3390/earth7050157",
-      "titulo": "Extreme Droughts and Socioeconomic Impacts in Brazil's North Region: 2001–2024",
+      "titulo": "Extreme Droughts and Socioeconomic Impacts in Brazil’s North Region: 2001–2024",
       "ano": 2026,
-      "data": "",
+      "data": "2026-09-25",
       "tipo": "artigo",
       "veiculo": "Earth",
       "url": "https://doi.org/10.3390/earth7050157",
-      "autores_texto": "",
+      "autores_texto": "Osvaldo L. L. Moraes, José Antonio Marengo, Fernando Pereira Silva, Víctor Marchezini, Tércio Ambrizzi, Kátia Fernandes",
       "autores": [
         "victor-marchezini"
       ],
@@ -66,11 +66,11 @@
       "id": "doi:10.1007/s13753-026-00765-3",
       "titulo": "Implementation Capacity of Local Early Warning Systems: The Need for Localism in the EW4All Initiative",
       "ano": 2026,
-      "data": "",
+      "data": "2026-09-04",
       "tipo": "artigo",
       "veiculo": "International Journal of Disaster Risk Science",
       "url": "https://doi.org/10.1007/s13753-026-00765-3",
-      "autores_texto": "",
+      "autores_texto": "Víctor Marchezini, Paula Sayeko Souza Oda, Adriano Mota Ferreira, Murilo Noli da Fonseca, André Luiz Martins Cotting, Karolina Gameiro Cota Dias et al.",
       "autores": [
         "victor-marchezini"
       ],
@@ -81,11 +81,11 @@
       "id": "doi:10.1007/978-3-032-27059-7_5",
       "titulo": "Catastrophe",
       "ano": 2026,
-      "data": "",
+      "data": "2026-08-21",
       "tipo": "capitulo",
-      "veiculo": "Springer",
+      "veiculo": "Springer eBooks",
       "url": "https://doi.org/10.1007/978-3-032-27059-7_5",
-      "autores_texto": "",
+      "autores_texto": "Víctor Marchezini, Juan Saavedra",
       "autores": [
         "victor-marchezini"
       ],
@@ -96,11 +96,11 @@
       "id": "doi:10.67790/rbciamb.026.2657",
       "titulo": "Social Protection Challenges: the exposure of Social Assistance Reference Centers to flood and landslide risks",
       "ano": 2026,
-      "data": "",
+      "data": "2026-08-13",
       "tipo": "artigo",
       "veiculo": "Revista Brasileira de Ciências Ambientais",
       "url": "https://doi.org/10.67790/rbciamb.026.2657",
-      "autores_texto": "",
+      "autores_texto": "Adriano Mota Ferreira, Víctor Marchezini, Karolina Gameiro Cota Dias, Tatiana Sussel Gonçalves Mendes, Silvia Midori Saito",
       "autores": [
         "victor-marchezini"
       ],
@@ -111,11 +111,11 @@
       "id": "doi:10.1016/j.cliser.2026.100693",
       "titulo": "The Subseasonal Applications for Agriculture and Environment (SAGE) project within the World Weather Research Programme: Making subseasonal predictions more useful for sectoral applications",
       "ano": 2026,
-      "data": "",
+      "data": "2026-07-24",
       "tipo": "artigo",
       "veiculo": "Climate Services",
       "url": "https://doi.org/10.1016/j.cliser.2026.100693",
-      "autores_texto": "",
+      "autores_texto": "Marisol Osman, Víctor Marchezini, Steven James Woolnough, Nico Caltabiano, Rachel Lowe, Emma Doyle et al.",
       "autores": [
         "victor-marchezini"
       ],
@@ -128,11 +128,11 @@
       "id": "doi:10.55467/reder.v10i2.230",
       "titulo": "Implementation of National Policies on Disaster Risk Management at a Sub-national Scale: An Overview of Brazilian States",
       "ano": 2026,
-      "data": "",
+      "data": "2026-07-01",
       "tipo": "artigo",
-      "veiculo": "REDER",
+      "veiculo": "Revista de Estudios Latinoamericanos sobre Reducción del Riesgo de Desastres REDER",
       "url": "https://doi.org/10.55467/reder.v10i2.230",
-      "autores_texto": "",
+      "autores_texto": "Paula Sayeko Souza Oda, Víctor Marchezini, Gabriela Lotta, Evandro Albiach Branco",
       "autores": [
         "victor-marchezini"
       ],
@@ -143,11 +143,11 @@
       "id": "doi:10.5380/dma.v67i.99225",
       "titulo": "Capacidades organizacionais de comunicação de riscos de desastres na era dos extremos",
       "ano": 2026,
-      "data": "",
+      "data": "2026-05-29",
       "tipo": "artigo",
       "veiculo": "Desenvolvimento e Meio Ambiente",
       "url": "https://doi.org/10.5380/dma.v67i.99225",
-      "autores_texto": "",
+      "autores_texto": "Víctor Marchezini, Monique Ribeiro Polera Sampaio, Paula Sayeko Souza Oda, André Luiz Martins Cotting, Karolina Gameiro Cota Dias",
       "autores": [
         "victor-marchezini"
       ],
@@ -158,11 +158,11 @@
       "id": "doi:10.5016/geografia.v51i1.18602",
       "titulo": "Desastres em municípios da Rede Federal de Educação Profissional, Científica e Tecnológica do Brasil",
       "ano": 2026,
-      "data": "",
+      "data": "2026-05-04",
       "tipo": "artigo",
       "veiculo": "Geografia (Rio Claro)",
       "url": "https://doi.org/10.5016/geografia.v51i1.18602",
-      "autores_texto": "",
+      "autores_texto": " Janaina de Alencar Mota e Silva, Viviana Aguilar Muñoz, Víctor Marchezini",
       "autores": [
         "victor-marchezini"
       ],
@@ -173,11 +173,11 @@
       "id": "doi:10.21579/issn.2526-0375_2025_n2_346-367",
       "titulo": "Capacidades organizacionais de gestão de riscos de desastres geo-hidrológicos em municípios prioritários no Brasil",
       "ano": 2026,
-      "data": "",
+      "data": "2026-04-29",
       "tipo": "artigo",
       "veiculo": "Revista Brasileira de Geografia",
       "url": "https://doi.org/10.21579/issn.2526-0375_2025_n2_346-367",
-      "autores_texto": "",
+      "autores_texto": "André Luiz Martins Cotting, Paula Sayeko Souza Oda, Karolina Gameiro Cota Dias, Vitor Vieira Vasconcelos, Adriano Mota Ferreira, Gabriela Spanghero Lotta et al.",
       "autores": [
         "victor-marchezini"
       ],
@@ -188,11 +188,11 @@
       "id": "doi:10.17605/osf.io/tp2xv",
       "titulo": "DATABASE - Social Protection Challenges: The Exposure of CRAS to Flood and Landslide Risks",
       "ano": 2026,
-      "data": "",
-      "tipo": "dados",
+      "data": "2026-04-24",
+      "tipo": "preprint",
       "veiculo": "",
       "url": "https://doi.org/10.17605/osf.io/tp2xv",
-      "autores_texto": "",
+      "autores_texto": "Adriano Mota Ferreira, Víctor Marchezini, Karolina Gameiro Cota Dias, Tatiana Sussel Gonçalves Mendes, Silvia Midori Saito",
       "autores": [
         "victor-marchezini"
       ],
@@ -203,11 +203,11 @@
       "id": "doi:10.1088/1748-9326/ae5991",
       "titulo": "Water-related disasters in Brazil: an assessment from 1991 to 2024",
       "ano": 2026,
-      "data": "",
+      "data": "2026-04-10",
       "tipo": "artigo",
       "veiculo": "Environmental Research Letters",
       "url": "https://doi.org/10.1088/1748-9326/ae5991",
-      "autores_texto": "",
+      "autores_texto": "Elton Vicente Escobar-Silva, Rômulo Marques-Carvalho, Cláudia Maria de Almeida, Leonardo Bacelar Lima Santos, Vandoir Bourscheidt, Lucas Mikosz et al.",
       "autores": [
         "victor-marchezini"
       ],
@@ -218,11 +218,2070 @@
       "id": "doi:10.1108/dpm-06-2025-0182",
       "titulo": "Participatory forensic investigations of disasters (PARFORIN): including people in collective disaster risk analysis through social cartography",
       "ano": 2026,
-      "data": "",
+      "data": "2026-03-02",
       "tipo": "artigo",
-      "veiculo": "Disaster Prevention and Management",
+      "veiculo": "Disaster Prevention and Management An International Journal",
       "url": "https://doi.org/10.1108/dpm-06-2025-0182",
-      "autores_texto": "",
+      "autores_texto": "Adriano Mota Ferreira, Víctor Marchezini, Tatiana Sussel Gonçalves Mendes, Alan dos Santos Pimentel",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.1080/23251042.2026.2626624",
+      "titulo": "Legitimizing wind energy in Brazil: power coalitions, discourse lock-in and transition dynamics",
+      "ano": 2026,
+      "data": "2026-02-23",
+      "tipo": "artigo",
+      "veiculo": "Environmental Sociology",
+      "url": "https://doi.org/10.1080/23251042.2026.2626624",
+      "autores_texto": "Sérgio Mantovani Paiva Pulice, Drielli Peyerl, Lia Helena Monteiro de Lima Demange, L.P. Martinez, Víctor Marchezini",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.5281/zenodo.18175809",
+      "titulo": "Data used in the Water-Related Disasters in Brazil: An Assessment from 1991 to 2024",
+      "ano": 2026,
+      "data": "2026-01-07",
+      "tipo": "dados",
+      "veiculo": "Zenodo (CERN European Organization for Nuclear Research)",
+      "url": "https://doi.org/10.5281/zenodo.18175809",
+      "autores_texto": "Elton Vicente Escobar Silva, Rômulo Marques-Carvalho, Cláudia Maria de Almeida, Leonardo Bacelar Lima Santos, Vandoir Bourscheidt, Lucas Mikosz et al.",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.1590/1809-58442026119en",
+      "titulo": "Os “riscos” e a “comunicação”: Discussão conceitual a partir da transdisciplinaridade complexa",
+      "ano": 2026,
+      "data": "2026-01-01",
+      "tipo": "artigo",
+      "veiculo": "Intercom Revista Brasileira de Ciências da Comunicação",
+      "url": "https://doi.org/10.1590/1809-58442026119en",
+      "autores_texto": "Monique Ribeiro Polera Sampaio, Víctor Marchezini",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.13137/2035-6633/38725",
+      "titulo": "Transformative state capacity and governance arrangements for smart, resilient, and decarbonized cities",
+      "ano": 2026,
+      "data": "2026-01-01",
+      "tipo": "artigo",
+      "veiculo": "OpenstarTs (Univeristy of Trieste https://www.units.it/)",
+      "url": "https://doi.org/10.13137/2035-6633/38725",
+      "autores_texto": "Sérgio Mantovani Paiva Pulice, Víctor Marchezini, Evandro Branco, Camila Guimarães",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.1016/b978-0-443-31538-1.00009-9",
+      "titulo": "Communication and dissemination of forecasts and engaging user communities",
+      "ano": 2025,
+      "data": "2025-11-14",
+      "tipo": "capitulo",
+      "veiculo": "Elsevier eBooks",
+      "url": "https://doi.org/10.1016/b978-0-443-31538-1.00009-9",
+      "autores_texto": "Joanne Robbins, Christopher Cunningham, Rutger Dankers, Matthew DeGennaro, Giovanni Dolif, Robyn Duell et al.",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.1515/9781836952794-009",
+      "titulo": "CHAPTER 5 Resisting Necropolitics: Mutual Aid and Grassroots Responses to the COVID- 19 Syndemic in Brazil",
+      "ano": 2025,
+      "data": "2025-11-07",
+      "tipo": "capitulo",
+      "veiculo": "Berghahn Books",
+      "url": "https://doi.org/10.1515/9781836952794-009",
+      "autores_texto": "Víctor Marchezini, Marcos Rodrigo Maciel Ferreira, Fernando G. Severo",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.4324/9781032695990-18",
+      "titulo": "Revisiting the past to think about our roles as scholars, practitioners and activists",
+      "ano": 2025,
+      "data": "2025-10-14",
+      "tipo": "capitulo",
+      "veiculo": "Routledge eBooks",
+      "url": "https://doi.org/10.4324/9781032695990-18",
+      "autores_texto": "Víctor Marchezini",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.55592/abrapcorp2025.v3i3.13085",
+      "titulo": "Comunicação de Riscos de Desastres: Análise de Percepção de Comunidades",
+      "ano": 2025,
+      "data": "2025-10-01",
+      "tipo": "artigo",
+      "veiculo": "XIX CONGRESSO ABRAPCORP",
+      "url": "https://doi.org/10.55592/abrapcorp2025.v3i3.13085",
+      "autores_texto": "Monique Ribeiro Polera Sampaio, Víctor Marchezini, Eloisa Beling Loose",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.1016/j.ijdrr.2025.105777",
+      "titulo": "State, institutional and organizational capacities in disaster risk management",
+      "ano": 2025,
+      "data": "2025-08-30",
+      "tipo": "artigo",
+      "veiculo": "International Journal of Disaster Risk Reduction",
+      "url": "https://doi.org/10.1016/j.ijdrr.2025.105777",
+      "autores_texto": "Paula Sayeko Souza Oda, Víctor Marchezini, Gabriela Lotta, Adriano Mota Ferreira, André Luiz Martins Cotting, Karolina Gameiro Cota Dias et al.",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.1007/978-3-031-87027-9_12",
+      "titulo": "Human Displacements Related to Disasters in Brazil",
+      "ano": 2025,
+      "data": "2025-08-08",
+      "tipo": "capitulo",
+      "veiculo": "Environmental Politics and Theory",
+      "url": "https://doi.org/10.1007/978-3-031-87027-9_12",
+      "autores_texto": "Luciana R. Londe, Viviana Aguilar Muñoz, Víctor Marchezini",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.69469/derb.v46.840",
+      "titulo": "Coprodução de propostas para catalisar a implementação da Política Nacional de Proteção e Defesa Civil nos municípios brasileiros",
+      "ano": 2025,
+      "data": "2025-06-06",
+      "tipo": "artigo",
+      "veiculo": "Derbyana",
+      "url": "https://doi.org/10.69469/derb.v46.840",
+      "autores_texto": "Víctor Marchezini, Silvia Midori Saito, Luciana R. Londe, Fernanda Dalla Libera Damacena, Eloísa Beling Loose",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [
+        "elos"
+      ],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.4324/9781003292814",
+      "titulo": "Understanding and Addressing Disaster Risk: Who Speaks? Who Suffers?",
+      "ano": 2025,
+      "data": "2025-04-24",
+      "tipo": "livro",
+      "veiculo": "Routledge eBooks",
+      "url": "https://doi.org/10.4324/9781003292814",
+      "autores_texto": "Ben Wisner, Irasema Alcántara-Ayala, Jean‐Christophe Gaillard, Ilan Kelman, Víctor Marchezini",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.4324/9781003292814-1",
+      "titulo": "The Challenges of Disaster",
+      "ano": 2025,
+      "data": "2025-04-24",
+      "tipo": "capitulo",
+      "veiculo": "Routledge eBooks",
+      "url": "https://doi.org/10.4324/9781003292814-1",
+      "autores_texto": "Ben Wisner, Irasema Alcántara-Ayala, Jean‐Christophe Gaillard, Ilan Kelman, Víctor Marchezini",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.4324/9781003292814-4",
+      "titulo": "The Living World",
+      "ano": 2025,
+      "data": "2025-04-24",
+      "tipo": "capitulo",
+      "veiculo": "Routledge eBooks",
+      "url": "https://doi.org/10.4324/9781003292814-4",
+      "autores_texto": "Ben Wisner, Irasema Alcántara-Ayala, Jean‐Christophe Gaillard, Ilan Kelman, Víctor Marchezini",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.4324/9781003292814-10",
+      "titulo": "Understanding Risk and Living Life",
+      "ano": 2025,
+      "data": "2025-04-24",
+      "tipo": "capitulo",
+      "veiculo": "Routledge eBooks",
+      "url": "https://doi.org/10.4324/9781003292814-10",
+      "autores_texto": "Ben Wisner, Irasema Alcántara-Ayala, Jean‐Christophe Gaillard, Ilan Kelman, Víctor Marchezini",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.4324/9781003292814-5",
+      "titulo": "Water, Weather, and Climate",
+      "ano": 2025,
+      "data": "2025-04-24",
+      "tipo": "capitulo",
+      "veiculo": "Routledge eBooks",
+      "url": "https://doi.org/10.4324/9781003292814-5",
+      "autores_texto": "Ben Wisner, Irasema Alcántara-Ayala, Jean‐Christophe Gaillard, Ilan Kelman, Víctor Marchezini",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.4324/9781003292814-11",
+      "titulo": "Afterword: Head and Heart – Compassion and Anger in Disaster Studies and Action",
+      "ano": 2025,
+      "data": "2025-04-24",
+      "tipo": "capitulo",
+      "veiculo": "Routledge eBooks",
+      "url": "https://doi.org/10.4324/9781003292814-11",
+      "autores_texto": "Ben Wisner, Irasema Alcántara-Ayala, Jean‐Christophe Gaillard, Ilan Kelman, Víctor Marchezini",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.4324/9781003292814-7",
+      "titulo": "Living with Tsunamis and Landslides",
+      "ano": 2025,
+      "data": "2025-04-24",
+      "tipo": "capitulo",
+      "veiculo": "Routledge eBooks",
+      "url": "https://doi.org/10.4324/9781003292814-7",
+      "autores_texto": "Ben Wisner, Irasema Alcántara-Ayala, Jean‐Christophe Gaillard, Ilan Kelman, Víctor Marchezini",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.4324/9781003292814-2",
+      "titulo": "Framing Disaster Risk Reduction",
+      "ano": 2025,
+      "data": "2025-04-24",
+      "tipo": "capitulo",
+      "veiculo": "Routledge eBooks",
+      "url": "https://doi.org/10.4324/9781003292814-2",
+      "autores_texto": "Ben Wisner, Irasema Alcántara-Ayala, Jean‐Christophe Gaillard, Ilan Kelman, Víctor Marchezini",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.4324/9781003292814-8",
+      "titulo": "Beyond the Earth",
+      "ano": 2025,
+      "data": "2025-04-24",
+      "tipo": "capitulo",
+      "veiculo": "Routledge eBooks",
+      "url": "https://doi.org/10.4324/9781003292814-8",
+      "autores_texto": "Ben Wisner, Irasema Alcántara-Ayala, Jean‐Christophe Gaillard, Ilan Kelman, Víctor Marchezini",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.4324/9781003292814-6",
+      "titulo": "Earthly Hazards",
+      "ano": 2025,
+      "data": "2025-04-24",
+      "tipo": "capitulo",
+      "veiculo": "Routledge eBooks",
+      "url": "https://doi.org/10.4324/9781003292814-6",
+      "autores_texto": "Ben Wisner, Irasema Alcántara-Ayala, Jean‐Christophe Gaillard, Ilan Kelman, Víctor Marchezini",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.4324/9781003292814-3",
+      "titulo": "Abilities",
+      "ano": 2025,
+      "data": "2025-04-24",
+      "tipo": "capitulo",
+      "veiculo": "Routledge eBooks",
+      "url": "https://doi.org/10.4324/9781003292814-3",
+      "autores_texto": "Ben Wisner, Irasema Alcántara-Ayala, Jean‐Christophe Gaillard, Ilan Kelman, Víctor Marchezini",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.4324/9781003292814-9",
+      "titulo": "Disaster Risk Construction",
+      "ano": 2025,
+      "data": "2025-04-24",
+      "tipo": "capitulo",
+      "veiculo": "Routledge eBooks",
+      "url": "https://doi.org/10.4324/9781003292814-9",
+      "autores_texto": "Ben Wisner, Irasema Alcántara-Ayala, Jean‐Christophe Gaillard, Ilan Kelman, Víctor Marchezini",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.1016/j.ijdrr.2025.105291",
+      "titulo": "Implementation challenges of disaster risk management policies: The organizational capacities of municipal civil defense units",
+      "ano": 2025,
+      "data": "2025-02-12",
+      "tipo": "artigo",
+      "veiculo": "International Journal of Disaster Risk Reduction",
+      "url": "https://doi.org/10.1016/j.ijdrr.2025.105291",
+      "autores_texto": "Víctor Marchezini, Silvia Midori Saito, Luciana R. Londe, Fernanda Dalla Libera Damacena",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.2166/wcc.2025.096",
+      "titulo": "Integrating Sustainable Development Goals into the nexus approach",
+      "ano": 2025,
+      "data": "2025-01-28",
+      "tipo": "artigo",
+      "veiculo": "Journal of Water and Climate Change",
+      "url": "https://doi.org/10.2166/wcc.2025.096",
+      "autores_texto": "Erica Acioli Canamary, Ana Carolina da Encarnação Paiva, Minella Alves Martins, Diovana de Moura Silva, Víctor Marchezini, Javier Tomasella",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.55333/rima-978-65-84811-84-3_004",
+      "titulo": "Fatores de Risco, Condições Inseguras e Cidades Médias: olhar interdisciplinar por meio da Investigação Forense em Desastres",
+      "ano": 2025,
+      "data": "2025-01-01",
+      "tipo": "capitulo",
+      "veiculo": "",
+      "url": "https://doi.org/10.55333/rima-978-65-84811-84-3_004",
+      "autores_texto": "Adriano Mota Ferreira, Víctor Marchezini, Tatiana Sussel Gonçalves Mendes",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.2139/ssrn.5940936",
+      "titulo": "Risk communication perceptions in natural-hazards contexts: the role of disaster experience, access to devices, media literacy, and exposure to disinformation",
+      "ano": 2025,
+      "data": "2025-01-01",
+      "tipo": "preprint",
+      "veiculo": "SSRN Electronic Journal",
+      "url": "https://doi.org/10.2139/ssrn.5940936",
+      "autores_texto": "Monique  Ribeiro Polera Sampaio, Víctor Marchezini, Adriano  Mota Ferreira, Daniel  Messias dos Santos",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "W7130485242",
+      "titulo": "Percepção e Comunicação de Riscos de Desastres no Brasil: um breve retrato sobre acesso a dispositivos e confiança nos meios de comunicação",
+      "ano": 2025,
+      "data": "2025-01-01",
+      "tipo": "artigo",
+      "veiculo": "Biblioteca Digital da Memória Científica do INPE (National Institute for Space Research)",
+      "url": "http://urlib.net/sid.inpe.br/mtc-m16c/2026/02.17.18.19",
+      "autores_texto": "Monique Ribeiro Polera Sampaio, Víctor Marchezini",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "W7130486334",
+      "titulo": "Capacidades no âmbito da gestão de risco de desastres: em busca de definições e indicadores",
+      "ano": 2025,
+      "data": "2025-01-01",
+      "tipo": "artigo",
+      "veiculo": "Biblioteca Digital da Memória Científica do INPE (National Institute for Space Research)",
+      "url": "http://urlib.net/sid.inpe.br/mtc-m16c/2026/02.17.18.23",
+      "autores_texto": "Paula Sayeko Souza Oda, Víctor Marchezini, Gabriela Lotta, Evandro Albiach Branco",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "W7130493308",
+      "titulo": "Percepção da população de São Luiz do Paraitinga sobre eventos meteorológicos extremos e sistemas de alerta: 15 anos após o desastre de 2010",
+      "ano": 2025,
+      "data": "2025-01-01",
+      "tipo": "artigo",
+      "veiculo": "Biblioteca Digital da Memória Científica do INPE (National Institute for Space Research)",
+      "url": "http://urlib.net/sid.inpe.br/mtc-m16c/2026/02.17.14.26",
+      "autores_texto": "Ana Carolina Bichoffe,  Larissa Sant'Anna Fernandes, Mariana Marques Wolf, Yumi Okumura Moliné,  Janaina de Alencar Mota e Silva, Caroline Coura et al.",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.1108/ijdrbe-02-2023-0013",
+      "titulo": "Participatory analysis of disaster risk creation in Brazilian coastal cities: bridging remote sensing and citizen generated data",
+      "ano": 2024,
+      "data": "2024-09-17",
+      "tipo": "artigo",
+      "veiculo": "International Journal of Disaster Resilience in the Built Environment",
+      "url": "https://doi.org/10.1108/ijdrbe-02-2023-0013",
+      "autores_texto": "Aloísio Lélis de Paula, Víctor Marchezini, Tatiana Sussel Gonçalves Mendes",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.1016/j.wace.2024.100699",
+      "titulo": "An attribution study of very intense rainfall events in Eastern Northeast Brazil",
+      "ano": 2024,
+      "data": "2024-05-28",
+      "tipo": "artigo",
+      "veiculo": "Weather and Climate Extremes",
+      "url": "https://doi.org/10.1016/j.wace.2024.100699",
+      "autores_texto": "Francisco das Chagas Vasconcelos Júnior, Mariam Zachariah, Thiago Luiz do Vale Silva, Edvânia Santos, Caio A. S. Coelho, Lincoln Muniz Alves et al.",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.64628/aao.ghd7emyjs",
+      "titulo": "El camino a la insostenibilidad: las raíces del desastre en Rio Grande do Sul",
+      "ano": 2024,
+      "data": "2024-05-16",
+      "tipo": "outro",
+      "veiculo": "The Conversation",
+      "url": "https://doi.org/10.64628/aao.ghd7emyjs",
+      "autores_texto": "Andrea Lampis, Víctor Marchezini",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.64628/ade.qrrapjcej",
+      "titulo": "Assim caminha a insustentabilidade: raízes do desastre no Rio Grande do Sul",
+      "ano": 2024,
+      "data": "2024-05-14",
+      "tipo": "outro",
+      "veiculo": "The Conversation",
+      "url": "https://doi.org/10.64628/ade.qrrapjcej",
+      "autores_texto": "Andrea Lampis, Víctor Marchezini",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.5102/rbpp.v13i3.8557",
+      "titulo": "Desastres socionaturais e política fiscal: uma análise crítica do orçamento federal voltado à Defesa Civil no Brasil",
+      "ano": 2024,
+      "data": "2024-02-16",
+      "tipo": "artigo",
+      "veiculo": "Revista Brasileira de Políticas Públicas",
+      "url": "https://doi.org/10.5102/rbpp.v13i3.8557",
+      "autores_texto": "Fernanda Dalla Libera Damacena, Renato Eliseu Costa, Luiz Felipe Da Fonseca Pereira, Víctor Marchezini",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.1080/2325548x.2023.2277942",
+      "titulo": "El Niño Ready Nations and Disaster Risk Reduction: 19 Countries in PerspectiveEl Niño Ready Nations and Disaster Risk Reduction: 19 Countries in PerspectiveMichael H.Glantz, ed. Cham, Switzerland: Springer Nature, 2022. xxii and 388 pp., maps, diagrams, illustrations, notes, bibliography. $119.99 paper (ISBN 978-3-030-86505-4), $89.00 electronic (ISBN 978-3-030-86503-0).",
+      "ano": 2024,
+      "data": "2024-01-02",
+      "tipo": "outro",
+      "veiculo": "The AAG Review of Books",
+      "url": "https://doi.org/10.1080/2325548x.2023.2277942",
+      "autores_texto": "Víctor Marchezini",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.2139/ssrn.4862143",
+      "titulo": "Technological Legitimacy, Discourses, and the Role of Policy Entrepreneurs in Wind Energy Transition",
+      "ano": 2024,
+      "data": "2024-01-01",
+      "tipo": "preprint",
+      "veiculo": "SSRN Electronic Journal",
+      "url": "https://doi.org/10.2139/ssrn.4862143",
+      "autores_texto": "Sérgio Mantovani Paiva Pulice, Drielli Peyerl, Evandro Albiach Branco, Lia Helena Monteiro de Lima Demange, Ludimila Martinez, Víctor Marchezini",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.1590/2236-9996.2023-5803",
+      "titulo": "Evolution of the institutional capacity of the São Paulo Metropolitan Region in relation to climate change",
+      "ano": 2023,
+      "data": "2023-12-01",
+      "tipo": "artigo",
+      "veiculo": "Cadernos Metrópole",
+      "url": "https://doi.org/10.1590/2236-9996.2023-5803",
+      "autores_texto": "Leonardo Rossatto Queiroz, Víctor Marchezini, Daniel Andrés Rodríguez",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.1108/dpm-06-2023-0142",
+      "titulo": "Assessing equity in disaster risk governance in Brazil and Colombia",
+      "ano": 2023,
+      "data": "2023-11-29",
+      "tipo": "artigo",
+      "veiculo": "Disaster Prevention and Management An International Journal",
+      "url": "https://doi.org/10.1108/dpm-06-2023-0142",
+      "autores_texto": "Philipp Ulbrich, André Vinicius Leal Sobral, Luis Alejandro Rivera Flórez, Edna Margarita Rodríguez Gaviria, Jon Coaffee, Víctor Marchezini et al.",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.1108/dpm-06-2023-0150",
+      "titulo": "Why are you in disaster studies? Liberating future scholars from oppressive disaster science",
+      "ano": 2023,
+      "data": "2023-11-21",
+      "tipo": "artigo",
+      "veiculo": "Disaster Prevention and Management An International Journal",
+      "url": "https://doi.org/10.1108/dpm-06-2023-0150",
+      "autores_texto": "Víctor Marchezini",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.4324/9781003293019-17",
+      "titulo": "Development and Cultural Heritage in the Disaster Capitalism Era",
+      "ano": 2023,
+      "data": "2023-11-14",
+      "tipo": "capitulo",
+      "veiculo": "Routledge eBooks",
+      "url": "https://doi.org/10.4324/9781003293019-17",
+      "autores_texto": "Víctor Marchezini, Andrea Lampis, Danilo Celso Pereira, Adriano Mota Ferreira",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.1007/s13753-023-00515-9",
+      "titulo": "A Systematic Review of Forensic Approaches to Disasters: Gaps and Challenges",
+      "ano": 2023,
+      "data": "2023-10-01",
+      "tipo": "artigo",
+      "veiculo": "International Journal of Disaster Risk Science",
+      "url": "https://doi.org/10.1007/s13753-023-00515-9",
+      "autores_texto": "Adriano Mota Ferreira, Víctor Marchezini, Tatiana Sussel Gonçalves Mendes, Miguel Angel Trejo-Rangel, Allan Yu Iwama",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.1007/s13753-023-00511-z",
+      "titulo": "Transnational Dialogues on Interdisciplinary Approaches for Advancing People-Centered Warning Systems",
+      "ano": 2023,
+      "data": "2023-10-01",
+      "tipo": "artigo",
+      "veiculo": "International Journal of Disaster Risk Science",
+      "url": "https://doi.org/10.1007/s13753-023-00511-z",
+      "autores_texto": "Víctor Marchezini",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.12819/2023.20.9.8",
+      "titulo": "Planejando Rotas de Fuga em Caso de Deslizamentos – Estudo em Campos do Jordão-Brasil",
+      "ano": 2023,
+      "data": "2023-09-01",
+      "tipo": "artigo",
+      "veiculo": "Revista FSA",
+      "url": "https://doi.org/10.12819/2023.20.9.8",
+      "autores_texto": "Michael Ademilson Santos da Silva, Irineu de Brito, Débora Olivato, Víctor Marchezini",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.26807/rp.v27i117.2027",
+      "titulo": "THEY ONLY THINK OF CIVIL DEFENSE WHEN A DISASTER HAPPENS”: NOTES ABOUT INSTITUTIONAL COMMUNICATION",
+      "ano": 2023,
+      "data": "2023-08-08",
+      "tipo": "artigo",
+      "veiculo": "Razón y Palabra",
+      "url": "https://doi.org/10.26807/rp.v27i117.2027",
+      "autores_texto": "Luciana R. Londe, Eloísa Beling Loose, Víctor Marchezini",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.1016/j.gloenvcha.2023.102730",
+      "titulo": "Dialogic data innovations for sustainability transformations and flood resilience: The case for waterproofing data",
+      "ano": 2023,
+      "data": "2023-07-27",
+      "tipo": "artigo",
+      "veiculo": "Global Environmental Change",
+      "url": "https://doi.org/10.1016/j.gloenvcha.2023.102730",
+      "autores_texto": "João Porto de Albuquerque, Liana O. Anderson, Nerea Calvillo, Massimo Cattino, Andrew Clarke, Maria Alexandra Cunha et al.",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.1108/dpm-11-2022-0232",
+      "titulo": "Disaster capitalism in times of COVID-19 conversation on disasters: deconstructed on September 15, 2020",
+      "ano": 2023,
+      "data": "2023-03-10",
+      "tipo": "artigo",
+      "veiculo": "Disaster Prevention and Management An International Journal",
+      "url": "https://doi.org/10.1108/dpm-11-2022-0232",
+      "autores_texto": "Wesley Cheek, Claudia González‐Muzzio, Víctor Marchezini, Holmes Páez, Mittul Vahanvati, Dewald van Niekerk",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.55467/reder.v7i1.114",
+      "titulo": "Communication of civil defense agencies in Brazil: Highlighting risks or disasters?",
+      "ano": 2023,
+      "data": "2023-01-17",
+      "tipo": "artigo",
+      "veiculo": "Revista de Estudios Latinoamericanos sobre Reducción del Riesgo de Desastres REDER",
+      "url": "https://doi.org/10.55467/reder.v7i1.114",
+      "autores_texto": "Eloísa Beling Loose, Luciana R. Londe, Víctor Marchezini",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.1016/j.ijdrr.2023.103529",
+      "titulo": "Wildfire governance in a tri-national frontier of southwestern Amazonia: Capacities and vulnerabilities",
+      "ano": 2023,
+      "data": "2023-01-06",
+      "tipo": "artigo",
+      "veiculo": "International Journal of Disaster Risk Reduction",
+      "url": "https://doi.org/10.1016/j.ijdrr.2023.103529",
+      "autores_texto": "Gleiciane de Oliveira Pismel, Víctor Marchezini, Galia Selaya Garvizu, Yara Araújo Pereira de Paula, Eddy Mendoza, Liana O. Anderson",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.1016/j.nhres.2023.01.004",
+      "titulo": "Official and unofficial data supporting disaster risk management in medium-sized cities",
+      "ano": 2023,
+      "data": "2023-01-05",
+      "tipo": "artigo",
+      "veiculo": "Natural Hazards Research",
+      "url": "https://doi.org/10.1016/j.nhres.2023.01.004",
+      "autores_texto": "Gabriel Corrêa do Amaral, Adriano Mota Ferreira, Diego de Souza Sardinha, Paulo Henrique Bretanha Junker Menezes, Víctor Marchezini, Rafael de Oliveira Tiezzi",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.14295/ambeduc.v27i2.14735",
+      "titulo": "Clima, desastres e a ciência cidadã na convivência entre o ver e o não ver",
+      "ano": 2022,
+      "data": "2022-12-26",
+      "tipo": "artigo",
+      "veiculo": "Ambiente & Educação",
+      "url": "https://doi.org/10.14295/ambeduc.v27i2.14735",
+      "autores_texto": "Giselly Rodrigues das Neves Silva Gomes, Rachel Trajber, Víctor Marchezini",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.1016/j.ijdrr.2022.103450",
+      "titulo": "Incorporating Social Innovations in the Elaboration of Disaster Risk Mitigation Policies",
+      "ano": 2022,
+      "data": "2022-11-22",
+      "tipo": "artigo",
+      "veiculo": "International Journal of Disaster Risk Reduction",
+      "url": "https://doi.org/10.1016/j.ijdrr.2022.103450",
+      "autores_texto": "Miguel Angel Trejo-Rangel, Víctor Marchezini, Daniel Andrés Rodríguez, Daniel Messias dos Santos, Marina Gabos, Aloísio Lélis de Paula et al.",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.1007/s13753-022-00448-9",
+      "titulo": "Correction: Perceptions About Climate Change in the Brazilian Civil Defense Sector",
+      "ano": 2022,
+      "data": "2022-10-01",
+      "tipo": "outro",
+      "veiculo": "International Journal of Disaster Risk Science",
+      "url": "https://doi.org/10.1007/s13753-022-00448-9",
+      "autores_texto": "Víctor Marchezini, Luciana R. Londe, Eloísa Beling Loose, Silvia Midori Saito, José Marengo",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.70015/ril_v59_n235_p215",
+      "titulo": "Fundos públicos federais e implementação da política nacional de proteção e defesa civil no Brasil",
+      "ano": 2022,
+      "data": "2022-09-30",
+      "tipo": "artigo",
+      "veiculo": "Revista de Informação Legislativa",
+      "url": "https://doi.org/10.70015/ril_v59_n235_p215",
+      "autores_texto": "Fernanda Dalla Libera Damacena, Luiz Felipe Da Fonseca Pereira, Renato Eliseu Costa, Víctor Marchezini",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [
+        "elos"
+      ],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.1007/s13753-022-00444-z",
+      "titulo": "Perceptions About Climate Change in the Brazilian Civil Defense Sector",
+      "ano": 2022,
+      "data": "2022-09-27",
+      "tipo": "artigo",
+      "veiculo": "International Journal of Disaster Risk Science",
+      "url": "https://doi.org/10.1007/s13753-022-00444-z",
+      "autores_texto": "Víctor Marchezini, Luciana R. Londe, Eloísa Beling Loose, Silvia Midori Saito, José Antonio Marengo",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.1108/dpm-03-2022-0057",
+      "titulo": "Challenges for professionalism in civil defense and protection",
+      "ano": 2022,
+      "data": "2022-08-05",
+      "tipo": "artigo",
+      "veiculo": "Disaster Prevention and Management An International Journal",
+      "url": "https://doi.org/10.1108/dpm-03-2022-0057",
+      "autores_texto": "Maria da Glória Bonelli, Fernanda Dalla Libera Damacena, Aline Silveira Viana, Alice Dianezi Gambardella, Víctor Marchezini",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.4324/9781315469614-3",
+      "titulo": "Disaster risk",
+      "ano": 2022,
+      "data": "2022-08-03",
+      "tipo": "capitulo",
+      "veiculo": "Routledge eBooks",
+      "url": "https://doi.org/10.4324/9781315469614-3",
+      "autores_texto": "Irasema Alcántara-Ayala, Christopher Gomez, Ksenia Chmutina, Dewald van Niekerk, Emmanuel Raju, Víctor Marchezini et al.",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.4324/9781315469614",
+      "titulo": "Disaster Risk",
+      "ano": 2022,
+      "data": "2022-08-03",
+      "tipo": "livro",
+      "veiculo": "Routledge eBooks",
+      "url": "https://doi.org/10.4324/9781315469614",
+      "autores_texto": "Jean‐Christophe Gaillard, Irasema Alcántara-Ayala, Emmanuel Raju, Víctor Marchezini, Christopher Gomez, Ksenia Chmutina et al.",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.4324/9781315469614-20",
+      "titulo": "Disaster risk reduction",
+      "ano": 2022,
+      "data": "2022-08-03",
+      "tipo": "capitulo",
+      "veiculo": "Routledge eBooks",
+      "url": "https://doi.org/10.4324/9781315469614-20",
+      "autores_texto": "Irasema Alcántara-Ayala, Christopher Gomez, Ksenia Chmutina, Dewald van Niekerk, Emmanuel Raju, Víctor Marchezini et al.",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.4324/9781315469614-9",
+      "titulo": "People's capacities",
+      "ano": 2022,
+      "data": "2022-08-03",
+      "tipo": "capitulo",
+      "veiculo": "Routledge eBooks",
+      "url": "https://doi.org/10.4324/9781315469614-9",
+      "autores_texto": "Irasema Alcántara-Ayala, Christopher Gomez, Ksenia Chmutina, Dewald van Niekerk, Emmanuel Raju, Víctor Marchezini et al.",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.4324/9781315469614-16",
+      "titulo": "People's behaviour in times of disaster",
+      "ano": 2022,
+      "data": "2022-08-03",
+      "tipo": "capitulo",
+      "veiculo": "Routledge eBooks",
+      "url": "https://doi.org/10.4324/9781315469614-16",
+      "autores_texto": "Irasema Alcántara-Ayala, Christopher Gomez, Ksenia Chmutina, Dewald van Niekerk, Emmanuel Raju, Víctor Marchezini et al.",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.4324/9781315469614-12",
+      "titulo": "Gravity-driven natural exogenous processes",
+      "ano": 2022,
+      "data": "2022-08-03",
+      "tipo": "capitulo",
+      "veiculo": "Routledge eBooks",
+      "url": "https://doi.org/10.4324/9781315469614-12",
+      "autores_texto": "Irasema Alcántara-Ayala, Christopher Gomez, Ksenia Chmutina, Dewald van Niekerk, Emmanuel Raju, Víctor Marchezini et al.",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.4324/9781315469614-1",
+      "titulo": "Why a textbook on disaster risk?",
+      "ano": 2022,
+      "data": "2022-08-03",
+      "tipo": "capitulo",
+      "veiculo": "Routledge eBooks",
+      "url": "https://doi.org/10.4324/9781315469614-1",
+      "autores_texto": "Irasema Alcántara-Ayala, Christopher Gomez, Ksenia Chmutina, Dewald van Niekerk, Emmanuel Raju, Víctor Marchezini et al.",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.4324/9781315469614-14",
+      "titulo": "Socio-natural hazards",
+      "ano": 2022,
+      "data": "2022-08-03",
+      "tipo": "capitulo",
+      "veiculo": "Routledge eBooks",
+      "url": "https://doi.org/10.4324/9781315469614-14",
+      "autores_texto": "Irasema Alcántara-Ayala, Christopher Gomez, Ksenia Chmutina, Dewald van Niekerk, Emmanuel Raju, Víctor Marchezini et al.",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.4324/9781315469614-23",
+      "titulo": "What do we know and need to know?",
+      "ano": 2022,
+      "data": "2022-08-03",
+      "tipo": "capitulo",
+      "veiculo": "Routledge eBooks",
+      "url": "https://doi.org/10.4324/9781315469614-23",
+      "autores_texto": "Irasema Alcántara-Ayala, Christopher Gomez, Ksenia Chmutina, Dewald van Niekerk, Emmanuel Raju, Víctor Marchezini et al.",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.4324/9781315469614-5",
+      "titulo": "The impact of disasters",
+      "ano": 2022,
+      "data": "2022-08-03",
+      "tipo": "capitulo",
+      "veiculo": "Routledge eBooks",
+      "url": "https://doi.org/10.4324/9781315469614-5",
+      "autores_texto": "Irasema Alcántara-Ayala, Christopher Gomez, Ksenia Chmutina, Dewald van Niekerk, Emmanuel Raju, Víctor Marchezini et al.",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.4324/9781315469614-7",
+      "titulo": "Why do disasters occur?",
+      "ano": 2022,
+      "data": "2022-08-03",
+      "tipo": "capitulo",
+      "veiculo": "Routledge eBooks",
+      "url": "https://doi.org/10.4324/9781315469614-7",
+      "autores_texto": "Irasema Alcántara-Ayala, Christopher Gomez, Ksenia Chmutina, Dewald van Niekerk, Emmanuel Raju, Víctor Marchezini et al.",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.4324/9781315469614-8",
+      "titulo": "People's vulnerability",
+      "ano": 2022,
+      "data": "2022-08-03",
+      "tipo": "capitulo",
+      "veiculo": "Routledge eBooks",
+      "url": "https://doi.org/10.4324/9781315469614-8",
+      "autores_texto": "Irasema Alcántara-Ayala, Christopher Gomez, Ksenia Chmutina, Dewald van Niekerk, Emmanuel Raju, Víctor Marchezini et al.",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.4324/9781315469614-11",
+      "titulo": "Endogenous processes",
+      "ano": 2022,
+      "data": "2022-08-03",
+      "tipo": "capitulo",
+      "veiculo": "Routledge eBooks",
+      "url": "https://doi.org/10.4324/9781315469614-11",
+      "autores_texto": "Irasema Alcántara-Ayala, Christopher Gomez, Ksenia Chmutina, Dewald van Niekerk, Emmanuel Raju, Víctor Marchezini et al.",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.4324/9781315469614-18",
+      "titulo": "Moving towards disaster recovery",
+      "ano": 2022,
+      "data": "2022-08-03",
+      "tipo": "capitulo",
+      "veiculo": "Routledge eBooks",
+      "url": "https://doi.org/10.4324/9781315469614-18",
+      "autores_texto": "Irasema Alcántara-Ayala, Christopher Gomez, Ksenia Chmutina, Dewald van Niekerk, Emmanuel Raju, Víctor Marchezini et al.",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.4324/9781315469614-22",
+      "titulo": "Fostering disaster recovery",
+      "ano": 2022,
+      "data": "2022-08-03",
+      "tipo": "capitulo",
+      "veiculo": "Routledge eBooks",
+      "url": "https://doi.org/10.4324/9781315469614-22",
+      "autores_texto": "Irasema Alcántara-Ayala, Christopher Gomez, Ksenia Chmutina, Dewald van Niekerk, Emmanuel Raju, Víctor Marchezini et al.",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.4324/9781315469614-13",
+      "titulo": "Climatological and hydrometeorological hazards",
+      "ano": 2022,
+      "data": "2022-08-03",
+      "tipo": "capitulo",
+      "veiculo": "Routledge eBooks",
+      "url": "https://doi.org/10.4324/9781315469614-13",
+      "autores_texto": "Irasema Alcántara-Ayala, Christopher Gomez, Ksenia Chmutina, Dewald van Niekerk, Emmanuel Raju, Víctor Marchezini et al.",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.4324/9781315469614-4",
+      "titulo": "Where and when disasters occur",
+      "ano": 2022,
+      "data": "2022-08-03",
+      "tipo": "capitulo",
+      "veiculo": "Routledge eBooks",
+      "url": "https://doi.org/10.4324/9781315469614-4",
+      "autores_texto": "Irasema Alcántara-Ayala, Christopher Gomez, Ksenia Chmutina, Dewald van Niekerk, Emmanuel Raju, Víctor Marchezini et al.",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.4324/9781315469614-17",
+      "titulo": "People's resilience",
+      "ano": 2022,
+      "data": "2022-08-03",
+      "tipo": "capitulo",
+      "veiculo": "Routledge eBooks",
+      "url": "https://doi.org/10.4324/9781315469614-17",
+      "autores_texto": "Irasema Alcántara-Ayala, Christopher Gomez, Ksenia Chmutina, Dewald van Niekerk, Emmanuel Raju, Víctor Marchezini et al.",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.4324/9781315469614-21",
+      "titulo": "Disaster management",
+      "ano": 2022,
+      "data": "2022-08-03",
+      "tipo": "capitulo",
+      "veiculo": "Routledge eBooks",
+      "url": "https://doi.org/10.4324/9781315469614-21",
+      "autores_texto": "Irasema Alcántara-Ayala, Christopher Gomez, Ksenia Chmutina, Dewald van Niekerk, Emmanuel Raju, Víctor Marchezini et al.",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.1108/dpm-01-2022-0016",
+      "titulo": "Flood risk governance in Brazil and the UK: facilitating knowledge exchange through research gaps and the potential of citizen-generated data",
+      "ano": 2022,
+      "data": "2022-07-11",
+      "tipo": "artigo",
+      "veiculo": "Disaster Prevention and Management An International Journal",
+      "url": "https://doi.org/10.1108/dpm-01-2022-0016",
+      "autores_texto": "Víctor Marchezini, João Porto de Albuquerque, Vangelis Pitidis, Conrado M. Rudorff, Fernanda Lima‐Silva, Carolin Klonner et al.",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.1108/dpm-06-2022-418",
+      "titulo": "Guest editorial: Introduction to calling for change in disaster studies – rethinking disaster studies",
+      "ano": 2022,
+      "data": "2022-06-02",
+      "tipo": "artigo",
+      "veiculo": "Disaster Prevention and Management An International Journal",
+      "url": "https://doi.org/10.1108/dpm-06-2022-418",
+      "autores_texto": "Punam Kumari Yadav, Jonatan Anderias Lassa, Víctor Marchezini, Dewald van Niekerk",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.1007/s13753-022-00394-6",
+      "titulo": "(In)visibilities About the Vulnerabilities of People with Visual Impairments to Disasters and Climate Change: A Case Study in Cuiabá, Brazil",
+      "ano": 2022,
+      "data": "2022-02-01",
+      "tipo": "artigo",
+      "veiculo": "International Journal of Disaster Risk Science",
+      "url": "https://doi.org/10.1007/s13753-022-00394-6",
+      "autores_texto": "Giselly Gomes, Víctor Marchezini, Michèle Tomoko Sato",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.55467/reder.v6i1.89",
+      "titulo": "El Diálogo Continúa: Descolonización de la Ciencia de los Desastres en Latinoamérica y el Caribe",
+      "ano": 2022,
+      "data": "2022-01-27",
+      "tipo": "artigo",
+      "veiculo": "Revista de Estudios Latinoamericanos sobre Reducción del Riesgo de Desastres REDER",
+      "url": "https://doi.org/10.55467/reder.v6i1.89",
+      "autores_texto": "Aracely J. Martínez Rodas, Claudia González‐Muzzio, Víctor Marchezini",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.1108/dpm-03-2021-0100",
+      "titulo": "Giving voice to the voiceless: connecting graduate students with high school students by incubating DRR plans through participatory mapping",
+      "ano": 2022,
+      "data": "2022-01-07",
+      "tipo": "artigo",
+      "veiculo": "Disaster Prevention and Management An International Journal",
+      "url": "https://doi.org/10.1108/dpm-03-2021-0100",
+      "autores_texto": "Miguel Angel Trejo-Rangel, Adriano Mota Ferreira, Víctor Marchezini, Daniel Andrés Rodríguez, Melissa da Silva Oliveira, Daniel Messias dos Santos",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.1016/j.ijdrr.2023.103869",
+      "titulo": "Communication in the Brazilian Civil Defense System",
+      "ano": 2022,
+      "data": "2022-01-01",
+      "tipo": "artigo",
+      "veiculo": "International Journal of Disaster Risk Reduction",
+      "url": "https://doi.org/10.1016/j.ijdrr.2023.103869",
+      "autores_texto": "Luciana R. Londe, Eloísa Beling Loose, Víctor Marchezini, Silvia Midori Saito",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "W4412259293",
+      "titulo": "Climate change increased heavy rainfall, hitting vulnerable communities in Eastern Northeast Brazil",
+      "ano": 2022,
+      "data": "2022-01-01",
+      "tipo": "livro",
+      "veiculo": "Research at the University of Copenhagen (University of Copenhagen)",
+      "url": "https://researchprofiles.ku.dk/da/publications/c6ca11d1-5016-4496-a7ef-8f2e13a24053",
+      "autores_texto": "Mariam Zacharia, Francisco das Chagas Vasconcelos Júnior, Thiago Luiz do Vale Silva, Edvânia Santos, Caio A. S. Coelho, Lincoln Muniz Alves et al.",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.2139/ssrn.4145337",
+      "titulo": "Flash Floods: The Invisibility of Data on Impacts in Brazil",
+      "ano": 2022,
+      "data": "2022-01-01",
+      "tipo": "preprint",
+      "veiculo": "SSRN Electronic Journal",
+      "url": "https://doi.org/10.2139/ssrn.4145337",
+      "autores_texto": "Viviana Aguilar Muñoz, Lucia Calderón-Pacheco, Luz Adriana Cuartas, Víctor Marchezini",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.6084/m9.figshare.20040000",
+      "titulo": "Strengthening ties: inter-municipal cooperation for disaster risk reduction",
+      "ano": 2022,
+      "data": "2022-01-01",
+      "tipo": "dados",
+      "veiculo": "Figshare",
+      "url": "https://doi.org/10.6084/m9.figshare.20040000",
+      "autores_texto": "Silvia Midori Saito, Fernando Rocha Nogueira, Luciana R. Londe, Víctor Marchezini, Kátia Canil, Fabiana de Carvalho Rosa",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.25439/rmt.31957719",
+      "titulo": "The role of public and private sectors in disaster capitalism: An international overview",
+      "ano": 2022,
+      "data": "2022-01-01",
+      "tipo": "relatorio",
+      "veiculo": "RMIT Research Repository (RMIT University Library)",
+      "url": "https://doi.org/10.25439/rmt.31957719",
+      "autores_texto": "Vincente Sandoval, Darien Alexander Williams, Wesley Cheek, Jason Kyle von Meding, Ksenia Chmutina, Claudia González‐Muzzio et al.",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.1007/s13753-021-00382-2",
+      "titulo": "What We Measure Matters: The Case of the Missing Development Data in Sendai Framework for Disaster Risk Reduction Monitoring",
+      "ano": 2021,
+      "data": "2021-11-19",
+      "tipo": "artigo",
+      "veiculo": "International Journal of Disaster Risk Science",
+      "url": "https://doi.org/10.1007/s13753-021-00382-2",
+      "autores_texto": "Ksenia Chmutina, Jason Kyle von Meding, Vicente Sandoval, Michael Boyland, Giuseppe Forino, Wesley Cheek et al.",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.55467/reder.v5i2.68",
+      "titulo": "Descolonización de la ciencia de los desastres: Enfoques desde Latinoamérica y Caribe",
+      "ano": 2021,
+      "data": "2021-07-30",
+      "tipo": "artigo",
+      "veiculo": "Revista de Estudios Latinoamericanos sobre Reducción del Riesgo de Desastres REDER",
+      "url": "https://doi.org/10.55467/reder.v5i2.68",
+      "autores_texto": "Víctor Marchezini, Claudia González‐Muzzio, Aracely J. Martínez Rodas",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.1108/dpm-08-2020-0262",
+      "titulo": "Participatory 3D model to promote intergenerational engagement for disaster risk reduction in São Luiz do Paraitinga, Brazil",
+      "ano": 2021,
+      "data": "2021-04-30",
+      "tipo": "artigo",
+      "veiculo": "Disaster Prevention and Management An International Journal",
+      "url": "https://doi.org/10.1108/dpm-08-2020-0262",
+      "autores_texto": "Miguel Angel Trejo-Rangel, Víctor Marchezini, Daniel Adres Rodriguez, Melissa da Silva Oliveira",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.1016/j.cosust.2021.06.009",
+      "titulo": "The role of data in transformations to sustainability: a critical research agenda",
+      "ano": 2021,
+      "data": "2021-04-01",
+      "tipo": "artigo",
+      "veiculo": "Current Opinion in Environmental Sustainability",
+      "url": "https://doi.org/10.1016/j.cosust.2021.06.009",
+      "autores_texto": "João Porto de Albuquerque, Liana O. Anderson, Nerea Calvillo, Jon Coaffee, Maria Alexandra Cunha, Lívia Castro Degrossi et al.",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.1016/j.cosust.2021.01.010",
+      "titulo": "Multiple knowledge systems and participatory actions in slow-onset effects of climate change: insights and perspectives in Latin America and the Caribbean",
+      "ano": 2021,
+      "data": "2021-03-02",
+      "tipo": "artigo",
+      "veiculo": "Current Opinion in Environmental Sustainability",
+      "url": "https://doi.org/10.1016/j.cosust.2021.01.010",
+      "autores_texto": "Allan Yu Iwama, Francisco Araos, Jeremy Anbleyth‐Evans, Víctor Marchezini, Arturo Ruiz‐Luna, Francisco Ther-Ríos et al.",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "W3137885819",
+      "titulo": "Education and Citizen Science in Disaster Studies: Approaches and Initiatives",
+      "ano": 2021,
+      "data": "2021-02-23",
+      "tipo": "artigo",
+      "veiculo": "IV ISA Forum of Sociology (February 23-28, 2021)",
+      "url": "https://isaconf.confex.com/isaconf/forum2020/meetingapp.cgi/Session/14141#!",
+      "autores_texto": "Víctor Marchezini, Flvio Horita",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.1590/2175-3369.013.e20200403",
+      "titulo": "Fortalecendo laços: cooperação intermunicipal para redução de risco de desastres",
+      "ano": 2021,
+      "data": "2021-01-01",
+      "tipo": "artigo",
+      "veiculo": "urbe Revista Brasileira de Gestão Urbana",
+      "url": "https://doi.org/10.1590/2175-3369.013.e20200403",
+      "autores_texto": "Silvia Midori Saito, Fernando Rocha Nogueira, Luciana R. Londe, Víctor Marchezini, Kátia Canil, Fabiana de Carvalho Rosa",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.47418/uaquiri.vol2.n2.2020.4359",
+      "titulo": "RELATOS DE EXPERIÊNCIAS DOS PROJETOS DE PESQUISA MAP-FIRE E ACRE-QUEIMADAS: DIAGNÓSTICO E PERSPECTIVAS DE MITIGAÇÃO ENVOLVENDO A SOCIEDADE PARA REDUÇÃO DO RISCO E DE IMPACTOS ASSOCIADOS A INCÊNDIOS FLORESTAIS",
+      "ano": 2020,
+      "data": "2020-12-29",
+      "tipo": "artigo",
+      "veiculo": "UÁQUIRI - Revista do Programa de Pós Graduação em Geografia da Universidade Federal do Acre",
+      "url": "https://doi.org/10.47418/uaquiri.vol2.n2.2020.4359",
+      "autores_texto": "Liana O. Anderson, Gleiciane de Oliveira Pismel, Yara Araújo Pereira de Paula, Galia Selaya, João Reis, Eddy Mendoza Rojas et al.",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "W3093015618",
+      "titulo": "Vulnerabilidades e Resiliência no território da Macrometrópole:: Enfrentando Riscos e Desastres",
+      "ano": 2020,
+      "data": "2020-10-08",
+      "tipo": "artigo",
+      "veiculo": "Diálogos Socioambientais",
+      "url": "https://periodicos.ufabc.edu.br/index.php/dialogossocioambientais/article/view/341",
+      "autores_texto": "Víctor Marchezini, Andrea Lampis",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.1007/s11069-020-04274-4",
+      "titulo": "Looking to future perceptions about climate change in Brazil: What children’s teachers think, learn and teach about?",
+      "ano": 2020,
+      "data": "2020-09-04",
+      "tipo": "artigo",
+      "veiculo": "Natural Hazards",
+      "url": "https://doi.org/10.1007/s11069-020-04274-4",
+      "autores_texto": "Víctor Marchezini, Luciana R. Londe",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.18472/sustdeb.v11n2.2020.31268",
+      "titulo": "Emergency funding public policy for disaster response in Brazil from 2013 to 2017",
+      "ano": 2020,
+      "data": "2020-08-31",
+      "tipo": "artigo",
+      "veiculo": "Sustainability in Debate",
+      "url": "https://doi.org/10.18472/sustdeb.v11n2.2020.31268",
+      "autores_texto": "Víctor Marchezini, Adriano Mota Ferreira, Glauston Roberto Teixeira de Lima, Demerval Aparecido Gonçalves",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.55467/reder.v4i2.49",
+      "titulo": "Sistemas Comunitários de Alerta de Risco de Desastres Associados a Inundações e Deslizamentos: Aspectos Teóricos e Metodológicos",
+      "ano": 2020,
+      "data": "2020-07-24",
+      "tipo": "artigo",
+      "veiculo": "Revista de Estudios Latinoamericanos sobre Reducción del Riesgo de Desastres REDER",
+      "url": "https://doi.org/10.55467/reder.v4i2.49",
+      "autores_texto": "Víctor Marchezini, Caroline Santos Mourão, Graziela Balda Scofield, Daniel Metodiev, Selma Silva Leite Flores",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.1590/0103-11042020e220",
+      "titulo": "Mudanças na exposição da população à fumaça gerada por incêndios florestais na Amazônia: o que dizem os dados sobre desastres e qualidade do ar?",
+      "ano": 2020,
+      "data": "2020-07-01",
+      "tipo": "artigo",
+      "veiculo": "Saúde em Debate",
+      "url": "https://doi.org/10.1590/0103-11042020e220",
+      "autores_texto": "Liana O. Anderson, Víctor Marchezini",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.1590/0103-11042020e203",
+      "titulo": "Pesquisa transdisciplinar como suporte ao planejamento de ações de gestão de risco de desastres",
+      "ano": 2020,
+      "data": "2020-07-01",
+      "tipo": "artigo",
+      "veiculo": "Saúde em Debate",
+      "url": "https://doi.org/10.1590/0103-11042020e203",
+      "autores_texto": "Víctor Marchezini",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.1007/s13753-020-00262-1",
+      "titulo": "“What is a Sociologist Doing Here?” An Unconventional People-Centered Approach to Improve Warning Implementation in the Sendai Framework for Disaster Risk Reduction",
+      "ano": 2020,
+      "data": "2020-04-01",
+      "tipo": "artigo",
+      "veiculo": "International Journal of Disaster Risk Science",
+      "url": "https://doi.org/10.1007/s13753-020-00262-1",
+      "autores_texto": "Víctor Marchezini",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.5194/egusphere-egu2020-6175",
+      "titulo": "Supporting decision makers through rapid assessments of remote sensing data: the case of Tefé National Forest, Brazil",
+      "ano": 2020,
+      "data": "2020-03-23",
+      "tipo": "outro",
+      "veiculo": "",
+      "url": "https://doi.org/10.5194/egusphere-egu2020-6175",
+      "autores_texto": "Ana Carolina Moreira Pessôa, Liana O. Anderson, Rafael Suertegaray Rossato, Víctor Marchezini, Bruna Maria Pechini Bento, Sacha M. O. Siani et al.",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.17141/iconos.66.2020.3987",
+      "titulo": "Procesos de recuperación posdesastre en contextos biopolíticos neoliberales: los casos de Chile 2010 y Brasil 2011",
+      "ano": 2019,
+      "data": "2019-12-16",
+      "tipo": "artigo",
+      "veiculo": "Íconos - Revista de Ciencias Sociales",
+      "url": "https://doi.org/10.17141/iconos.66.2020.3987",
+      "autores_texto": "Juan Saavedra, Víctor Marchezini",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.1016/j.indic.2019.100016",
+      "titulo": "Characterizing spatio-temporal patterns of social vulnerability to droughts, degradation and desertification in the Brazilian northeast",
+      "ano": 2019,
+      "data": "2019-12-13",
+      "tipo": "artigo",
+      "veiculo": "Environmental and Sustainability Indicators",
+      "url": "https://doi.org/10.1016/j.indic.2019.100016",
+      "autores_texto": "Rita Márcia da Silva Pinto Vieira, Marcelo Francisco Sestini, Javier Tomasella, Víctor Marchezini, Guilherme Reis Pereira, Alexandre Augusto Barbosa et al.",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.11137/2019_4_102_117",
+      "titulo": "Disaster Risk Reduction Education: Pilot Studies in Rio de Janeiro State, Brazil",
+      "ano": 2019,
+      "data": "2019-12-12",
+      "tipo": "artigo",
+      "veiculo": "Anuário do Instituto de Geociências",
+      "url": "https://doi.org/10.11137/2019_4_102_117",
+      "autores_texto": "Víctor Marchezini, Marcos Barreto de Mendonça, Anderson Mululo Sato, T. C. S. ROSA, Marcelo Abranches Abelheira",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.1016/j.ijdrr.2019.101395",
+      "titulo": "Success, innovation and challenge: School safety and disaster education in South America and the Caribbean",
+      "ano": 2019,
+      "data": "2019-11-19",
+      "tipo": "artigo",
+      "veiculo": "International Journal of Disaster Risk Reduction",
+      "url": "https://doi.org/10.1016/j.ijdrr.2019.101395",
+      "autores_texto": "Viviana Aguilar Muñoz, Barbara E. Carby, Enrique A. Castellanos Abella, Omar Dario Cardona, Tania López-Marrero, Víctor Marchezini et al.",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.37002/biodiversidadebrasileira.v9i1.1199",
+      "titulo": "Multi-Actor adaptation plan to cope with forests under increasing risk of extensive fires (MAP-FIRE)",
+      "ano": 2019,
+      "data": "2019-05-15",
+      "tipo": "artigo",
+      "veiculo": "Biodiversidade Brasileira",
+      "url": "https://doi.org/10.37002/biodiversidadebrasileira.v9i1.1199",
+      "autores_texto": "Liana O. Anderson, Luiz E. O. C. Aragão, Víctor Marchezini, Sonaira Souza da Silva, Marisa Gesteira Fonseca, Galia Selaya Garvizu et al.",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.1108/dpm-07-2018-0227",
+      "titulo": "Designing a Cultural Heritage Articulated Warning System (CHAWS) strategy to improve disaster risk preparedness in Brazil",
+      "ano": 2019,
+      "data": "2019-05-07",
+      "tipo": "artigo",
+      "veiculo": "Disaster Prevention and Management An International Journal",
+      "url": "https://doi.org/10.1108/dpm-07-2018-0227",
+      "autores_texto": "Víctor Marchezini, Allan Yu Iwama, Danilo Celso Pereira, Rodrigo Silva da Conceição, Rachel Trajber, Débora Olivato",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.17058/redes.v24i2.13000",
+      "titulo": "Dimensões sociais da resiliência a desastres",
+      "ano": 2019,
+      "data": "2019-05-03",
+      "tipo": "artigo",
+      "veiculo": "Redes",
+      "url": "https://doi.org/10.17058/redes.v24i2.13000",
+      "autores_texto": "Víctor Marchezini, Henrique Almeida Forini",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.18472/sustdeb.v10n1.2019.19380",
+      "titulo": "The challenges of Consolidation of a Drought-Related Disaster Risk Warning System to Brazil",
+      "ano": 2019,
+      "data": "2019-04-30",
+      "tipo": "artigo",
+      "veiculo": "Sustainability in Debate",
+      "url": "https://doi.org/10.18472/sustdeb.v10n1.2019.19380",
+      "autores_texto": "Ana Paula Martins do Amaral Cunha, Víctor Marchezini, Diego Lindoso, Silvia Midori Saito, Regina Célia dos Santos Alvalá",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.14195/1647-7723_26-1_4",
+      "titulo": "Modelo conceitual de sistema de alerta e de gestão de riscos e desastres associados a incêndios florestais e desafios para políticas públicas no Brasil",
+      "ano": 2019,
+      "data": "2019-04-04",
+      "tipo": "artigo",
+      "veiculo": "Territorium",
+      "url": "https://doi.org/10.14195/1647-7723_26-1_4",
+      "autores_texto": "Liana O. Anderson, Víctor Marchezini, Thiago Fonseca Morello, Christopher Cunningham",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.1177/1476750319829202",
+      "titulo": "Promoting climate change transformation with young people in Brazil: participatory action research through a looping approach",
+      "ano": 2019,
+      "data": "2019-03-01",
+      "tipo": "artigo",
+      "veiculo": "Action Research",
+      "url": "https://doi.org/10.1177/1476750319829202",
+      "autores_texto": "Rachel Trajber, Catherine Walker, Víctor Marchezini, Peter Kraftl, Débora Olivato, Sophie Hadfield‐Hill et al.",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.5016/pem.v14i2.3372",
+      "titulo": "Desafios para uma agenda de prevenção de desastres em sítios históricos: o caso de São Luiz do Paraitinga, SP V",
+      "ano": 2018,
+      "data": "2018-12-30",
+      "tipo": "artigo",
+      "veiculo": "Patrimônio e memória",
+      "url": "https://doi.org/10.5016/pem.v14i2.3372",
+      "autores_texto": "Víctor Marchezini, Rachel Trajber, Rodrigo Silva da Conceição, Tatiana Sussel Gonçalves Mendes, Rogério Galante Negri",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "W3109644753",
+      "titulo": "Supporting decision makers through rapid assessments of remote sensing data: the case of Tefé National Forest, Brazil",
+      "ano": 2018,
+      "data": "2018-12-01",
+      "tipo": "outro",
+      "veiculo": "AGU Fall Meeting Abstracts",
+      "url": "http://ui.adsabs.harvard.edu/abs/2018AGUFMED51D0693P/abstract",
+      "autores_texto": "Ana Carolina Moreira Pessôa, Liana O. Anderson, Víctor Marchezini, Rafael Suertegaray Rossato, Bruna Maria Pechini Bento, Sacha M. O. Siani et al.",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.1590/1809-4422asoc0102r2vu18l1ao",
+      "titulo": "Vulnerability, health and disasters in São Paulo coast (Brazil): challenges for a sustainable development",
+      "ano": 2018,
+      "data": "2018-11-08",
+      "tipo": "artigo",
+      "veiculo": "Ambiente & sociedade",
+      "url": "https://doi.org/10.1590/1809-4422asoc0102r2vu18l1ao",
+      "autores_texto": "Luciana R. Londe, Lívia Gonzaga Moura, Marcos Pellegrini Coutinho, Víctor Marchezini, Érico Soriano",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.3389/feart.2018.00184",
+      "titulo": "A Review of Studies on Participatory Early Warning Systems (P-EWS): Pathways to Support Citizen Science Initiatives",
+      "ano": 2018,
+      "data": "2018-11-06",
+      "tipo": "artigo",
+      "veiculo": "Frontiers in Earth Science",
+      "url": "https://doi.org/10.3389/feart.2018.00184",
+      "autores_texto": "Víctor Marchezini, Flávio Horita, Patrícia Mie Matsuo, Rachel Trajber, Miguel Angel Trejo-Rangel, Débora Olivato",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.1016/b978-0-12-811714-9.00019-x",
+      "titulo": "Communication and Dissemination of Forecasts and Engaging User Communities",
+      "ano": 2018,
+      "data": "2018-10-26",
+      "tipo": "capitulo",
+      "veiculo": "Elsevier eBooks",
+      "url": "https://doi.org/10.1016/b978-0-12-811714-9.00019-x",
+      "autores_texto": "Joanne Robbins, Christopher Cunningham, Rutger Dankers, Matthew DeGennaro, Giovanni Dolif, Robyn Duell et al.",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.1108/dpm-05-2018-0150",
+      "titulo": "The power of localism during the long-term disaster recovery process",
+      "ano": 2018,
+      "data": "2018-09-05",
+      "tipo": "artigo",
+      "veiculo": "Disaster Prevention and Management An International Journal",
+      "url": "https://doi.org/10.1108/dpm-05-2018-0150",
+      "autores_texto": "Víctor Marchezini",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.19177/rgsa.v7e02018525-558",
+      "titulo": "SISTEMAS DE ALERTA CENTRADOS NAS PESSOAS: DESAFIOS PARA OS CIDADÃOS, CIENTISTAS E GESTORES PÚBLICOS",
+      "ano": 2018,
+      "data": "2018-08-15",
+      "tipo": "artigo",
+      "veiculo": "Revista Gestão & Sustentabilidade Ambiental",
+      "url": "https://doi.org/10.19177/rgsa.v7e02018525-558",
+      "autores_texto": "Víctor Marchezini, Luciana R. Londe",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.1016/j.ijdrr.2018.04.024",
+      "titulo": "Re-thinking socio-economic impact assessments of disasters: The 2015 flood in Rio Branco, Brazilian Amazon",
+      "ano": 2018,
+      "data": "2018-04-27",
+      "tipo": "artigo",
+      "veiculo": "International Journal of Disaster Risk Reduction",
+      "url": "https://doi.org/10.1016/j.ijdrr.2018.04.024",
+      "autores_texto": "Dorien Irene Dolman, Foster Brown, Liana O. Anderson, Jeroen Frank Warner, Víctor Marchezini, George Luiz Perreira Santos",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.82444/warw.33736213",
+      "titulo": "Dataset for Qualitative investigation of data-driven decision making within a control room for disaster monitoring and early-warning in Brazil",
+      "ano": 2018,
+      "data": "2018-03-01",
+      "tipo": "dados",
+      "veiculo": "Warwick Research Archive Portal (University of Warwick)",
+      "url": "https://doi.org/10.82444/warw.33736213",
+      "autores_texto": "E. A. Flavio Horita, João Porto de Albuquerque, Víctor Marchezini, Eduardo Mário Mendiondo",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.1016/j.ijdrr.2018.01.034",
+      "titulo": "Understanding the decision-making process in disaster risk monitoring and early-warning: A case study within a control room in Brazil",
+      "ano": 2018,
+      "data": "2018-02-01",
+      "tipo": "artigo",
+      "veiculo": "International Journal of Disaster Risk Reduction",
+      "url": "https://doi.org/10.1016/j.ijdrr.2018.01.034",
+      "autores_texto": "Flávio Horita, João Porto de Albuquerque, Víctor Marchezini",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.14195/1647-7723_25-2_13",
+      "titulo": "Vulnerabilidade escolar frente a desastres no Brasil",
+      "ano": 2018,
+      "data": "2018-01-25",
+      "tipo": "artigo",
+      "veiculo": "Territorium",
+      "url": "https://doi.org/10.14195/1647-7723_25-2_13",
+      "autores_texto": "Víctor Marchezini, Viviana Aguilar Muñoz, Rachel Trajber",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.1007/s13753-017-0150-9",
+      "titulo": "Participatory Early Warning Systems: Youth, Citizen Science, and Intergenerational Dialogues on Disaster Risk Reduction in Brazil",
+      "ano": 2017,
+      "data": "2017-12-01",
+      "tipo": "artigo",
+      "veiculo": "International Journal of Disaster Risk Science",
+      "url": "https://doi.org/10.1007/s13753-017-0150-9",
+      "autores_texto": "Víctor Marchezini, Rachel Trajber, Débora Olivato, Viviana Aguilar Muñoz, Fernando de Oliveira Pereira, Andréa Eliza Oliveira Luz",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.1109/lgrs.2017.2726524",
+      "titulo": "An RS-GIS-Based ComprehensiveImpact Assessment of Floods—A Case Study in Madeira River, Western Brazilian Amazon",
+      "ano": 2017,
+      "data": "2017-08-01",
+      "tipo": "artigo",
+      "veiculo": "IEEE Geoscience and Remote Sensing Letters",
+      "url": "https://doi.org/10.1109/lgrs.2017.2726524",
+      "autores_texto": "Leonardo Bacelar Lima Santos, Tiago Carvalho, Liana O. Anderson, Conrado M. Rudorff, Víctor Marchezini, Luciana R. Londe et al.",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.54399/rbgdr.v13i2.2994",
+      "titulo": "DESENVOLVIMENTO, DESASTRES E RECONSTRUÇÃO: O CASO DE SÃO LUIZ DO PARAITINGA/SP, BRASIL",
+      "ano": 2017,
+      "data": "2017-06-23",
+      "tipo": "artigo",
+      "veiculo": "LA Referencia (Red Federada de Repositorios Institucionales de Publicaciones Científicas)",
+      "url": "https://doi.org/10.54399/rbgdr.v13i2.2994",
+      "autores_texto": "Víctor Marchezini, Juliana Sartori, Juliano Costa Gonçalves",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.1016/j.dss.2017.03.001",
+      "titulo": "Bridging the gap between decision-making and emerging big data sources: An application of a model-based framework to disaster management in Brazil",
+      "ano": 2017,
+      "data": "2017-03-09",
+      "tipo": "artigo",
+      "veiculo": "Decision Support Systems",
+      "url": "https://doi.org/10.1016/j.dss.2017.03.001",
+      "autores_texto": "Flávio Horita, João Porto de Albuquerque, Víctor Marchezini, Eduardo Mário Mendiondo",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "W7217195094",
+      "titulo": "As ciências sociais nos desastres: um campo de pesquisa em construção",
+      "ano": 2017,
+      "data": "2017-03-05",
+      "tipo": "artigo",
+      "veiculo": "Revista Brasileira de Informação Bibliográfica em Ciências Sociais",
+      "url": "https://bibanpocs.emnuvens.com.br/revista/article/view/431",
+      "autores_texto": "Víctor Marchezini",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.14393/rbcv69n1-44035",
+      "titulo": "GEOTECNOLOGIAS PARA PREVENÇÃO DE RISCOS DE DESASTRES: USOS E POTENCIALIDADES DOS MAPEAMENTOS PARTICIPATIVOS",
+      "ano": 2017,
+      "data": "2017-01-19",
+      "tipo": "artigo",
+      "veiculo": "Revista Brasileira de Cartografia",
+      "url": "https://doi.org/10.14393/rbcv69n1-44035",
+      "autores_texto": "Víctor Marchezini, Allan Yu Iwama, Márcio Roberto Magalhães de Andrade, Rachel Trajber, Ives Rocha, Débora Olivato",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "W7236990773",
+      "titulo": "Sistema de alerta de risco de desastres no Brasil: desafios à redução da vulnerabilidade institucional",
+      "ano": 2017,
+      "data": "2017-01-01",
+      "tipo": "capitulo",
+      "veiculo": "Biblioteca Digital da Memória Científica do INPE (National Institute for Space Research)",
+      "url": "http://urlib.net/8JMKD3MGP3W34P/3Q53NUB",
+      "autores_texto": "Víctor Marchezini, Luciana R. Londe, Tiago Bernardes,  Rodrigo Silva da Conceição,  Elisa Volker dos Santos, Silvia Midori Saito et al.",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.1201/9781315315928-4",
+      "titulo": "Youth-Based Learning in Disaster Risk Reduction Education: Barriers and Bridges to Promote Resilience",
+      "ano": 2016,
+      "data": "2016-12-02",
+      "tipo": "capitulo",
+      "veiculo": "CRC Press eBooks",
+      "url": "https://doi.org/10.1201/9781315315928-4",
+      "autores_texto": "Víctor Marchezini, Rachel Trajber",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.82444/warw.33716083",
+      "titulo": "A qualitative analysis of the early warning process in disaster management",
+      "ano": 2016,
+      "data": "2016-01-01",
+      "tipo": "outro",
+      "veiculo": "University of Warwick",
+      "url": "https://doi.org/10.82444/warw.33716083",
+      "autores_texto": "Flávio Horita, João Porto de Albuquerque, Víctor Marchezini, Eduardo Mário Mendiondo",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "W2572333152",
+      "titulo": "A qualitative analysis of the early warning decision-making process in disaster management.",
+      "ano": 2016,
+      "data": "2016-01-01",
+      "tipo": "outro",
+      "veiculo": "ISCRAM",
+      "url": "https://dblp.uni-trier.de/db/conf/iscram/iscram2016.html#HoritaAMM16",
+      "autores_texto": "Flávio Horita, João Porto de Albuquerque, Víctor Marchezini, Eduardo Mário Mendiondo",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.1590/s0102-3098201500000031",
+      "titulo": "Impactos de desastres socioambientais em saúde pública: estudos dos casos dos Estados de Santa Catarina em 2008 e Pernambuco em 2010",
+      "ano": 2015,
+      "data": "2015-12-01",
+      "tipo": "artigo",
+      "veiculo": "Revista Brasileira de Estudos de População",
+      "url": "https://doi.org/10.1590/s0102-3098201500000031",
+      "autores_texto": "Luciana R. Londe, Víctor Marchezini, Rodrigo Silva da Conceição, Kátia Cristina Bortoletto, Ana Elisa Pereira Silva, Elisa Volker dos Santos et al.",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "W2519798054",
+      "titulo": "Estratégia de implantação de uma Com-VidAção no município de São Luiz do Paraitinga",
+      "ano": 2015,
+      "data": "2015-09-21",
+      "tipo": "artigo",
+      "veiculo": "Acervo Digital da Universidade Estadual Paulista (Universidade Estadual Paulista)",
+      "url": "http://hdl.handle.net/11449/142747",
+      "autores_texto": "Wagner Yukio Kamiwada, Andressa Nalú Hernandes, Rogério Galante Negri, Tatiana Sussel Gonçalves Mendes, Rachel Trajber, Víctor Marchezini",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "W2512285671",
+      "titulo": "Implementação da Com-VidAção nas escolas de ensino médio por meio da educação a distância",
+      "ano": 2015,
+      "data": "2015-09-21",
+      "tipo": "outro",
+      "veiculo": "UNESP Institutional Repository (São Paulo State University)",
+      "url": "http://200.145.6.205/index.php/congressoextensao/8congressoextensao/paper/view/1237",
+      "autores_texto": "Andressa Nalú Hernandes, Wagner Yukio Kamiwada, Tatiana Sussel Gonçalves Mendes, Rogério Galante Negri, Rachel Trajber, Víctor Marchezini",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.1201/b18233-27",
+      "titulo": "Social Recovery in Disasters: Cultural Resistance of Luizenses",
+      "ano": 2015,
+      "data": "2015-03-05",
+      "tipo": "capitulo",
+      "veiculo": "CRC Press eBooks",
+      "url": "https://doi.org/10.1201/b18233-27",
+      "autores_texto": "Víctor Marchezini",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.17730/0018-7259-74.4.362",
+      "titulo": "The Biopolitics of Disaster: Power, Discourses, and Practices",
+      "ano": 2015,
+      "data": "2015-01-01",
+      "tipo": "artigo",
+      "veiculo": "Human Organization",
+      "url": "https://doi.org/10.17730/0018-7259-74.4.362",
+      "autores_texto": "Víctor Marchezini",
       "autores": [
         "victor-marchezini"
       ],
