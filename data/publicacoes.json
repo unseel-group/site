@@ -27,7 +27,8 @@
       "url": "https://doi.org/10.1108/dpm-02-2026-0072",
       "autores_texto": " Janaina de Alencar Mota e Silva, Paula Sayeko Souza Oda, Víctor Marchezini",
       "autores": [
-        "victor-marchezini"
+        "victor-marchezini",
+        "4fbebb8e-7542-467b-9867-0fbf900c7c8e"
       ],
       "projetos": [],
       "origem": "openalex"
@@ -72,7 +73,8 @@
       "url": "https://doi.org/10.1007/s13753-026-00765-3",
       "autores_texto": "Víctor Marchezini, Paula Sayeko Souza Oda, Adriano Mota Ferreira, Murilo Noli da Fonseca, André Luiz Martins Cotting, Karolina Gameiro Cota Dias et al.",
       "autores": [
-        "victor-marchezini"
+        "victor-marchezini",
+        "4fbebb8e-7542-467b-9867-0fbf900c7c8e"
       ],
       "projetos": [],
       "origem": "openalex"
@@ -134,7 +136,8 @@
       "url": "https://doi.org/10.55467/reder.v10i2.230",
       "autores_texto": "Paula Sayeko Souza Oda, Víctor Marchezini, Gabriela Lotta, Evandro Albiach Branco",
       "autores": [
-        "victor-marchezini"
+        "victor-marchezini",
+        "4fbebb8e-7542-467b-9867-0fbf900c7c8e"
       ],
       "projetos": [],
       "origem": "openalex"
@@ -149,7 +152,8 @@
       "url": "https://doi.org/10.5380/dma.v67i.99225",
       "autores_texto": "Víctor Marchezini, Monique Ribeiro Polera Sampaio, Paula Sayeko Souza Oda, André Luiz Martins Cotting, Karolina Gameiro Cota Dias",
       "autores": [
-        "victor-marchezini"
+        "victor-marchezini",
+        "4fbebb8e-7542-467b-9867-0fbf900c7c8e"
       ],
       "projetos": [],
       "origem": "openalex"
@@ -179,7 +183,8 @@
       "url": "https://doi.org/10.21579/issn.2526-0375_2025_n2_346-367",
       "autores_texto": "André Luiz Martins Cotting, Paula Sayeko Souza Oda, Karolina Gameiro Cota Dias, Vitor Vieira Vasconcelos, Adriano Mota Ferreira, Gabriela Spanghero Lotta et al.",
       "autores": [
-        "victor-marchezini"
+        "victor-marchezini",
+        "4fbebb8e-7542-467b-9867-0fbf900c7c8e"
       ],
       "projetos": [],
       "origem": "openalex"
@@ -290,6 +295,21 @@
       "origem": "openalex"
     },
     {
+      "id": "W7204015856",
+      "titulo": "Aplicação de análise de cluster na classificação da gestão de riscos e desastres nos municípios brasileiros",
+      "ano": 2026,
+      "data": "2026-01-01",
+      "tipo": "artigo",
+      "veiculo": "Biblioteca Digital da Memória Científica do INPE (National Institute for Space Research)",
+      "url": "http://urlib.net/sid.inpe.br/mtc-m21d/2026/08.19.14.17",
+      "autores_texto": " Felipe Eduardo Cezarini, Paula Sayeko Souza Oda, Evandro Albiach Branco",
+      "autores": [
+        "4fbebb8e-7542-467b-9867-0fbf900c7c8e"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
       "id": "doi:10.1016/b978-0-443-31538-1.00009-9",
       "titulo": "Communication and dissemination of forecasts and engaging user communities",
       "ano": 2025,
@@ -359,7 +379,8 @@
       "url": "https://doi.org/10.1016/j.ijdrr.2025.105777",
       "autores_texto": "Paula Sayeko Souza Oda, Víctor Marchezini, Gabriela Lotta, Adriano Mota Ferreira, André Luiz Martins Cotting, Karolina Gameiro Cota Dias et al.",
       "autores": [
-        "victor-marchezini"
+        "victor-marchezini",
+        "4fbebb8e-7542-467b-9867-0fbf900c7c8e"
       ],
       "projetos": [],
       "origem": "openalex"
@@ -375,6 +396,21 @@
       "autores_texto": "Luciana R. Londe, Viviana Aguilar Muñoz, Víctor Marchezini",
       "autores": [
         "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.5016/geociencias.v44i2.19030",
+      "titulo": "Modelagem bidimensional de transporte de sedimentos nas confluências do Rio Doce, após o desastre de Mariana - MG, Brasil",
+      "ano": 2025,
+      "data": "2025-06-22",
+      "tipo": "artigo",
+      "veiculo": "Geociências",
+      "url": "https://doi.org/10.5016/geociencias.v44i2.19030",
+      "autores_texto": "Alexandre Germano Marciano, Alessandro Luvizon Bérgamo, Paula Sayeko Souza Oda, Samara Calçado AZEVEDO, André Luiz Vieira Barouch",
+      "autores": [
+        "4fbebb8e-7542-467b-9867-0fbf900c7c8e"
       ],
       "projetos": [],
       "origem": "openalex"
@@ -577,6 +613,36 @@
       "origem": "openalex"
     },
     {
+      "id": "doi:10.32629/rwc.v8i2.3733",
+      "titulo": "Mapping of flood areas of the Sapucaí River in the municipality of Santa Rita do Sapucaí, MG",
+      "ano": 2025,
+      "data": "2025-04-22",
+      "tipo": "artigo",
+      "veiculo": "Region - Water Conservancy",
+      "url": "https://doi.org/10.32629/rwc.v8i2.3733",
+      "autores_texto": "Alexandre Germano Marciano, Paula Sayeko Souza Oda, Alexandre Augusto Barbosa, Ana Paula Moni Silva, Hellen Ohana Silva Almeida Candido",
+      "autores": [
+        "4fbebb8e-7542-467b-9867-0fbf900c7c8e"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.7867/1983-1501.2024v26n1p65-90",
+      "titulo": "Análise do hipotético rompimento da barragem do reservatório da PCH REPI (Wenceslau Braz – MG)",
+      "ano": 2025,
+      "data": "2025-04-14",
+      "tipo": "artigo",
+      "veiculo": "Revista de Estudos Ambientais",
+      "url": "https://doi.org/10.7867/1983-1501.2024v26n1p65-90",
+      "autores_texto": "Alexandre Germano Marciano, Alessandro Luvizon Bérgamo, Paula Sayeko Souza Oda, Maisa Mello Ribeiro, Alex Takeo, André Luiz Vieira Barouch et al.",
+      "autores": [
+        "4fbebb8e-7542-467b-9867-0fbf900c7c8e"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
       "id": "doi:10.1016/j.ijdrr.2025.105291",
       "titulo": "Implementation challenges of disaster risk management policies: The organizational capacities of municipal civil defense units",
       "ano": 2025,
@@ -602,6 +668,21 @@
       "autores_texto": "Erica Acioli Canamary, Ana Carolina da Encarnação Paiva, Minella Alves Martins, Diovana de Moura Silva, Víctor Marchezini, Javier Tomasella",
       "autores": [
         "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.3390/atmos16010102",
+      "titulo": "Synoptic and Mesoscale Atmospheric Patterns That Triggered the Natural Disasters in the Metropolitan Region of Belo Horizonte, Brazil, in January 2020",
+      "ano": 2025,
+      "data": "2025-01-18",
+      "tipo": "artigo",
+      "veiculo": "Atmosphere",
+      "url": "https://doi.org/10.3390/atmos16010102",
+      "autores_texto": "Thaís Aparecida Cortez Pinto, Enrique Vieira Mattos, Michelle Simões Reboita, Diego Oliveira de Souza, Paula Sayeko Souza Oda, Fabrina Bolzan Martins et al.",
+      "autores": [
+        "4fbebb8e-7542-467b-9867-0fbf900c7c8e"
       ],
       "projetos": [],
       "origem": "openalex"
@@ -661,7 +742,8 @@
       "url": "http://urlib.net/sid.inpe.br/mtc-m16c/2026/02.17.18.23",
       "autores_texto": "Paula Sayeko Souza Oda, Víctor Marchezini, Gabriela Lotta, Evandro Albiach Branco",
       "autores": [
-        "victor-marchezini"
+        "victor-marchezini",
+        "4fbebb8e-7542-467b-9867-0fbf900c7c8e"
       ],
       "projetos": [],
       "origem": "openalex"
@@ -682,6 +764,36 @@
       "origem": "openalex"
     },
     {
+      "id": "W7130496479",
+      "titulo": "Tempo de Retorno do Evento de Chuvas Intensas de Dezembro de 2021: Evidências de Minas Gerais e Bahia",
+      "ano": 2025,
+      "data": "2025-01-01",
+      "tipo": "artigo",
+      "veiculo": "Biblioteca Digital da Memória Científica do INPE (National Institute for Space Research)",
+      "url": "http://urlib.net/sid.inpe.br/mtc-m16c/2026/02.17.20.03",
+      "autores_texto": "Thais Aparecida Cortez PINTO, Enrique Vieira Mattos,  Diego Oliveira de Souza, Paula Sayeko Souza Oda",
+      "autores": [
+        "4fbebb8e-7542-467b-9867-0fbf900c7c8e"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "W7130499937",
+      "titulo": "Análise hidrodinâmica do rompimento das barragens de Derna, Líbia",
+      "ano": 2025,
+      "data": "2025-01-01",
+      "tipo": "artigo",
+      "veiculo": "Biblioteca Digital da Memória Científica do INPE (National Institute for Space Research)",
+      "url": "http://urlib.net/sid.inpe.br/mtc-m16c/2026/02.17.18.59",
+      "autores_texto": "Alexandre Germano Marciano, Elias Zgheib, André Luiz Vieira Barouch,  Pollyana dos Reis Mendes Marciano, Paula Sayeko Souza Oda, Alexandre Augusto Barbosa",
+      "autores": [
+        "4fbebb8e-7542-467b-9867-0fbf900c7c8e"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
       "id": "doi:10.1108/ijdrbe-02-2023-0013",
       "titulo": "Participatory analysis of disaster risk creation in Brazilian coastal cities: bridging remote sensing and citizen generated data",
       "ano": 2024,
@@ -692,6 +804,21 @@
       "autores_texto": "Aloísio Lélis de Paula, Víctor Marchezini, Tatiana Sussel Gonçalves Mendes",
       "autores": [
         "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.26848/rbgf.v17.4.p2930-2949",
+      "titulo": "Mapeamento de áreas de inundação do rio Sapucaí no município de Santa Rita do Sapucaí -MG",
+      "ano": 2024,
+      "data": "2024-07-23",
+      "tipo": "artigo",
+      "veiculo": "Revista Brasileira de Geografia Física",
+      "url": "https://doi.org/10.26848/rbgf.v17.4.p2930-2949",
+      "autores_texto": "Alexandre Germano Marciano, Paula Sayeko Souza Oda, Alexandre Augusto Barbosa, Ana Paula Moni Silva, Hellen Ohana Silva Almeida Candido",
+      "autores": [
+        "4fbebb8e-7542-467b-9867-0fbf900c7c8e"
       ],
       "projetos": [],
       "origem": "openalex"
@@ -737,6 +864,21 @@
       "autores_texto": "Andrea Lampis, Víctor Marchezini",
       "autores": [
         "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.1016/j.uclim.2024.101849",
+      "titulo": "Disasters in Petrópolis, Brazil: political, urban planning, and geometeorological factors that contributed to the event on February 15, 2022",
+      "ano": 2024,
+      "data": "2024-02-23",
+      "tipo": "artigo",
+      "veiculo": "Urban Climate",
+      "url": "https://doi.org/10.1016/j.uclim.2024.101849",
+      "autores_texto": "Paula Sayeko Souza Oda, Débora Luisa Silva Teixeira, Thaís Aparecida Cortez Pinto, Filipe Pereira da Silva, Daniela Rocha Teixeira Riondet-Costa, Enrique Vieira Mattos et al.",
+      "autores": [
+        "4fbebb8e-7542-467b-9867-0fbf900c7c8e"
       ],
       "projetos": [],
       "origem": "openalex"
@@ -992,6 +1134,21 @@
       "autores_texto": "Giselly Rodrigues das Neves Silva Gomes, Rachel Trajber, Víctor Marchezini",
       "autores": [
         "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.30612/rel.v13i26.16438",
+      "titulo": "Bioma Mata Atlântica: análise temporal da pressão antrópica em unidade de conservação de proteção integral e seu entorno",
+      "ano": 2022,
+      "data": "2022-12-15",
+      "tipo": "artigo",
+      "veiculo": "ENTRE-LUGAR",
+      "url": "https://doi.org/10.30612/rel.v13i26.16438",
+      "autores_texto": "Débora Luisa Silva Teixeira, Paula Sayeko Souza Oda, Alexandre Germano Marciano, Sara Di Lorenzo, Daniela Rocha Teixeira Riondet-Costa, Nívea Adriana Dias Pons et al.",
+      "autores": [
+        "4fbebb8e-7542-467b-9867-0fbf900c7c8e"
       ],
       "projetos": [],
       "origem": "openalex"
@@ -1389,6 +1546,36 @@
       "origem": "openalex"
     },
     {
+      "id": "doi:10.1016/j.atmosres.2022.106081",
+      "titulo": "An initial assessment of the distribution of total Flash Rate Density (FRD) in Brazil from GOES-16 Geostationary Lightning Mapper (GLM) observations",
+      "ano": 2022,
+      "data": "2022-02-12",
+      "tipo": "artigo",
+      "veiculo": "Atmospheric Research",
+      "url": "https://doi.org/10.1016/j.atmosres.2022.106081",
+      "autores_texto": "Paula Sayeko Souza Oda, Diego Pereira Enoré, Enrique Vieira Mattos, Weber Andrade Gonçalves, Rachel I. Albrecht",
+      "autores": [
+        "4fbebb8e-7542-467b-9867-0fbf900c7c8e"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.1016/j.uclim.2022.101110",
+      "titulo": "Meteorological conditions and social impacts associated with natural disaster landslides in the Baixada Santista region from March 2nd–3rd, 2020",
+      "ano": 2022,
+      "data": "2022-02-07",
+      "tipo": "artigo",
+      "veiculo": "Urban Climate",
+      "url": "https://doi.org/10.1016/j.uclim.2022.101110",
+      "autores_texto": "Aline Araújo Freitas, Paula Sayeko Souza Oda, Débora Luisa Silva Teixeira, Paola do Nascimento Silva, Enrique Vieira Mattos, Ivana Riera Pereira Bastos et al.",
+      "autores": [
+        "4fbebb8e-7542-467b-9867-0fbf900c7c8e"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
       "id": "doi:10.1007/s13753-022-00394-6",
       "titulo": "(In)visibilities About the Vulnerabilities of People with Visual Impairments to Disasters and Climate Change: A Case Study in Cuiabá, Brazil",
       "ano": 2022,
@@ -1504,6 +1691,21 @@
       "autores_texto": "Vincente Sandoval, Darien Alexander Williams, Wesley Cheek, Jason Kyle von Meding, Ksenia Chmutina, Claudia González‐Muzzio et al.",
       "autores": [
         "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.2139/ssrn.4211463",
+      "titulo": "National Civil Defense and Protection Policy and Municipal Master Plan: Collaboration for Natural Disaster Risk Management in Petrópolis, Brazil",
+      "ano": 2022,
+      "data": "2022-01-01",
+      "tipo": "preprint",
+      "veiculo": "SSRN Electronic Journal",
+      "url": "https://doi.org/10.2139/ssrn.4211463",
+      "autores_texto": "Paula Sayeko Souza Oda, Daniela Rocha Teixeira Riondet-Costa, Enrique Vieira Mattos",
+      "autores": [
+        "4fbebb8e-7542-467b-9867-0fbf900c7c8e"
       ],
       "projetos": [],
       "origem": "openalex"

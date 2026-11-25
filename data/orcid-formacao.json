@@ -1,0 +1,42 @@
+{
+  "0000-0002-1974-0960": [
+    {
+      "instituicao": "Universidade Federal de São Carlos",
+      "curso": "Doutorado",
+      "inicio": 2010,
+      "fim": 2013
+    }
+  ],
+  "0000-0001-9842-102X": [
+    {
+      "instituicao": "Instituto Nacional de Pesquisas Espaciais Cachoeira Paulista",
+      "curso": "Doutor",
+      "inicio": 2023,
+      "fim": 2027
+    },
+    {
+      "instituicao": "Universidade Aberta",
+      "curso": "Sanduíche",
+      "inicio": 2025,
+      "fim": 2026
+    },
+    {
+      "instituicao": "Federal University of Itajubá",
+      "curso": "Mestre em Meio Ambiente e Recursos Hídricos",
+      "inicio": 2020,
+      "fim": 2022
+    },
+    {
+      "instituicao": "Centro Universitário Internacional",
+      "curso": "Master of Business Administration (MBA) em Gestão Urbana, Planejamento e Desenvolvimento Sustentável",
+      "inicio": 2021,
+      "fim": 2022
+    },
+    {
+      "instituicao": "Federal University of Itajubá",
+      "curso": "BACHAREL",
+      "inicio": 2016,
+      "fim": 2019
+    }
+  ]
+}
