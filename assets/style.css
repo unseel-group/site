@@ -510,11 +510,11 @@ nav#nav>a.nav-membros:hover,nav#nav>a.nav-membros.ativo{background:var(--petrole
 .m-perigo{color:#A0412D!important;margin-left:auto}
 
 /* abertura em vídeo */
-.com-abertura .abertura{background:#000}
-.abertura-video{width:100%;height:100%;object-fit:contain;background:#000}
-.pular-abertura{position:absolute;right:20px;bottom:20px;min-height:44px;padding:0 16px;border-radius:4px;border:1px solid rgba(143,208,220,.5);background:rgba(0,0,0,.4);color:#C9D6E8;font:600 .9rem Inter,sans-serif;cursor:pointer}
-.pular-abertura:hover{color:#fff;border-color:#fff}
-.entrar-abertura{position:absolute;left:50%;bottom:12%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:4px;min-width:240px;min-height:64px;padding:12px 26px;border-radius:4px;border:1px solid rgba(143,208,220,.6);background:rgba(0,0,0,.5);color:#fff;font:700 1.05rem Montserrat,sans-serif;cursor:pointer}
+.com-abertura .abertura{background:#fff}
+.abertura-video{width:100%;height:100%;object-fit:contain;background:#fff}
+.pular-abertura{position:absolute;right:20px;bottom:20px;min-height:44px;padding:0 16px;border-radius:4px;border:1px solid #C3D0D8;background:rgba(255,255,255,.85);color:var(--marinho);font:600 .9rem Inter,sans-serif;cursor:pointer}
+.pular-abertura:hover{background:var(--marinho);color:#fff;border-color:var(--marinho)}
+.entrar-abertura{position:absolute;left:50%;bottom:12%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:4px;min-width:240px;min-height:64px;padding:12px 26px;border-radius:4px;border:1px solid var(--marinho);background:var(--marinho);color:#fff;font:700 1.05rem Montserrat,sans-serif;cursor:pointer}
 .entrar-abertura small{font:italic 500 .85rem Inter,sans-serif;color:var(--agua)}
 .entrar-abertura[hidden]{display:none}
 .abertura.saindo{opacity:0;transform:none}
