@@ -76,7 +76,8 @@
       nav_agenda: 'Agenda', agenda: 'Agenda', ag_olho: 'Calendário do grupo', ag_lead: 'Reuniões do grupo, viagens de trabalho e eventos que o UNSEEL organiza ou de que participa. Clique em um dia para ver os detalhes.',
       ag_reuniao: 'Reunião do grupo', ag_viagem: 'Viagem de trabalho', ag_organizado: 'Evento que organizamos', ag_participacao: 'Evento em que participamos', ag_outro: 'Outros',
       ag_vazio: 'Nenhum compromisso agendado.', ag_dia_vazio: 'Nada marcado neste dia.', ag_mes_ant: 'Mês anterior', ag_mes_prox: 'Próximo mês', ag_hoje: 'Hoje',
-      ag_proximos: 'Próximos compromissos', ag_google: 'Abrir na Agenda Google', ag_sinc: 'Sincronizado com a Agenda Google em ', ag_comp: 'compromissos', ag_ver: 'Ver calendário completo →',
+      ag_proximos: 'Próximos compromissos', ag_google: 'Abrir na Agenda Google', ag_sinc: 'Sincronizado com a Agenda Google em ', ag_comp: 'compromissos', ag_ver: 'Ver calendário completo →', ag_dica: 'Passe o mouse ou toque num dia para ver os detalhes. Feriados em vermelho.',
+      ag_feriado: 'Feriados', ag_prox_fer: 'Próximo feriado', fer_nacional: 'Feriado nacional', fer_sp: 'Feriado estadual (SP)', fer_sjc: 'Feriado municipal (São José dos Campos)', fer_facultativo: 'Ponto facultativo',
       ultimas: 'Últimas notícias'
     },
     en: {
@@ -139,7 +140,8 @@
       nav_agenda: 'Calendar', agenda: 'Calendar', ag_olho: 'Group calendar', ag_lead: 'Group meetings, work trips and events UNSEEL hosts or attends. Click a day to see the details.',
       ag_reuniao: 'Group meeting', ag_viagem: 'Work trip', ag_organizado: 'Event we host', ag_participacao: 'Event we attend', ag_outro: 'Other',
       ag_vazio: 'Nothing scheduled.', ag_dia_vazio: 'Nothing on this day.', ag_mes_ant: 'Previous month', ag_mes_prox: 'Next month', ag_hoje: 'Today',
-      ag_proximos: 'Coming up', ag_google: 'Open in Google Calendar', ag_sinc: 'Synced with Google Calendar on ', ag_comp: 'events', ag_ver: 'Full calendar →',
+      ag_proximos: 'Coming up', ag_google: 'Open in Google Calendar', ag_sinc: 'Synced with Google Calendar on ', ag_comp: 'events', ag_ver: 'Full calendar →', ag_dica: 'Hover over or tap a day to see the details. Holidays in red.',
+      ag_feriado: 'Holidays', ag_prox_fer: 'Next holiday', fer_nacional: 'National holiday', fer_sp: 'State holiday (São Paulo)', fer_sjc: 'Municipal holiday (São José dos Campos)', fer_facultativo: 'Optional day off (public sector)',
       ultimas: 'Latest news'
     }
   };
@@ -1068,8 +1070,8 @@
   function fecharVisor() { var v = document.getElementById('visor'); if (v.close) v.close(); else v.removeAttribute('open'); document.getElementById('visor-midia').innerHTML = ''; }
 
   /* ---------- agenda ---------- */
-  var TIPOS_AG = ['reuniao', 'viagem', 'organizado', 'participacao', 'outro'];
-  var CORES_AG = { reuniao: '#176F80', viagem: '#427568', organizado: '#13294B', participacao: '#2F5E86', outro: '#6B7A8C' };
+  var TIPOS_AG = ['reuniao', 'viagem', 'organizado', 'participacao', 'outro', 'feriado'];
+  var CORES_AG = { reuniao: '#176F80', viagem: '#427568', organizado: '#13294B', participacao: '#2F5E86', outro: '#6B7A8C', feriado: '#A0412D' };
   function dIso(d) { return d.getFullYear() + '-' + ('0' + (d.getMonth() + 1)).slice(-2) + '-' + ('0' + d.getDate()).slice(-2); }
   function dDe(s) { var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(s || ''); return m ? new Date(+m[1], +m[2] - 1, +m[3]) : null; }
   function somaDias(d, n) { var x = new Date(d); x.setDate(x.getDate() + n); return x; }
@@ -1098,6 +1100,49 @@
     });
     return lista.sort(function (a, b) { return (a.inicio + a.hora).localeCompare(b.inicio + b.hora); });
   }
+
+  /* feriados: nacionais, estado de SP e São José dos Campos (sede do INPE) */
+  function pascoa(a) {
+    var b = a % 19, c = Math.floor(a / 100), d = a % 100, e = Math.floor(c / 4), f = c % 4, g = Math.floor((c + 8) / 25), h = Math.floor((c - g + 1) / 3);
+    var i = (19 * b + c - e - h + 15) % 30, k = Math.floor(d / 4), l = d % 4, m = (32 + 2 * f + 2 * k - i - l) % 7, n = Math.floor((b + 11 * i + 22 * m) / 451);
+    var mes = Math.floor((i + m - 7 * n + 114) / 31), dia = ((i + m - 7 * n + 114) % 31) + 1;
+    return new Date(a, mes - 1, dia);
+  }
+  var NOMES_FER = {
+    confra: ['Confraternização Universal', "New Year's Day"], carnaval: ['Carnaval', 'Carnival'], cinzas: ['Quarta-feira de Cinzas (até 14h)', 'Ash Wednesday (until 2 pm)'],
+    sjose: ['Dia de São José, padroeiro da cidade', "St Joseph's Day (city patron)"], paixao: ['Sexta-feira Santa', 'Good Friday'], tiradentes: ['Tiradentes', 'Tiradentes Day'],
+    trabalho: ['Dia do Trabalho', 'Labour Day'], corpus: ['Corpus Christi', 'Corpus Christi'], rev32: ['Revolução Constitucionalista de 1932', '1932 Constitutionalist Revolution'],
+    aniv: ['Aniversário de São José dos Campos', 'São José dos Campos anniversary'], indep: ['Independência do Brasil', 'Independence Day'],
+    aparecida: ['Nossa Senhora Aparecida', 'Our Lady of Aparecida'], servidor: ['Dia do Servidor Público', 'Public Servants Day'], finados: ['Finados', "All Souls' Day"],
+    republica: ['Proclamação da República', 'Republic Day'], consciencia: ['Dia Nacional de Zumbi e da Consciência Negra', 'Black Consciousness Day'],
+    vnatal: ['Véspera de Natal (após 14h)', 'Christmas Eve (after 2 pm)'], natal: ['Natal', 'Christmas'], vano: ['Véspera de Ano-Novo (após 14h)', "New Year's Eve (after 2 pm)"]
+  };
+  function feriados(ano) {
+    var cfg = (D.agenda && D.agenda.feriados) || {};
+    var P = pascoa(ano), lista = [];
+    function add(d, k, ab) {
+      if (ab === 'nacional' && cfg.nacionais === false) return;
+      if (ab === 'sp' && cfg.estado_sp === false) return;
+      if (ab === 'sjc' && cfg.sao_jose_dos_campos === false) return;
+      if (ab === 'facultativo' && cfg.pontos_facultativos === false) return;
+      lista.push({ inicio: dIso(d), titulo: NOMES_FER[k][lang === 'en' ? 1 : 0], tipo: 'feriado', abrangencia: ab, hora: '', local: '', descricao: '', link: '', projeto: '' });
+    }
+    var F = function (m, d) { return new Date(ano, m - 1, d); };
+    add(F(1, 1), 'confra', 'nacional');
+    add(somaDias(P, -48), 'carnaval', 'facultativo'); add(somaDias(P, -47), 'carnaval', 'facultativo'); add(somaDias(P, -46), 'cinzas', 'facultativo');
+    add(F(3, 19), 'sjose', 'sjc');
+    add(somaDias(P, -2), 'paixao', 'nacional');
+    add(F(4, 21), 'tiradentes', 'nacional'); add(F(5, 1), 'trabalho', 'nacional');
+    add(somaDias(P, 60), 'corpus', 'facultativo');
+    add(F(7, 9), 'rev32', 'sp'); add(F(7, 27), 'aniv', 'sjc');
+    add(F(9, 7), 'indep', 'nacional'); add(F(10, 12), 'aparecida', 'nacional'); add(F(10, 28), 'servidor', 'facultativo');
+    add(F(11, 2), 'finados', 'nacional'); add(F(11, 15), 'republica', 'nacional'); add(F(11, 20), 'consciencia', 'nacional');
+    add(F(12, 24), 'vnatal', 'facultativo'); add(F(12, 25), 'natal', 'nacional'); add(F(12, 31), 'vano', 'facultativo');
+    (cfg.extras || []).forEach(function (x) { var d = dDe(x.data); if (d && d.getFullYear() === ano) lista.push({ inicio: x.data, titulo: loc(x, 'titulo'), tipo: 'feriado', abrangencia: x.abrangencia || 'sjc', hora: '', local: '', descricao: '', link: '', projeto: '' }); });
+    (cfg.remover || []).forEach(function (r) { lista = lista.filter(function (x) { return x.inicio !== r; }); });
+    return lista;
+  }
+  function feriadosEm(m) { return feriados(m.getFullYear() - 1).concat(feriados(m.getFullYear()), feriados(m.getFullYear() + 1)); }
   function noDia(ev, iso) { return ev.inicio === iso || (ev.fim && ev.inicio <= iso && ev.fim >= iso); }
   function proximos(n) {
     var hoje = dIso(new Date());
@@ -1109,7 +1154,7 @@
     var periodo = e.fim ? fmtDia(e.inicio, { day: 'numeric', month: 'short' }) + ' – ' + fmtDia(e.fim, { day: 'numeric', month: 'short' }) : fmtDia(e.inicio, { weekday: 'long' });
     return '<li class="ag-item" style="--cor:' + CORES_AG[e.tipo] + '">' +
       '<span class="ag-data"><b>' + d.getDate() + '</b>' + esc(fmtDia(e.inicio, { month: 'short' }).replace('.', '')) + '</span>' +
-      '<span class="ag-corpo"><span class="ag-tipo">' + esc(t('ag_' + e.tipo)) + '</span>' +
+      '<span class="ag-corpo"><span class="ag-tipo">' + esc(e.tipo === 'feriado' ? t('fer_' + e.abrangencia) : t('ag_' + e.tipo)) + '</span>' +
       '<strong>' + (url(e.link) ? '<a href="' + url(e.link) + '" target="_blank" rel="noopener">' + esc(e.titulo) + '</a>' : esc(e.titulo)) + '</strong>' +
       '<span class="meta">' + [esc(periodo), esc(e.hora), esc(e.local)].filter(Boolean).join(' · ') + '</span>' +
       (e.descricao ? '<span class="ag-desc">' + esc(e.descricao) + '</span>' : '') + chipsProjetos(e.projeto ? [e.projeto] : []) + '</span></li>';
@@ -1134,7 +1179,8 @@
       '<div class="cal-topo"><button type="button" class="seta" id="cal-ant" aria-label="' + esc(t('ag_mes_ant')) + '">‹</button>' +
       '<h2 id="cal-mes" aria-live="polite"></h2><button type="button" class="seta" id="cal-prox" aria-label="' + esc(t('ag_mes_prox')) + '">›</button>' +
       '<button type="button" class="pausa" id="cal-hoje">' + t('ag_hoje') + '</button></div>' +
-      '<div class="cal-dias" id="cal-dias"></div></div>' +
+      '<div class="cal-dias" id="cal-dias"></div><div class="cal-pop" id="cal-pop" role="tooltip" hidden></div>' +
+      '<p class="meta cal-dica">' + t('ag_dica') + '</p></div>' +
       '<div class="ag-lado"><h2 id="ag-dia-tit" style="font-size:1.3rem"></h2><div id="ag-dia"></div>' +
       '<h2 style="font-size:1.3rem;margin-top:32px">' + t('ag_proximos') + '</h2><div id="ag-prox"></div>' +
       (assinar ? '<p style="margin-top:20px"><a class="botao contorno" href="' + assinar + '" target="_blank" rel="noopener">' + t('ag_google') + '</a></p>' : '') +
@@ -1146,7 +1192,42 @@
     document.getElementById('cal-ant').addEventListener('click', function () { estadoAg.mes = new Date(estadoAg.mes.getFullYear(), estadoAg.mes.getMonth() - 1, 1); desenharAgenda(); });
     document.getElementById('cal-prox').addEventListener('click', function () { estadoAg.mes = new Date(estadoAg.mes.getFullYear(), estadoAg.mes.getMonth() + 1, 1); desenharAgenda(); });
     document.getElementById('cal-hoje').addEventListener('click', function () { var h = new Date(); estadoAg.mes = new Date(h.getFullYear(), h.getMonth(), 1); estadoAg.dia = dIso(h); desenharAgenda(); });
-    dias.addEventListener('click', function (e) { var b = e.target.closest('[data-dia]'); if (b) { estadoAg.dia = b.getAttribute('data-dia'); desenharAgenda(); } });
+    var pop = document.getElementById('cal-pop'), fixo = false;
+    function mostrarPop(b) {
+      var iso = b.getAttribute('data-dia');
+      var evs = compromissos().concat(feriadosEm(dDe(iso))).filter(function (e) { return estadoAg.tipos[e.tipo] && noDia(e, iso); });
+      if (!evs.length) { pop.hidden = true; return; }
+      pop.innerHTML = '<strong class="pop-dia">' + esc(fmtDia(iso, { weekday: 'long', day: 'numeric', month: 'long' })) + '</strong>' + evs.map(function (e) {
+        return '<span class="pop-ev" style="--cor:' + CORES_AG[e.tipo] + '"><span class="ag-tipo">' + esc(e.tipo === 'feriado' ? t('fer_' + e.abrangencia) : t('ag_' + e.tipo)) + '</span><b>' + esc(e.titulo) + '</b>' +
+          '<span class="meta">' + [e.fim ? esc(fmtDia(e.inicio, { day: 'numeric', month: 'short' }) + ' – ' + fmtDia(e.fim, { day: 'numeric', month: 'short' })) : '', esc(e.hora), esc(e.local)].filter(Boolean).join(' · ') + '</span></span>';
+      }).join('');
+      pop.hidden = false;
+      var cx = b.closest('.cal').getBoundingClientRect(), r = b.getBoundingClientRect();
+      var w = pop.offsetWidth, x = r.left - cx.left + r.width / 2 - w / 2;
+      x = Math.max(0, Math.min(x, cx.width - w));
+      var y = r.bottom - cx.top + 8;
+      if (r.bottom + pop.offsetHeight + 16 > window.innerHeight && r.top - cx.top - pop.offsetHeight - 8 > 0) y = r.top - cx.top - pop.offsetHeight - 8;
+      pop.style.left = x + 'px'; pop.style.top = y + 'px';
+    }
+    function esconderPop() { if (!fixo) pop.hidden = true; }
+    dias.addEventListener('mouseover', function (e) { var b = e.target.closest('.cal-dia.tem'); if (b && !fixo) mostrarPop(b); });
+    dias.addEventListener('mouseleave', esconderPop);
+    dias.addEventListener('focusin', function (e) { var b = e.target.closest('.cal-dia.tem'); if (b) mostrarPop(b); else if (!fixo) pop.hidden = true; });
+    dias.addEventListener('click', function (e) {
+      var b = e.target.closest('[data-dia]'); if (!b) return;
+      estadoAg.dia = b.getAttribute('data-dia'); desenharAgenda();
+      var nb = dias.querySelector('[data-dia="' + estadoAg.dia + '"]');
+      if (nb && nb.classList.contains('tem')) { fixo = true; mostrarPop(nb); nb.focus(); } else { fixo = false; pop.hidden = true; }
+    });
+    document.addEventListener('click', function fora(e) {
+      if (!document.body.contains(dias)) { document.removeEventListener('click', fora); return; }
+      if (!e.target.closest('.cal-dia') && !e.target.closest('#cal-pop')) { fixo = false; pop.hidden = true; }
+    });
+    document.addEventListener('keydown', function esc2(e) {
+      if (!document.body.contains(dias)) { document.removeEventListener('keydown', esc2); return; }
+      if (e.key === 'Escape') { fixo = false; pop.hidden = true; }
+    });
+    ['cal-ant', 'cal-prox', 'cal-hoje'].forEach(function (id) { document.getElementById(id).addEventListener('click', function () { fixo = false; pop.hidden = true; }); });
     document.getElementById('ag-tipos').addEventListener('click', function (e) {
       var b = e.target.closest('[data-tipo]'); if (!b) return;
       var k = b.getAttribute('data-tipo'); estadoAg.tipos[k] = !estadoAg.tipos[k];
@@ -1155,8 +1236,9 @@
     desenharAgenda();
   }
   function desenharAgenda() {
-    var todos = compromissos().filter(function (e) { return estadoAg.tipos[e.tipo]; });
     var m = estadoAg.mes, hoje = dIso(new Date());
+    var comp = compromissos().filter(function (e) { return estadoAg.tipos[e.tipo]; });
+    var todos = comp.concat(estadoAg.tipos.feriado ? feriadosEm(m) : []);
     var tm = m.toLocaleDateString(lang === 'en' ? 'en-GB' : 'pt-BR', { month: 'long', year: 'numeric' });
     document.getElementById('cal-mes').textContent = tm.charAt(0).toUpperCase() + tm.slice(1);
     var semana = [];
@@ -1166,18 +1248,27 @@
     for (var v = 0; v < primeiro; v++) html += '<span class="cal-vazio"></span>';
     for (var d = 1; d <= nDias; d++) {
       var iso = dIso(new Date(m.getFullYear(), m.getMonth(), d));
-      var evs = todos.filter(function (e) { return noDia(e, iso); });
-      html += '<button type="button" class="cal-dia' + (iso === hoje ? ' hoje' : '') + (iso === estadoAg.dia ? ' sel' : '') + (evs.length ? ' tem' : '') + '" data-dia="' + iso + '" aria-pressed="' + (iso === estadoAg.dia) + '" aria-label="' + esc(fmtDia(iso, { day: 'numeric', month: 'long' })) + (evs.length ? ', ' + evs.length + ' ' + esc(t('ag_comp')) : '') + '">' +
-        '<span class="n">' + d + '</span>' + evs.slice(0, 3).map(function (e) { return '<span class="cal-ev" style="--cor:' + CORES_AG[e.tipo] + '">' + esc(e.titulo) + '</span>'; }).join('') +
-        (evs.length > 3 ? '<span class="cal-mais">+' + (evs.length - 3) + '</span>' : '') + '</button>';
+      var evs = todos.filter(function (e) { return noDia(e, iso); }).sort(function (a, b) { return (a.tipo === 'feriado' ? 0 : 1) - (b.tipo === 'feriado' ? 0 : 1) || (a.hora || '').localeCompare(b.hora || ''); });
+      var fer = evs.some(function (e) { return e.tipo === 'feriado' && e.abrangencia !== 'facultativo'; });
+      var chips = evs.slice(0, 3).map(function (e) {
+        var cheio = e.tipo === 'feriado' || e.fim || !e.hora;
+        return '<span class="cal-ev' + (cheio ? ' cheio' : '') + (e.tipo === 'feriado' ? ' fer' + (e.abrangencia === 'facultativo' ? ' fac' : '') : '') + '" style="--cor:' + CORES_AG[e.tipo] + '">' +
+          (cheio ? '' : '<i></i>' + esc((e.hora || '').split(/[–-]/)[0]) + ' ') + esc(e.titulo) + '</span>';
+      }).join('');
+      html += '<button type="button" class="cal-dia' + (iso === hoje ? ' hoje' : '') + (iso === estadoAg.dia ? ' sel' : '') + (evs.length ? ' tem' : '') + (fer ? ' feriado' : '') + '" data-dia="' + iso + '" aria-pressed="' + (iso === estadoAg.dia) + '"' +
+        ' aria-label="' + esc(fmtDia(iso, { day: 'numeric', month: 'long' })) + (evs.length ? ': ' + esc(evs.map(function (e) { return e.titulo; }).join('; ')) : '') + '">' +
+        '<span class="n">' + d + '</span>' + chips + (evs.length > 3 ? '<span class="cal-mais">+' + (evs.length - 3) + '</span>' : '') + '</button>';
     }
     document.getElementById('cal-dias').innerHTML = html;
     var doDia = todos.filter(function (e) { return noDia(e, estadoAg.dia); });
     document.getElementById('ag-dia-tit').textContent = fmtDia(estadoAg.dia, { weekday: 'long', day: 'numeric', month: 'long' });
     document.getElementById('ag-dia').innerHTML = doDia.length ? '<ul class="ag-lista">' + doDia.map(itemAgenda).join('') + '</ul>' : '<p class="vazio">' + t('ag_dia_vazio') + '</p>';
-    var ps = todos.filter(function (e) { return (e.fim || e.inicio) >= hoje; }).slice(0, 6);
-    document.getElementById('ag-prox').innerHTML = ps.length ? '<ul class="ag-lista">' + ps.map(itemAgenda).join('') + '</ul>' : '<p class="vazio">' + t('ag_vazio') + '</p>';
+    var ps = comp.filter(function (e) { return (e.fim || e.inicio) >= hoje; }).slice(0, 6);
+    var proxFer = feriadosEm(new Date()).filter(function (e) { return e.inicio >= hoje && e.abrangencia !== 'facultativo'; }).sort(function (a, b) { return a.inicio.localeCompare(b.inicio); })[0];
+    document.getElementById('ag-prox').innerHTML = (ps.length ? '<ul class="ag-lista">' + ps.map(itemAgenda).join('') + '</ul>' : '<p class="vazio">' + t('ag_vazio') + '</p>') +
+      (proxFer && estadoAg.tipos.feriado ? '<h3 style="font-size:1.05rem;margin-top:24px">' + t('ag_prox_fer') + '</h3><ul class="ag-lista">' + itemAgenda(proxFer) + '</ul>' : '');
   }
+
 
   P.contato = function () {
     var c = D.site.contato || {};
