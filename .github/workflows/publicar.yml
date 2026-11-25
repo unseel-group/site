@@ -27,6 +27,23 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Manter a área de membros ativa (Supabase gratuito)
+        run: |
+          python3 - <<'PY'
+          import json, urllib.request
+          c = json.load(open("data/membros.json"))
+          u, k = c.get("supabase_url", ""), c.get("supabase_anon_key", "")
+          if u.startswith("https://") and k:
+              req = urllib.request.Request(u.rstrip("/") + "/rest/v1/rpc/ping", data=b"{}", method="POST",
+                    headers={"apikey": k, "Content-Type": "application/json"})
+              try:
+                  print("ping:", urllib.request.urlopen(req, timeout=30).read()[:40])
+              except Exception as e:
+                  print("ping falhou:", e)
+          else:
+              print("área de membros ainda não configurada")
+          PY
+
       - name: Buscar compromissos da Agenda Google
         run: python3 scripts/agenda.py
 
