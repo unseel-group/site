@@ -1,6 +1,6 @@
 {
   "_como_editar": "Calendário do grupo. tipo: reuniao | viagem | organizado (evento que o grupo organiza) | participacao (evento em que o grupo participa) | outro. inicio e fim: AAAA-MM-DD (fim só se durar mais de um dia). hora: texto livre, ex. '14h' ou '14h–16h'. repetir (opcional, para reuniões fixas): {\"freq\": \"semanal\" ou \"quinzenal\" ou \"mensal\", \"ate\": \"AAAA-MM-DD\"}. pular (opcional): lista de datas AAAA-MM-DD em que a repetição não acontece. link: página do evento (evite colocar link de videochamada aqui, pois o site é público). Campos _en são a versão em inglês.",
-  "google_ics": "",
+  "google_ics": "https://calendar.google.com/calendar/ical/unseel.group%40gmail.com/public/basic.ics",
   "_google": "Cole em google_ics o 'Endereço público no formato iCal' da Agenda Google do UNSEEL (Configurações da agenda → Integrar agenda). A agenda precisa estar pública (Permissões de acesso → Disponibilizar publicamente → Ver todos os detalhes do evento). O site busca os compromissos a cada 3 horas. Os eventos abaixo (cadastro manual) continuam valendo e se somam aos do Google.",
   "eventos": [
     {
