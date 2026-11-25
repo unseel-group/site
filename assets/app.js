@@ -66,6 +66,17 @@
       contagem: 'Contagem', soma: 'Soma', media: 'Média', mapa_sem_base: 'Mapa de fundo indisponível aqui; os pontos estão posicionados pelas coordenadas.',
       outras: 'Outras bases', ver_banco: 'Ver o banco de dados da pesquisa →', atualizado: 'Atualizado em', busca_pesq: 'Buscar pesquisa', voltar_dados: '← Banco de dados',
       etica_ok: 'Aprovação ética registrada', etica_pend: 'Aprovação ética a preencher', etica_na: 'Sem exigência de comitê de ética', filtrar: 'Filtrar linhas…',
+      nav_biblioteca: 'Biblioteca', acervo: 'Acervo', biblioteca: 'Biblioteca',
+      bib_lead: 'Publicações, materiais didáticos, audiovisual e fotos de trabalhos de campo do UNSEEL. Busque pelo título e ordene como preferir.',
+      bib_busca: 'Título, autor, palavra-chave…', ordenar: 'Ordenar por', o_recentes: 'Mais recentes', o_antigos: 'Mais antigos', o_az: 'Título (A–Z)', o_za: 'Título (Z–A)',
+      c_publicacao: 'Publicações', c_didatico: 'Materiais didáticos', c_audiovisual: 'Audiovisual', c_foto: 'Fotos de campo',
+      c1_publicacao: 'Publicação', c1_didatico: 'Material didático', c1_audiovisual: 'Audiovisual', c1_foto: 'Foto de campo',
+      item1: ' item', itens: ' itens', bib_vazia: 'A biblioteca ainda está vazia.', ver_foto: 'Ver foto', assistir: 'Assistir / ouvir', abrir: 'Abrir',
+      ant_item: 'Item anterior', prox_item: 'Próximo item',
+      nav_agenda: 'Agenda', agenda: 'Agenda', ag_olho: 'Calendário do grupo', ag_lead: 'Reuniões do grupo, viagens de trabalho e eventos que o UNSEEL organiza ou de que participa. Clique em um dia para ver os detalhes.',
+      ag_reuniao: 'Reunião do grupo', ag_viagem: 'Viagem de trabalho', ag_organizado: 'Evento que organizamos', ag_participacao: 'Evento em que participamos', ag_outro: 'Outros',
+      ag_vazio: 'Nenhum compromisso agendado.', ag_dia_vazio: 'Nada marcado neste dia.', ag_mes_ant: 'Mês anterior', ag_mes_prox: 'Próximo mês', ag_hoje: 'Hoje',
+      ag_proximos: 'Próximos compromissos', ag_google: 'Abrir na Agenda Google', ag_sinc: 'Sincronizado com a Agenda Google em ', ag_comp: 'compromissos', ag_ver: 'Ver calendário completo →',
       ultimas: 'Últimas notícias'
     },
     en: {
@@ -118,6 +129,17 @@
       contagem: 'Count', soma: 'Sum', media: 'Mean', mapa_sem_base: 'Base map unavailable here; points are placed by their coordinates.',
       outras: 'Other datasets', ver_banco: "See the study's database →", atualizado: 'Updated on', busca_pesq: 'Search studies', voltar_dados: '← Database',
       etica_ok: 'Ethics approval on record', etica_pend: 'Ethics approval to be added', etica_na: 'No ethics committee required', filtrar: 'Filter rows…',
+      nav_biblioteca: 'Library', acervo: 'Collection', biblioteca: 'Library',
+      bib_lead: "UNSEEL's publications, teaching materials, audiovisual content and fieldwork photos. Search by title and sort as you like.",
+      bib_busca: 'Title, author, keyword…', ordenar: 'Sort by', o_recentes: 'Newest first', o_antigos: 'Oldest first', o_az: 'Title (A–Z)', o_za: 'Title (Z–A)',
+      c_publicacao: 'Publications', c_didatico: 'Teaching materials', c_audiovisual: 'Audiovisual', c_foto: 'Fieldwork photos',
+      c1_publicacao: 'Publication', c1_didatico: 'Teaching material', c1_audiovisual: 'Audiovisual', c1_foto: 'Fieldwork photo',
+      item1: ' item', itens: ' items', bib_vazia: 'The library is still empty.', ver_foto: 'View photo', assistir: 'Watch / listen', abrir: 'Open',
+      ant_item: 'Previous item', prox_item: 'Next item',
+      nav_agenda: 'Calendar', agenda: 'Calendar', ag_olho: 'Group calendar', ag_lead: 'Group meetings, work trips and events UNSEEL hosts or attends. Click a day to see the details.',
+      ag_reuniao: 'Group meeting', ag_viagem: 'Work trip', ag_organizado: 'Event we host', ag_participacao: 'Event we attend', ag_outro: 'Other',
+      ag_vazio: 'Nothing scheduled.', ag_dia_vazio: 'Nothing on this day.', ag_mes_ant: 'Previous month', ag_mes_prox: 'Next month', ag_hoje: 'Today',
+      ag_proximos: 'Coming up', ag_google: 'Open in Google Calendar', ag_sinc: 'Synced with Google Calendar on ', ag_comp: 'events', ag_ver: 'Full calendar →',
       ultimas: 'Latest news'
     }
   };
@@ -387,6 +409,9 @@
       '<div class="numero"><b data-conta="' + projs.length + '">0</b><span>' + t('n_proj') + '</span></div>' +
       '<div class="numero"><b data-conta="' + anos + '">0</b><span>' + t('n_anos') + '</span></div>' +
       '</div></section>' +
+
+      '<section class="faixa"><div class="in"><div class="cabeca-secao"><div><p class="olho">' + t('ag_olho') + '</p><h2>' + t('ag_proximos') + '</h2></div><a class="mais" href="#/agenda">' + t('ag_ver') + '</a></div>' +
+      '<div class="ag-home">' + blocoProximos(4) + '</div></div></section>' +
 
       '<section class="faixa"><div class="in"><p class="olho">' + t('quem_olho') + '</p><h2>' + t('quem_tit') + '</h2><p class="quem">' + txt(loc(s, 'descricao')) + '</p>' +
       '<div class="mvv" style="margin-top:40px">' +
@@ -903,6 +928,257 @@
     });
   }
 
+  /* ---------- biblioteca ---------- */
+  var ICONES = {
+    publicacao: '<path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5"/><path d="M10 13h6M10 17h6"/>',
+    didatico: '<path d="M3 8l9-4 9 4-9 4z"/><path d="M7 10v5c3 2 7 2 10 0v-5"/><path d="M21 8v6"/>',
+    audiovisual: '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M10 9l5 3-5 3z"/>',
+    foto: '<rect x="3" y="6" width="18" height="14" rx="2"/><path d="M8 6l2-2h4l2 2"/><circle cx="12" cy="13" r="3.5"/>'
+  };
+  var CORES_CAT = { publicacao: '#13294B', didatico: '#427568', audiovisual: '#176F80', foto: '#2F5E86' };
+  function tipoArquivo(a) {
+    var m = /\.([a-z0-9]+)(\?|#|$)/i.exec(String(a || '')); var e = m ? m[1].toLowerCase() : '';
+    if (/^(jpe?g|png|webp|gif|avif)$/.test(e)) return 'imagem';
+    if (/^(mp4|webm|mov|m4v)$/.test(e)) return 'video';
+    if (/^(mp3|m4a|wav|ogg)$/.test(e)) return 'audio';
+    return e ? e.toUpperCase() : '';
+  }
+  function itensBiblioteca() {
+    var b = D.biblioteca || {};
+    var man = (b.itens || []).filter(function (x) { return x.titulo && (x.arquivo || x.link); }).map(function (x, i) {
+      return { id: 'b' + i, cat: x.categoria || 'publicacao', titulo: loc(x, 'titulo'), data: String(x.data || ''), autores: x.autores || '', desc: loc(x, 'descricao') || '',
+        arquivo: caminho(x.arquivo), link: url(x.link), capa: caminho(x.capa), projeto: x.projeto || '', tags: x.tags || [] };
+    });
+    if (b.incluir_publicacoes_automaticas !== false) {
+      publicacoes().forEach(function (p, i) {
+        if (!url(p.url)) return;
+        man.push({ id: 'p' + i, cat: 'publicacao', titulo: p.titulo, data: String(p.data || p.ano || ''), autores: p.autores_texto || (p.autores || []).map(function (id) { var m = pessoa(id); return m ? m.nome : ''; }).filter(Boolean).join(', '),
+          desc: [p.veiculo, t('tipos')[p.tipo]].filter(Boolean).join(' · '), arquivo: '', link: url(p.url), capa: '', projeto: (p.projetos || [])[0] || '', tags: [] });
+      });
+    }
+    return man;
+  }
+  var estadoBib = { cat: '', q: '', ordem: 'recentes' };
+  P.biblioteca = function () {
+    var q = params();
+    estadoBib = { cat: q.categoria || '', q: '', ordem: 'recentes' };
+    setTimeout(ligarBiblioteca, 0);
+    return '<section class="secao"><p class="olho">' + t('acervo') + '</p><h1>' + t('biblioteca') + '</h1>' +
+      '<p class="lead">' + t('bib_lead') + '</p>' +
+      '<div class="cats" id="bib-cats" role="group" aria-label="' + esc(t('categoria')) + '"></div>' +
+      '<div class="filtros" role="search">' +
+      '<label>' + t('buscar') + '<input type="search" id="bib-busca" placeholder="' + esc(t('bib_busca')) + '"></label>' +
+      '<label>' + t('ordenar') + '<select id="bib-ordem">' +
+      [['recentes', t('o_recentes')], ['antigos', t('o_antigos')], ['az', t('o_az')], ['za', t('o_za')]].map(function (o) { return '<option value="' + o[0] + '">' + esc(o[1]) + '</option>'; }).join('') +
+      '</select></label></div>' +
+      '<p class="contagem" id="bib-n"></p><div class="bib-grade" id="bib-lista"></div>' +
+      '<dialog class="visor" id="visor" aria-label="' + esc(t('visualizar')) + '"><div class="visor-in"><button type="button" class="visor-x" id="visor-x" aria-label="' + esc(t('fechar')) + '">×</button>' +
+      '<button type="button" class="visor-nav ant" id="visor-ant" aria-label="' + esc(t('ant_item')) + '">‹</button><div class="visor-midia" id="visor-midia"></div>' +
+      '<button type="button" class="visor-nav prox" id="visor-prox" aria-label="' + esc(t('prox_item')) + '">›</button><div class="visor-legenda" id="visor-leg"></div></div></dialog>' +
+      '</section>';
+  };
+  function ligarBiblioteca() {
+    var busca = document.getElementById('bib-busca'); if (!busca) return;
+    busca.addEventListener('input', function () { estadoBib.q = busca.value; desenharBiblioteca(); });
+    document.getElementById('bib-ordem').addEventListener('change', function (e) { estadoBib.ordem = e.target.value; desenharBiblioteca(); });
+    document.getElementById('bib-cats').addEventListener('click', function (e) {
+      var b = e.target.closest('[data-cat]'); if (!b) return;
+      estadoBib.cat = b.getAttribute('data-cat'); desenharBiblioteca();
+    });
+    var visor = document.getElementById('visor');
+    document.getElementById('visor-x').addEventListener('click', function () { fecharVisor(); });
+    document.getElementById('visor-ant').addEventListener('click', function () { moverVisor(-1); });
+    document.getElementById('visor-prox').addEventListener('click', function () { moverVisor(1); });
+    visor.addEventListener('click', function (e) { if (e.target === visor) fecharVisor(); });
+    visor.addEventListener('keydown', function (e) { if (e.key === 'ArrowRight') moverVisor(1); if (e.key === 'ArrowLeft') moverVisor(-1); });
+    visor.addEventListener('close', function () { document.getElementById('visor-midia').innerHTML = ''; });
+    document.getElementById('bib-lista').addEventListener('click', function (e) {
+      var b = e.target.closest('[data-abrir]'); if (!b) return;
+      abrirVisor(+b.getAttribute('data-abrir'));
+    });
+    desenharBiblioteca();
+  }
+  var listaAtual = [], posVisor = 0;
+  function semAc(s) { return String(s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, ''); }
+  function desenharBiblioteca() {
+    var todos = itensBiblioteca();
+    var cats = [['', t('todos')], ['publicacao', t('c_publicacao')], ['didatico', t('c_didatico')], ['audiovisual', t('c_audiovisual')], ['foto', t('c_foto')]];
+    document.getElementById('bib-cats').innerHTML = cats.map(function (c) {
+      var n = todos.filter(function (x) { return !c[0] || x.cat === c[0]; }).length;
+      return '<button type="button" data-cat="' + c[0] + '" aria-pressed="' + (estadoBib.cat === c[0]) + '"' + (c[0] ? ' style="--cor:' + CORES_CAT[c[0]] + '"' : '') + '>' + esc(c[1]) + ' <span>' + n + '</span></button>';
+    }).join('');
+    var q = semAc(estadoBib.q);
+    var lista = todos.filter(function (x) {
+      if (estadoBib.cat && x.cat !== estadoBib.cat) return false;
+      if (q && semAc([x.titulo, x.autores, x.desc, (x.tags || []).join(' ')].join(' ')).indexOf(q) < 0) return false;
+      return true;
+    });
+    var col = function (a, b) { return a.titulo.localeCompare(b.titulo, lang === 'en' ? 'en' : 'pt', { sensitivity: 'base' }); };
+    lista.sort({
+      recentes: function (a, b) { return b.data.localeCompare(a.data) || col(a, b); },
+      antigos: function (a, b) { return (a.data || '9999').localeCompare(b.data || '9999') || col(a, b); },
+      az: col, za: function (a, b) { return col(b, a); }
+    }[estadoBib.ordem]);
+    listaAtual = lista;
+    document.getElementById('bib-n').textContent = lista.length + (lista.length === 1 ? t('item1') : t('itens'));
+    document.getElementById('bib-lista').innerHTML = lista.length ? lista.map(cartaoBib).join('') :
+      '<p class="vazio">' + (todos.length ? t('nada') : t('bib_vazia')) + '</p>';
+  }
+  function cartaoBib(x, i) {
+    var tipo = tipoArquivo(x.arquivo);
+    var capa = x.capa || (tipo === 'imagem' ? x.arquivo : '');
+    var visivel = tipo === 'imagem' || tipo === 'video' || tipo === 'audio';
+    var alvo = x.arquivo || x.link;
+    var ano = (x.data || '').slice(0, 4);
+    var topo = capa
+      ? '<span class="bib-capa"><img src="' + capa + '" alt="" loading="lazy"></span>'
+      : '<span class="bib-capa bib-icone" style="--cor:' + CORES_CAT[x.cat] + '"><svg viewBox="0 0 24 24" aria-hidden="true">' + (ICONES[x.cat] || ICONES.publicacao) + '</svg></span>';
+    var acao = visivel
+      ? '<button type="button" class="bib-acao" data-abrir="' + i + '">' + (tipo === 'imagem' ? t('ver_foto') : t('assistir')) + '</button>'
+      : '<a class="bib-acao" href="' + alvo + '" target="_blank" rel="noopener"' + (x.arquivo ? ' download' : '') + '>' + (x.arquivo ? t('baixar') + (tipo ? ' ' + esc(tipo) : '') : t('abrir')) + '</a>';
+    return '<article class="bib-item surge">' +
+      (visivel ? '<button type="button" class="bib-capa-bt" data-abrir="' + i + '" aria-label="' + esc(x.titulo) + '">' + topo + '</button>' : topo) +
+      '<div class="bib-corpo"><span class="bib-cat" style="--cor:' + CORES_CAT[x.cat] + '">' + esc(t('c1_' + x.cat)) + (ano ? ' · ' + esc(ano) : '') + '</span>' +
+      '<h3>' + esc(x.titulo) + '</h3>' + (x.autores ? '<p class="meta">' + esc(x.autores) + '</p>' : '') +
+      (x.desc ? '<p class="bib-desc">' + txt(x.desc) + '</p>' : '') +
+      chipsProjetos(x.projeto ? [x.projeto] : []) + acao + '</div></article>';
+  }
+  function abrirVisor(i) {
+    var visor = document.getElementById('visor');
+    posVisor = i; mostrarVisor();
+    if (!visor.open) { if (visor.showModal) visor.showModal(); else visor.setAttribute('open', ''); }
+  }
+  function visiveis() { return listaAtual.map(function (x, i) { return [x, i]; }).filter(function (p) { return /^(imagem|video|audio)$/.test(tipoArquivo(p[0].arquivo)); }); }
+  function moverVisor(d) {
+    var vs = visiveis(); if (!vs.length) return;
+    var k = vs.findIndex(function (p) { return p[1] === posVisor; });
+    posVisor = vs[(k + d + vs.length) % vs.length][1]; mostrarVisor();
+  }
+  function mostrarVisor() {
+    var x = listaAtual[posVisor]; if (!x) return;
+    var tipo = tipoArquivo(x.arquivo), m = document.getElementById('visor-midia');
+    m.innerHTML = tipo === 'imagem' ? '<img src="' + x.arquivo + '" alt="' + esc(x.titulo) + '">'
+      : tipo === 'video' ? '<video src="' + x.arquivo + '" controls autoplay playsinline></video>'
+      : '<audio src="' + x.arquivo + '" controls autoplay></audio>';
+    document.getElementById('visor-leg').innerHTML = '<strong>' + esc(x.titulo) + '</strong>' + (x.data ? ' · ' + dataFmt(x.data) : '') +
+      (x.desc ? '<br>' + txt(x.desc) : '') + ' <a href="' + x.arquivo + '" download>' + t('baixar') + '</a>';
+    var n = visiveis().length;
+    document.getElementById('visor-ant').hidden = n < 2; document.getElementById('visor-prox').hidden = n < 2;
+  }
+  function fecharVisor() { var v = document.getElementById('visor'); if (v.close) v.close(); else v.removeAttribute('open'); document.getElementById('visor-midia').innerHTML = ''; }
+
+  /* ---------- agenda ---------- */
+  var TIPOS_AG = ['reuniao', 'viagem', 'organizado', 'participacao', 'outro'];
+  var CORES_AG = { reuniao: '#176F80', viagem: '#427568', organizado: '#13294B', participacao: '#2F5E86', outro: '#6B7A8C' };
+  function dIso(d) { return d.getFullYear() + '-' + ('0' + (d.getMonth() + 1)).slice(-2) + '-' + ('0' + d.getDate()).slice(-2); }
+  function dDe(s) { var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(s || ''); return m ? new Date(+m[1], +m[2] - 1, +m[3]) : null; }
+  function somaDias(d, n) { var x = new Date(d); x.setDate(x.getDate() + n); return x; }
+  function compromissos() {
+    var lista = [];
+    var hoje = new Date(), limite = somaDias(hoje, 400);
+    ((D.agenda && D.agenda.eventos) || []).forEach(function (e) {
+      var ini = dDe(e.inicio); if (!ini || !e.titulo) return;
+      var fim = dDe(e.fim), dur = fim ? Math.round((fim - ini) / 864e5) : 0;
+      var base = { titulo: loc(e, 'titulo'), tipo: TIPOS_AG.indexOf(e.tipo) >= 0 ? e.tipo : 'outro', hora: e.hora || '', local: e.local || '', descricao: loc(e, 'descricao') || '', link: e.link || '', projeto: e.projeto || '' };
+      var pular = e.pular || [], r = e.repetir;
+      var datas = [ini];
+      if (r && r.freq) {
+        var ate = dDe(r.ate) || limite, d = ini, k = 0;
+        datas = [];
+        while (d <= ate && d <= limite && k < 500) {
+          if (pular.indexOf(dIso(d)) < 0) datas.push(d);
+          k++;
+          d = r.freq === 'mensal' ? new Date(ini.getFullYear(), ini.getMonth() + k, ini.getDate()) : somaDias(ini, k * (r.freq === 'quinzenal' ? 14 : 7));
+        }
+      }
+      datas.forEach(function (d) { lista.push(Object.assign({}, base, { inicio: dIso(d), fim: dur ? dIso(somaDias(d, dur)) : '' })); });
+    });
+    ((D.agendaGoogle && D.agendaGoogle.eventos) || []).forEach(function (e) {
+      if (e.inicio && e.titulo) lista.push(Object.assign({ tipo: 'outro' }, e, { tipo: TIPOS_AG.indexOf(e.tipo) >= 0 ? e.tipo : 'outro' }));
+    });
+    return lista.sort(function (a, b) { return (a.inicio + a.hora).localeCompare(b.inicio + b.hora); });
+  }
+  function noDia(ev, iso) { return ev.inicio === iso || (ev.fim && ev.inicio <= iso && ev.fim >= iso); }
+  function proximos(n) {
+    var hoje = dIso(new Date());
+    return compromissos().filter(function (e) { return (e.fim || e.inicio) >= hoje; }).slice(0, n);
+  }
+  function fmtDia(iso, opc) { var d = dDe(iso); return d ? d.toLocaleDateString(lang === 'en' ? 'en-GB' : 'pt-BR', opc) : ''; }
+  function itemAgenda(e) {
+    var d = dDe(e.inicio);
+    var periodo = e.fim ? fmtDia(e.inicio, { day: 'numeric', month: 'short' }) + ' – ' + fmtDia(e.fim, { day: 'numeric', month: 'short' }) : fmtDia(e.inicio, { weekday: 'long' });
+    return '<li class="ag-item" style="--cor:' + CORES_AG[e.tipo] + '">' +
+      '<span class="ag-data"><b>' + d.getDate() + '</b>' + esc(fmtDia(e.inicio, { month: 'short' }).replace('.', '')) + '</span>' +
+      '<span class="ag-corpo"><span class="ag-tipo">' + esc(t('ag_' + e.tipo)) + '</span>' +
+      '<strong>' + (url(e.link) ? '<a href="' + url(e.link) + '" target="_blank" rel="noopener">' + esc(e.titulo) + '</a>' : esc(e.titulo)) + '</strong>' +
+      '<span class="meta">' + [esc(periodo), esc(e.hora), esc(e.local)].filter(Boolean).join(' · ') + '</span>' +
+      (e.descricao ? '<span class="ag-desc">' + esc(e.descricao) + '</span>' : '') + chipsProjetos(e.projeto ? [e.projeto] : []) + '</span></li>';
+  }
+  function blocoProximos(n) {
+    var ps = proximos(n);
+    return ps.length ? '<ul class="ag-lista">' + ps.map(itemAgenda).join('') + '</ul>' : '<p class="vazio">' + t('ag_vazio') + '</p>';
+  }
+  var estadoAg = { mes: null, dia: null, tipos: {} };
+  P.agenda = function () {
+    var hoje = new Date();
+    estadoAg = { mes: new Date(hoje.getFullYear(), hoje.getMonth(), 1), dia: dIso(hoje), tipos: {} };
+    TIPOS_AG.forEach(function (x) { estadoAg.tipos[x] = true; });
+    var assinar = D.agendaGoogle && url(D.agendaGoogle.assinar);
+    setTimeout(ligarAgenda, 0);
+    return '<section class="secao"><p class="olho">' + t('ag_olho') + '</p><h1>' + t('agenda') + '</h1>' +
+      '<p class="lead">' + t('ag_lead') + '</p>' +
+      '<div class="cats" id="ag-tipos" role="group" aria-label="' + esc(t('tipo')) + '">' + TIPOS_AG.map(function (x) {
+        return '<button type="button" data-tipo="' + x + '" aria-pressed="true" style="--cor:' + CORES_AG[x] + '"><i class="ag-pt"></i>' + esc(t('ag_' + x)) + '</button>';
+      }).join('') + '</div>' +
+      '<div class="ag-grade"><div class="cal">' +
+      '<div class="cal-topo"><button type="button" class="seta" id="cal-ant" aria-label="' + esc(t('ag_mes_ant')) + '">‹</button>' +
+      '<h2 id="cal-mes" aria-live="polite"></h2><button type="button" class="seta" id="cal-prox" aria-label="' + esc(t('ag_mes_prox')) + '">›</button>' +
+      '<button type="button" class="pausa" id="cal-hoje">' + t('ag_hoje') + '</button></div>' +
+      '<div class="cal-dias" id="cal-dias"></div></div>' +
+      '<div class="ag-lado"><h2 id="ag-dia-tit" style="font-size:1.3rem"></h2><div id="ag-dia"></div>' +
+      '<h2 style="font-size:1.3rem;margin-top:32px">' + t('ag_proximos') + '</h2><div id="ag-prox"></div>' +
+      (assinar ? '<p style="margin-top:20px"><a class="botao contorno" href="' + assinar + '" target="_blank" rel="noopener">' + t('ag_google') + '</a></p>' : '') +
+      (D.agendaGoogle && D.agendaGoogle.atualizado_em ? '<p class="meta">' + t('ag_sinc') + esc(D.agendaGoogle.atualizado_em) + '</p>' : '') +
+      '</div></div></section>';
+  };
+  function ligarAgenda() {
+    var dias = document.getElementById('cal-dias'); if (!dias) return;
+    document.getElementById('cal-ant').addEventListener('click', function () { estadoAg.mes = new Date(estadoAg.mes.getFullYear(), estadoAg.mes.getMonth() - 1, 1); desenharAgenda(); });
+    document.getElementById('cal-prox').addEventListener('click', function () { estadoAg.mes = new Date(estadoAg.mes.getFullYear(), estadoAg.mes.getMonth() + 1, 1); desenharAgenda(); });
+    document.getElementById('cal-hoje').addEventListener('click', function () { var h = new Date(); estadoAg.mes = new Date(h.getFullYear(), h.getMonth(), 1); estadoAg.dia = dIso(h); desenharAgenda(); });
+    dias.addEventListener('click', function (e) { var b = e.target.closest('[data-dia]'); if (b) { estadoAg.dia = b.getAttribute('data-dia'); desenharAgenda(); } });
+    document.getElementById('ag-tipos').addEventListener('click', function (e) {
+      var b = e.target.closest('[data-tipo]'); if (!b) return;
+      var k = b.getAttribute('data-tipo'); estadoAg.tipos[k] = !estadoAg.tipos[k];
+      b.setAttribute('aria-pressed', String(estadoAg.tipos[k])); desenharAgenda();
+    });
+    desenharAgenda();
+  }
+  function desenharAgenda() {
+    var todos = compromissos().filter(function (e) { return estadoAg.tipos[e.tipo]; });
+    var m = estadoAg.mes, hoje = dIso(new Date());
+    var tm = m.toLocaleDateString(lang === 'en' ? 'en-GB' : 'pt-BR', { month: 'long', year: 'numeric' });
+    document.getElementById('cal-mes').textContent = tm.charAt(0).toUpperCase() + tm.slice(1);
+    var semana = [];
+    for (var w = 0; w < 7; w++) semana.push(new Date(2024, 0, 1 + w).toLocaleDateString(lang === 'en' ? 'en-GB' : 'pt-BR', { weekday: 'short' }).replace('.', ''));
+    var primeiro = (m.getDay() + 6) % 7, nDias = new Date(m.getFullYear(), m.getMonth() + 1, 0).getDate();
+    var html = semana.map(function (s) { return '<span class="cal-sem" aria-hidden="true">' + esc(s) + '</span>'; }).join('');
+    for (var v = 0; v < primeiro; v++) html += '<span class="cal-vazio"></span>';
+    for (var d = 1; d <= nDias; d++) {
+      var iso = dIso(new Date(m.getFullYear(), m.getMonth(), d));
+      var evs = todos.filter(function (e) { return noDia(e, iso); });
+      html += '<button type="button" class="cal-dia' + (iso === hoje ? ' hoje' : '') + (iso === estadoAg.dia ? ' sel' : '') + (evs.length ? ' tem' : '') + '" data-dia="' + iso + '" aria-pressed="' + (iso === estadoAg.dia) + '" aria-label="' + esc(fmtDia(iso, { day: 'numeric', month: 'long' })) + (evs.length ? ', ' + evs.length + ' ' + esc(t('ag_comp')) : '') + '">' +
+        '<span class="n">' + d + '</span>' + evs.slice(0, 3).map(function (e) { return '<span class="cal-ev" style="--cor:' + CORES_AG[e.tipo] + '">' + esc(e.titulo) + '</span>'; }).join('') +
+        (evs.length > 3 ? '<span class="cal-mais">+' + (evs.length - 3) + '</span>' : '') + '</button>';
+    }
+    document.getElementById('cal-dias').innerHTML = html;
+    var doDia = todos.filter(function (e) { return noDia(e, estadoAg.dia); });
+    document.getElementById('ag-dia-tit').textContent = fmtDia(estadoAg.dia, { weekday: 'long', day: 'numeric', month: 'long' });
+    document.getElementById('ag-dia').innerHTML = doDia.length ? '<ul class="ag-lista">' + doDia.map(itemAgenda).join('') + '</ul>' : '<p class="vazio">' + t('ag_dia_vazio') + '</p>';
+    var ps = todos.filter(function (e) { return (e.fim || e.inicio) >= hoje; }).slice(0, 6);
+    document.getElementById('ag-prox').innerHTML = ps.length ? '<ul class="ag-lista">' + ps.map(itemAgenda).join('') + '</ul>' : '<p class="vazio">' + t('ag_vazio') + '</p>';
+  }
+
   P.contato = function () {
     var c = D.site.contato || {};
     var redes = (D.site.redes || []).filter(function (r) { return url(r.url); });
@@ -1006,7 +1282,7 @@
 
   /* ---------- carga ---------- */
   var arquivos = { site: 'site', coordenador: 'coordenador', equipe: 'equipe', projetos: 'projetos',
-    publicacoes: 'publicacoes', manuais: 'publicacoes-manuais', midia: 'midia', dados: 'dados', galeria: 'galeria', pesquisas: 'pesquisas' };
+    publicacoes: 'publicacoes', manuais: 'publicacoes-manuais', midia: 'midia', dados: 'dados', galeria: 'galeria', pesquisas: 'pesquisas', biblioteca: 'biblioteca', agenda: 'agenda', agendaGoogle: 'agenda-google' };
   Promise.all(Object.keys(arquivos).map(function (k) {
     return fetch('data/' + arquivos[k] + '.json', { cache: 'no-cache' })
       .then(function (r) { return r.ok ? r.json() : {}; })
