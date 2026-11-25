@@ -97,6 +97,80 @@ def projetos_por_texto(texto, projetos):
     return achados
 
 
+# ---------- pessoas: equipe.json + cadastros do site (Supabase) ----------
+
+def nome_chave(s):
+    return re.sub(r"\s+", " ", norm(s)).strip()
+
+
+def pessoas_do_grupo():
+    """Junta data/equipe.json com a lista pública do Supabase (se configurado)."""
+    equipe = [dict(m) for m in ler("equipe.json", {"membros": []})["membros"]]
+    cfg = ler("membros.json", {}) or {}
+    u, k = (cfg.get("supabase_url") or "").rstrip("/"), cfg.get("supabase_anon_key") or ""
+    if u.startswith("https://") and k:
+        try:
+            req = urllib.request.Request(u + "/rest/v1/rpc/equipe_publica", data=b"{}", method="POST",
+                                         headers={"apikey": k, "Content-Type": "application/json", "User-Agent": UA})
+            with urllib.request.urlopen(req, timeout=40) as r:
+                lista = json.loads(r.read())
+            por_nome = {nome_chave(m["nome"]): m for m in equipe}
+            for x in lista:
+                m = por_nome.get(nome_chave(x.get("nome")))
+                if m:
+                    if x.get("orcid"):
+                        m["orcid"] = x["orcid"]
+                else:
+                    equipe.append({"id": x["id"], "nome": x.get("nome", ""), "orcid": x.get("orcid") or ""})
+            print(f"  pessoas do site: {len(lista)}")
+        except Exception as e:  # noqa: BLE001
+            print(f"  ! lista do Supabase indisponível: {e}", file=sys.stderr)
+    return equipe
+
+
+def orcid_valido(o):
+    o = (o or "").strip().replace("https://orcid.org/", "")
+    return o if re.fullmatch(r"\d{4}-\d{4}-\d{4}-\d{3}[\dX]", o) else ""
+
+
+def atualizar_metricas_e_formacao(pessoas):
+    metricas, formacao = {}, {}
+    for m in pessoas:
+        o = orcid_valido(m.get("orcid"))
+        if not o:
+            continue
+        try:
+            params = {"mailto": EMAIL} if EMAIL else {}
+            a = json.loads(baixar("https://api.openalex.org/authors/orcid:" + o + ("?" + urllib.parse.urlencode(params) if params else "")))
+            st = a.get("summary_stats") or {}
+            metricas[o] = {"trabalhos": a.get("works_count"), "citacoes": a.get("cited_by_count"),
+                           "h": st.get("h_index"), "i10": st.get("i10_index")}
+        except Exception as e:  # noqa: BLE001
+            print(f"  ! métricas {o}: {e}", file=sys.stderr)
+        try:
+            req = urllib.request.Request("https://pub.orcid.org/v3.0/" + o + "/educations",
+                                         headers={"Accept": "application/json", "User-Agent": UA})
+            with urllib.request.urlopen(req, timeout=40) as r:
+                ed = json.loads(r.read())
+            itens = []
+            for g in ed.get("affiliation-group", []):
+                for s in g.get("summaries", []):
+                    e = s.get("education-summary", {})
+                    ano = lambda d: int(d["year"]["value"]) if d and d.get("year") and d["year"].get("value") else None  # noqa: E731
+                    itens.append({"instituicao": (e.get("organization") or {}).get("name", ""), "curso": e.get("role-title") or "",
+                                  "inicio": ano(e.get("start-date")), "fim": ano(e.get("end-date"))})
+            if itens:
+                formacao[o] = itens
+        except Exception as e:  # noqa: BLE001
+            print(f"  ! formação ORCID {o}: {e}", file=sys.stderr)
+        time.sleep(0.4)
+    if metricas:
+        gravar("metricas.json", metricas)
+    if formacao:
+        gravar("orcid-formacao.json", formacao)
+    print(f"métricas: {len(metricas)} · formação ORCID: {len(formacao)}")
+
+
 # ---------- publicações (OpenAlex) ----------
 
 def obras_do_orcid(orcid):
@@ -119,8 +193,8 @@ def obras_do_orcid(orcid):
     return obras
 
 
-def atualizar_publicacoes():
-    equipe = ler("equipe.json", {"membros": []})["membros"]
+def atualizar_publicacoes(equipe=None):
+    equipe = equipe if equipe is not None else pessoas_do_grupo()
     projetos = ler("projetos.json", {"projetos": []})["projetos"]
     anterior = ler("publicacoes.json", {"itens": []})
     antigos = {i["id"]: i for i in anterior.get("itens", [])}
@@ -243,8 +317,13 @@ def atualizar_midia():
 
 
 if __name__ == "__main__":
-    for etapa in (atualizar_publicacoes, atualizar_midia):
+    try:
+        pessoas = pessoas_do_grupo()
+    except Exception as e:  # noqa: BLE001
+        print(f"! pessoas: {e}", file=sys.stderr)
+        pessoas = ler("equipe.json", {"membros": []})["membros"]
+    for etapa in (lambda: atualizar_publicacoes(pessoas), lambda: atualizar_metricas_e_formacao(pessoas), atualizar_midia):
         try:
             etapa()
         except Exception as e:  # noqa: BLE001
-            print(f"! {etapa.__name__} falhou: {e}", file=sys.stderr)
+            print(f"! etapa falhou: {e}", file=sys.stderr)

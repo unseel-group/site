@@ -103,7 +103,11 @@ Usa o plano gratuito do **Supabase** para contas e banco de dados. O GitHub "vis
 5. **Project Settings → API** (ou *API Keys*): copie a **Project URL** e a chave **anon / publishable**. No GitHub, edite `data/membros.json` e cole as duas. **Nunca** use a chave *service_role / secret*.
 6. O Victor cria a conta em **Área de membros → Criar conta**. Depois, no **SQL Editor**, rode (com o e-mail dele):
    `update public.perfis set papel = 'coordenacao', status = 'aprovado' where email = 'email-do-victor@...';`
-7. A partir daí, cada novo cadastro aparece para o Victor em **Área de membros → Aprovações**.
+7. A partir daí, cada novo cadastro aparece para o Victor em **Área de membros → Equipe e permissões**.
+
+**Etapa 2** (rode `supabase/etapa2.sql` no SQL Editor, uma vez): permissões por área (Biblioteca, Agenda, Banco de dados, Equipe, Projetos, Notícias), ano de entrada e defesa prevista no cadastro, LinkedIn e Google Acadêmico, situação **Concluído** (a pessoa deixa de editar e vira egressa), **Pessoas sem conta** (egressos cadastrados pela coordenação) e a lista pública que alimenta a página **Equipe** e a **linha do tempo**. Quem marcar "Mostrar meu perfil na página pública" aparece na Equipe; e-mails nunca são públicos.
+
+Toda semana o GitHub também busca, pelo ORCID de cada pessoa, os indicadores do OpenAlex (trabalhos, citações, índice h) e as datas de formação registradas no ORCID. **O cadastro sempre prevalece.** Para quem ainda está no grupo, as datas do ORCID são só sugestão no formulário; para quem **já defendeu**, se o ano de entrada ou de defesa estiver em branco, a linha do tempo usa o ORCID automaticamente. A defesa *prevista* nunca aparece no site público: é só para o cadastro e a coordenação.
 
 ## 8. Português e inglês
 

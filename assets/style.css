@@ -449,6 +449,66 @@ nav#nav>a.nav-membros:hover,nav#nav>a.nav-membros.ativo{background:var(--petrole
 .m-acoes{display:flex;gap:8px;flex-wrap:wrap}
 .membros td select{min-height:38px;border:1px solid #C3D0D8;border-radius:4px;padding:0 8px;font:inherit}
 
+
+/* ---------- linha do tempo do grupo ---------- */
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.tl-caixa{margin-top:28px;padding:22px 0 8px;border-top:1px solid var(--linha)}
+.tl{overflow-x:auto;padding:6px 2px 14px;scroll-behavior:smooth}
+.tl-trilho{display:flex;position:relative;min-width:max-content}
+.tl-trilho::before{content:"";position:absolute;left:0;right:0;top:41px;height:2px;background:linear-gradient(90deg,var(--linha),var(--petroleo))}
+.tl-ano{position:relative;width:170px;flex:none;padding:0 10px;display:flex;flex-direction:column;align-items:flex-start;gap:10px}
+.tl-rotulo{font:800 1.05rem Montserrat,sans-serif;color:var(--marinho);height:28px}
+.tl-ano.futuro .tl-rotulo{color:var(--suave)}
+.tl-ponto{width:14px;height:14px;border-radius:50%;background:#fff;border:3px solid var(--petroleo);margin:-3px 0 6px;position:relative;z-index:1}
+.tl-ano.atual .tl-ponto{background:var(--petroleo);box-shadow:0 0 0 5px rgba(23,111,128,.18)}
+.tl-ano.futuro .tl-ponto{border-style:dashed;border-color:#9AA7B4}
+.tl-bloco{display:flex;flex-direction:column;gap:5px}
+.tl-tag{font-size:.72rem;font-weight:700;color:var(--suave)}
+.tl-avs{display:flex;flex-wrap:wrap;gap:5px}
+.tl-av{width:40px;height:40px;border-radius:50%;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;background:var(--cor);color:#fff;font:700 .8rem Montserrat,sans-serif;text-decoration:none;border:2px solid #fff;box-shadow:0 0 0 1px var(--linha);transition:transform .2s var(--ease)}
+.tl-av:hover,.tl-av:focus-visible{transform:scale(1.15);color:#fff;z-index:2}
+.tl-av img{width:100%;height:100%;object-fit:cover}
+.tl-av.defendeu{box-shadow:0 0 0 3px var(--agua)}
+.tl-av.prevista{box-shadow:0 0 0 2px #fff,0 0 0 4px #9AA7B4;opacity:.85}
+.tl-pubs{font-size:.82rem;color:var(--suave);text-decoration:none;padding:3px 8px;border:1px solid var(--linha);border-radius:3px;background:#fff}
+.tl-pubs b{color:var(--marinho)}
+.tl-pubs:hover{border-color:var(--petroleo);color:var(--petroleo)}
+/* trajetória da pessoa */
+.tlp{list-style:none;margin:12px 0 0;padding:0;position:relative}
+.tlp::before{content:"";position:absolute;left:62px;top:6px;bottom:6px;width:2px;background:var(--linha)}
+.tlp-item{display:grid;grid-template-columns:50px 26px minmax(0,1fr);gap:0 10px;padding:0 0 22px;align-items:start}
+.tlp-ano{font:800 .95rem Montserrat,sans-serif;color:var(--marinho);text-align:right;padding-top:1px}
+.tlp-ponto{width:14px;height:14px;border-radius:50%;background:#fff;border:3px solid var(--petroleo);margin:3px 0 0 6px;position:relative;z-index:1}
+.tlp-item.defendeu .tlp-ponto{background:var(--agua);border-color:var(--marinho)}
+.tlp-item.prevista .tlp-ponto{border-style:dashed;border-color:#9AA7B4}
+.tlp-txt ul{margin:6px 0 0;padding-left:18px;font-size:.92rem}
+.tlp-txt li{margin-bottom:4px}
+.metricas{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.metricas span{padding:8px 14px;border:1px solid var(--linha);border-radius:4px;font-size:.88rem;color:var(--suave)}
+.metricas b{font:800 1.2rem Montserrat,sans-serif;color:var(--marinho);margin-right:2px}
+/* gestão de membros */
+.m-cartao.largo{max-width:720px}
+.m-dupla{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr));gap:14px}
+.m-largo{grid-column:1/-1;justify-self:start}
+.m-gest{display:flex;gap:14px;align-items:flex-start;flex-wrap:wrap;padding:14px 16px;border:1px solid var(--linha);border-radius:var(--raio)}
+.m-gest-info{display:flex;flex-direction:column;gap:6px;margin-right:auto;flex:1 1 360px}
+.m-gest-ctrl{display:flex;gap:12px;flex-wrap:wrap}
+.m-gest-ctrl label{display:flex;flex-direction:column;gap:3px;font-size:.78rem;font-weight:700;color:var(--suave)}
+.m-gest-ctrl select{min-height:40px;border:1px solid #C3D0D8;border-radius:4px;padding:0 8px;font:inherit;font-size:.92rem}
+.m-perms{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.m-perm{min-height:34px;padding:0 12px;border:1px solid #C3D0D8;border-radius:3px;background:#fff;color:var(--marinho);font:600 .82rem Inter,sans-serif;cursor:pointer}
+.m-perm[aria-pressed="true"]{background:var(--petroleo);border-color:var(--petroleo);color:#fff}
+.m-perm[aria-pressed="true"]::before{content:"✓ "}
+.m-perm:disabled{cursor:default;opacity:.8}
+.m-dialogo{border:0;border-radius:8px;padding:0;width:min(760px,94vw);max-height:90vh;box-shadow:0 24px 60px rgba(6,14,28,.35)}
+.m-dialogo::backdrop{background:rgba(6,14,28,.55)}
+#m-dialogo-in{padding:22px 24px}
+.m-dlg-topo{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.m-dlg-topo h2{margin:0;font-size:1.3rem}
+.m-dlg-topo .visor-x{position:static;color:var(--marinho)}
+.m-foto-linha{flex-direction:row;justify-content:flex-start}
+.m-perigo{color:#A0412D!important;margin-left:auto}
+
 /* abertura em vídeo */
 .com-abertura .abertura{background:#000}
 .abertura-video{width:100%;height:100%;object-fit:contain;background:#000}

@@ -79,6 +79,9 @@
       ag_proximos: 'Próximos compromissos', ag_google: 'Abrir na Agenda Google', ag_sinc: 'Sincronizado com a Agenda Google em ', ag_comp: 'compromissos', ag_ver: 'Ver calendário completo →', ag_dica: 'Passe o mouse ou toque num dia para ver os detalhes. Feriados em vermelho.',
       ag_feriado: 'Feriados', ag_prox_fer: 'Próximo feriado', fer_nacional: 'Feriado nacional', fer_sp: 'Feriado estadual (SP)', fer_sjc: 'Feriado municipal (São José dos Campos)', fer_facultativo: 'Ponto facultativo',
       nav_membros: 'Área de membros',
+      tl_tit: 'Linha do tempo do grupo', tl_dica: 'Arraste para os lados · clique numa foto para ver a trajetória', tl_criacao: 'Criação do grupo', tl_entraram: 'Entraram', tl_defenderam: 'Defenderam', tl_previstas: 'Defesas previstas',
+      tl_pessoa: 'Linha do tempo', ev_entrada: 'Entrou no UNSEEL', ev_defesa: 'Defendeu', ev_prevista: 'Defesa prevista para ',
+      m_trab: ' trabalhos', m_cit: ' citações', m_h: ' índice h', m_i10: ' índice i10', m_fonte: 'Indicadores calculados pelo OpenAlex a partir do ORCID; podem diferir do Google Acadêmico.',
       ultimas: 'Últimas notícias'
     },
     en: {
@@ -144,6 +147,9 @@
       ag_proximos: 'Coming up', ag_google: 'Open in Google Calendar', ag_sinc: 'Synced with Google Calendar on ', ag_comp: 'events', ag_ver: 'Full calendar →', ag_dica: 'Hover over or tap a day to see the details. Holidays in red.',
       ag_feriado: 'Holidays', ag_prox_fer: 'Next holiday', fer_nacional: 'National holiday', fer_sp: 'State holiday (São Paulo)', fer_sjc: 'Municipal holiday (São José dos Campos)', fer_facultativo: 'Optional day off (public sector)',
       nav_membros: 'Members area',
+      tl_tit: 'Group timeline', tl_dica: 'Scroll sideways · click a photo to see the trajectory', tl_criacao: 'Group founded', tl_entraram: 'Joined', tl_defenderam: 'Defended', tl_previstas: 'Expected defences',
+      tl_pessoa: 'Timeline', ev_entrada: 'Joined UNSEEL', ev_defesa: 'Defended', ev_prevista: 'Defence expected in ',
+      m_trab: ' works', m_cit: ' citations', m_h: ' h-index', m_i10: ' i10-index', m_fonte: 'Indicators computed by OpenAlex from the ORCID record; they may differ from Google Scholar.',
       ultimas: 'Latest news'
     }
   };
@@ -174,7 +180,7 @@
     var p = String(nome).split(/\s+/).filter(Boolean);
     return esc(((p[0] || '')[0] || '') + ((p.length > 1 ? p[p.length - 1][0] : '') || ''));
   }
-  function pessoa(id) { return (D.equipe.membros || []).find(function (m) { return m.id === id; }); }
+  function pessoa(id) { return (D.equipe.membros || []).find(function (m) { return m.id === id || m.id_site === id; }); }
   function projeto(id) { return (D.projetos.projetos || []).find(function (p) { return p.id === id; }); }
   function orcidUrl(o) { return o ? 'https://orcid.org/' + String(o).replace('https://orcid.org/', '') : ''; }
   function pendente(s) { return !s || /^\[.*\]$/.test(String(s).trim()); }
@@ -259,6 +265,8 @@
     if (url(m.lattes)) l.push(link(m.lattes, 'Lattes'));
     if (m.orcid) l.push(link(orcidUrl(m.orcid), 'ORCID'));
     if (url(m.researchgate)) l.push(link(m.researchgate, 'ResearchGate'));
+    if (url(m.scholar)) l.push(link(m.scholar, 'Google Acadêmico'));
+    if (url(m.linkedin)) l.push(link(m.linkedin, 'LinkedIn'));
     return l.length ? '<div class="links-pessoa">' + l.join('') + '</div>' : '';
   }
   function avatar(m, grande) {
@@ -378,6 +386,98 @@
     limpezas.push(function () { obs.disconnect(); });
   }
 
+
+  /* ---------- equipe vinda do cadastro (Supabase) + linha do tempo ---------- */
+  function nomeChave(s) { return String(s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/\s+/g, ' ').trim(); }
+  function carregarEquipePublica() {
+    var cfg = D.membros || {};
+    if (!/^https:\/\//.test(cfg.supabase_url || '') || !cfg.supabase_anon_key || !window.fetch) return Promise.resolve();
+    var tempo = new Promise(function (ok) { setTimeout(function () { ok(null); }, 5000); });
+    var busca = fetch(cfg.supabase_url.replace(/\/$/, '') + '/rest/v1/rpc/equipe_publica', {
+      method: 'POST', headers: { apikey: cfg.supabase_anon_key, 'Content-Type': 'application/json' }, body: '{}'
+    }).then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; });
+    return Promise.race([busca, tempo]).then(function (lista) {
+      if (!Array.isArray(lista) || !lista.length) return;
+      var membros = (D.equipe.membros || []);
+      lista.forEach(function (x) {
+        var novo = { id: x.id, origem: x.origem, nome: x.nome, foto: x.foto_url, nivel: x.nivel || (x.papel === 'coordenacao' ? 'coordenacao' : ''),
+          situacao: x.situacao === 'egresso' ? 'egresso' : 'ativo', vinculo: x.vinculo, tema: x.tema, lattes: x.lattes, orcid: x.orcid, researchgate: x.researchgate,
+          linkedin: x.linkedin, scholar: x.scholar, ano_entrada: x.ano_entrada, defesa_data: x.defesa_data || '',
+          defesa: String(x.defesa_data || '').slice(0, 4), projetos: [] };
+        var igual = membros.find(function (m) { return nomeChave(m.nome) === nomeChave(x.nome); });
+        if (igual) {
+          igual.id_site = x.id;
+          Object.keys(novo).forEach(function (k) { if (k !== 'id' && k !== 'projetos' && novo[k] != null && novo[k] !== '') igual[k] = novo[k]; });
+          if (igual.nivel === 'coordenacao' && x.situacao !== 'egresso') igual.situacao = 'ativo';
+        } else membros.push(novo);
+      });
+      D.equipe.membros = membros;
+    });
+  }
+  function anosPessoa(m) {
+    // o cadastro sempre prevalece; o ORCID só completa o que falta de quem JÁ DEFENDEU (egressos)
+    var entrada = +m.ano_entrada || null;
+    var defesa = +String(m.defesa || m.defesa_data || '').slice(0, 4) || null;
+    var auto = false;
+    if (m.situacao === 'egresso' && (!entrada || !defesa)) {
+      var f = D.orcidFormacao && D.orcidFormacao[String(m.orcid || '').trim()];
+      if (f && f.length) {
+        var alvo = f.filter(function (x) { return /inpe|espaciais|unesp|estadual paulista|cemaden/i.test(x.instituicao || ''); });
+        var s = (alvo.length ? alvo : f).slice().sort(function (a, b) { return (b.inicio || 0) - (a.inicio || 0); })[0];
+        if (!entrada && s.inicio) { entrada = +s.inicio; auto = true; }
+        if (!defesa && s.fim) { defesa = +s.fim; auto = true; }
+      }
+    }
+    return { entrada: entrada, defesa: defesa, auto: auto };
+  }
+  function avatarTl(m, cls) {
+    var f = caminho(m.foto);
+    return '<a class="tl-av' + (cls ? ' ' + cls : '') + '" href="#/pessoa/' + esc(m.id) + '" title="' + esc(m.nome) + '" style="--cor:' + corPessoa(m.id) + '">' +
+      (f ? '<img src="' + f + '" alt="' + esc(m.nome) + '">' : '<span aria-hidden="true">' + iniciais(m.nome) + '</span><span class="sr">' + esc(m.nome) + '</span>') + '</a>';
+  }
+  function linhaGrupo() {
+    var ms = (D.equipe.membros || []).filter(function (m) { return m.nivel !== 'coordenacao'; });
+    var info = ms.map(function (m) { return { m: m, a: anosPessoa(m) }; });
+    var pubs = {}; publicacoes().forEach(function (p) { if (p.ano) pubs[p.ano] = (pubs[p.ano] || 0) + 1; });
+    var hoje = new Date().getFullYear();
+    var anos = info.map(function (x) { return x.a.entrada; }).filter(Boolean);
+    var ini = Math.min.apply(null, anos.concat([2019])), fim = hoje;
+    var cols = '';
+    for (var y = ini; y <= fim; y++) {
+      var ent = info.filter(function (x) { return x.a.entrada === y; }), def = info.filter(function (x) { return x.a.defesa === y; });
+      var bloco = function (rot, lista, cls) { return lista.length ? '<div class="tl-bloco"><span class="tl-tag">' + rot + '</span><div class="tl-avs">' + lista.map(function (x) { return avatarTl(x.m, cls); }).join('') + '</div></div>' : ''; };
+      cols += '<div class="tl-ano' + (y === hoje ? ' atual' : '') + (y > hoje ? ' futuro' : '') + '"><span class="tl-rotulo">' + y + '</span><span class="tl-ponto" aria-hidden="true"></span>' +
+        (y === 2019 ? '<div class="tl-bloco"><span class="tl-tag">' + t('tl_criacao') + '</span></div>' : '') +
+        bloco(t('tl_entraram'), ent, '') + bloco(t('tl_defenderam'), def, 'defendeu') +
+        (pubs[y] ? '<a class="tl-pubs" href="#/publicacoes?ano=' + y + '"><b>' + pubs[y] + '</b> ' + (pubs[y] === 1 ? t('pub1') : t('pubs')).trim() + '</a>' : '') + '</div>';
+    }
+    return '<div class="tl-caixa"><div class="cabeca-secao"><h2 style="font-size:1.5rem">' + t('tl_tit') + '</h2><span class="meta">' + t('tl_dica') + '</span></div>' +
+      '<div class="tl" id="tl-grupo" tabindex="0" aria-label="' + esc(t('tl_tit')) + '"><div class="tl-trilho">' + cols + '</div></div></div>';
+  }
+  function linhaPessoa(m, pubs) {
+    var a = anosPessoa(m), ev = [];
+    if (a.entrada) ev.push({ ano: a.entrada, ordem: 0, html: '<strong>' + t('ev_entrada') + '</strong>' + (m.nivel && t('nivel1')[m.nivel] ? ' · ' + esc(t('nivel1')[m.nivel]) : '') + '' });
+    var porAno = {}; pubs.forEach(function (p) { if (p.ano) (porAno[p.ano] = porAno[p.ano] || []).push(p); });
+    Object.keys(porAno).forEach(function (y) {
+      var ps = porAno[y];
+      ev.push({ ano: +y, ordem: 1, html: '<strong>' + ps.length + (ps.length === 1 ? t('pub1') : t('pubs')) + '</strong><ul>' + ps.slice(0, 6).map(function (p) {
+        return '<li>' + (url(p.url) ? '<a href="' + url(p.url) + '" target="_blank" rel="noopener">' + esc(p.titulo) + '</a>' : esc(p.titulo)) + (p.veiculo ? ' <span class="meta">· ' + esc(p.veiculo) + '</span>' : '') + '</li>';
+      }).join('') + (ps.length > 6 ? '<li><a href="#/publicacoes?pessoa=' + esc(m.id) + '&ano=' + y + '">+' + (ps.length - 6) + '</a></li>' : '') + '</ul>' });
+    });
+    if (a.defesa) ev.push({ ano: a.defesa, ordem: 2, cls: 'defendeu', html: '<strong>' + t('ev_defesa') + '</strong>' + (m.defesa_data && /^\d{4}-\d{2}/.test(m.defesa_data) ? ' · ' + esc(m.defesa_data.slice(5, 7) + '/' + m.defesa_data.slice(0, 4)) : '') });
+    if (!ev.length) return '';
+    ev.sort(function (x, y) { return x.ano - y.ano || x.ordem - y.ordem; });
+    return '<div class="bloco"><h2>' + t('tl_pessoa') + '</h2><ol class="tlp">' + ev.map(function (e) {
+      return '<li class="tlp-item' + (e.cls ? ' ' + e.cls : '') + '"><span class="tlp-ano">' + e.ano + '</span><span class="tlp-ponto" aria-hidden="true"></span><div class="tlp-txt">' + e.html + '</div></li>';
+    }).join('') + '</ol></div>';
+  }
+  function metricasHtml(m) {
+    var x = D.metricas && D.metricas[String(m.orcid || '').trim()];
+    if (!x) return '';
+    var item = function (n, rot) { return n != null ? '<span><b>' + Number(n).toLocaleString(lang === 'en' ? 'en' : 'pt-BR') + '</b>' + rot + '</span>' : ''; };
+    return '<div class="metricas">' + item(x.trabalhos, t('m_trab')) + item(x.citacoes, t('m_cit')) + item(x.h, t('m_h')) + item(x.i10, t('m_i10')) + '</div><p class="meta" style="font-size:.78rem">' + t('m_fonte') + '</p>';
+  }
+
   /* ---------- páginas ---------- */
   var P = {};
 
@@ -445,7 +545,7 @@
     var c = (ehCoord || id === D.coordenador.id) ? D.coordenador : null;
     var nome = (c && c.nome) || m.nome;
     if (!nome) return '<section class="secao"><h1>' + t('nao_achou') + '</h1><a href="#/equipe">' + t('voltar') + '</a></section>';
-    var links = c ? c.links : { lattes: m.lattes, orcid: m.orcid, researchgate: m.researchgate };
+    var links = c ? c.links : { lattes: m.lattes, orcid: m.orcid, researchgate: m.researchgate, linkedin: m.linkedin, scholar: m.scholar };
     var pubs = publicacoes().filter(function (p) { return (p.autores || []).indexOf(id) >= 0; });
     var nots = noticias().filter(function (n) { return (n.pessoas || []).indexOf(id) >= 0; });
     var lista = function (tt, arr) { return arr && arr.length ? '<h3 style="margin-top:28px">' + tt + '</h3><ul>' + arr.map(function (x) { return '<li>' + txt(x) + '</li>'; }).join('') + '</ul>' : ''; };
@@ -454,6 +554,7 @@
       if (url(links.lattes)) lk.push(link(links.lattes, t('curriculo')));
       if (links.orcid) lk.push(link(orcidUrl(links.orcid), 'ORCID'));
       if (url(links.researchgate)) lk.push(link(links.researchgate, 'ResearchGate'));
+      if (url(links.scholar)) lk.push(link(links.scholar, 'Google Acadêmico'));
       if (url(links.linkedin)) lk.push(link(links.linkedin, 'LinkedIn'));
       if (url(links.site_antigo)) lk.push(link(links.site_antigo, t('site_antigo')));
     }
@@ -470,7 +571,8 @@
       (c ? '<p class="lead" style="max-width:none">' + txt(loc(c, 'bio')) + '</p>' : (tema ? '<p class="lead">' + esc(tema) + '</p>' : '')) +
       (c ? lista(t('formacao'), loc(c, 'formacao')) + lista(t('atuacao'), loc(c, 'atuacao')) + lista(t('premios'), loc(c, 'premios')) + lista(t('livros'), loc(c, 'livros')) : '') +
       ((m.projetos || []).filter(projeto).length ? '<h3 style="margin-top:28px">' + t('projetos') + '</h3>' + chipsProjetos(m.projetos) : '') +
-      '</div></div>' +
+      metricasHtml(c ? Object.assign({}, m, { orcid: (c.links || {}).orcid || m.orcid }) : m) +
+      '</div></div>' + linhaPessoa(Object.assign({}, m, { nome: nome }), pubs) +
       '<div class="bloco grade g2"><div><div class="cabeca-secao"><h2>' + t('pubs_rec') + '</h2>' + (pubs.length ? '<a class="mais" href="#/publicacoes?pessoa=' + esc(id) + '">' + t('ver_todas_n') + ' (' + pubs.length + ') →</a>' : '') + '</div>' +
       listaPubs(pubs.slice(0, 8), t('sem_pubs_pessoa')) + '</div>' +
       '<div><div class="cabeca-secao"><h2>' + t('na_midia') + '</h2></div>' + listaNoticias(nots.slice(0, 8), t('sem_not_pessoa')) + '</div></div>' +
@@ -486,8 +588,8 @@
     var niveis = Object.keys(nv).map(function (k) { return [k, nv[k]]; });
     setTimeout(ligarEquipe, 0);
     return '<section class="secao"><p class="olho">' + t('pessoas_olho') + '</p><h1>' + t('equipe') + '</h1>' +
-      '<p class="lead">' + t('equipe_lead') + '</p>' +
-      '<div class="filtros" role="group">' +
+      '<p class="lead">' + t('equipe_lead') + '</p>' + linhaGrupo() +
+      '<div class="filtros" role="group" style="margin-top:36px">' +
       '<div class="rot">' + t('situacao') + '<div class="segmentado" id="f-sit">' +
       [['ativo', t('ativos')], ['egresso', t('egressos')], ['', t('todos')]].map(function (o) { return '<button type="button" data-v="' + o[0] + '" aria-pressed="' + (o[0] === sit) + '">' + esc(o[1]) + '</button>'; }).join('') +
       '</div></div>' +
@@ -498,6 +600,7 @@
   };
   var filtroEquipe = {};
   function ligarEquipe() {
+    var tl = document.getElementById('tl-grupo'); if (tl) tl.scrollLeft = tl.scrollWidth;
     var q = params();
     filtroEquipe = { situacao: q.situacao == null ? 'ativo' : q.situacao, nivel: q.nivel || '', projeto: q.projeto || '', defesa: q.defesa || '' };
     var seg = document.getElementById('f-sit'); if (!seg) return;
@@ -1276,7 +1379,10 @@
   var TM = {
     pt: {
       area: 'Área de membros', entrar: 'Entrar', criar: 'Criar conta', sair: 'Sair', email: 'E-mail', senha: 'Senha', nome: 'Nome completo',
-      nivel: 'Nível', vinculo: 'Vínculo (pode marcar mais de um)', outro: 'Outro', qual: 'Qual instituição?', tema: 'Tema de pesquisa', lattes: 'Link do Lattes', orcid: 'ORCID (só o número)', researchgate: 'Link do ResearchGate',
+      nivel: 'Nível', vinculo: 'Vínculo (pode marcar mais de um)', outro: 'Outro', qual: 'Qual instituição?', tema: 'Tema de pesquisa',
+      lattes: 'Link do Lattes', orcid: 'ORCID (só o número)', researchgate: 'Link do ResearchGate', linkedin: 'Link do LinkedIn', scholar: 'Link do Google Acadêmico',
+      ano_entrada: 'Ano de entrada no grupo', prev_curta: 'Defesa prevista', defesa_prevista: 'Defesa prevista (mês/ano) · visível só para você e a coordenação', defesa_data: 'Defesa realizada (mês/ano)',
+      mostrar: 'Mostrar meu perfil na página pública Equipe', mostrar_x: 'Mostrar na página pública Equipe',
       senha_regra: 'Mínimo de 8 caracteres.', esqueci: 'Esqueci minha senha', enviar_link: 'Enviar link para redefinir', voltar_entrar: 'Voltar para entrar',
       nao_config: 'A área de membros ainda não foi ligada ao Supabase. Veja a seção "Área de membros" do LEIA-ME.',
       erro_conexao: 'Não foi possível conectar à área de membros agora. Tente de novo em instantes.',
@@ -1286,15 +1392,26 @@
       nova_senha: 'Crie uma nova senha', salvar_senha: 'Salvar nova senha', senha_ok: 'Senha alterada.',
       pendente_tit: 'Cadastro aguardando aprovação', pendente: 'Recebemos seu cadastro. Assim que a coordenação aprovar, você terá acesso à área de membros. Enquanto isso, já pode completar seu perfil.',
       recusado: 'Seu cadastro não foi aprovado. Em caso de dúvida, fale com a coordenação do grupo.',
-      ola: 'Olá, ', meu_perfil: 'Meu perfil', membros: 'Membros', aprovacoes: 'Aprovações', salvar: 'Salvar', salvo: 'Perfil salvo.', salvando: 'Salvando…',
-      foto: 'Foto', trocar_foto: 'Trocar foto', foto_dica: 'JPG, PNG ou WebP. A foto é reduzida automaticamente.', foto_ok: 'Foto atualizada.',
-      sem_pendentes: 'Nenhum cadastro aguardando aprovação.', aprovar: 'Aprovar', recusar: 'Recusar', todos_membros: 'Todos os cadastros', papel: 'Papel', situacao: 'Situação',
-      membro: 'Membro', coordenacao: 'Coordenação', st_pendente: 'Pendente', st_aprovado: 'Aprovado', st_recusado: 'Recusado', desde: 'Cadastro em ',
-      erro: 'Algo deu errado: ', obrigatorio: 'Preencha nome, e-mail e senha.', em_breve: 'Em breve: agenda interna, projetos, arquivos e menções.'
+      concluido: 'Seu ciclo no UNSEEL foi concluído. Suas informações e sua trajetória continuam na página Equipe. Para corrigir algo, fale com a coordenação. Obrigado por fazer parte!',
+      ola: 'Olá, ', meu_perfil: 'Meu perfil', membros: 'Membros', gestao: 'Equipe e permissões', externas: 'Pessoas sem conta',
+      salvar: 'Salvar', salvo: 'Salvo.', salvando: 'Salvando…', cancelar: 'Cancelar', editar: 'Editar', apagar: 'Apagar', confirmar_apagar: 'Clique de novo para confirmar',
+      foto: 'Foto', trocar_foto: 'Trocar foto', foto_dica: 'JPG, PNG ou WebP. A foto é reduzida automaticamente.', foto_ok: 'Foto atualizada.', foto_depois: 'Salve primeiro; depois você poderá enviar a foto.',
+      sem_pendentes: 'Nenhum cadastro aguardando aprovação.', aguardando: 'Aguardando aprovação', aprovar: 'Aprovar', recusar: 'Recusar', todos_membros: 'Pessoas com conta',
+      papel: 'Papel', situacao: 'Situação', permissoes: 'Pode cuidar de', membro: 'Membro', coordenacao: 'Coordenação',
+      st_pendente: 'Pendente', st_aprovado: 'Ativo', st_recusado: 'Recusado', st_concluido: 'Concluído · acesso encerrado', st_ativo: 'Ativo', st_egresso: 'Egresso',
+      perm_biblioteca: 'Biblioteca', perm_agenda: 'Agenda', perm_dados: 'Banco de dados', perm_equipe: 'Equipe', perm_projetos: 'Projetos', perm_noticias: 'Notícias',
+      perm_dica: 'Clique para dar ou tirar. A coordenação pode tudo. "Equipe" permite editar perfis e cadastrar pessoas sem conta.',
+      conc_dica: 'Ao marcar "Concluído", a pessoa deixa de editar e passa a aparecer como egressa. Preencha a data da defesa em Editar.',
+      desde: 'Cadastro em ', ad_pessoa: 'Adicionar pessoa', ext_intro: 'Egressos e outras pessoas que não têm conta no site. As informações aparecem na página Equipe e na linha do tempo.',
+      sugestao_orcid: 'Sugestão do ORCID: ', usar: 'usar', erro: 'Algo deu errado: ', obrigatorio: 'Preencha nome, e-mail e senha.', nome_obrig: 'Preencha o nome.',
+      em_breve: 'Próximas etapas: agenda interna, projetos, arquivos e menções.', editar_de: 'Editar: '
     },
     en: {
       area: 'Members area', entrar: 'Sign in', criar: 'Create account', sair: 'Sign out', email: 'Email', senha: 'Password', nome: 'Full name',
-      nivel: 'Level', vinculo: 'Affiliation (tick all that apply)', outro: 'Other', qual: 'Which institution?', tema: 'Research topic', lattes: 'Lattes link', orcid: 'ORCID (number only)', researchgate: 'ResearchGate link',
+      nivel: 'Level', vinculo: 'Affiliation (tick all that apply)', outro: 'Other', qual: 'Which institution?', tema: 'Research topic',
+      lattes: 'Lattes link', orcid: 'ORCID (number only)', researchgate: 'ResearchGate link', linkedin: 'LinkedIn link', scholar: 'Google Scholar link',
+      ano_entrada: 'Year joined the group', prev_curta: 'Expected defence', defesa_prevista: 'Expected defence (month/year) · visible only to you and the coordinator', defesa_data: 'Defence date (month/year)',
+      mostrar: 'Show my profile on the public Team page', mostrar_x: 'Show on the public Team page',
       senha_regra: 'At least 8 characters.', esqueci: 'Forgot my password', enviar_link: 'Send reset link', voltar_entrar: 'Back to sign in',
       nao_config: 'The members area is not connected to Supabase yet. See the "Área de membros" section of the README.',
       erro_conexao: 'Could not reach the members area right now. Please try again shortly.',
@@ -1304,14 +1421,23 @@
       nova_senha: 'Set a new password', salvar_senha: 'Save new password', senha_ok: 'Password changed.',
       pendente_tit: 'Awaiting approval', pendente: 'We received your registration. Once the coordinator approves it, you will have access. Meanwhile you can complete your profile.',
       recusado: 'Your registration was not approved. If in doubt, contact the group coordinator.',
-      ola: 'Hello, ', meu_perfil: 'My profile', membros: 'Members', aprovacoes: 'Approvals', salvar: 'Save', salvo: 'Profile saved.', salvando: 'Saving…',
-      foto: 'Photo', trocar_foto: 'Change photo', foto_dica: 'JPG, PNG or WebP. The photo is resized automatically.', foto_ok: 'Photo updated.',
-      sem_pendentes: 'No registrations awaiting approval.', aprovar: 'Approve', recusar: 'Decline', todos_membros: 'All accounts', papel: 'Role', situacao: 'Status',
-      membro: 'Member', coordenacao: 'Coordinator', st_pendente: 'Pending', st_aprovado: 'Approved', st_recusado: 'Declined', desde: 'Registered on ',
-      erro: 'Something went wrong: ', obrigatorio: 'Please fill in name, email and password.', em_breve: 'Coming soon: internal calendar, projects, files and mentions.'
+      concluido: 'Your time at UNSEEL is complete. Your information and trajectory remain on the Team page. To correct anything, contact the coordinator. Thank you for being part of it!',
+      ola: 'Hello, ', meu_perfil: 'My profile', membros: 'Members', gestao: 'Team & permissions', externas: 'People without an account',
+      salvar: 'Save', salvo: 'Saved.', salvando: 'Saving…', cancelar: 'Cancel', editar: 'Edit', apagar: 'Delete', confirmar_apagar: 'Click again to confirm',
+      foto: 'Photo', trocar_foto: 'Change photo', foto_dica: 'JPG, PNG or WebP. The photo is resized automatically.', foto_ok: 'Photo updated.', foto_depois: 'Save first; then you can upload the photo.',
+      sem_pendentes: 'No registrations awaiting approval.', aguardando: 'Awaiting approval', aprovar: 'Approve', recusar: 'Decline', todos_membros: 'People with an account',
+      papel: 'Role', situacao: 'Status', permissoes: 'Can manage', membro: 'Member', coordenacao: 'Coordinator',
+      st_pendente: 'Pending', st_aprovado: 'Active', st_recusado: 'Declined', st_concluido: 'Completed · access closed', st_ativo: 'Active', st_egresso: 'Alumni',
+      perm_biblioteca: 'Library', perm_agenda: 'Calendar', perm_dados: 'Database', perm_equipe: 'Team', perm_projetos: 'Projects', perm_noticias: 'News',
+      perm_dica: 'Click to grant or remove. The coordinator can do everything. "Team" allows editing profiles and adding people without an account.',
+      conc_dica: 'When marked "Completed", the person can no longer edit and appears as alumni. Fill in the defence date under Edit.',
+      desde: 'Registered on ', ad_pessoa: 'Add person', ext_intro: 'Alumni and other people without an account. Their information appears on the Team page and timeline.',
+      sugestao_orcid: 'ORCID suggests: ', usar: 'use', erro: 'Something went wrong: ', obrigatorio: 'Please fill in name, email and password.', nome_obrig: 'Please fill in the name.',
+      em_breve: 'Next stages: internal calendar, projects, files and mentions.', editar_de: 'Edit: '
     }
   };
   function tm(k) { return (TM[lang] && TM[lang][k]) || TM.pt[k] || k; }
+  var PERMS = ['biblioteca', 'agenda', 'dados', 'equipe', 'projetos', 'noticias'];
   var sb = null, sbPromessa = null, perfilAtual = null, abaMembros = 'perfil', modoEntrar = 'entrar', recuperando = false;
 
   function carregarSupabase() {
@@ -1343,18 +1469,17 @@
   P.membros = function () {
     setTimeout(iniciarMembros, 0);
     return '<section class="secao membros"><p class="olho">UNSEEL</p><h1>' + tm('area') + '</h1>' +
-      '<div id="m-area" aria-live="polite"><p class="meta">' + t('carregando') + '</p></div></section>';
+      '<div id="m-area" aria-live="polite"><p class="meta">' + t('carregando') + '</p></div>' +
+      '<dialog class="m-dialogo" id="m-dialogo"><div id="m-dialogo-in"></div></dialog></section>';
   };
   function caixa() { return document.getElementById('m-area'); }
-  function aviso(msg, tipo) {
-    var el = document.getElementById('m-aviso');
+  function aviso(msg, tipo, onde) {
+    var el = (onde || document).querySelector('.m-aviso') || document.getElementById('m-aviso');
     if (el) { el.textContent = msg; el.className = 'm-aviso ' + (tipo || ''); el.hidden = !msg; }
   }
   function iniciarMembros() {
     if (!caixa()) return;
-    carregarSupabase().then(function () {
-      return sb.auth.getSession();
-    }).then(function (r) {
+    carregarSupabase().then(function () { return sb.auth.getSession(); }).then(function (r) {
       var sessao = r && r.data && r.data.session;
       if (recuperando && sessao) return telaNovaSenha();
       if (!sessao) return telaEntrar();
@@ -1364,7 +1489,7 @@
     });
   }
 
-
+  /* ---- campos reutilizáveis ---- */
   var VINCULOS = ['Cemaden', 'UNESP', 'INPE'];
   function campoVinculo(px, atual) {
     var partes = String(atual || '').split(/\s*[·,;]\s*/).filter(Boolean);
@@ -1389,17 +1514,65 @@
     var nv = t('nivel1');
     return '<select id="' + id + '"><option value="">—</option>' + NIVEIS_OPC.map(function (k) { return '<option value="' + k + '"' + (atual === k ? ' selected' : '') + '>' + esc(nv[k]) + '</option>'; }).join('') + '</select>';
   }
+  function selAno(id, atual) {
+    var h = new Date().getFullYear(), o = '<option value="">—</option>';
+    for (var a = h + 1; a >= 2005; a--) o += '<option value="' + a + '"' + (String(atual) === String(a) ? ' selected' : '') + '>' + a + '</option>';
+    return '<select id="' + id + '">' + o + '</select>';
+  }
+  function campo(id, rot, val, tipo, extra) { return '<label>' + rot + '<input id="' + id + '" type="' + (tipo || 'text') + '" value="' + esc(val || '') + '"' + (extra || '') + '></label>'; }
+  function mesAno(v) { v = String(v || ''); return /^\d{4}-\d{2}/.test(v) ? v.slice(0, 7) : (/^\d{4}$/.test(v) ? v + '-01' : ''); }
 
+  /* Formulário de pessoa (perfil próprio, edição pela coordenação ou pessoa sem conta) */
+  function formPessoa(px, p, tipo) {   // tipo: 'proprio' | 'gestao' | 'externa'
+    var sug = sugestaoOrcid(p.orcid);
+    return '<div class="m-campos">' + campo(px + '-nome', tm('nome'), p.nome) + '<label>' + tm('nivel') + selNivel(px + '-nivel', p.nivel) + '</label>' +
+      campoVinculo(px, p.vinculo) + campo(px + '-tema', tm('tema'), p.tema) +
+      '<label>' + tm('ano_entrada') + selAno(px + '-entrada', p.ano_entrada) + (sug && sug.inicio && !p.ano_entrada ? '<small>' + tm('sugestao_orcid') + sug.inicio + ' <button type="button" class="m-link" data-usar="' + px + '-entrada" data-valor="' + sug.inicio + '">' + tm('usar') + '</button></small>' : '') + '</label>' +
+      (tipo !== 'externa' ? campo(px + '-prevista', tm('defesa_prevista'), mesAno(p.defesa_prevista), 'month') : '') +
+      (tipo !== 'proprio' ? campo(px + '-defesa', tm('defesa_data'), mesAno(p.defesa_data), 'month') : '') +
+      (tipo === 'externa' ? '<label>' + tm('situacao') + '<select id="' + px + '-situacao"><option value="egresso"' + (p.situacao !== 'ativo' ? ' selected' : '') + '>' + tm('st_egresso') + '</option><option value="ativo"' + (p.situacao === 'ativo' ? ' selected' : '') + '>' + tm('st_ativo') + '</option></select></label>' : '') +
+      campo(px + '-lattes', tm('lattes'), p.lattes, 'url') + campo(px + '-orcid', tm('orcid'), p.orcid) +
+      campo(px + '-rg', tm('researchgate'), p.researchgate, 'url') + campo(px + '-li', tm('linkedin'), p.linkedin, 'url') + campo(px + '-gs', tm('scholar'), p.scholar, 'url') +
+      '<label class="m-check m-largo"><input type="checkbox" id="' + px + '-mostrar"' + (p.mostrar_no_site === false ? '' : ' checked') + '> ' + (tipo === 'proprio' ? tm('mostrar') : tm('mostrar_x')) + '</label>' +
+      '</div>';
+  }
+  function lerPessoa(px, tipo) {
+    var v = function (id) { var el = document.getElementById(px + '-' + id); return el ? el.value.trim() : ''; };
+    var d = { nome: v('nome'), nivel: v('nivel'), vinculo: lerVinculo(px), tema: v('tema'), ano_entrada: v('entrada') ? +v('entrada') : null,
+      lattes: v('lattes'), orcid: v('orcid').replace('https://orcid.org/', ''), researchgate: v('rg'), linkedin: v('li'), scholar: v('gs'),
+      mostrar_no_site: document.getElementById(px + '-mostrar').checked };
+    if (tipo !== 'externa') d.defesa_prevista = v('prevista');
+    if (tipo !== 'proprio') d.defesa_data = v('defesa');
+    if (tipo === 'externa') d.situacao = v('situacao') || 'egresso';
+    return d;
+  }
+  function ligarForm(px, raizEl) {
+    ligarVinculo(px);
+    (raizEl || document).querySelectorAll('[data-usar]').forEach(function (b) {
+      b.addEventListener('click', function () { document.getElementById(b.getAttribute('data-usar')).value = b.getAttribute('data-valor'); b.parentNode.remove(); });
+    });
+  }
+  function sugestaoOrcid(orcid) {
+    var f = D.orcidFormacao && D.orcidFormacao[String(orcid || '').trim()];
+    if (!f || !f.length) return null;
+    var alvo = f.filter(function (x) { return /inpe|espaciais|unesp|estadual paulista|cemaden/i.test(x.instituicao || ''); });
+    alvo = (alvo.length ? alvo : f).slice().sort(function (a, b) { return (b.inicio || 0) - (a.inicio || 0); })[0];
+    return alvo || null;
+  }
+
+  /* ---- entrar / criar conta ---- */
   function telaEntrar() {
     var criar = modoEntrar === 'criar', esqueci = modoEntrar === 'esqueci';
     caixa().innerHTML = '<p class="lead">' + tm('intro') + '</p>' +
-      '<div class="m-cartao">' +
+      '<div class="m-cartao' + (criar ? ' largo' : '') + '">' +
       (esqueci ? '' : '<div class="abas" role="tablist"><button type="button" role="tab" data-modo="entrar" aria-selected="' + !criar + '">' + tm('entrar') + '</button><button type="button" role="tab" data-modo="criar" aria-selected="' + criar + '">' + tm('criar') + '</button></div>') +
       '<form id="m-form" class="m-form" novalidate>' +
-      (criar ? '<label>' + tm('nome') + '<input id="m-nome" autocomplete="name" required></label>' : '') +
-      '<label>' + tm('email') + '<input id="m-email" type="email" autocomplete="email" required></label>' +
+      (criar ? campo('c-nome', tm('nome'), '', 'text', ' autocomplete="name" required') : '') +
+      campo('m-email', tm('email'), '', 'email', ' autocomplete="email" required') +
       (esqueci ? '' : '<label>' + tm('senha') + '<input id="m-senha" type="password" minlength="8" autocomplete="' + (criar ? 'new-password' : 'current-password') + '" required>' + (criar ? '<small>' + tm('senha_regra') + '</small>' : '') + '</label>') +
-      (criar ? '<label>' + tm('nivel') + selNivel('m-nivel', '') + '</label>' + campoVinculo('c', '') : '') +
+      (criar ? '<label>' + tm('nivel') + selNivel('c-nivel', '') + '</label>' + campoVinculo('c', '') +
+        '<div class="m-dupla"><label>' + tm('ano_entrada') + selAno('c-entrada', '') + '</label>' + campo('c-prevista', tm('defesa_prevista'), '', 'month') + '</div>' +
+        campo('c-li', tm('linkedin'), '', 'url') + campo('c-gs', tm('scholar'), '', 'url') : '') +
       '<p id="m-aviso" class="m-aviso" hidden></p>' +
       '<button type="submit" class="botao">' + (esqueci ? tm('enviar_link') : criar ? tm('criar') : tm('entrar')) + '</button>' +
       (esqueci ? '<button type="button" class="m-link" data-modo="entrar">' + tm('voltar_entrar') + '</button>' : (!criar ? '<button type="button" class="m-link" data-modo="esqueci">' + tm('esqueci') + '</button>' : '')) +
@@ -1412,20 +1585,22 @@
       var btn = e.target.querySelector('[type=submit]'); btn.disabled = true;
       var fim = function () { btn.disabled = false; };
       if (esqueci) {
-        sb.auth.resetPasswordForEmail(email, { redirectTo: location.origin + location.pathname + '#/membros' })
-          .then(function () { aviso(tm('link_enviado'), 'ok'); fim(); });
+        sb.auth.resetPasswordForEmail(email, { redirectTo: location.origin + location.pathname + '#/membros' }).then(function () { aviso(tm('link_enviado'), 'ok'); fim(); });
         return;
       }
       var senha = document.getElementById('m-senha').value;
       if (criar) {
-        var nome = document.getElementById('m-nome').value.trim();
+        var nome = document.getElementById('c-nome').value.trim();
         if (!nome || !email || senha.length < 8) { aviso(tm('obrigatorio') + ' ' + tm('senha_regra'), 'erro'); fim(); return; }
-        sb.auth.signUp({ email: email, password: senha, options: { data: { nome: nome, nivel: document.getElementById('m-nivel').value, vinculo: lerVinculo('c') }, emailRedirectTo: location.origin + location.pathname + '#/membros' } })
+        var extras = { ano_entrada: document.getElementById('c-entrada').value ? +document.getElementById('c-entrada').value : null, defesa_prevista: document.getElementById('c-prevista').value, linkedin: document.getElementById('c-li').value.trim(), scholar: document.getElementById('c-gs').value.trim() };
+        sb.auth.signUp({ email: email, password: senha, options: { data: { nome: nome, nivel: document.getElementById('c-nivel').value, vinculo: lerVinculo('c') }, emailRedirectTo: location.origin + location.pathname + '#/membros' } })
           .then(function (r) {
             fim();
             if (r.error) return aviso(tm('erro') + r.error.message, 'erro');
-            if (r.data && r.data.session) { aviso(tm('conta_criada'), 'ok'); setTimeout(iniciarMembros, 900); }
-            else aviso(tm('confira_email'), 'ok');
+            if (r.data && r.data.session) {
+              aviso(tm('conta_criada'), 'ok');
+              sb.from('perfis').update(extras).eq('id', r.data.user.id).then(function () { setTimeout(iniciarMembros, 700); });
+            } else aviso(tm('confira_email'), 'ok');
           });
       } else {
         sb.auth.signInWithPassword({ email: email, password: senha }).then(function (r) {
@@ -1455,54 +1630,57 @@
   function carregarPerfil(user) {
     return sb.from('perfis').select('*').eq('id', user.id).maybeSingle().then(function (r) {
       if (r.error) throw r.error;
-      perfilAtual = r.data || { id: user.id, email: user.email, nome: '', status: 'pendente', papel: 'membro' };
+      perfilAtual = r.data || { id: user.id, email: user.email, nome: '', status: 'pendente', papel: 'membro', permissoes: [] };
       telaPainel();
     }).catch(function (e) { caixa().innerHTML = '<p class="aviso">' + esc(tm('erro') + (e.message || e)) + '</p>'; });
   }
-
   function fotoPerfil(p, grande) {
     var f = url(p.foto_url);
     return '<div class="avatar' + (grande ? ' grande' : '') + '" style="--cor:' + corPessoa(p.id) + '" aria-hidden="true">' + (f ? '<img src="' + f + '" alt="">' : iniciais(p.nome || p.email || '?')) + '</div>';
   }
+  function souCoord() { return perfilAtual && perfilAtual.papel === 'coordenacao' && perfilAtual.status === 'aprovado'; }
+  function posso(perm) { return souCoord() || (perfilAtual && perfilAtual.status === 'aprovado' && (perfilAtual.permissoes || []).indexOf(perm) >= 0); }
 
   function telaPainel() {
-    var p = perfilAtual, coord = p.papel === 'coordenacao' && p.status === 'aprovado', aprovado = p.status === 'aprovado';
-    if (p.status === 'recusado') {
-      caixa().innerHTML = '<div class="m-cartao"><p>' + tm('recusado') + '</p><button type="button" class="botao contorno" id="m-sair">' + tm('sair') + '</button></div>';
-      document.getElementById('m-sair').addEventListener('click', sair); return;
-    }
-    if (!aprovado) abaMembros = 'perfil';
-    if (abaMembros === 'aprovacoes' && !coord) abaMembros = 'perfil';
-    var abas = [['perfil', tm('meu_perfil')]].concat(aprovado ? [['membros', tm('membros')]] : []).concat(coord ? [['aprovacoes', tm('aprovacoes') + ' <span class="m-badge" id="m-qtd"></span>']] : []);
-    caixa().innerHTML = '<div class="m-topo">' + fotoPerfil(p) + '<div><strong>' + esc(tm('ola') + (p.nome || p.email)) + '</strong><span class="meta">' + esc(coord ? tm('coordenacao') : tm('membro')) + ' · ' + esc(p.email) + '</span></div>' +
+    var p = perfilAtual, aprovado = p.status === 'aprovado';
+    var simples = function (msg) {
+      caixa().innerHTML = '<div class="m-topo">' + fotoPerfil(p) + '<div><strong>' + esc(p.nome || p.email) + '</strong><span class="meta">' + esc(p.email) + '</span></div><button type="button" class="botao contorno" id="m-sair">' + tm('sair') + '</button></div><div class="aviso">' + msg + '</div>';
+      document.getElementById('m-sair').addEventListener('click', sair);
+    };
+    if (p.status === 'recusado') return simples(tm('recusado'));
+    if (p.status === 'concluido') return simples(tm('concluido'));
+    var abas = [['perfil', tm('meu_perfil')]];
+    if (aprovado) abas.push(['membros', tm('membros')]);
+    if (posso('equipe')) { abas.push(['gestao', tm('gestao') + ' <span class="m-badge" id="m-qtd"></span>']); abas.push(['externas', tm('externas')]); }
+    if (!abas.some(function (a) { return a[0] === abaMembros; })) abaMembros = 'perfil';
+    var perms = (p.permissoes || []).map(function (x) { return tm('perm_' + x); });
+    caixa().innerHTML = '<div class="m-topo">' + fotoPerfil(p) + '<div><strong>' + esc(tm('ola') + (p.nome || p.email)) + '</strong><span class="meta">' +
+      esc([souCoord() ? tm('coordenacao') : tm('membro'), perms.join(', '), p.email].filter(Boolean).join(' · ')) + '</span></div>' +
       '<button type="button" class="botao contorno" id="m-sair">' + tm('sair') + '</button></div>' +
       (!aprovado ? '<div class="aviso m-pendente"><strong>' + tm('pendente_tit') + '</strong><br>' + tm('pendente') + '</div>' : '') +
       '<div class="abas" role="tablist">' + abas.map(function (a) { return '<button type="button" role="tab" data-aba-m="' + a[0] + '" aria-selected="' + (abaMembros === a[0]) + '">' + a[1] + '</button>'; }).join('') + '</div>' +
       '<div id="m-corpo"></div>' + (aprovado ? '<p class="meta" style="margin-top:28px">' + tm('em_breve') + '</p>' : '');
     document.getElementById('m-sair').addEventListener('click', sair);
     caixa().querySelectorAll('[data-aba-m]').forEach(function (b) { b.addEventListener('click', function () { abaMembros = b.getAttribute('data-aba-m'); telaPainel(); }); });
-    if (coord) contarPendentes();
-    ({ perfil: telaPerfil, membros: telaMembros, aprovacoes: telaAprovacoes }[abaMembros] || telaPerfil)();
+    if (posso('equipe')) contarPendentes();
+    ({ perfil: telaPerfil, membros: telaMembros, gestao: telaGestao, externas: telaExternas }[abaMembros] || telaPerfil)();
   }
   function sair() { sb.auth.signOut().then(function () { perfilAtual = null; modoEntrar = 'entrar'; iniciarMembros(); }); }
 
   function telaPerfil() {
     var p = perfilAtual;
-    var campo = function (id, rot, val, tipo) { return '<label>' + rot + '<input id="' + id + '" type="' + (tipo || 'text') + '" value="' + esc(val || '') + '"></label>'; };
     document.getElementById('m-corpo').innerHTML = '<form id="m-perfil" class="m-form m-perfil">' +
       '<div class="m-foto">' + fotoPerfil(p, true) + '<label class="botao contorno m-arquivo">' + tm('trocar_foto') + '<input id="m-foto" type="file" accept="image/jpeg,image/png,image/webp"></label><small>' + tm('foto_dica') + '</small></div>' +
-      '<div class="m-campos">' + campo('p-nome', tm('nome'), p.nome) + '<label>' + tm('nivel') + selNivel('p-nivel', p.nivel) + '</label>' +
-      campoVinculo('p', p.vinculo) + campo('p-tema', tm('tema'), p.tema) + campo('p-lattes', tm('lattes'), p.lattes, 'url') +
-      campo('p-orcid', tm('orcid'), p.orcid) + campo('p-rg', tm('researchgate'), p.researchgate, 'url') +
-      '<p id="m-aviso" class="m-aviso" hidden></p><button type="submit" class="botao">' + tm('salvar') + '</button></div></form>';
-    document.getElementById('m-foto').addEventListener('change', function (e) { var f = e.target.files[0]; if (f) enviarFoto(f); });
-    ligarVinculo('p');
+      '<div>' + formPessoa('p', p, 'proprio') + '<p id="m-aviso" class="m-aviso" hidden></p><button type="submit" class="botao" style="margin-top:14px">' + tm('salvar') + '</button></div></form>';
+    ligarForm('p');
+    document.getElementById('m-foto').addEventListener('change', function (e) {
+      var f = e.target.files[0]; if (!f) return;
+      enviarFoto(f, p.id + '/perfil.jpg', 'perfis', p.id).then(function (np) { if (np) { perfilAtual = np; telaPainel(); aviso(tm('foto_ok'), 'ok'); } });
+    });
     document.getElementById('m-perfil').addEventListener('submit', function (e) {
       e.preventDefault();
-      var v = function (id) { return document.getElementById(id).value.trim(); };
-      var dados = { nome: v('p-nome'), nivel: v('p-nivel'), vinculo: lerVinculo('p'), tema: v('p-tema'), lattes: v('p-lattes'), orcid: v('p-orcid').replace('https://orcid.org/', ''), researchgate: v('p-rg') };
       aviso(tm('salvando'));
-      sb.from('perfis').update(dados).eq('id', p.id).select().single().then(function (r) {
+      sb.from('perfis').update(lerPessoa('p', 'proprio')).eq('id', p.id).select().single().then(function (r) {
         if (r.error) return aviso(tm('erro') + r.error.message, 'erro');
         perfilAtual = r.data; aviso(tm('salvo'), 'ok');
       });
@@ -1523,31 +1701,31 @@
       img.src = u;
     });
   }
-  function enviarFoto(arquivo) {
-    var p = perfilAtual, caminhoFoto = p.id + '/perfil.jpg';
+  function enviarFoto(arquivo, caminhoFoto, tabela, id) {
     aviso(tm('salvando'));
-    reduzirFoto(arquivo).then(function (blob) {
+    return reduzirFoto(arquivo).then(function (blob) {
       return sb.storage.from('fotos').upload(caminhoFoto, blob, { upsert: true, contentType: 'image/jpeg', cacheControl: '60' });
     }).then(function (r) {
       if (r.error) throw r.error;
       var pub = sb.storage.from('fotos').getPublicUrl(caminhoFoto).data.publicUrl + '?v=' + Date.now();
-      return sb.from('perfis').update({ foto_url: pub }).eq('id', p.id).select().single();
+      return sb.from(tabela).update({ foto_url: pub }).eq('id', id).select().single();
     }).then(function (r) {
       if (r.error) throw r.error;
-      perfilAtual = r.data; telaPainel(); aviso(tm('foto_ok'), 'ok');
-    }).catch(function (e) { aviso(tm('erro') + (e.message || e), 'erro'); });
+      return r.data;
+    }).catch(function (e) { aviso(tm('erro') + (e.message || e), 'erro'); return null; });
   }
 
+  function linksPerfil(m) { return linksPessoa(m); }
   function telaMembros() {
     var alvo = document.getElementById('m-corpo');
     alvo.innerHTML = '<p class="meta">' + t('carregando') + '</p>';
-    sb.from('perfis').select('id,nome,email,foto_url,nivel,vinculo,tema,lattes,orcid,researchgate,papel').eq('status', 'aprovado').order('nome').then(function (r) {
+    sb.from('perfis').select('id,nome,email,foto_url,nivel,vinculo,tema,lattes,orcid,researchgate,linkedin,scholar,papel,permissoes').eq('status', 'aprovado').order('nome').then(function (r) {
       if (r.error) { alvo.innerHTML = '<p class="aviso">' + esc(tm('erro') + r.error.message) + '</p>'; return; }
       alvo.innerHTML = '<div class="grade">' + r.data.map(function (m) {
+        var extra = [t('nivel1')[m.nivel] || '', m.papel === 'coordenacao' ? tm('coordenacao') : ''].concat((m.permissoes || []).map(function (x) { return tm('perm_' + x); })).filter(Boolean).join(' · ');
         return '<div class="cartao pessoa">' + fotoPerfil(m) + '<div><h3>' + esc(m.nome || m.email) + '</h3>' +
-          '<p class="meta">' + esc([t('nivel1')[m.nivel] || '', m.papel === 'coordenacao' ? tm('coordenacao') : ''].filter(Boolean).join(' · ')) + '</p>' +
-          (m.vinculo ? '<p class="meta">' + esc(m.vinculo) + '</p>' : '') + (m.tema ? '<p class="meta">' + esc(m.tema) + '</p>' : '') +
-          '<p class="meta"><a href="mailto:' + esc(m.email) + '">' + esc(m.email) + '</a></p>' + linksPessoa(m) + '</div></div>';
+          '<p class="meta">' + esc(extra) + '</p>' + (m.vinculo ? '<p class="meta">' + esc(m.vinculo) + '</p>' : '') + (m.tema ? '<p class="meta">' + esc(m.tema) + '</p>' : '') +
+          '<p class="meta"><a href="mailto:' + esc(m.email) + '">' + esc(m.email) + '</a></p>' + linksPerfil(m) + '</div></div>';
       }).join('') + '</div>';
     });
   }
@@ -1557,39 +1735,116 @@
       var el = document.getElementById('m-qtd'); if (el && r.count) el.textContent = r.count;
     });
   }
-  function telaAprovacoes() {
-    var alvo = document.getElementById('m-corpo');
+
+  /* ---- gestão: aprovação, papéis, situação, permissões ---- */
+  var listaGestao = [];
+  function telaGestao() {
+    var alvo = document.getElementById('m-corpo'), coord = souCoord();
     alvo.innerHTML = '<p class="meta">' + t('carregando') + '</p>';
-    sb.from('perfis').select('*').order('criado_em', { ascending: false }).then(function (r) {
+    sb.from('perfis').select('*').order('nome').then(function (r) {
       if (r.error) { alvo.innerHTML = '<p class="aviso">' + esc(tm('erro') + r.error.message) + '</p>'; return; }
+      listaGestao = r.data;
       var pend = r.data.filter(function (x) { return x.status === 'pendente'; });
-      var linha = function (m) {
+      var outros = r.data.filter(function (x) { return x.status !== 'pendente'; });
+      var pendHtml = pend.map(function (m) {
         return '<li class="m-pend">' + fotoPerfil(m) + '<div class="m-pend-info"><strong>' + esc(m.nome || '—') + '</strong><span class="meta">' + esc(m.email) + '</span>' +
-          '<span class="meta">' + esc([t('nivel1')[m.nivel] || '', m.vinculo].filter(Boolean).join(' · ')) + '</span><span class="meta">' + tm('desde') + dataFmt(String(m.criado_em).slice(0, 10)) + '</span></div>' +
-          '<div class="m-acoes"><button type="button" class="botao" data-acao="aprovar" data-id="' + esc(m.id) + '">' + tm('aprovar') + '</button>' +
-          '<button type="button" class="botao contorno" data-acao="recusar" data-id="' + esc(m.id) + '">' + tm('recusar') + '</button></div></li>';
+          '<span class="meta">' + esc([t('nivel1')[m.nivel] || '', m.vinculo, m.ano_entrada ? tm('ano_entrada') + ': ' + m.ano_entrada : ''].filter(Boolean).join(' · ')) + '</span><span class="meta">' + tm('desde') + dataFmt(String(m.criado_em).slice(0, 10)) + '</span></div>' +
+          '<div class="m-acoes">' + (coord ? '<button type="button" class="botao" data-acao="aprovar" data-id="' + esc(m.id) + '">' + tm('aprovar') + '</button><button type="button" class="botao contorno" data-acao="recusar" data-id="' + esc(m.id) + '">' + tm('recusar') + '</button>' : '') +
+          '<button type="button" class="botao contorno" data-editar="' + esc(m.id) + '">' + tm('editar') + '</button></div></li>';
+      }).join('');
+      var cartao = function (m) {
+        var eu = m.id === perfilAtual.id, dis = (!coord || eu) ? ' disabled' : '';
+        return '<li class="m-gest">' + fotoPerfil(m) + '<div class="m-gest-info"><strong>' + esc(m.nome || '—') + '</strong><span class="meta">' + esc(m.email) + '</span>' +
+          (m.defesa_prevista ? '<span class="meta">' + tm('prev_curta') + ': ' + esc(String(m.defesa_prevista).slice(5, 7) + '/' + String(m.defesa_prevista).slice(0, 4)) + '</span>' : '') +
+          '<div class="m-gest-ctrl"><label>' + tm('papel') + '<select data-campo="papel" data-id="' + esc(m.id) + '"' + dis + '><option value="membro"' + (m.papel === 'membro' ? ' selected' : '') + '>' + tm('membro') + '</option><option value="coordenacao"' + (m.papel === 'coordenacao' ? ' selected' : '') + '>' + tm('coordenacao') + '</option></select></label>' +
+          '<label>' + tm('situacao') + '<select data-campo="status" data-id="' + esc(m.id) + '"' + dis + '>' + ['aprovado', 'concluido', 'pendente', 'recusado'].map(function (s) { return '<option value="' + s + '"' + (m.status === s ? ' selected' : '') + '>' + tm('st_' + s) + '</option>'; }).join('') + '</select></label></div>' +
+          (m.papel !== 'coordenacao' && m.status === 'aprovado' ? '<div class="m-perms" role="group" aria-label="' + esc(tm('permissoes')) + '"><span class="meta">' + tm('permissoes') + ':</span>' + PERMS.map(function (pm) {
+            var on = (m.permissoes || []).indexOf(pm) >= 0;
+            return '<button type="button" class="m-perm" data-perm="' + pm + '" data-id="' + esc(m.id) + '" aria-pressed="' + on + '"' + (coord ? '' : ' disabled') + '>' + tm('perm_' + pm) + '</button>';
+          }).join('') + '</div>' : '') + '</div>' +
+          '<button type="button" class="botao contorno" data-editar="' + esc(m.id) + '">' + tm('editar') + '</button></li>';
       };
-      alvo.innerHTML = '<h2 style="font-size:1.3rem">' + tm('aprovacoes') + '</h2>' + (pend.length ? '<ul class="m-lista">' + pend.map(linha).join('') + '</ul>' : '<p class="vazio">' + tm('sem_pendentes') + '</p>') +
-        '<h2 style="font-size:1.3rem;margin-top:36px">' + tm('todos_membros') + '</h2><div class="scroll"><table><thead><tr><th>' + tm('nome') + '</th><th>' + tm('email') + '</th><th>' + tm('papel') + '</th><th>' + tm('situacao') + '</th></tr></thead><tbody>' +
-        r.data.map(function (m) {
-          var eu = m.id === perfilAtual.id;
-          return '<tr><td>' + esc(m.nome || '—') + '</td><td>' + esc(m.email) + '</td>' +
-            '<td><select data-campo="papel" data-id="' + esc(m.id) + '"' + (eu ? ' disabled' : '') + '><option value="membro"' + (m.papel === 'membro' ? ' selected' : '') + '>' + tm('membro') + '</option><option value="coordenacao"' + (m.papel === 'coordenacao' ? ' selected' : '') + '>' + tm('coordenacao') + '</option></select></td>' +
-            '<td><select data-campo="status" data-id="' + esc(m.id) + '"' + (eu ? ' disabled' : '') + '>' + ['pendente', 'aprovado', 'recusado'].map(function (s) { return '<option value="' + s + '"' + (m.status === s ? ' selected' : '') + '>' + tm('st_' + s) + '</option>'; }).join('') + '</select></td></tr>';
-        }).join('') + '</tbody></table></div><p id="m-aviso" class="m-aviso" hidden></p>';
-      alvo.querySelectorAll('[data-acao]').forEach(function (b) {
-        b.addEventListener('click', function () { mudarPerfil(b.getAttribute('data-id'), { status: b.getAttribute('data-acao') === 'aprovar' ? 'aprovado' : 'recusado' }); });
+      alvo.innerHTML = '<p id="m-aviso" class="m-aviso" hidden></p>' +
+        '<h2 style="font-size:1.3rem">' + tm('aguardando') + '</h2>' + (pend.length ? '<ul class="m-lista">' + pendHtml + '</ul>' : '<p class="vazio">' + tm('sem_pendentes') + '</p>') +
+        '<h2 style="font-size:1.3rem;margin-top:36px">' + tm('todos_membros') + '</h2><p class="meta">' + tm('perm_dica') + '<br>' + tm('conc_dica') + '</p>' +
+        '<ul class="m-lista">' + outros.map(cartao).join('') + '</ul>';
+      alvo.querySelectorAll('[data-acao]').forEach(function (b) { b.addEventListener('click', function () { mudarPerfil(b.getAttribute('data-id'), { status: b.getAttribute('data-acao') === 'aprovar' ? 'aprovado' : 'recusado' }); }); });
+      alvo.querySelectorAll('select[data-campo]').forEach(function (s) { s.addEventListener('change', function () { var d = {}; d[s.getAttribute('data-campo')] = s.value; mudarPerfil(s.getAttribute('data-id'), d); }); });
+      alvo.querySelectorAll('[data-perm]').forEach(function (b) {
+        b.addEventListener('click', function () {
+          var m = listaGestao.find(function (x) { return x.id === b.getAttribute('data-id'); }), pm = b.getAttribute('data-perm');
+          var lista = (m.permissoes || []).slice(), k = lista.indexOf(pm);
+          if (k >= 0) lista.splice(k, 1); else lista.push(pm);
+          mudarPerfil(m.id, { permissoes: lista });
+        });
       });
-      alvo.querySelectorAll('select[data-campo]').forEach(function (s) {
-        s.addEventListener('change', function () { var d = {}; d[s.getAttribute('data-campo')] = s.value; mudarPerfil(s.getAttribute('data-id'), d); });
-      });
+      alvo.querySelectorAll('[data-editar]').forEach(function (b) { b.addEventListener('click', function () { editarPessoa('perfis', listaGestao.find(function (x) { return x.id === b.getAttribute('data-editar'); })); }); });
     });
   }
   function mudarPerfil(id, dados) {
     sb.from('perfis').update(dados).eq('id', id).then(function (r) {
       if (r.error) return aviso(tm('erro') + r.error.message, 'erro');
+      if (id === perfilAtual.id) return carregarPerfil({ id: id, email: perfilAtual.email });
       telaPainel();
     });
+  }
+
+  /* ---- pessoas sem conta ---- */
+  var listaExternas = [];
+  function telaExternas() {
+    var alvo = document.getElementById('m-corpo');
+    alvo.innerHTML = '<p class="meta">' + t('carregando') + '</p>';
+    sb.from('pessoas_externas').select('*').order('nome').then(function (r) {
+      if (r.error) { alvo.innerHTML = '<p class="aviso">' + esc(tm('erro') + r.error.message) + '</p>'; return; }
+      listaExternas = r.data;
+      alvo.innerHTML = '<p class="meta">' + tm('ext_intro') + '</p><p><button type="button" class="botao" id="m-nova">+ ' + tm('ad_pessoa') + '</button></p>' +
+        '<ul class="m-lista">' + r.data.map(function (m) {
+          return '<li class="m-pend">' + fotoPerfil(m) + '<div class="m-pend-info"><strong>' + esc(m.nome) + '</strong>' +
+            '<span class="meta">' + esc([t('nivel1')[m.nivel] || '', tm('st_' + m.situacao), m.ano_entrada ? '↳ ' + m.ano_entrada : '', m.defesa_data ? '🎓 ' + String(m.defesa_data).slice(0, 4) : ''].filter(Boolean).join(' · ')) + '</span>' +
+            (m.vinculo ? '<span class="meta">' + esc(m.vinculo) + '</span>' : '') + '</div>' +
+            '<div class="m-acoes"><button type="button" class="botao contorno" data-editar-x="' + esc(m.id) + '">' + tm('editar') + '</button></div></li>';
+        }).join('') + '</ul>';
+      document.getElementById('m-nova').addEventListener('click', function () { editarPessoa('pessoas_externas', { nome: '', situacao: 'egresso', mostrar_no_site: true }); });
+      alvo.querySelectorAll('[data-editar-x]').forEach(function (b) { b.addEventListener('click', function () { editarPessoa('pessoas_externas', listaExternas.find(function (x) { return x.id === b.getAttribute('data-editar-x'); })); }); });
+    });
+  }
+
+  /* ---- janela de edição (perfil de outra pessoa ou pessoa sem conta) ---- */
+  function editarPessoa(tabela, p) {
+    var dlg = document.getElementById('m-dialogo'), dentro = document.getElementById('m-dialogo-in');
+    var externa = tabela === 'pessoas_externas', novo = externa && !p.id;
+    dentro.innerHTML = '<form id="e-form" class="m-form"><div class="m-dlg-topo"><h2>' + esc(novo ? tm('ad_pessoa') : tm('editar_de') + (p.nome || p.email || '')) + '</h2><button type="button" class="visor-x" data-fechar aria-label="' + esc(tm('cancelar')) + '">×</button></div>' +
+      (novo ? '' : '<div class="m-foto m-foto-linha">' + fotoPerfil(p) + '<label class="botao contorno m-arquivo">' + tm('trocar_foto') + '<input id="e-foto" type="file" accept="image/jpeg,image/png,image/webp"></label></div>') +
+      formPessoa('e', p, externa ? 'externa' : 'gestao') +
+      '<p class="m-aviso" hidden></p><div class="m-acoes"><button type="submit" class="botao">' + tm('salvar') + '</button><button type="button" class="botao contorno" data-fechar>' + tm('cancelar') + '</button>' +
+      (externa && !novo ? '<button type="button" class="m-link m-perigo" id="e-apagar">' + tm('apagar') + '</button>' : '') + '</div>' +
+      (novo ? '<p class="meta">' + tm('foto_depois') + '</p>' : '') + '</form>';
+    ligarForm('e', dentro);
+    dentro.querySelectorAll('[data-fechar]').forEach(function (b) { b.addEventListener('click', function () { dlg.close(); }); });
+    var recarregar = function () { dlg.close(); telaPainel(); };
+    var fotoInput = document.getElementById('e-foto');
+    if (fotoInput) fotoInput.addEventListener('change', function (e) {
+      var f = e.target.files[0]; if (!f) return;
+      enviarFoto(f, (externa ? 'externos/' + p.id : p.id) + '/perfil.jpg', tabela, p.id).then(function (np) { if (np) { aviso(tm('foto_ok'), 'ok', dentro); p.foto_url = np.foto_url; dentro.querySelector('.m-foto .avatar').outerHTML = fotoPerfil(np); } });
+    });
+    var apagar = document.getElementById('e-apagar'), confirmar = false;
+    if (apagar) apagar.addEventListener('click', function () {
+      if (!confirmar) { confirmar = true; apagar.textContent = tm('confirmar_apagar'); return; }
+      sb.from(tabela).delete().eq('id', p.id).then(function (r) { if (r.error) return aviso(tm('erro') + r.error.message, 'erro', dentro); recarregar(); });
+    });
+    document.getElementById('e-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      var d = lerPessoa('e', externa ? 'externa' : 'gestao');
+      if (!d.nome) return aviso(tm('nome_obrig'), 'erro', dentro);
+      aviso(tm('salvando'), '', dentro);
+      var op = novo ? sb.from(tabela).insert(d).select().single() : sb.from(tabela).update(d).eq('id', p.id).select().single();
+      op.then(function (r) {
+        if (r.error) return aviso(tm('erro') + r.error.message, 'erro', dentro);
+        if (novo) { editarPessoa(tabela, r.data); aviso(tm('salvo'), 'ok', dentro); return; }
+        recarregar();
+      });
+    });
+    if (dlg.showModal) dlg.showModal(); else dlg.setAttribute('open', '');
   }
 
   P.contato = function () {
@@ -1696,7 +1951,7 @@
 
   /* ---------- carga ---------- */
   var arquivos = { site: 'site', coordenador: 'coordenador', equipe: 'equipe', projetos: 'projetos',
-    publicacoes: 'publicacoes', manuais: 'publicacoes-manuais', midia: 'midia', dados: 'dados', galeria: 'galeria', pesquisas: 'pesquisas', biblioteca: 'biblioteca', agenda: 'agenda', agendaGoogle: 'agenda-google', membros: 'membros' };
+    publicacoes: 'publicacoes', manuais: 'publicacoes-manuais', midia: 'midia', dados: 'dados', galeria: 'galeria', pesquisas: 'pesquisas', biblioteca: 'biblioteca', agenda: 'agenda', agendaGoogle: 'agenda-google', membros: 'membros', orcidFormacao: 'orcid-formacao', metricas: 'metricas' };
   Promise.all(Object.keys(arquivos).map(function (k) {
     return fetch('data/' + arquivos[k] + '.json', { cache: 'no-cache' })
       .then(function (r) { return r.ok ? r.json() : {}; })
@@ -1704,8 +1959,10 @@
       .then(function (j) { D[k] = j || {}; });
   })).then(function () {
     aplicarIdioma();
-    window.addEventListener('hashchange', function () { rota(); });
-    rota();
-    ligarAbertura();
+    carregarEquipePublica().then(function () {
+      window.addEventListener('hashchange', function () { rota(); });
+      rota();
+      ligarAbertura();
+    });
   });
 })();
