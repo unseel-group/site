@@ -4,8 +4,9 @@ on:
   push:
     branches: [main]
   schedule:
-    - cron: "17 9 * * 1"
-  workflow_dispatch:
+    - cron: "17 9 * * 1"     # publicações e notícias: toda segunda, 06h17 (Brasília)
+    - cron: "41 */3 * * *"   # agenda Google: a cada 3 horas
+  workflow_dispatch:        # botão "Run workflow" para atualizar na hora
 
 permissions:
   contents: write
@@ -26,7 +27,11 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Buscar compromissos da Agenda Google
+        run: python3 scripts/agenda.py
+
       - name: Buscar publicações (OpenAlex) e notícias
+        if: github.event_name != 'schedule' || github.event.schedule == '17 9 * * 1'
         env:
           OPENALEX_EMAIL: ${{ vars.OPENALEX_EMAIL }}
         run: python3 scripts/atualizar.py
@@ -39,7 +44,7 @@ jobs:
           if git diff --cached --quiet; then
             echo "Sem novidades."
           else
-            git commit -m "Atualização automática de publicações e mídia"
+            git commit -m "Atualização automática (agenda, publicações e mídia)"
             git push
           fi
 
