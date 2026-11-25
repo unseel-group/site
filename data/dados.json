@@ -1,0 +1,17 @@
+{
+  "_como_editar": "Cada conjunto de dados: titulo, descricao, ano, formato, licenca, url (DOI ou link de download), projeto (id do projeto, opcional), autores.",
+  "conjuntos": [
+    {
+      "titulo": "Social Protection Challenges: The Exposure of CRAS to Flood and Landslide Risks",
+      "descricao": "Base de dados sobre a exposição dos Centros de Referência de Assistência Social (CRAS) a riscos de inundação e deslizamento.",
+      "ano": 2026,
+      "formato": "[FORMATO]",
+      "licenca": "[LICENÇA]",
+      "url": "https://doi.org/10.17605/osf.io/tp2xv",
+      "repositorio": "OSF",
+      "projeto": "",
+      "autores": "Victor Marchezini et al.",
+      "descricao_en": "Database on the exposure of Social Assistance Reference Centers (CRAS) to flood and landslide risks."
+    }
+  ]
+}

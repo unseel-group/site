@@ -1,0 +1,9 @@
+{
+  "_como_editar": "Use este arquivo para o que não aparece no ORCID/OpenAlex (por exemplo, itens que só estão no Lattes: capítulos, relatórios, livros). Campos: titulo, ano, tipo (artigo | livro | capitulo | relatorio | tese | dissertacao | outro), veiculo, url, autores (ids da equipe), projetos (ids de projetos).",
+  "publicacoes": [
+    { "titulo": "Understanding and Addressing Disaster Risk", "ano": 2025, "tipo": "livro", "veiculo": "Routledge", "url": "", "autores": ["victor-marchezini"], "autores_texto": "Ben Wisner, JC Gaillard, Ilan Kelman, Victor Marchezini", "projetos": [] },
+    { "titulo": "Diagnóstico de capacidades e necessidades municipais em proteção e defesa civil (volume nacional e cinco volumes regionais)", "ano": 2021, "tipo": "relatorio", "veiculo": "Ministério do Desenvolvimento Regional", "url": "", "autores": ["victor-marchezini"], "autores_texto": "Victor Marchezini (coord.) et al.", "projetos": ["elos"] },
+    { "titulo": "Reduction of vulnerability to disasters: from knowledge to action", "ano": 2017, "tipo": "livro", "veiculo": "Acesso aberto (capítulos em inglês, espanhol e português)", "url": "", "autores": ["victor-marchezini"], "autores_texto": "Victor Marchezini et al. (orgs.)", "projetos": [] },
+    { "titulo": "Sociologia dos Desastres", "ano": 2009, "tipo": "livro", "veiculo": "", "url": "", "autores": ["victor-marchezini"], "autores_texto": "Victor Marchezini et al. (orgs.)", "projetos": [] }
+  ]
+}

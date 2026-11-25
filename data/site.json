@@ -1,0 +1,96 @@
+{
+  "sigla": "UNSEEL",
+  "nome": "Understanding Socioenvironmental Extremes Lab",
+  "nome_pt": "Grupo de Pesquisa em Desastres",
+  "chamada": "Tirar a venda dos olhos para compreender os extremos socioambientais.",
+  "descricao": "O UNSEEL é um grupo de pesquisa interdisciplinar dedicado às dimensões sociais dos desastres. Criado em 2019 e certificado pelo CNPq como Grupo de Pesquisa em Desastres, reúne pesquisadores e estudantes do Programa de Pós-Graduação em Ciência do Sistema Terrestre (PGCST/INPE) e do Programa de Pós-Graduação em Desastres (PGDN/Unesp-Cemaden).",
+  "sobre_o_nome": "Na falcoaria, \"to seel\" era fechar os olhos do falcão; \"unseel\" é abri-los. No sentido figurado, a palavra quer dizer esclarecer, fazer enxergar. Junto com \"Understanding\", o nome resume o propósito do grupo: tirar a venda para compreender os extremos socioambientais.",
+  "missao": "Formar uma nova geração de cientistas interdisciplinares que estudam as dimensões sociais dos desastres. [REVISAR]",
+  "visao": "[ESCREVA AQUI A VISÃO DO GRUPO]",
+  "valores": [
+    {
+      "titulo": "[VALOR 1]",
+      "texto": "[Descrição curta do valor]",
+      "titulo_en": "[VALUE 1]",
+      "texto_en": "[Short description of the value]"
+    },
+    {
+      "titulo": "[VALOR 2]",
+      "texto": "[Descrição curta do valor]",
+      "titulo_en": "[VALUE 2]",
+      "texto_en": "[Short description of the value]"
+    },
+    {
+      "titulo": "[VALOR 3]",
+      "texto": "[Descrição curta do valor]",
+      "titulo_en": "[VALUE 3]",
+      "texto_en": "[Short description of the value]"
+    },
+    {
+      "titulo": "[VALOR 4]",
+      "texto": "[Descrição curta do valor]",
+      "titulo_en": "[VALUE 4]",
+      "texto_en": "[Short description of the value]"
+    }
+  ],
+  "linhas_de_pesquisa": [
+    "Sociologia dos desastres",
+    "Processos de recuperação de longo prazo",
+    "Gestão de abrigos temporários em desastres",
+    "Sistemas de alerta centrados nas pessoas",
+    "Capacidades municipais em proteção e defesa civil"
+  ],
+  "instituicoes": [
+    {
+      "nome": "Cemaden",
+      "url": "https://www.gov.br/cemaden/"
+    },
+    {
+      "nome": "PGCST/INPE",
+      "url": "https://www.gov.br/inpe/"
+    },
+    {
+      "nome": "PGDN/Unesp",
+      "url": "https://www.ict.unesp.br/"
+    },
+    {
+      "nome": "Diretório de Grupos do CNPq",
+      "url": "https://dgp.cnpq.br/"
+    }
+  ],
+  "contato": {
+    "email": "[EMAIL DO GRUPO]",
+    "endereco": "[ENDEREÇO / INSTITUIÇÃO]",
+    "faca_parte": "Quer pesquisar com a gente? Estudantes de mestrado e doutorado do PGCST/INPE e do PGDN/Unesp, e pesquisadores interessados nas dimensões sociais dos desastres, podem escrever para o grupo contando seu interesse de pesquisa. [REVISAR]",
+    "endereco_en": "[ADDRESS / INSTITUTION]",
+    "faca_parte_en": "Want to research with us? Master's and PhD students from PGCST/INPE and PGDN/Unesp, and researchers interested in the social dimensions of disasters, are welcome to write to the group describing their research interests. [REVIEW]"
+  },
+  "redes": [
+    {
+      "nome": "Instagram",
+      "url": ""
+    },
+    {
+      "nome": "LinkedIn",
+      "url": ""
+    },
+    {
+      "nome": "YouTube",
+      "url": ""
+    }
+  ],
+  "_como_editar": "Campos terminados em _en são a versão em inglês. Se um campo _en estiver vazio, o site mostra o texto em português.",
+  "nome_pt_en": "Disaster Research Group",
+  "chamada_en": "Removing the blindfold to understand socio-environmental extremes.",
+  "descricao_en": "UNSEEL is an interdisciplinary research group devoted to the social dimensions of disasters. Founded in 2019 and certified by CNPq (Brazil's National Council for Scientific and Technological Development) as the Disaster Research Group, it brings together researchers and students from the Graduate Program in Earth System Science (PGCST/INPE) and the Graduate Program in Disaster Science (PGDN/Unesp-Cemaden).",
+  "sobre_o_nome_en": "In falconry, \"to seel\" meant closing a falcon's eyes; \"unseel\" means opening them. Figuratively, the word means to enlighten, to make someone see. Together with \"Understanding\", the name sums up the group's purpose: removing the blindfold to understand socio-environmental extremes.",
+  "missao_en": "To train a new generation of interdisciplinary scientists who study the social dimensions of disasters. [REVIEW]",
+  "visao_en": "[WRITE THE GROUP'S VISION HERE]",
+  "linhas_de_pesquisa_en": [
+    "Sociology of disasters",
+    "Long-term recovery processes",
+    "Temporary shelter management in disasters",
+    "People-centred early warning systems",
+    "Municipal capacities in civil protection and defence"
+  ]
+}

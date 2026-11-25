@@ -1,0 +1,233 @@
+{
+  "_como_editar": "Gerado automaticamente. Para esconder um item, use \"oculto\": true. Para ligar a um projeto à mão, use \"projetos_extra\": [\"id-do-projeto\"]. Esses dois campos são preservados nas próximas atualizações.",
+  "atualizado_em": "2026-11-24",
+  "itens": [
+    {
+      "id": "doi:10.1016/j.ssci.2026.107569",
+      "titulo": "Assessing the safety and vulnerability of educational systems against disaster risks using the SAVES tool",
+      "ano": 2026,
+      "data": "",
+      "tipo": "artigo",
+      "veiculo": "Safety Science",
+      "url": "https://doi.org/10.1016/j.ssci.2026.107569",
+      "autores_texto": "",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.1108/dpm-02-2026-0072",
+      "titulo": "Is your university prepared for extreme events? Using serious gaming to dialog about organizational capacities",
+      "ano": 2026,
+      "data": "",
+      "tipo": "artigo",
+      "veiculo": "Disaster Prevention and Management",
+      "url": "https://doi.org/10.1108/dpm-02-2026-0072",
+      "autores_texto": "",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.1007/978-3-032-30515-2_37",
+      "titulo": "Revisiting Wachinger et al. (2013)—The Risk Perception Paradox – Implications for Governance and Communication of Natural Hazards",
+      "ano": 2026,
+      "data": "",
+      "tipo": "capitulo",
+      "veiculo": "Springer",
+      "url": "https://doi.org/10.1007/978-3-032-30515-2_37",
+      "autores_texto": "",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.3390/earth7050157",
+      "titulo": "Extreme Droughts and Socioeconomic Impacts in Brazil's North Region: 2001–2024",
+      "ano": 2026,
+      "data": "",
+      "tipo": "artigo",
+      "veiculo": "Earth",
+      "url": "https://doi.org/10.3390/earth7050157",
+      "autores_texto": "",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.1007/s13753-026-00765-3",
+      "titulo": "Implementation Capacity of Local Early Warning Systems: The Need for Localism in the EW4All Initiative",
+      "ano": 2026,
+      "data": "",
+      "tipo": "artigo",
+      "veiculo": "International Journal of Disaster Risk Science",
+      "url": "https://doi.org/10.1007/s13753-026-00765-3",
+      "autores_texto": "",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.1007/978-3-032-27059-7_5",
+      "titulo": "Catastrophe",
+      "ano": 2026,
+      "data": "",
+      "tipo": "capitulo",
+      "veiculo": "Springer",
+      "url": "https://doi.org/10.1007/978-3-032-27059-7_5",
+      "autores_texto": "",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.67790/rbciamb.026.2657",
+      "titulo": "Social Protection Challenges: the exposure of Social Assistance Reference Centers to flood and landslide risks",
+      "ano": 2026,
+      "data": "",
+      "tipo": "artigo",
+      "veiculo": "Revista Brasileira de Ciências Ambientais",
+      "url": "https://doi.org/10.67790/rbciamb.026.2657",
+      "autores_texto": "",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.1016/j.cliser.2026.100693",
+      "titulo": "The Subseasonal Applications for Agriculture and Environment (SAGE) project within the World Weather Research Programme: Making subseasonal predictions more useful for sectoral applications",
+      "ano": 2026,
+      "data": "",
+      "tipo": "artigo",
+      "veiculo": "Climate Services",
+      "url": "https://doi.org/10.1016/j.cliser.2026.100693",
+      "autores_texto": "",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [
+        "sage"
+      ],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.55467/reder.v10i2.230",
+      "titulo": "Implementation of National Policies on Disaster Risk Management at a Sub-national Scale: An Overview of Brazilian States",
+      "ano": 2026,
+      "data": "",
+      "tipo": "artigo",
+      "veiculo": "REDER",
+      "url": "https://doi.org/10.55467/reder.v10i2.230",
+      "autores_texto": "",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.5380/dma.v67i.99225",
+      "titulo": "Capacidades organizacionais de comunicação de riscos de desastres na era dos extremos",
+      "ano": 2026,
+      "data": "",
+      "tipo": "artigo",
+      "veiculo": "Desenvolvimento e Meio Ambiente",
+      "url": "https://doi.org/10.5380/dma.v67i.99225",
+      "autores_texto": "",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.5016/geografia.v51i1.18602",
+      "titulo": "Desastres em municípios da Rede Federal de Educação Profissional, Científica e Tecnológica do Brasil",
+      "ano": 2026,
+      "data": "",
+      "tipo": "artigo",
+      "veiculo": "Geografia (Rio Claro)",
+      "url": "https://doi.org/10.5016/geografia.v51i1.18602",
+      "autores_texto": "",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.21579/issn.2526-0375_2025_n2_346-367",
+      "titulo": "Capacidades organizacionais de gestão de riscos de desastres geo-hidrológicos em municípios prioritários no Brasil",
+      "ano": 2026,
+      "data": "",
+      "tipo": "artigo",
+      "veiculo": "Revista Brasileira de Geografia",
+      "url": "https://doi.org/10.21579/issn.2526-0375_2025_n2_346-367",
+      "autores_texto": "",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.17605/osf.io/tp2xv",
+      "titulo": "DATABASE - Social Protection Challenges: The Exposure of CRAS to Flood and Landslide Risks",
+      "ano": 2026,
+      "data": "",
+      "tipo": "dados",
+      "veiculo": "",
+      "url": "https://doi.org/10.17605/osf.io/tp2xv",
+      "autores_texto": "",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.1088/1748-9326/ae5991",
+      "titulo": "Water-related disasters in Brazil: an assessment from 1991 to 2024",
+      "ano": 2026,
+      "data": "",
+      "tipo": "artigo",
+      "veiculo": "Environmental Research Letters",
+      "url": "https://doi.org/10.1088/1748-9326/ae5991",
+      "autores_texto": "",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    },
+    {
+      "id": "doi:10.1108/dpm-06-2025-0182",
+      "titulo": "Participatory forensic investigations of disasters (PARFORIN): including people in collective disaster risk analysis through social cartography",
+      "ano": 2026,
+      "data": "",
+      "tipo": "artigo",
+      "veiculo": "Disaster Prevention and Management",
+      "url": "https://doi.org/10.1108/dpm-06-2025-0182",
+      "autores_texto": "",
+      "autores": [
+        "victor-marchezini"
+      ],
+      "projetos": [],
+      "origem": "openalex"
+    }
+  ]
+}

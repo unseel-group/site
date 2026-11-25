@@ -1,0 +1,17 @@
+{
+  "_como_editar": "Atualizado automaticamente toda semana pela busca de notícias. Para esconder uma notícia errada, mude \"oculto\" para true (não apague: senão ela volta na próxima busca). Você também pode acrescentar itens à mão com origem \"manual\".",
+  "atualizado_em": "2026-11-24",
+  "itens": [
+    {
+      "titulo": "Pesquisador do Cemaden recebe prêmio da Sociedade de Antropologia Aplicada dos Estados Unidos",
+      "fonte": "Agência FAPESP",
+      "data": "2025",
+      "url": "https://agencia.fapesp.br/pesquisador-do-cemaden-recebe-premio-da-sociedade-de-antropologia-aplicada-dos-estados-unidos/54112",
+      "tipo": "noticia",
+      "pessoas": ["victor-marchezini"],
+      "projetos": [],
+      "origem": "manual",
+      "oculto": false
+    }
+  ]
+}

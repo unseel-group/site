@@ -1,0 +1,97 @@
+{
+  "_como_editar": "status: em-andamento | concluido | em-preparacao. palavras_chave: termos que, se aparecerem no título de uma publicação ou notícia, ligam ela automaticamente a este projeto. cor: cor do projeto no site. Campos terminados em _en são a versão em inglês.",
+  "projetos": [
+    {
+      "id": "cope",
+      "nome": "COPE",
+      "nome_completo": "[NOME COMPLETO DO PROJETO COPE]",
+      "status": "em-andamento",
+      "periodo": "[ANO]–[ANO]",
+      "resumo": "[Resumo do projeto COPE em 2 ou 3 frases.]",
+      "descricao": "[Descrição completa: objetivos, métodos, parceiros, financiamento.]",
+      "financiamento": "",
+      "parceiros": [],
+      "links": [],
+      "palavras_chave": [
+        "COPE"
+      ],
+      "cor": "#176F80",
+      "nome_completo_en": "[FULL NAME OF THE COPE PROJECT]",
+      "resumo_en": "[Summary of the COPE project in 2 or 3 sentences.]",
+      "descricao_en": "[Full description: objectives, methods, partners, funding.]"
+    },
+    {
+      "id": "bricbac",
+      "nome": "Bric Bac",
+      "nome_completo": "[NOME COMPLETO DO PROJETO BRIC BAC]",
+      "status": "em-andamento",
+      "periodo": "[ANO]–[ANO]",
+      "resumo": "[Resumo do projeto Bric Bac em 2 ou 3 frases.]",
+      "descricao": "[Descrição completa: objetivos, métodos, parceiros, financiamento.]",
+      "financiamento": "",
+      "parceiros": [],
+      "links": [],
+      "palavras_chave": [
+        "Bric Bac",
+        "BRICBAC"
+      ],
+      "cor": "#427568",
+      "nome_completo_en": "[FULL NAME OF THE BRIC BAC PROJECT]",
+      "resumo_en": "[Summary of the Bric Bac project in 2 or 3 sentences.]",
+      "descricao_en": "[Full description: objectives, methods, partners, funding.]"
+    },
+    {
+      "id": "sage",
+      "nome": "SAGE",
+      "nome_completo": "Subseasonal Applications in Agriculture and Environment",
+      "status": "em-andamento",
+      "periodo": "2024–2028",
+      "resumo": "Projeto do World Weather Research Programme (WWRP) da Organização Meteorológica Mundial para tornar as previsões subsazonais mais úteis para aplicações em agricultura e meio ambiente. Victor Marchezini é co-chair do projeto.",
+      "descricao": "[Complemente com a participação do UNSEEL no SAGE.]",
+      "financiamento": "",
+      "parceiros": [
+        "WWRP / Organização Meteorológica Mundial"
+      ],
+      "links": [],
+      "palavras_chave": [
+        "SAGE",
+        "subseasonal",
+        "subsazona"
+      ],
+      "cor": "#2F5E86",
+      "resumo_en": "A World Weather Research Programme (WWRP) project of the World Meteorological Organization to make subseasonal predictions more useful for applications in agriculture and the environment. Victor Marchezini is a co-chair of the project.",
+      "descricao_en": "[Add UNSEEL's role in SAGE.]",
+      "parceiros_en": [
+        "WWRP / World Meteorological Organization"
+      ]
+    },
+    {
+      "id": "elos",
+      "nome": "Projeto Elos",
+      "nome_completo": "Diagnóstico de capacidades e necessidades municipais em proteção e defesa civil",
+      "status": "concluido",
+      "periodo": "2020–2021",
+      "resumo": "Diagnóstico das capacidades e necessidades dos municípios brasileiros em proteção e defesa civil, com resultados publicados em seis volumes (um nacional e cinco regionais) pelo Ministério da Integração e do Desenvolvimento Regional (MIDR).",
+      "descricao": "[Complemente com metodologia, equipe, parceiros e principais resultados.]",
+      "financiamento": "",
+      "parceiros": [
+        "Ministério da Integração e do Desenvolvimento Regional (MIDR)"
+      ],
+      "links": [],
+      "palavras_chave": [
+        "Elos",
+        "capacidades municipais",
+        "proteção e defesa civil",
+        "municipal capacit"
+      ],
+      "cor": "#13294B",
+      "nome_en": "Elos Project",
+      "nome_completo_en": "Diagnosis of municipal capacities and needs in civil protection and defence",
+      "resumo_en": "A diagnosis of the capacities and needs of Brazilian municipalities in civil protection and defence, published in six volumes (one national and five regional) by the Ministry of Integration and Regional Development (MIDR).",
+      "descricao_en": "[Add methodology, team, partners and main results.]",
+      "parceiros_en": [
+        "Ministry of Integration and Regional Development (MIDR)"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "_como_editar": "Fotos e imagens do carrossel da página inicial, da mais recente para a mais antiga. Coloque as fotos na pasta assets/fotos/ (JPG ou WebP, de preferência 1600 px de largura e até 400 KB) e cadastre cada uma aqui: imagem (caminho da foto), titulo, legenda, data, link (opcional, para onde o slide leva ao ser clicado) e alt (descrição da foto para leitores de tela). Enquanto houver menos de 3 fotos, o carrossel completa com os destaques mais recentes do site (notícias, projetos e publicações). Para a versão em inglês, use titulo_en e legenda_en.",
+  "itens": [
+    {
+      "imagem": "",
+      "titulo": "",
+      "legenda": "",
+      "data": "",
+      "link": "",
+      "alt": "",
+      "titulo_en": "",
+      "legenda_en": ""
+    }
+  ]
+}

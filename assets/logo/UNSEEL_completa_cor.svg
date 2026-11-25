@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="140 65 1256 900" width="1256" height="900"><title>UNSEEL – completa_cor</title><g id="simbolo">
+<path id="venda" fill="#176F80" d="M301 339 C449 365 531 174 674 119 C764 80 857 85 923 132 C809 91 708 135 615 205 C492 298 416 384 301 339 Z" />
+<path id="coroa" fill="#13294B" d="M609 254 C714 164 824 126 933 164 C1003 187 1058 232 1088 286 L1071 289 C928 175 779 170 609 254 Z" />
+<path id="perfil" fill="#13294B" d="M375 591 C397 432 507 321 672 260 C812 208 936 215 1061 310 L1043 313 C933 234 843 233 750 269 C593 330 460 451 375 591 Z" />
+<path id="contorno-olho" fill="#13294B" d="M869 248 L899 252 C873 298 899 342 960 338 C910 360 844 321 869 248 Z" />
+<path id="iris" fill="#176F80" d="M918 258 C901 284 917 316 945 322 C973 328 996 306 999 280 Z" />
+<path id="pupila" fill="#13294B" d="M938 263 C925 281 935 301 954 302 C973 304 985 285 980 274 Z" />
+<circle id="brilho" cx="964" cy="279" r="8" fill="#fff" />
+<path id="face" fill="#13294B" d="M763 452 C803 378 870 355 972 367 C898 393 827 379 763 452 Z" />
+<path id="bico" fill="#13294B" d="M1103 287 C1174 310 1219 376 1166 445 L1154 457 C1170 390 1086 352 952 415 C993 370 1039 357 1068 353 C1099 336 1111 314 1103 287 Z" />
+<path id="montanha" fill="#427568" d="M435 550 C511 480 574 440 635 415 C666 402 686 420 725 438 C789 468 838 492 886 500 C819 514 754 474 676 474 C590 471 510 508 435 550 Z" />
+<path id="rio" fill="#176F80" d="M523 531 C613 485 696 475 793 507 C826 519 736 525 705 538 C659 559 766 580 783 600 C791 611 777 623 770 629 C691 558 611 530 523 531 Z" />
+<path id="colina" fill="#427568" d="M857 573 C816 563 777 556 759 548 C733 535 846 525 919 495 C950 482 969 479 1000 493 C1040 511 1076 539 1106 565 C1024 521 944 537 857 573 Z" />
+<path id="livro" fill="#13294B" d="M357 638 C469 513 618 533 775 646 C924 534 1063 521 1178 642 C1034 569 906 589 791 662 C781 675 766 675 757 662 C625 580 491 568 357 638 Z" />
+</g>
+<g id="tipografia" font-family="Montserrat, Arial, sans-serif" text-anchor="middle">
+<text id="nome" x="768" y="860" font-size="244" font-weight="800" textLength="1060" lengthAdjust="spacingAndGlyphs"><tspan fill="#176F80">UN</tspan><tspan fill="#13294B">SEEL</tspan></text>
+<text id="subtitulo" x="768" y="920" font-size="47" font-weight="400" fill="#13294B" textLength="1155" lengthAdjust="spacingAndGlyphs">Understanding Socioenvironmental Extremes Lab</text>
+</g></svg>

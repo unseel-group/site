@@ -1,0 +1,126 @@
+{
+  "_como_editar": "Banco de dados por pesquisa (uma por projeto; o id é o mesmo do projeto em projetos.json). Coloque os arquivos na pasta dados/<id>/ (CSV com vírgula e cabeçalho na 1ª linha, ou GeoJSON) e o PDF do parecer ético na mesma pasta. etica.aplica=false para pesquisas sem seres humanos. Em cada conjunto: arquivo, formato, variaveis (dicionário), e visualizacoes: grafico {categoria, valor, agregacao: contagem|soma|media} e mapa {lat, lon, rotulo, cor_por} — o mapa só aparece se houver colunas de latitude/longitude ou se o arquivo for GeoJSON. exemplo=true mostra o aviso de 'exemplo de formato'.",
+  "pesquisas": [
+    {
+      "id": "elos",
+      "abrangencia": "Municípios brasileiros",
+      "abrangencia_en": "Brazilian municipalities",
+      "metodologia": "[Descreva a metodologia: instrumento de coleta, população/amostra, período de coleta.]",
+      "metodologia_en": "[Describe the methodology: data collection instrument, population/sample, collection period.]",
+      "etica": {
+        "aplica": true,
+        "comite": "[COMITÊ DE ÉTICA EM PESQUISA]",
+        "caae": "[NÚMERO CAAE]",
+        "parecer": "[NÚMERO DO PARECER]",
+        "data_aprovacao": "",
+        "documento": "",
+        "obs": "",
+        "obs_en": ""
+      },
+      "conjuntos": [
+        {
+          "id": "exemplo-capitais",
+          "exemplo": true,
+          "titulo": "Exemplo de formato: capitais estaduais",
+          "titulo_en": "Format example: state capitals",
+          "descricao": "Base de demonstração com as 27 capitais e suas coordenadas, para mostrar como tabela, gráfico e mapa funcionam. Substitua pelo banco do projeto Elos.",
+          "descricao_en": "Demonstration dataset with the 27 state capitals and their coordinates, showing how the table, chart and map work. Replace it with the Elos project dataset.",
+          "arquivo": "dados/exemplo/capitais.csv",
+          "formato": "CSV",
+          "licenca": "",
+          "atualizado": "2026-11-24",
+          "variaveis": [
+            {
+              "nome": "uf",
+              "descricao": "Sigla da unidade da federação",
+              "descricao_en": "State abbreviation"
+            },
+            {
+              "nome": "capital",
+              "descricao": "Nome da capital",
+              "descricao_en": "Capital city"
+            },
+            {
+              "nome": "regiao",
+              "descricao": "Grande região",
+              "descricao_en": "Region"
+            },
+            {
+              "nome": "lat",
+              "descricao": "Latitude (graus decimais)",
+              "descricao_en": "Latitude (decimal degrees)"
+            },
+            {
+              "nome": "lon",
+              "descricao": "Longitude (graus decimais)",
+              "descricao_en": "Longitude (decimal degrees)"
+            }
+          ],
+          "visualizacoes": {
+            "grafico": {
+              "categoria": "regiao",
+              "agregacao": "contagem"
+            },
+            "mapa": {
+              "lat": "lat",
+              "lon": "lon",
+              "rotulo": "capital",
+              "cor_por": "regiao"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "cope",
+      "abrangencia": "[ABRANGÊNCIA]",
+      "metodologia": "[Descreva a metodologia.]",
+      "metodologia_en": "[Describe the methodology.]",
+      "etica": {
+        "aplica": true,
+        "comite": "[COMITÊ DE ÉTICA EM PESQUISA]",
+        "caae": "[NÚMERO CAAE]",
+        "parecer": "[NÚMERO DO PARECER]",
+        "data_aprovacao": "",
+        "documento": "",
+        "obs": "",
+        "obs_en": ""
+      },
+      "conjuntos": []
+    },
+    {
+      "id": "bricbac",
+      "abrangencia": "[ABRANGÊNCIA]",
+      "metodologia": "[Descreva a metodologia.]",
+      "metodologia_en": "[Describe the methodology.]",
+      "etica": {
+        "aplica": true,
+        "comite": "[COMITÊ DE ÉTICA EM PESQUISA]",
+        "caae": "[NÚMERO CAAE]",
+        "parecer": "[NÚMERO DO PARECER]",
+        "data_aprovacao": "",
+        "documento": "",
+        "obs": "",
+        "obs_en": ""
+      },
+      "conjuntos": []
+    },
+    {
+      "id": "sage",
+      "abrangencia": "[ABRANGÊNCIA]",
+      "metodologia": "[Descreva a metodologia.]",
+      "metodologia_en": "[Describe the methodology.]",
+      "etica": {
+        "aplica": true,
+        "comite": "[COMITÊ DE ÉTICA EM PESQUISA]",
+        "caae": "[NÚMERO CAAE]",
+        "parecer": "[NÚMERO DO PARECER]",
+        "data_aprovacao": "",
+        "documento": "",
+        "obs": "",
+        "obs_en": ""
+      },
+      "conjuntos": []
+    }
+  ]
+}
